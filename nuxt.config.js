@@ -1,5 +1,9 @@
 module.exports = {
   mode: 'universal',
+  srcDir: 'src/',
+  dir: {
+    static: '../static'
+  },
   /*
    ** Headers of the page
    */
@@ -27,13 +31,17 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    { src: '~/plugins/swiper.js', ssr: false },
+    { src: '~/plugins/element-ui.js', ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/router'
   ],
   /*
    ** Nuxt.js modules
