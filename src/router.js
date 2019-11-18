@@ -5,7 +5,7 @@ const _import = (file, path) => () =>
   import(
     /* webpackChunkName: "[request]" */
     `@/pages${path}/${file}.vue`
-  ).then((m) => m.default || m)
+  ).then(m => m.default || m)
 
 function scrollWait() {
   return new Promise((resolve, reject) => {
@@ -33,8 +33,13 @@ export function createRouter() {
       },
       {
         path: '/event',
-        name: 'event',
+        name: 'eventHome',
         component: _import('index', '/pc/event')
+      },
+      {
+        path: '/event/:type',
+        name: 'eventContent',
+        component: _import('event', '/pc/event')
       },
       {
         path: '/service',

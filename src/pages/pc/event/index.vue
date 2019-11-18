@@ -9,22 +9,87 @@
         <div class="txt_img"></div>
         <div class="date_img"></div>
       </div>
-      <!-- <a href="/event/1" class="btn_img"></a> -->
+      <nuxt-link to="/event/1" class="btn_img"></nuxt-link>
     </div>
   </div>
 </template>
+
 <script>
 export default {
-  
+  layout: 'oneScreen'
 }
 </script>
+
 <style lang="less" scoped>
-  .container{
+@r: 1vw/19.2;
+.container {
   width: 100%;
   height: 100%;
   min-width: 1200px;
-  min-height:780px; 
+  min-height: 780px;
   background: url('~assets/images/event/index_bg.jpg') center no-repeat;
   background-size: cover;
+}
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main_index {
+  .flex-column-center;
+  box-sizing: border-box;
+  height: 100%;
+  .top {
+    margin-top: 40 * @r;
+    .flex-column-center;
+    .logo_icon {
+      width: 280 * @r;
+      height: 110 * @r;
+      background: url('~assets/images/event/logo.png') center no-repeat;
+      background-size: contain;
+    }
+    .title_img {
+      width: 245 * @r;
+      height: 22 * @r;
+      margin-top: 13 * @r;
+      background: url('~assets/images/event/index_title.png') center no-repeat;
+      background-size: contain;
+    }
+  }
+  .middle {
+    margin-top: 55 * @r;
+    .flex-column-center;
+    .txt_img {
+      width: 770 * @r;
+      height: 280 * @r;
+      background: url('~assets/images/event/index_txt.png') center no-repeat;
+      background-size: contain;
+    }
+    .date_img {
+      width: 400 * @r;
+      height: 100 * @r;
+      background: url('~assets/images/event/index_date.png') center no-repeat;
+      background-size: contain;
+    }
+  }
+  .btn_img {
+    margin-top: 100 * @r;
+    width: 307 * @r;
+    height: 70 * @r;
+    background: url('~assets/images/event/index_btn_normal.png') center no-repeat;
+    background-size: contain;
+    transition: all 0.25s linear;
+    // 提前加载好图片
+    &::after {
+      content: '';
+      background-image: url('~assets/images/event/index_btn_hover.png'), url('~assets/images/event/index_btn_click.png');
+    }
+    &:hover {
+      background-image: url('~assets/images/event/index_btn_hover.png');
+    }
+    &:active {
+      background-image: url('~assets/images/event/index_btn_click.png');
+    }
+  }
 }
 </style>
