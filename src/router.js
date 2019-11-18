@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const _import = (file) => () =>
+const _import = (file, path) => () =>
   import(
     /* webpackChunkName: "[request]" */
-    `@/pages/${file}.vue`
+    `@/pages${path}/${file}.vue`
   ).then((m) => m.default || m)
 
 function scrollWait() {
@@ -23,13 +23,18 @@ export function createRouter() {
     routes: [
       {
         path: '/',
-        name: 'home',
-        component: _import('index')
+        name: 'guide',
+        component: _import('guide', '/pc')
       },
       {
-        path: '/activity/:page?',
-        name: 'activity',
-        component: _import('activity')
+        path: '/m',
+        name: 'guide_m',
+        component: _import('guide', '/m')
+      },
+      {
+        path: '/event',
+        name: 'event',
+        component: _import('index', '/pc/event')
       },
       {
         path: '/service',

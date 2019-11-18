@@ -48,8 +48,12 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
   ],
+  styleResources: {
+    less: './assets/**/*.less'
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
