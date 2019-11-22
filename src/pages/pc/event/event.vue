@@ -7,16 +7,17 @@
       </div>
       <section class="content">
         <div class="txt_img"></div>
-        <Content></Content>
+        <Content :selectedType="type"></Content>
       </section>
-      <Download />
+      <Download :selectedType="type" />
     </div>
   </div>
 </template>
 <script>
-import Nav from '@/components/event/Nav'
-import Content from '@/components/event/Content'
-import Download from '@/components/event/Download'
+import Nav from './components/Nav'
+import Content from './components/Content'
+import Download from './components/Download'
+import { getDownloadLink } from '@/api'
 export default {
   layout: 'oneScreen',
   components: {
@@ -32,6 +33,7 @@ export default {
   created() {
     this.type = this.$route.params.type
     console.log(this.type)
+    getDownloadLink().then(res => {})
   }
 }
 </script>

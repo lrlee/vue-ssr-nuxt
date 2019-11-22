@@ -19,6 +19,9 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    'nuxt/no-cjs-in-config': 'off'
+    'nuxt/no-cjs-in-config': 'off',
+    'vue/require-component-is': 'off',
+    'vue/no-unused-components': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   }
 }

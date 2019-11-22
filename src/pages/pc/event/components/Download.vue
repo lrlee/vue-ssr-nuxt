@@ -7,15 +7,15 @@
       <div class="btn share-btn">
         <div class="share-box">
           <div class="btn-item">
-            <a target="_blank" class="qq_icon btn-icon"></a>
+            <a :href="shareLink.tqq" target="_blank" class="qq_icon btn-icon"></a>
             <p class="btn-name">QQ好友</p>
           </div>
           <div class="btn-item">
-            <a target="_blank" class="sina_icon btn-icon"></a>
+            <a :href="shareLink.sina" target="_blank" class="sina_icon btn-icon"></a>
             <p class="btn-name">新浪微博</p>
           </div>
           <div class="btn-item">
-            <a target="_blank" class="qzone_icon btn-icon"></a>
+            <a :href="shareLink.qzone" target="_blank" class="qzone_icon btn-icon"></a>
             <p class="btn-name">QQ空间</p>
           </div>
         </div>
@@ -25,7 +25,62 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    selectedType: {
+      type: String,
+      default: '1'
+    }
+  },
+  data() {
+    return {
+      shareLink: {
+        qzone: '',
+        sina: '',
+        tqq: ''
+      }
+    }
+  },
+  created() {
+    this.setShareLink()
+  },
+  methods: {
+    setShareLink() {
+      console.log(process.env.NODE_ENV)
+      const linkUrl = `http://www.paopao.vip:7788/event/${this.selectedType}`
+      const picUrl = ''
+      const title = '全民泡泡超人活动'
+      const description = ''
+      const content = '全民泡泡超人活动'
+      this.shareLink.qzone =
+        'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' +
+        linkUrl +
+        '&title=' +
+        title +
+        '&pics=' +
+        picUrl +
+        `&summary=${content}`
+      this.shareLink.sina =
+        'http://service.weibo.com/share/share.php?url=' +
+        linkUrl +
+        '&title=' +
+        title +
+        '&pic=' +
+        picUrl +
+        '&searchPic=false'
+      this.shareLink.tqq =
+        'https://connect.qq.com/widget/shareqq/index.html?url=' +
+        linkUrl +
+        '&showcount=0&desc=' +
+        description +
+        '&summary=&title=' +
+        title +
+        '&pics=' +
+        picUrl +
+        '&style=203&width=19&height=22'
+    }
+  }
+}
 </script>
 <style lang="less" scoped>
 @r: 1vw/19.2;
