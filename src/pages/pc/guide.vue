@@ -1,6 +1,6 @@
 <template>
   <div>
-    guid
+    guid test
   </div>
 </template>
 <script>
