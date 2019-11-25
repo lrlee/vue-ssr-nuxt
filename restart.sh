@@ -10,6 +10,5 @@ function kill_port()
 }
 npm install
 kill_port $1
-nohup npm run start > out.log 2>&1 &
 sleep 3
 netstat -lnp|grep $1
