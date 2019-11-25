@@ -17,7 +17,6 @@
 import Nav from './components/Nav'
 import Content from './components/Content'
 import Download from './components/Download'
-import { getDownloadLink } from '@/api'
 export default {
   layout: 'oneScreen',
   components: {
@@ -30,10 +29,12 @@ export default {
       type: '1'
     }
   },
+  // 用于在渲染页面前填充应用的状态树数据，与asyncData的方法类似，不同的是 ？它不会设置组件的数据
+  async fetch({ store, params }) {
+    await store.dispatch('getDownloadLinks')
+  },
   created() {
     this.type = this.$route.params.type
-    console.log(this.type)
-    getDownloadLink().then(res => {})
   }
 }
 </script>

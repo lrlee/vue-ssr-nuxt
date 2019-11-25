@@ -6,3 +6,11 @@ export function getDownloadLink() {
     method: 'get'
   })
 }
+
+// 下载埋点
+export function downloadMiscospot(outId = 0) {
+  return request({
+    url: `/stat/download/pc/${outId}`,
+    method: 'get'
+  })
+}

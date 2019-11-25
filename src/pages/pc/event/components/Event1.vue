@@ -13,12 +13,23 @@
     <div class="event-bottom">
       <div class="download-img1"></div>
       <div class="download-img2 download-doll"></div>
-      <a href="/download" target="_blank" class="download-btn"></a>
+      <a :href="downloadLinks.android_link" target="_blank" class="download-btn"></a>
     </div>
   </div>
 </template>
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  computed: {
+    ...mapState(['downloadLinks'])
+  },
+  watch: {
+    downloadLinks() {
+      console.log(this.downloadLinks)
+    }
+  },
+  methods: {}
+}
 </script>
 <style lang="less" scoped>
 @import url(~assets/css/event.less);

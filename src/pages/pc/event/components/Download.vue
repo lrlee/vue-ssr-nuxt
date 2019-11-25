@@ -2,8 +2,8 @@
   <div class="download">
     <div class="download-doll"></div>
     <div class="btn-bg">
-      <div class="btn ios-btn" data-link="<%=downloadLink.ios_pc_link%>"></div>
-      <div class="btn android-btn" data-link="<%=downloadLink.android_link%>"></div>
+      <div @click="download('ios')" class="btn ios-btn"></div>
+      <div @click="download('android')" class="btn android-btn"></div>
       <div class="btn share-btn">
         <div class="share-box">
           <div class="btn-item">
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { downloadMiscospot } from '@/api'
 export default {
   props: {
     selectedType: {
@@ -41,10 +43,23 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState(['downloadLinks'])
+  },
   created() {
     this.setShareLink()
   },
   methods: {
+    download(type) {
+      console.log(this.downloadLinks)
+      downloadMiscospot().then(res => {
+        if (type === 'ios') {
+          window.open(this.downloadLinks.ios_pc_link, '_blank')
+        } else {
+          window.open(this.downloadLinks.android_link, '_self')
+        }
+      })
+    },
     setShareLink() {
       console.log(process.env.NODE_ENV)
       const linkUrl = `http://www.paopao.vip:7788/event/${this.selectedType}`

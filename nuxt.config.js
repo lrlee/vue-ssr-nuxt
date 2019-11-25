@@ -7,6 +7,11 @@ module.exports = {
   /*
    ** Headers of the page
    */
+  // generate: {
+  //   devtools: true,
+  //   subFolders: false,
+  //   routes: ['/', '/event/index', '/event/1', '/event/2', '/event/3', '/event/4', '/event/5', '/event/6']
+  // },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -67,6 +72,10 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, { isDev, isClient }) {
+      // if (!isDev) {
+      //   config.output.publicPath = './../_nuxt/'
+      // }
+    }
   }
 }
