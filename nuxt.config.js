@@ -68,6 +68,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
+    extractCSS: { allChunks: true },
     transpile: [/^element-ui/],
     /*
      ** You can extend webpack config here
