@@ -26,7 +26,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { downloadMiscospot } from '@/api'
+import { downloadMicrospot } from '@/api'
 export default {
   props: {
     selectedType: {
@@ -52,7 +52,7 @@ export default {
   methods: {
     download(type) {
       console.log(this.downloadLinks)
-      downloadMiscospot().then(res => {
+      downloadMicrospot().then(res => {
         if (type === 'ios') {
           window.open(this.downloadLinks.ios_pc_link, '_blank')
         } else {

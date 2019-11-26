@@ -8,7 +8,7 @@ export function getDownloadLink() {
 }
 
 // 下载埋点
-export function downloadMiscospot(outId = 0) {
+export function downloadMicrospot(outId = 0) {
   return request({
     url: `/stat/download/pc/${outId}`,
     method: 'get'

@@ -42,6 +42,11 @@ export function createRouter() {
         component: _import('event', '/pc/event')
       },
       {
+        path: '/m/event',
+        name: 'eventHome_m',
+        component: _import('index', '/m/event')
+      },
+      {
         path: '/service',
         name: 'service',
         component: _import('service'),
@@ -89,10 +94,6 @@ export function createRouter() {
       }
       return { x: 0, y: 0 }
     }
-  })
-  router.beforeEach((to, from, next) => {
-    console.log('you are in before each')
-    next()
   })
   return router
 }

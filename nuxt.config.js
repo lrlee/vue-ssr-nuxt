@@ -4,6 +4,9 @@ module.exports = {
   dir: {
     static: '../static'
   },
+  router: {
+    middleware: 'guard'
+  },
   /*
    ** Headers of the page
    */
