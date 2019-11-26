@@ -42,6 +42,11 @@ export function createRouter() {
         component: _import('event', '/pc/event')
       },
       {
+        path: '/m/event',
+        name: 'eventHome_m',
+        component: _import('index', '/m/event')
+      },
+      {
         path: '/service',
         name: 'service',
         component: _import('service'),

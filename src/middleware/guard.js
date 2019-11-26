@@ -10,8 +10,8 @@ export default function({ route, req, res, redirect }) {
     }
     return flag
   }
-  const ua = req.headers['user-agent'].toLowerCase()
-  const isMLink = /^\/m(\/\.+)*$/.test(route.path)
+  const ua = process.server ? req.headers['user-agent'].toLowerCase() : navigator.userAgent.toLowerCase()
+  const isMLink = /^\/m(\/.+)*$/.test(route.path)
   const isMAgent = isMobile(ua)
   if (isMAgent) {
     if (!isMLink && route.path !== '/404') {
