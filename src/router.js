@@ -90,9 +90,5 @@ export function createRouter() {
       return { x: 0, y: 0 }
     }
   })
-  router.beforeEach((to, from, next) => {
-    console.log('you are in before each')
-    next()
-  })
   return router
 }
