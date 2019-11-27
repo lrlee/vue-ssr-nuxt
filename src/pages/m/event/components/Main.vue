@@ -1,16 +1,41 @@
 <template>
   <div class="event-content">
-    main
+    <component :is="currentContent" />
   </div>
 </template>
 
 <script>
+import Event1 from './Event1'
+import Event2 from './Event2'
+import Event3 from './Event3'
+import Event4 from './Event4'
+import Event5 from './Event5'
+import Event6 from './Event6'
 export default {
-  name: 'Content'
+  name: 'Content',
+  components: {
+    Event1,
+    Event2,
+    Event3,
+    Event4,
+    Event5,
+    Event6
+  },
+  props: {
+    select: {
+      type: String,
+      default: '1'
+    }
+  },
+  computed: {
+    currentContent() {
+      return `Event` + this.select
+    }
+  }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @r: 1vw/7.5;
 .flex-column-center {
   display: flex;

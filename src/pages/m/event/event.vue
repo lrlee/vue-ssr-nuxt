@@ -6,7 +6,7 @@
       <div class="content">
         <div class="content-bg">
           <div class="txt-img"></div>
-          <Main></Main>
+          <Main :select="type"></Main>
           <div class="bottom-space"></div>
         </div>
         <div class="scroll-top-tips hide"></div>
