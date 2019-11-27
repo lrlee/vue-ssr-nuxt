@@ -2,10 +2,7 @@
   <div class="container event">
     <Header></Header>
     <div class="main">
-      <nav class="nav">
-        <Nav></Nav>
-        <div class="scroll-left-right-tips"></div>
-      </nav>
+      <Nav :select="type"></Nav>
       <div class="content">
         <div class="content-bg">
           <div class="txt-img"></div>
@@ -27,6 +24,14 @@ export default {
     Main,
     Header,
     Nav
+  },
+  data() {
+    return {
+      type: '1'
+    }
+  },
+  created() {
+    this.type = this.$route.params.type
   }
 }
 </script>

@@ -3,12 +3,13 @@
     <div class="nav-wrap">
       <ul class="nav-list">
         <li v-for="item in navs" class="list-item">
-          <a :href="'/m/event/' + item.id" :class="[item.class, item.active]"></a>
+          <nuxt-link :to="'/m/event/' + item.id" :class="[item.class, item.active]"></nuxt-link>
         </li>
       </ul>
       <div class="nav-mask left"></div>
       <div class="nav-mask right"></div>
     </div>
+    <div class="scroll-left-right-tips"></div>
   </div>
 </template>
 
@@ -53,10 +54,21 @@ const navs = [
 ]
 export default {
   name: 'Nav',
+  props: {
+    select: {
+      type: String,
+      default: '1'
+    }
+  },
   data() {
     return {
       navs
     }
+  },
+  created() {
+    this.navs.forEach(e => (e.active = ''))
+    const selectIndex = Number(this.select) - 1
+    this.navs[selectIndex].active = 'active'
   }
 }
 </script>
