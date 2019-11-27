@@ -1,15 +1,15 @@
 <template>
   <div class="nav">
     <div class="nav-wrap">
-      <ul class="nav-list">
-        <li v-for="item in navs" class="list-item">
+      <ul @scroll="handleScroll" class="nav-list">
+        <li v-for="item in navs" :id="item.id" class="list-item">
           <nuxt-link :to="'/m/event/' + item.id" :class="[item.class, item.active]"></nuxt-link>
         </li>
       </ul>
       <div class="nav-mask left"></div>
       <div class="nav-mask right"></div>
     </div>
-    <div class="scroll-left-right-tips"></div>
+    <div v-if="show" class="scroll-left-right-tips"></div>
   </div>
 </template>
 
@@ -62,13 +62,27 @@ export default {
   },
   data() {
     return {
-      navs
+      navs,
+      show: true,
+      needScroll: false
     }
   },
   created() {
-    this.navs.forEach(e => (e.active = ''))
+    this.navs && this.navs.forEach(e => (e.active = ''))
     const selectIndex = Number(this.select) - 1
     this.navs[selectIndex].active = 'active'
+  },
+  mounted() {
+    document.getElementById(this.select).scrollIntoView({ inline: 'start' })
+  },
+  methods: {
+    handleScroll(event) {
+      if (this.needScroll) {
+        this.show = false
+      } else {
+        this.needScroll = true
+      }
+    }
   }
 }
 </script>
