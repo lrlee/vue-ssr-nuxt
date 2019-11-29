@@ -14,14 +14,19 @@
       <div class="prize-img2"></div>
     </div>
     <div class="event-download">
-      <div class="download-btn"></div>
+      <div @click="toDownload" class="download-btn"></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Event5'
+  name: 'Event5',
+  methods: {
+    toDownload() {
+      this.$emit('toDownload')
+    }
+  }
 }
 </script>
 

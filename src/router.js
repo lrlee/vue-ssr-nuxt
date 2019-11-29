@@ -48,7 +48,7 @@ export function createRouter() {
       },
       {
         path: '/m/event/:type',
-        name: 'eventContent',
+        name: 'eventContent_m',
         component: _import('event', '/m/event')
       },
       {

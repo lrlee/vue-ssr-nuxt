@@ -1,12 +1,12 @@
 <template>
-  <div class="container event">
-    <Header></Header>
+  <div class="container">
+    <Header :isIOS="isIOS"></Header>
     <div class="main">
       <Nav :select="type"></Nav>
       <div id="fixed-content" class="content">
         <div id="actual-content" @scroll="handleScroll" class="content-bg">
           <div class="txt-img"></div>
-          <Main :select="type"></Main>
+          <Main :select="type" :isIOS="isIOS"></Main>
           <div class="bottom-space"></div>
         </div>
         <div :class="['scroll-top-tips', { hide: hideScroll }]"></div>
@@ -15,6 +15,7 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import Main from './components/Main'
 import Header from './components/Header'
 import Nav from './components/Nav'
@@ -47,6 +48,12 @@ export default {
     handleScroll() {
       this.hideScroll = true
     }
+  },
+  computed: {
+    ...mapState(['userAgent']),
+    isIOS() {
+      return /\(i[^;]+;( u;)? cpu.+mac os x/.test(this.userAgent.toLowerCase())
+    }
   }
 }
 </script>
@@ -71,12 +78,10 @@ export default {
 }
 .container {
   height: 100%;
-  width: 100%;
+  width: 750 * @r;
   .flex-column-center;
-  &.event {
-    background: url('~assets/images/event/m_event_bg.jpg') center no-repeat;
-    background-size: cover;
-  }
+  background: url('~assets/images/event/m_event_bg.jpg') center no-repeat;
+  background-size: cover;
 }
 .main {
   position: absolute;

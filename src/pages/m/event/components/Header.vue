@@ -11,41 +11,40 @@
           </div>
         </div>
         <div class="header-right">
-          <span class="download-btn"></span>
-          <span class="share-icon"></span>
+          <span @click="toDownload" class="download-btn"></span>
+          <span @click="showShare = true" class="share-icon"></span>
         </div>
       </div>
-      <div></div>
     </header>
-    <div class="share-container hide">
-      <div class="share-mask"></div>
+    <div v-show="showShare" class="share-container">
+      <div @click="showShare = false" class="share-mask"></div>
       <div class="share-content">
         <div class="content-main">
           <p class="title">分享到</p>
           <ul class="share-btn">
-            <li class="btn-item" data-type="qqFriend">
+            <li @click="callShare('qqFriend')" class="btn-item" data-type="qqFriend">
               <span class="icon icon-qq"></span>
               <p class="icon-name">QQ好友</p>
             </li>
-            <li class="btn-item" data-type="wechatFriend">
+            <li @click="callShare('wechatFriend')" class="btn-item" data-type="wechatFriend">
               <span class="icon icon-wechat"></span>
               <p class="icon-name">微信好友</p>
             </li>
-            <li class="btn-item" data-type="wechatTimeline">
+            <li @click="callShare('wechatTimeline')" class="btn-item" data-type="wechatTimeline">
               <span class="icon icon-wechatTimeline"></span>
               <p class="icon-name">朋友圈</p>
             </li>
-            <li class="btn-item" data-type="weibo">
+            <li @click="callShare('weibo')" class="btn-item" data-type="weibo">
               <span class="icon icon-weibo"></span>
               <p class="icon-name">新浪微博</p>
             </li>
-            <li class="btn-item" data-type="qZone">
+            <li @click="callShare('qZone')" class="btn-item" data-type="qZone">
               <span class="icon icon-qZone"></span>
               <p class="icon-name">QQ空间</p>
             </li>
           </ul>
         </div>
-        <div class="content-footer">
+        <div @click="showShare = false" class="content-footer">
           <span>取消</span>
         </div>
       </div>
@@ -54,10 +53,66 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { downloadMicrospot } from '@/api'
 export default {
   name: 'Header',
-  header() {
-    return {}
+  head: {
+    script: [{ src: '/js/NativeShare.min.js' }]
+  },
+  props: {
+    isIOS: {
+      type: Boolean,
+      default: true
+    }
+  },
+  data() {
+    return {
+      nativeShare: null,
+      showShare: false
+    }
+  },
+  computed: {
+    ...mapState(['downloadLinks']),
+    downloadLink() {
+      if (this.isIOS) {
+        return this.downloadLinks.ios_phone_link
+      } else {
+        return this.downloadLinks.android_link
+      }
+    }
+  },
+  mounted() {
+    console.log(window.location.href)
+    this.nativeShare = new NativeShare()
+    const shareData = {
+      title: '',
+      desc: '',
+      link: window.location.href,
+      icon: '~assets/images/logo.png',
+      // 不要过于依赖以下两个回调，很多浏览器是不支持的
+      success: () => {
+        console.log('success')
+      },
+      fail: () => {
+        console.log('fail')
+      }
+    }
+    this.nativeShare.setShareData(shareData)
+  },
+  methods: {
+    callShare(type) {
+      this.nativeShare.call(type)
+    },
+    toDownload() {
+      downloadMicrospot().then(res => {
+        if (this.isIOS) {
+          window.open(this.downloadLink, '_blank')
+        } else {
+          window.open(this.downloadLink, '_self')
+        }
+      })
+    }
   }
 }
 </script>

@@ -17,7 +17,7 @@
         <div class="prize-img2"></div>
       </div>
       <div class="event-download">
-        <div class="download-btn"></div>
+        <div @click="toDownload" class="download-btn"></div>
       </div>
     </div>
     <div class="part2">
@@ -50,7 +50,12 @@
 
 <script>
 export default {
-  name: 'Event4'
+  name: 'Event4',
+  methods: {
+    toDownload() {
+      this.$emit('toDownload')
+    }
+  }
 }
 </script>
 

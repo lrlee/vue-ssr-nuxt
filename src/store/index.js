@@ -1,12 +1,16 @@
 import * as api from '@/api'
 
 export const state = () => ({
-  downloadLinks: null
+  downloadLinks: null,
+  userAgent: ''
 })
 
 export const mutations = {
   setDownloadLinks(state, links) {
     state.downloadLinks = links
+  },
+  setUserAgent(state, userAgent) {
+    state.userAgent = userAgent
   }
 }
 

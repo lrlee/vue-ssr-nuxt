@@ -1,16 +1,18 @@
 <template>
   <div class="event-content">
-    <component :is="currentContent" />
+    <component :is="currentContent" @toDownload="toDownload" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Event1 from './Event1'
 import Event2 from './Event2'
 import Event3 from './Event3'
 import Event4 from './Event4'
 import Event5 from './Event5'
 import Event6 from './Event6'
+import { downloadMicrospot } from '@/api'
 export default {
   name: 'Content',
   components: {
@@ -25,11 +27,34 @@ export default {
     select: {
       type: String,
       default: '1'
+    },
+    isIOS: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
+    ...mapState(['downloadLinks']),
     currentContent() {
       return `Event` + this.select
+    },
+    downloadLink() {
+      if (this.isIOS) {
+        return this.downloadLinks.ios_phone_link
+      } else {
+        return this.downloadLinks.android_link
+      }
+    }
+  },
+  methods: {
+    toDownload() {
+      downloadMicrospot().then(res => {
+        if (this.isIOS) {
+          window.open(this.downloadLink, '_blank')
+        } else {
+          window.open(this.downloadLink, '_self')
+        }
+      })
     }
   }
 }
