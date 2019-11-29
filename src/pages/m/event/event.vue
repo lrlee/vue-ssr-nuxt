@@ -3,13 +3,13 @@
     <Header></Header>
     <div class="main">
       <Nav :select="type"></Nav>
-      <div class="content">
-        <div class="content-bg">
+      <div id="fixed-content" class="content">
+        <div id="actual-content" @scroll="handleScroll" class="content-bg">
           <div class="txt-img"></div>
           <Main :select="type"></Main>
           <div class="bottom-space"></div>
         </div>
-        <div class="scroll-top-tips hide"></div>
+        <div :class="['scroll-top-tips', { hide: hideScroll }]"></div>
       </div>
     </div>
   </div>
@@ -27,11 +27,26 @@ export default {
   },
   data() {
     return {
-      type: '1'
+      type: '1',
+      hideScroll: true
     }
+  },
+  // 用于在渲染页面前填充应用的状态树数据，与asyncData的方法类似，不同的是 ？它不会设置组件的数据
+  async fetch({ store, params }) {
+    await store.dispatch('getDownloadLinks')
   },
   created() {
     this.type = this.$route.params.type
+  },
+  mounted() {
+    const fixHeight = document.getElementById('fixed-content').offsetHeight
+    const actualHeight = document.getElementById('actual-content').scrollHeight
+    this.hideScroll = fixHeight > actualHeight
+  },
+  methods: {
+    handleScroll() {
+      this.hideScroll = true
+    }
   }
 }
 </script>
