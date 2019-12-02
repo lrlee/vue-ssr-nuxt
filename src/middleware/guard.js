@@ -1,4 +1,4 @@
-export default function({ route, req, res, redirect }) {
+export default function({ route, req, res, redirect, store }) {
   const isMobile = ua => {
     const agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod']
     let flag = false
@@ -11,6 +11,7 @@ export default function({ route, req, res, redirect }) {
     return flag
   }
   const ua = process.server ? req.headers['user-agent'].toLowerCase() : navigator.userAgent.toLowerCase()
+  store.commit('setUserAgent', ua)
   const isMLink = /^\/m(\/.+)*$/.test(route.path)
   const isMAgent = isMobile(ua)
   if (isMAgent) {

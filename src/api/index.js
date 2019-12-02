@@ -14,3 +14,74 @@ export function downloadMicrospot(outId = 0) {
     method: 'get'
   })
 }
+
+// 新闻 活动
+export function getNewsByType(type) {
+  return request({
+    url: `/news/item?type=${type}`,
+    method: 'get'
+  })
+}
+
+// 公告
+export function getNotice() {
+  return request({
+    url: `/notice/item?type=1`,
+    method: 'get'
+  })
+}
+
+// 攻略
+export function getStrategy() {
+  return request({
+    url: `/strategy/item`,
+    method: 'get'
+  })
+}
+
+// 首页banner
+export function getBannerByRecommend(recommendId = 'main_banner') {
+  return request({
+    url: `/recommend?id=banner_item&recommend_id=${recommendId}`,
+    method: 'get'
+  })
+}
+// 角色
+export function getRoles() {
+  return request({
+    url: `/store/roles`,
+    method: 'get'
+  })
+}
+
+// 视频资源
+export function getVideos() {
+  return request({
+    url: `/strategy/video`,
+    method: 'get'
+  })
+}
+
+// 新闻详情
+export function getNewsDesc(newsId) {
+  return request({
+    url: `/news/item/one?id=${newsId}`,
+    method: 'get'
+  })
+}
+
+// 公告详情
+export function getNoticeDesc(id) {
+  return request({
+    url: `/notice/item/one?id=${id}`,
+    method: 'get'
+  })
+}
+
+// 攻略详情
+export function getStrategyDesc(id) {
+  return request({
+    url: `/strategy/item/one?id=${id}`,
+    method: 'get'
+  })
+}

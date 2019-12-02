@@ -21,9 +21,16 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
+        hid: 'keywords',
+        name: 'keywords',
+        content:
+          '泡泡超人,泡泡堂,BNB,Q萌,休闲,竞技,对战,3D,炸弹,水泡,泡泡,吃鸡模式,休闲游戏,手机游戏,休闲对战,手游,虚拟对战,经典玩法,复活对战,超能力,水柱,网络游戏'
+      },
+      {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content:
+          '泡泡超人,泡泡堂,BNB,Q萌,休闲,竞技,对战,3D,炸弹,水泡,泡泡,吃鸡模式,休闲游戏,手机游戏,休闲对战,手游,虚拟对战,经典玩法,复活对战,超能力,水柱,网络游戏'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]

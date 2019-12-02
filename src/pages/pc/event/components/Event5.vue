@@ -22,6 +22,3 @@
 <script>
 export default {}
 </script>
-<style lang="less" scoped>
-@import url(~assets/css/event.less);
-</style>
