@@ -14,12 +14,13 @@ import '../node_modules/element-ui/lib/theme-chalk/index.css'
 import '../src/assets/css/main.less'
 
 import _6f6c098b from '../src/layouts/default.vue'
+import _684de53a from '../src/layouts/mobileOneScreen.vue'
 import _06b40188 from '../src/layouts/oneScreen.vue'
 
-const layouts = { "_default": _6f6c098b,"_oneScreen": _06b40188 }
+const layouts = { "_default": _6f6c098b,"_mobileOneScreen": _684de53a,"_oneScreen": _06b40188 }
 
 export default {
-  head: {"title":"bnb-nuxt","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Bubble Superman"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+  head: {"title":"bnb-nuxt","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"keywords","name":"keywords","content":"泡泡超人,泡泡堂,BNB,Q萌,休闲,竞技,对战,3D,炸弹,水泡,泡泡,吃鸡模式,休闲游戏,手机游戏,休闲对战,手游,虚拟对战,经典玩法,复活对战,超能力,水柱,网络游戏"},{"hid":"description","name":"description","content":"泡泡超人,泡泡堂,BNB,Q萌,休闲,竞技,对战,3D,炸弹,水泡,泡泡,吃鸡模式,休闲游戏,手机游戏,休闲对战,手游,虚拟对战,经典玩法,复活对战,超能力,水柱,网络游戏"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
 
   render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })
