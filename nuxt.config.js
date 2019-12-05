@@ -48,7 +48,8 @@ module.exports = {
    */
   plugins: [
     { src: '~/plugins/swiper.js', ssr: false },
-    { src: '~/plugins/element-ui.js', ssr: false }
+    { src: '~/plugins/element-ui.js', ssr: false },
+    { src: '~/plugins/baidu.js', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules
