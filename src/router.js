@@ -24,7 +24,7 @@ export function createRouter() {
       {
         path: '/',
         name: 'guide',
-        component: _import('guide', '/pc')
+        component: _import('index', '/pc/guide')
       },
       {
         path: '/m',

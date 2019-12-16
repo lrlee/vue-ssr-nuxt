@@ -47,6 +47,7 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    { src: '~/plugins/i18n.js' },
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/element-ui.js', ssr: false },
     { src: '~/plugins/baidu.js', ssr: false }
@@ -81,6 +82,7 @@ module.exports = {
   build: {
     extractCSS: { allChunks: true },
     transpile: [/^element-ui/],
+    vendor: ['vue-i18n'],
     /*
      ** You can extend webpack config here
      */
