@@ -1,7 +1,1569 @@
 <template>
-  <div>{{ $t('gold') }}</div>
+  <div class="container">
+    <Nav></Nav>
+    <div class="top">
+      <div class="index">
+        <header class="header">
+          <nuxt-link to="/event/1" class="btn btn-toHome"></nuxt-link>
+          <ul class="focus-list">
+            <li class="focus-item">
+              <i class="icon wechat-icon"></i>
+            </li>
+            <li class="focus-item">
+              <i class="icon weibo-icon"></i>
+            </li>
+            <li class="focus-item">
+              <i class="icon qq-icon"></i>
+            </li>
+            <li class="focus-item">
+              <i class="icon service-icon"></i>
+            </li>
+          </ul>
+        </header>
+        <div class="light">
+          <div class="light-pic"></div>
+        </div>
+      </div>
+      <div class="index-main">
+        <i class="icon logo-icon"></i>
+        <div class="flight-left-pic"></div>
+        <div class="flight-right-pic"></div>
+        <div class="paopao-pic">
+          <div class="ribbon-pic"></div>
+          <div class="title-pic"></div>
+          <div class="title-activity-pic">
+            <div class="play-bg"></div>
+            <div class="play-icon"></div>
+          </div>
+          <div class="doll-lili"></div>
+          <div class="doll-rabbit"></div>
+          <div class="doll-cactus"></div>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="book-box btn">
+          <div class="book-btn"></div>
+          <p class="book-time">活动时间：2019.11.19-2020.01.15</p>
+          <div class="pipe pipe1"></div>
+        </div>
+        <div class="part1-box">
+          <div class="pipe pipe2"></div>
+          <div class="part1">
+            <div class="title">
+              <div class="title-order"></div>
+              <p class="title-text">
+                <span class="part-title-white">超人预约</span><span class="part-title-yellow">见面礼</span>
+              </p>
+            </div>
+            <div class="content">
+              <p class="content-title"><span class="title-text">预约即得，人人有份</span></p>
+              <ul class="gift-list">
+                <li class="gift-item gift1">
+                  <div class="gift-pic-box">
+                    <div class="gift-pic"></div>
+                  </div>
+                  <p class="gift-name">加速鞋子</p>
+                  <div class="ribbon-icon"><span>7天</span></div>
+                </li>
+                <li class="gift-item gift2">
+                  <div class="gift-pic-box">
+                    <div class="gift-pic"></div>
+                  </div>
+                  <p class="gift-name">加速鞋子</p>
+                  <div class="ribbon-icon"><span>7天</span></div>
+                </li>
+                <li class="gift-item gift3">
+                  <div class="gift-pic-box">
+                    <div class="gift-pic"></div>
+                  </div>
+                  <p class="gift-name">加速鞋子</p>
+                  <div class="ribbon-icon"><span>7天</span></div>
+                </li>
+                <li class="gift-item gift4">
+                  <div class="gift-pic-box">
+                    <div class="gift-pic"></div>
+                  </div>
+                  <p class="gift-name">加速鞋子</p>
+                  <div class="ribbon-icon"><span>7天</span></div>
+                </li>
+                <li class="gift-item gift5">
+                  <div class="gift-pic-box">
+                    <div class="gift-pic"></div>
+                  </div>
+                  <p class="gift-name">加速鞋子</p>
+                  <div class="ribbon-icon"><span>7天</span></div>
+                </li>
+              </ul>
+              <div class="book-btn-box">
+                <div class="book-btn btn"></div>
+              </div>
+              <div class="part-description">
+                <i class="description-order-icon icon"></i>
+                <p class="description-text">
+                  活动期间，使用手机号码成功预约的玩家，进入游戏点击系统邮件可领取“预约见面礼包”x1，开启后可获得丰厚奖励，每个手机号码仅可预约1次。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="part2-box">
+          <div class="pipe pipe3"></div>
+          <div class="part2">
+            <div class="title">
+              <div class="title-order"></div>
+              <p class="title-text">
+                <span class="part-title-white">超人预约</span><span class="part-title-yellow">加码礼</span>
+              </p>
+            </div>
+            <div class="part-row row1">
+              <div class="book-count">
+                <div class="count-doll"></div>
+                <div class="count-board">
+                  <p class="board-title">当前预约人数</p>
+                  <ul class="board-num-list">
+                    <li class="board-num-item">
+                      <Count-number :number="0"></Count-number>
+                    </li>
+                    <li class="board-num-item">
+                      <Count-number :number="0"></Count-number>
+                    </li>
+                    <li class="board-num-item">
+                      <Count-number :number="0"></Count-number>
+                    </li>
+                    <li class="board-num-item">
+                      <Count-number :number="0"></Count-number>
+                    </li>
+                    <li class="board-num-item">
+                      <Count-number :number="0"></Count-number>
+                    </li>
+                    <li class="board-num-item">
+                      <Count-number :number="0"></Count-number>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="achieve-box light box-10w">
+                <div class="bult-pic"></div>
+                <div class="achieve-content">
+                  <div class="achieve-num">
+                    <div class="num-pic num-10w">
+                      <span class="num-note">预约人数</span>
+                    </div>
+                    <div class="achieved-seal"></div>
+                  </div>
+                  <div class="achieve-gift">
+                    <p class="gift-note">预约达成奖励</p>
+                    <ul class="gift-list list-4">
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="achieve-box light box-30w">
+                <div class="bult-pic"></div>
+                <div class="achieve-content">
+                  <div class="achieve-num">
+                    <div class="num-pic num-30w">
+                      <span class="num-note">预约人数</span>
+                    </div>
+                    <div class="achieved-seal"></div>
+                  </div>
+                  <div class="achieve-gift">
+                    <p class="gift-note">预约达成奖励</p>
+                    <ul class="gift-list list-4">
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="part-row row2">
+              <div class="achieve-box light box-100w">
+                <div class="bult-pic"></div>
+                <div class="achieve-content">
+                  <div class="achieve-num">
+                    <div class="num-pic num-100w">
+                      <span class="num-note">预约人数</span>
+                    </div>
+                    <div class="achieved-seal gift-5"></div>
+                  </div>
+                  <div class="achieve-gift">
+                    <p class="gift-note">预约达成奖励</p>
+                    <ul class="gift-list list-5">
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="achieve-box box-80w">
+                <div class="bult-pic"></div>
+                <div class="achieve-content">
+                  <div class="achieve-num">
+                    <div class="num-pic num-80w">
+                      <span class="num-note">预约人数</span>
+                    </div>
+                    <div class="achieved-seal gift-5"></div>
+                  </div>
+                  <div class="achieve-gift">
+                    <p class="gift-note">预约达成奖励</p>
+                    <ul class="gift-list list-5">
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="achieve-box box-50w">
+                <div class="bult-pic"></div>
+                <div class="achieve-content">
+                  <div class="achieve-num">
+                    <div class="num-pic num-50w">
+                      <span class="num-note">预约人数</span>
+                    </div>
+                    <div class="achieved-seal gift-5"></div>
+                  </div>
+                  <div class="achieve-gift">
+                    <p class="gift-note">预约达成奖励</p>
+                    <ul class="gift-list list-5">
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                      <li class="gift-item">
+                        <div class="gift-box">
+                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
+                          <span class="gift-num">X200</span>
+                        </div>
+                        <p class="gift-name">金币</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="part-description">
+              <i class="description-order-icon icon"></i>
+              <p class="description-text">
+                从XX年XX月XX日-XX年XX月XX日内测服开启时截止，在本页面内测预约的人数达到对应档位时，所有预约玩家均可获得对应的加码预约礼包。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="introduct">
+      <div class="part3-box">
+        <div class="part3">
+          <div class="top">
+            <div class="title">
+              <div class="title-order"></div>
+              <p class="title-text">
+                <span class="part-title-white">呼朋唤友</span><span class="part-title-yellow">领福利</span>
+              </p>
+            </div>
+            <p class="top-note">活动期间，成功邀请对应数量好友完成预约，可领取对应的邀请预约礼</p>
+          </div>
+          <div class="gift-content">
+            <ul class="gift-list">
+              <li class="gift-item light">
+                <div class="gift-box"></div>
+                <div class="wire wire1"></div>
+              </li>
+              <li class="gift-item light">
+                <div class="gift-box"></div>
+                <div class="wire wire2"></div>
+              </li>
+              <li class="gift-item">
+                <div class="gift-box"></div>
+                <div class="wire wire3"></div>
+              </li>
+              <li class="gift-item">
+                <div class="gift-box"></div>
+                <div class="wire wire4"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="invite-count">
+            <div class="invite-doll"></div>
+            <div class="invite-board">
+              <p class="invite-text">
+                您已邀请
+                <span class="invite-num">1位</span>
+                好友
+              </p>
+              <div class="invite-btn-box">
+                <div class="invite-btn btn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-export default {}
+// import qs from 'qs'
+import Nav from './components/Nav'
+import CountNumber from './components/CountNumber'
+// import { getBookVeriCode } from '@/api/index'
+export default {
+  components: {
+    Nav,
+    CountNumber
+  },
+  data() {
+    return {}
+  },
+  created() {
+    // const param = {
+    //   country_num: '86',
+    //   mobile: '15208121455'
+    // }
+    // getBookVeriCode(qs.stringify(param)).then(res => {})
+  }
+}
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+@vw: 1vw/19.2;
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes flight_left_move {
+  0% {
+    left: 0 * @vw;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes flight_right_move {
+  0% {
+    left: 68%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes move_updown {
+  0% {
+    top: 102 * @vw;
+  }
+  50% {
+    top: 112 * @vw;
+  }
+  100% {
+    top: 102 * @vw;
+  }
+}
+@keyframes scale_play {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+.icon {
+  display: inline-block;
+}
+.btn {
+  cursor: pointer;
+}
+.part-title-white {
+  font-size: 38 * @vw;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(0deg, rgba(196, 238, 255, 1) 0%, rgba(255, 255, 255, 1) 41.9677734375%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.part-title-yellow {
+  font-size: 38 * @vw;
+  font-weight: bold;
+  color: #fff947;
+  background: linear-gradient(0deg, rgba(253, 242, 106, 1) 0%, rgba(255, 252, 184, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.part-description {
+  display: flex;
+  margin-top: 20 * @vw;
+  padding: 0 50 * @vw;
+  .description-order-icon {
+    width: 10 * @vw;
+    height: 10 * @vw;
+    border: 2 * @vw solid #054594;
+    border-radius: 50%;
+    margin: 8 * @vw 5 * @vw 0 0;
+  }
+  .description-text {
+    color: #054594;
+    font-size: 16 * @vw;
+    line-height: 24 * @vw;
+  }
+}
+.container {
+  width: 100%;
+  min-width: 1280px;
+  min-height: 8751 * @vw;
+  overflow: hidden;
+  background: url('~assets/images/pc/guide/bg.png') top center no-repeat;
+  background-size: cover;
+}
+.top {
+  width: 100%;
+  position: relative;
+  .index {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 961 * @vw;
+    background: url('~assets/images/pc/guide/bg_city.png') bottom center no-repeat;
+    background-size: cover;
+    .header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      height: 97 * @vw;
+      padding-right: 60 * @vw;
+      .btn-toHome {
+        width: 134 * @vw;
+        height: 38 * @vw;
+        background: url('~assets/images/pc/guide/btn_toHome_normal.png') no-repeat;
+        background-size: contain;
+        margin-right: 37 * @vw;
+        &:hover {
+          background-image: url('~assets/images/pc/guide/btn_toHome_click.png');
+        }
+      }
+      .focus-list {
+        display: flex;
+        .focus-item {
+          margin-right: 27 * @vw;
+          .icon {
+            cursor: pointer;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+        .wechat-icon {
+          width: 24 * @vw;
+          height: 19 * @vw;
+          background: url('~assets/images/pc/guide/wechat_icon.png') no-repeat;
+          background-size: contain;
+        }
+        .weibo-icon {
+          width: 25 * @vw;
+          height: 19 * @vw;
+          background: url('~assets/images/pc/guide/weibo_icon.png') no-repeat;
+          background-size: contain;
+        }
+        .qq-icon {
+          width: 22 * @vw;
+          height: 19 * @vw;
+          background: url('~assets/images/pc/guide/qq_icon.png') no-repeat;
+          background-size: contain;
+        }
+        .service-icon {
+          width: 23 * @vw;
+          height: 17 * @vw;
+          background: url('~assets/images/pc/guide/service_icon.png') no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+    .light {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      top: -278 * @vw;
+      display: flex;
+      justify-content: center;
+      .light-pic {
+        width: 1461 * @vw;
+        height: 1461 * @vw;
+        background: url('~assets/images/pc/guide/light_index.png') no-repeat;
+        background-size: contain;
+        animation: rotate 7s linear infinite;
+      }
+    }
+  }
+  .index-main {
+    position: absolute;
+    top: 66 * @vw;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .logo-icon {
+      position: absolute;
+      top: 0 * @vw;
+      left: 310 * @vw;
+      width: 277 * @vw;
+      height: 120 * @vw;
+      background: url('~assets/images/pc/guide/logo.png') no-repeat;
+      background-size: contain;
+    }
+    .flight-left-pic {
+      position: absolute;
+      left: 0 * @vw;
+      top: 135 * @vw;
+      width: 87 * @vw;
+      height: 52 * @vw;
+      background: url('~assets/images/pc/guide/flight_index.png') no-repeat;
+      background-size: contain;
+      animation: flight_left_move 25s linear infinite;
+    }
+    .flight-right-pic {
+      position: absolute;
+      top: 370 * @vw;
+      width: 57 * @vw;
+      height: 34 * @vw;
+      background: url('~assets/images/pc/guide/flight_index.png') no-repeat;
+      background-size: contain;
+      animation: flight_right_move 15s linear infinite;
+    }
+    .paopao-pic {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 1113 * @vw;
+      height: 726 * @vw;
+      background: url('~assets/images/pc/guide/paopao_index.png') no-repeat;
+      background-size: contain;
+      margin-left: 45 * @vw;
+    }
+    .ribbon-pic {
+      position: absolute;
+      top: 110 * @vw;
+      margin-left: 21 * @vw;
+      width: 944 * @vw;
+      height: 599 * @vw;
+      background: url('~assets/images/pc/guide/ribbon_index.png') no-repeat;
+      background-size: contain;
+    }
+    .title-pic {
+      position: absolute;
+      top: 242 * @vw;
+      margin-left: -23 * @vw;
+      width: 713 * @vw;
+      height: 271 * @vw;
+      background: url('~assets/images/pc/guide/title.png') no-repeat;
+      background-size: contain;
+    }
+    .title-activity-pic {
+      position: absolute;
+      bottom: 110 * @vw;
+      margin-left: -9 * @vw;
+      width: 628 * @vw;
+      height: 67 * @vw;
+      background: url('~assets/images/pc/guide/title_activity.png') no-repeat;
+      background-size: contain;
+      display: flex;
+      justify-content: center;
+      .play-bg {
+        position: absolute;
+        top: -22 * @vw;
+        margin-left: -4 * @vw;
+        width: 108 * @vw;
+        height: 108 * @vw;
+        background: url('~assets/images/pc/guide/play_bg_index.png') no-repeat;
+        background-size: contain;
+        animation: scale_play 3s infinite;
+      }
+      .play-icon {
+        position: absolute;
+        top: 8 * @vw;
+        margin-left: -3 * @vw;
+        width: 44 * @vw;
+        height: 49 * @vw;
+        background: url('~assets/images/pc/guide/play_index.png') no-repeat;
+        background-size: contain;
+        animation: scale_play 3s infinite;
+        animation-delay: 0.8s;
+      }
+    }
+    .doll-lili {
+      position: absolute;
+      right: -190 * @vw;
+      top: 328 * @vw;
+      width: 324 * @vw;
+      height: 569 * @vw;
+      background: url('~assets/images/pc/guide/lili_doll_index.png') no-repeat;
+      background-size: contain;
+    }
+    .doll-rabbit {
+      position: absolute;
+      left: -125 * @vw;
+      top: 380 * @vw;
+      width: 261 * @vw;
+      height: 488 * @vw;
+      background: url('~assets/images/pc/guide/rabbit_doll_index.png') no-repeat;
+      background-size: contain;
+    }
+    .doll-cactus {
+      position: absolute;
+      right: 87 * @vw;
+      top: 102 * @vw;
+      width: 174 * @vw;
+      height: 162 * @vw;
+      background: url('~assets/images/pc/guide/cactus_doll_index.png') no-repeat;
+      background-size: contain;
+      animation: move_updown 2s linear infinite;
+    }
+  }
+  .activity {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 3646 * @vw;
+    background: url('~assets/images/pc/guide/bg_active.png') top center no-repeat;
+    background-size: cover;
+    margin-top: -423 * @vw;
+    padding-top: 230 * @vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .book-box {
+      position: relative;
+      width: 391 * @vw;
+      height: 166 * @vw;
+      background: url('~assets/images/pc/guide/invite_btn_bg.png') no-repeat;
+      background-size: contain;
+      // margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .book-btn {
+        width: 352 * @vw;
+        height: 147 * @vw;
+        background: url('~assets/images/pc/guide/btn_book_big_normal.png') no-repeat;
+        background-size: contain;
+        z-index: 2;
+      }
+      &:hover {
+        .book-btn {
+          background-image: url('~assets/images/pc/guide/btn_book_big_click.png');
+        }
+      }
+      .book-time {
+        position: absolute;
+        bottom: 60 * @vw;
+        color: #b36e11;
+        font-size: 16 * @vw;
+        font-weight: bold;
+        z-index: 2;
+      }
+      .pipe1 {
+        position: absolute;
+        top: 46 * @vw;
+        left: -558 * @vw;
+        width: 605 * @vw;
+        height: 742 * @vw;
+        background: url('~assets/images/pc/guide/pipe1.png') no-repeat;
+        background-size: contain;
+        z-index: 1;
+      }
+    }
+    .part1-box {
+      position: relative;
+      margin-top: 251 * @vw;
+      .pipe2 {
+        position: absolute;
+        right: -150 * @vw;
+        top: 210 * @vw;
+        width: 210 * @vw;
+        height: 768 * @vw;
+        background: url('~assets/images/pc/guide/pipe2.png') no-repeat;
+        background-size: contain;
+        z-index: 1;
+      }
+    }
+    .part2-box {
+      position: relative;
+      margin-top: 187 * @vw;
+      .pipe3 {
+        position: absolute;
+        top: 530 * @vw;
+        left: -228 * @vw;
+        width: 274 * @vw;
+        height: 997 * @vw;
+        background: url('~assets/images/pc/guide/pipe3.png') no-repeat;
+        background-size: contain;
+        z-index: 1;
+      }
+    }
+    .part1 {
+      position: relative;
+      width: 1397 * @vw;
+      height: 636 * @vw;
+      background: url('~assets/images/pc/guide/part1_bg.png') no-repeat;
+      background-size: contain;
+      margin-left: -55 * @vw;
+      z-index: 2;
+      padding-top: 95 * @vw;
+      .title {
+        position: absolute;
+        top: -85 * @vw;
+        left: 452 * @vw;
+        width: 559 * @vw;
+        height: 118 * @vw;
+        background: url('~assets/images/pc/guide/part_title_bg1.png') no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        .title-order {
+          position: absolute;
+          width: 105 * @vw;
+          height: 28 * @vw;
+          background: url('~assets/images/pc/guide/part01.png') no-repeat;
+          background-size: contain;
+        }
+        .title-text {
+          line-height: 100 * @vw;
+        }
+      }
+      .content {
+        width: 1195 * @vw;
+        height: 493 * @vw;
+        margin-left: 150 * @vw;
+        // background-color: #b36e11;
+        .content-title {
+          width: 100%;
+          height: 30 * @vw;
+          text-align: center;
+          background: url('~assets/images/pc/guide/line_part1.png') center center no-repeat;
+          .title-text {
+            padding-right: 20 * @vw;
+            font-size: 23 * @vw;
+            font-weight: bold;
+            color: #fefda4;
+            line-height: 24 * @vw;
+            // -webkit-text-stroke: 3px #012e65;
+          }
+        }
+        .gift-list {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          margin-top: 39 * @vw;
+          .gift-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            .gift-pic-box {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .gift-pic {
+                width: 82 * @vw;
+                height: 82 * @vw;
+                background-color: #fff947;
+              }
+            }
+            .gift-name {
+              color: #0065aa;
+              font-size: 16 * @vw;
+              font-weight: bold;
+              line-height: 35 * @vw;
+            }
+            .ribbon-icon {
+              width: 114 * @vw;
+              height: 33 * @vw;
+              background: url('~assets/images/pc/guide/ribbon_part1.png') no-repeat;
+              background-size: contain;
+              position: absolute;
+              bottom: 0;
+              text-align: center;
+              font-size: 16 * @vw;
+              color: #ffffff;
+              font-weight: bolder;
+              // -webkit-text-stroke: 1px #28a001;
+            }
+            &.gift1 {
+              width: 213 * @vw;
+              height: 197 * @vw;
+              background: url('~assets/images/pc/guide/gift1_bg_part1.png') no-repeat;
+              background-size: contain;
+              .gift-pic-box {
+                align-self: flex-start;
+                height: 143 * @vw;
+                width: 175 * @vw;
+              }
+              .gift-name {
+                align-self: flex-start;
+                width: 175 * @vw;
+                text-align: center;
+              }
+              .ribbon-icon {
+                margin-left: -20 * @vw;
+                bottom: -10 * @vw;
+              }
+            }
+            &.gift2 {
+              width: 196 * @vw;
+              height: 221 * @vw;
+              background: url('~assets/images/pc/guide/gift2_bg_part1.png') no-repeat;
+              background-size: contain;
+              .gift-pic-box {
+                align-self: flex-start;
+                height: 154 * @vw;
+                width: 178 * @vw;
+              }
+              .gift-name {
+                align-self: flex-start;
+                width: 178 * @vw;
+                text-align: center;
+              }
+              .ribbon-icon {
+                margin-left: -8 * @vw;
+              }
+            }
+            &.gift3 {
+              width: 179 * @vw;
+              height: 226 * @vw;
+              background: url('~assets/images/pc/guide/gift3_bg_part1.png') no-repeat;
+              background-size: contain;
+              .gift-pic-box {
+                align-self: flex-start;
+                height: 155 * @vw;
+                width: 178 * @vw;
+              }
+              .gift-name {
+                align-self: flex-start;
+                width: 178 * @vw;
+                text-align: center;
+              }
+            }
+            &.gift4 {
+              width: 198 * @vw;
+              height: 220 * @vw;
+              background: url('~assets/images/pc/guide/gift4_bg_part1.png') no-repeat;
+              background-size: contain;
+              .gift-pic-box {
+                align-self: flex-end;
+                height: 154 * @vw;
+                width: 178 * @vw;
+              }
+              .gift-name {
+                align-self: flex-end;
+                width: 178 * @vw;
+                text-align: center;
+              }
+              .ribbon-icon {
+                margin-left: 8 * @vw;
+              }
+            }
+            &.gift5 {
+              width: 212 * @vw;
+              height: 197 * @vw;
+              background: url('~assets/images/pc/guide/gift5_bg_part1.png') no-repeat;
+              background-size: contain;
+              .gift-pic-box {
+                align-self: flex-end;
+                height: 143 * @vw;
+                width: 175 * @vw;
+              }
+              .gift-name {
+                align-self: flex-end;
+                width: 175 * @vw;
+                text-align: center;
+              }
+              .ribbon-icon {
+                margin-left: 20 * @vw;
+                bottom: -10 * @vw;
+              }
+            }
+          }
+        }
+        .book-btn-box {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 25 * @vw;
+          .book-btn {
+            width: 232 * @vw;
+            height: 85 * @vw;
+            background: url('~assets/images/pc/guide/btn_book_normal.png') no-repeat;
+            background-size: contain;
+            cursor: pointer;
+            &:hover {
+              background-image: url('~assets/images/pc/guide/btn_book_click.png');
+            }
+          }
+        }
+      }
+    }
+    .part2 {
+      position: relative;
+      width: 1300 * @vw;
+      height: 821 * @vw;
+      background: url('~assets/images/pc/guide/part2_bg.png') no-repeat;
+      background-size: contain;
+      margin-left: 40 * @vw;
+      z-index: 2;
+      padding-top: 57 * @vw;
+      .title {
+        position: absolute;
+        top: -85 * @vw;
+        left: 370 * @vw;
+        width: 559 * @vw;
+        height: 118 * @vw;
+        background: url('~assets/images/pc/guide/part_title_bg1.png') no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        .title-order {
+          position: absolute;
+          width: 105 * @vw;
+          height: 28 * @vw;
+          background: url('~assets/images/pc/guide/part02.png') no-repeat;
+          background-size: contain;
+        }
+        .title-text {
+          line-height: 100 * @vw;
+        }
+      }
+      .part-row {
+        display: flex;
+        .achieve-box {
+          position: relative;
+          width: 364 * @vw;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          &.box-10w {
+            margin-left: 10 * @vw;
+            margin-right: 37 * @vw;
+          }
+          &.box-30w {
+            margin-left: 37 * @vw;
+          }
+          &.box-100w {
+            margin-left: 35 * @vw;
+            margin-right: 27 * @vw;
+            padding-top: 40 * @vw;
+          }
+          &.box-80w {
+            margin-left: 25 * @vw;
+            margin-right: 25 * @vw;
+            padding-top: 40 * @vw;
+          }
+          &.box-50w {
+            margin-left: 40 * @vw;
+          }
+          .bult-pic {
+            position: absolute;
+            width: 315 * @vw;
+            height: 8 * @vw;
+            background: url('~assets/images/pc/guide/bulb.png') no-repeat;
+            background-size: contain;
+          }
+          .achieve-content {
+            width: 364 * @vw;
+            height: 229 * @vw;
+            position: absolute;
+            bottom: 30 * @vw;
+            .achieve-num {
+              width: 100%;
+              position: relative;
+              .num-pic {
+                position: relative;
+                &.num-10w {
+                  width: 108 * @vw;
+                  height: 67 * @vw;
+                  background: url('~assets/images/pc/guide/10W.png') no-repeat;
+                  background-size: contain;
+                }
+                &.num-30w {
+                  width: 111 * @vw;
+                  height: 67 * @vw;
+                  background: url('~assets/images/pc/guide/30W.png') no-repeat;
+                  background-size: contain;
+                }
+                &.num-100w {
+                  width: 151 * @vw;
+                  height: 67 * @vw;
+                  background: url('~assets/images/pc/guide/100W.png') no-repeat;
+                  background-size: contain;
+                }
+                &.num-80w {
+                  width: 111 * @vw;
+                  height: 67 * @vw;
+                  background: url('~assets/images/pc/guide/80W.png') no-repeat;
+                  background-size: contain;
+                }
+                &.num-50w {
+                  width: 111 * @vw;
+                  height: 67 * @vw;
+                  background: url('~assets/images/pc/guide/50W.png') no-repeat;
+                  background-size: contain;
+                }
+              }
+              .num-note {
+                color: #30a3f6;
+                font-size: 16 * @vw;
+                position: absolute;
+                right: -35 * @vw;
+              }
+              .achieved-seal {
+                width: 104 * @vw;
+                height: 93 * @vw;
+                background: url('~assets/images/pc/guide/achieved_seal.png') no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: 40 * @vw;
+                top: 0 * @vw;
+                display: none;
+                &.gift-5 {
+                  right: 110 * @vw;
+                }
+              }
+            }
+            .achieve-gift {
+              width: 100%;
+              margin-top: 10 * @vw;
+              .gift-note {
+                font-size: 14 * @vw;
+                color: #30a3f6;
+                font-weight: bold;
+              }
+              .gift-list {
+                width: 100%;
+                margin-top: 10 * @vw;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap-reverse;
+                &.list-4 {
+                  width: 100%;
+                  height: 113 * @vw;
+                  border-radius: 10 * @vw;
+                  background-color: #0b2e66;
+                }
+                &.list-5 {
+                  width: 364 * @vw;
+                  height: 229 * @vw;
+                  position: absolute;
+                  bottom: 0;
+                  background: url('~assets/images/pc/guide/gift_bg_part2.png') no-repeat;
+                  background-size: contain;
+                  justify-content: flex-end;
+                }
+                .gift-item {
+                  text-align: center;
+                  padding-top: 5 * @vw;
+                  opacity: 0.6;
+                  margin: 0 10 * @vw;
+                  &:nth-of-type(1) {
+                    margin-left: 16 * @vw;
+                  }
+                  &:nth-of-type(4) {
+                    margin-right: 16 * @vw;
+                  }
+                  &:nth-of-type(5) {
+                    margin-right: 16 * @vw;
+                  }
+                  .gift-box {
+                    width: 68 * @vw;
+                    height: 71 * @vw;
+                    background: url('~assets/images/pc/guide/gift_box_part2.png') no-repeat;
+                    background-size: contain;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    .gift-pic {
+                      width: 44 * @vw;
+                      height: 38 * @vw;
+                    }
+                    .gift-num {
+                      font-size: 13 * @vw;
+                      color: #fff;
+                      position: absolute;
+                      right: 5 * @vw;
+                      bottom: 5 * @vw;
+                    }
+                  }
+                  .gift-name {
+                    color: #fff;
+                    font-size: 14 * @vw;
+                    margin-top: 3 * @vw;
+                  }
+                }
+              }
+            }
+          }
+          &.light {
+            .bult-pic {
+              width: 403 * @vw;
+              height: 142 * @vw;
+              background: url('~assets/images/pc/guide/bulb_light.png') no-repeat;
+              background-size: contain;
+            }
+            .achieve-content {
+              .achieve-num {
+                .num-pic {
+                  &.num-10w {
+                    width: 108 * @vw;
+                    height: 72 * @vw;
+                    background: url('~assets/images/pc/guide/10W_light.png') no-repeat;
+                    background-size: contain;
+                  }
+                  &.num-30w {
+                    width: 111 * @vw;
+                    height: 72 * @vw;
+                    background: url('~assets/images/pc/guide/30W_light.png') no-repeat;
+                    background-size: contain;
+                  }
+                  &.num-100w {
+                    width: 151 * @vw;
+                    height: 72 * @vw;
+                    background: url('~assets/images/pc/guide/100W_light.png') no-repeat;
+                    background-size: contain;
+                  }
+                  &.num-80w {
+                    width: 111 * @vw;
+                    height: 72 * @vw;
+                    background: url('~assets/images/pc/guide/80W_light.png') no-repeat;
+                    background-size: contain;
+                  }
+                  &.num-50w {
+                    width: 111 * @vw;
+                    height: 72 * @vw;
+                    background: url('~assets/images/pc/guide/50W_light.png') no-repeat;
+                    background-size: contain;
+                  }
+                }
+                .num-note {
+                  color: #fff;
+                }
+                .achieved-seal {
+                  display: block;
+                }
+              }
+              .achieve-gift {
+                .gift-list {
+                  .gift-item {
+                    opacity: 1;
+                  }
+                  &.list-4 {
+                    background-color: #30a3f6;
+                  }
+                  &.list-5 {
+                    background-image: url('~assets/images/pc/guide/gift_bg_light_part2.png');
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.row1 {
+          width: 100%;
+          height: 291 * @vw;
+          margin-top: -2 * @vw;
+          .book-count {
+            height: 100%;
+            width: 427 * @vw;
+            position: relative;
+            .count-doll {
+              position: absolute;
+              bottom: -30 * @vw;
+              left: 165 * @vw;
+              width: 259 * @vw;
+              height: 365 * @vw;
+              background: url('~assets/images/pc/guide/pirate_doll_part2.png') no-repeat;
+              background-size: contain;
+            }
+            .count-board {
+              position: absolute;
+              bottom: -45 * @vw;
+              left: 45 * @vw;
+              width: 262 * @vw;
+              height: 150 * @vw;
+              background: url('~assets/images/pc/guide/count_bg.png') no-repeat;
+              background-size: contain;
+              .board-title {
+                width: 100%;
+                text-align: center;
+                font-size: 20 * @vw;
+                font-weight: bold;
+                color: #936101;
+                line-height: 48 * @vw;
+              }
+              .board-num-list {
+                display: flex;
+                .board-num-item {
+                }
+              }
+            }
+          }
+        }
+        &.row2 {
+          width: 100%;
+          height: 325 * @vw;
+        }
+      }
+      .part-description {
+        margin-left: 40 * @vw;
+        margin-top: 40 * @vw;
+      }
+    }
+  }
+}
+.introduct {
+  position: relative;
+  width: 100%;
+  height: 5259 * @vw;
+  background: url('~assets/images/pc/guide/bg_content.png') top center no-repeat;
+  background-size: cover;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -700 * @vw;
+  .part3-box {
+    position: relative;
+    top: -85 * @vw;
+    left: 22 * @vw;
+  }
+  .part3 {
+    width: 1422 * @vw;
+    height: 317 * @vw;
+    background: url('~assets/images/pc/guide/part3_bg.png') no-repeat;
+    background-size: contain;
+    .top {
+      position: absolute;
+      top: -472 * @vw;
+      width: 1422 * @vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .title {
+        width: 559 * @vw;
+        height: 97 * @vw;
+        background: url('~assets/images/pc/guide/part_title_bg2.png') no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        .title-order {
+          width: 108 * @vw;
+          height: 28 * @vw;
+          background: url('~assets/images/pc/guide/part03.png') no-repeat;
+          background-size: contain;
+          position: absolute;
+        }
+        .title-text {
+          line-height: 100 * @vw;
+        }
+      }
+      .top-note {
+        font-size: 16 * @vw;
+        color: #fff;
+        margin-top: 33 * @vw;
+      }
+    }
+    .invite-count {
+      width: 1422 * @vw;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      z-index: 2;
+      bottom: -75 * @vw;
+      .invite-doll {
+        position: relative;
+        width: 268 * @vw;
+        height: 280 * @vw;
+        background: url('~assets/images/pc/guide/robot_doll_part3.png') no-repeat;
+        background-size: contain;
+        z-index: 2;
+      }
+      .invite-board {
+        position: relative;
+        bottom: -40 * @vw;
+        left: -40 * @vw;
+        width: 250 * @vw;
+        height: 202 * @vw;
+        background: url('~assets/images/pc/guide/invite_bg.png') no-repeat;
+        background-size: contain;
+        z-index: 1;
+        .invite-text {
+          width: 100%;
+          text-align: center;
+          margin-top: 50 * @vw;
+          font-size: 18 * @vw;
+          color: #fff;
+          .invite-num {
+            color: #fde436;
+            font-weight: bold;
+          }
+        }
+        .invite-btn-box {
+          width: 100%;
+          padding-left: 2 * @vw;
+        }
+        .invite-btn {
+          margin: 10 * @vw auto 0 auto;
+          width: 195 * @vw;
+          height: 70 * @vw;
+          background: url('~assets/images/pc/guide/btn_invite_normal.png') no-repeat;
+          background-size: contain;
+          &:hover {
+            background-image: url('~assets/images/pc/guide/btn_invite_click.png');
+          }
+        }
+      }
+    }
+    .gift-content {
+      width: 1422 * @vw;
+      position: absolute;
+      z-index: 1;
+      bottom: 150 * @vw;
+      padding: 0 60 * @vw;
+      .gift-list {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        .gift-item {
+          position: relative;
+          z-index: 1;
+          .gift-box {
+            width: 308 * @vw;
+            height: 355 * @vw;
+            background: url('~assets/images/pc/guide/gift_part3_bg.png') no-repeat;
+            background-size: contain;
+          }
+          &:nth-of-type(2) {
+            top: -76 * @vw;
+            left: 22 * @vw;
+            z-index: 2;
+          }
+          &:nth-of-type(3) {
+            top: -75 * @vw;
+            left: 45 * @vw;
+            z-index: 3;
+          }
+          &:nth-of-type(4) {
+            top: 3 * @vw;
+            left: 68 * @vw;
+            z-index: 4;
+          }
+          .wire {
+            position: absolute;
+          }
+          .wire1 {
+            bottom: -100 * @vw;
+            left: 77 * @vw;
+            width: 582 * @vw;
+            height: 119 * @vw;
+            background: url('~assets/images/pc/guide/wire1.png') no-repeat;
+            background-size: contain;
+          }
+          .wire2 {
+            bottom: -71 * @vw;
+            right: 182 * @vw;
+            width: 274 * @vw;
+            height: 86 * @vw;
+            background: url('~assets/images/pc/guide/wire2.png') no-repeat;
+            background-size: contain;
+          }
+          .wire3 {
+            bottom: -10 * @vw;
+            right: 180 * @vw;
+            width: 278 * @vw;
+            height: 26 * @vw;
+            background: url('~assets/images/pc/guide/wire3.png') no-repeat;
+            background-size: contain;
+          }
+          .wire4 {
+            bottom: 5 * @vw;
+            right: 180 * @vw;
+            width: 279 * @vw;
+            height: 90 * @vw;
+            background: url('~assets/images/pc/guide/wire4.png') no-repeat;
+            background-size: contain;
+          }
+          &.light {
+            .gift-box {
+              width: 308 * @vw;
+              height: 440 * @vw;
+              background: url('~assets/images/pc/guide/gift_part3_bg_light.png') no-repeat;
+              background-size: contain;
+            }
+            .wire1 {
+              background-image: url('~assets/images/pc/guide/wire1_light.png');
+            }
+            .wire2 {
+              background-image: url('~assets/images/pc/guide/wire2_light.png');
+            }
+            .wire3 {
+              background-image: url('~assets/images/pc/guide/wire3_light.png');
+            }
+            .wire4 {
+              background-image: url('~assets/images/pc/guide/wire4_light.png');
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</style>

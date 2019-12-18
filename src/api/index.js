@@ -85,3 +85,12 @@ export function getStrategyDesc(id) {
     method: 'get'
   })
 }
+
+// 预约活动 验证码
+export function getBookVeriCode(data) {
+  return request({
+    url: `/captcha/sms/booking`,
+    method: 'post',
+    data
+  })
+}
