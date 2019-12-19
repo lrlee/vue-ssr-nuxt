@@ -94,3 +94,11 @@ export function getBookVeriCode(data) {
     data
   })
 }
+
+export function toBook(data) {
+  return request({
+    url: `/booking`,
+    method: 'post',
+    data
+  })
+}

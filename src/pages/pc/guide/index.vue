@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Nav></Nav>
+    <Pop v-if="showPop" :bookStatus="bookStatus" @closePop="closePop" @changeBookStatus="changeBookStatus"></Pop>
     <div class="top">
       <div class="index">
         <header class="header">
@@ -41,9 +42,11 @@
         </div>
       </div>
       <div class="activity">
-        <div class="book-box btn">
-          <div class="book-btn"></div>
-          <p class="book-time">活动时间：2019.11.19-2020.01.15</p>
+        <div class="book-wrapper">
+          <div @click="openBookPop" class="book-box btn">
+            <div class="book-btn"></div>
+            <p class="book-time">活动时间：2019.11.19-2020.01.15</p>
+          </div>
           <div class="pipe pipe1"></div>
         </div>
         <div class="part1-box">
@@ -389,7 +392,7 @@
             <div class="part-description">
               <i class="description-order-icon icon"></i>
               <p class="description-text">
-                从XX年XX月XX日-XX年XX月XX日内测服开启时截止，在本页面内测预约的人数达到对应档位时，所有预约玩家均可获得对应的加码预约礼包。
+                从XX年XX月XX日-XX年XX月XX日内测服开启时截止，在本页面内测预约的人数达到对应档位时，所有预约玩家均可累计获得对应的加码预约礼包。
               </p>
             </div>
           </div>
@@ -406,24 +409,52 @@
                 <span class="part-title-white">呼朋唤友</span><span class="part-title-yellow">领福利</span>
               </p>
             </div>
-            <p class="top-note">活动期间，成功邀请对应数量好友完成预约，可领取对应的邀请预约礼</p>
+            <p class="top-note">活动期间，成功邀请对应数量好友完成预约，可累计领取对应的邀请预约礼</p>
           </div>
           <div class="gift-content">
             <ul class="gift-list">
               <li class="gift-item light">
-                <div class="gift-box"></div>
+                <div class="gift-box">
+                  <div class="gift-wrapper">
+                    <div class="gift-pic"></div>
+                    <p class="gift-name">钱袋X200</p>
+                    <div class="gift-label">邀请1位好友</div>
+                    <div class="paopao-pic"></div>
+                  </div>
+                </div>
                 <div class="wire wire1"></div>
               </li>
               <li class="gift-item light">
-                <div class="gift-box"></div>
+                <div class="gift-box">
+                  <div class="gift-wrapper">
+                    <div class="gift-pic"></div>
+                    <p class="gift-name">钱袋X200</p>
+                    <div class="gift-label">邀请3位好友</div>
+                    <div class="paopao-pic"></div>
+                  </div>
+                </div>
                 <div class="wire wire2"></div>
               </li>
               <li class="gift-item">
-                <div class="gift-box"></div>
+                <div class="gift-box">
+                  <div class="gift-wrapper">
+                    <div class="gift-pic"></div>
+                    <p class="gift-name">钱袋X200</p>
+                    <div class="gift-label">邀请5位好友</div>
+                    <div class="paopao-pic"></div>
+                  </div>
+                </div>
                 <div class="wire wire3"></div>
               </li>
               <li class="gift-item">
-                <div class="gift-box"></div>
+                <div class="gift-box">
+                  <div class="gift-wrapper">
+                    <div class="gift-pic"></div>
+                    <p class="gift-name">钱袋X200</p>
+                    <div class="gift-label">邀请8位好友</div>
+                    <div class="paopao-pic"></div>
+                  </div>
+                </div>
                 <div class="wire wire4"></div>
               </li>
             </ul>
@@ -449,23 +480,39 @@
 <script>
 // import qs from 'qs'
 import Nav from './components/Nav'
+import Pop from './components/Pop'
 import CountNumber from './components/CountNumber'
+import * as local from '@/utils/auth'
 // import { getBookVeriCode } from '@/api/index'
 export default {
   components: {
     Nav,
-    CountNumber
+    CountNumber,
+    Pop
   },
   data() {
-    return {}
+    return {
+      showPop: false,
+      invite_id_self: '', // 本用户的邀请码 也是本用户的guid
+      bookStatus: 'booking' // 预约状态： success 预约成功 | booking 预约中
+    }
   },
-  created() {
-    // const param = {
-    //   country_num: '86',
-    //   mobile: '15208121455'
-    // }
-    // getBookVeriCode(qs.stringify(param)).then(res => {})
-  }
+  methods: {
+    openBookPop() {
+      this.invite_id_self = local.getGuid()
+      if (this.invite_id_self) {
+        this.bookStatus = 'success'
+      }
+      this.showPop = true
+    },
+    closePop() {
+      this.showPop = false
+    },
+    changeBookStatus(status) {
+      this.bookStatus = status
+    }
+  },
+  created() {}
 }
 </script>
 <style lang="less" scoped>
@@ -496,13 +543,13 @@ export default {
 }
 @keyframes move_updown {
   0% {
-    top: 102 * @vw;
+    transform: translateY(0);
   }
   50% {
-    top: 112 * @vw;
+    transform: translateY(-10px);
   }
   100% {
-    top: 102 * @vw;
+    transform: translateY(0);
   }
 }
 @keyframes scale_play {
@@ -516,11 +563,13 @@ export default {
     transform: scale(0.8);
   }
 }
-.icon {
-  display: inline-block;
-}
-.btn {
-  cursor: pointer;
+@keyframes rise_paopao {
+  from {
+    transform: translateY(120 * @vw);
+  }
+  to {
+    transform: translateY(-120 * @vw);
+  }
 }
 .part-title-white {
   font-size: 38 * @vw;
@@ -766,7 +815,7 @@ export default {
       height: 162 * @vw;
       background: url('~assets/images/pc/guide/cactus_doll_index.png') no-repeat;
       background-size: contain;
-      animation: move_updown 2s linear infinite;
+      animation: move_updown 2s ease infinite;
     }
   }
   .activity {
@@ -781,8 +830,20 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .book-box {
+    .book-wrapper {
       position: relative;
+      .pipe1 {
+        position: absolute;
+        top: 46 * @vw;
+        left: -558 * @vw;
+        width: 605 * @vw;
+        height: 742 * @vw;
+        background: url('~assets/images/pc/guide/pipe1.png') no-repeat;
+        background-size: contain;
+        z-index: 1;
+      }
+    }
+    .book-box {
       width: 391 * @vw;
       height: 166 * @vw;
       background: url('~assets/images/pc/guide/invite_btn_bg.png') no-repeat;
@@ -810,16 +871,6 @@ export default {
         font-size: 16 * @vw;
         font-weight: bold;
         z-index: 2;
-      }
-      .pipe1 {
-        position: absolute;
-        top: 46 * @vw;
-        left: -558 * @vw;
-        width: 605 * @vw;
-        height: 742 * @vw;
-        background: url('~assets/images/pc/guide/pipe1.png') no-repeat;
-        background-size: contain;
-        z-index: 1;
       }
     }
     .part1-box {
@@ -1490,6 +1541,51 @@ export default {
             height: 355 * @vw;
             background: url('~assets/images/pc/guide/gift_part3_bg.png') no-repeat;
             background-size: contain;
+            overflow: hidden;
+            .gift-wrapper {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: flex-end;
+              padding-bottom: 65 * @vw;
+              overflow: hidden;
+              .gift-pic {
+                width: 100 * @vw;
+                height: 106 * @vw;
+                background: url('~assets/images/pc/guide/gift_purse.png') no-repeat;
+                background-size: contain;
+              }
+              .gift-name {
+                margin-top: 5 * @vw;
+                color: #1c3899;
+                font-size: 16 * @vw;
+                // -webkit-text-stroke: 1px #fff;
+              }
+              .gift-label {
+                margin-top: 11 * @vw;
+                width: 144 * @vw;
+                height: 41 * @vw;
+                background: url('~assets/images/pc/guide/gift_label_part3.png') no-repeat;
+                background-size: contain;
+                text-align: center;
+                line-height: 41 * @vw;
+                color: #054392;
+                font-weight: bold;
+                font-size: 16 * @vw;
+              }
+              .paopao-pic {
+                width: 177 * @vw;
+                height: 166 * @vw;
+                background: url('~assets/images/pc/guide/paopao_part3.png') no-repeat;
+                background-size: contain;
+                position: absolute;
+                z-index: -1;
+                animation: rise_paopao 10s linear infinite;
+                display: none;
+              }
+            }
           }
           &:nth-of-type(2) {
             top: -76 * @vw;
@@ -1559,6 +1655,14 @@ export default {
             }
             .wire4 {
               background-image: url('~assets/images/pc/guide/wire4_light.png');
+            }
+            .gift-wrapper {
+              .gift-pic {
+                animation: move_updown 3.5s ease infinite;
+              }
+              .paopao-pic {
+                display: block;
+              }
             }
           }
         }

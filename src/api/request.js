@@ -19,17 +19,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
-    console.log(res)
-    if (res.code === 0) {
-      return res
-    } else {
-      Message({
-        message: res.msg,
-        type: 'warning',
-        duration: 5 * 1000
-      })
-      return Promise.reject(new Error(res.msg || 'Error'))
-    }
+    return res
   },
   error => {
     Message({
