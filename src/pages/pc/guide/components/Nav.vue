@@ -1,7 +1,170 @@
 <template>
-  <nav></nav>
+  <div class="nav-box">
+    <div :class="['nav-open', { hide: !isOpen }]">
+      <img class="nav-title" src="~/assets/images/pc/guide/nav/title_bg.png" />
+      <div class="nav-content">
+        <img @click="isOpen = false" class="nav-handle-left" src="~/assets/images/pc/guide/nav/handle_left.png" /><img
+          class="nav-content-bg"
+          src="~/assets/images/pc/guide/nav/content_bg.png"
+        />
+        <div
+          :class="['menu-text', { active: currentTitle === '超人预约见面礼' }]"
+          @click="onTextClick('超人预约见面礼')"
+        >
+          超人预约见面礼
+        </div>
+        <div
+          :class="['menu-text', { active: currentTitle === '超人预约加码礼' }]"
+          @click="onTextClick('超人预约加码礼')"
+        >
+          超人预约加码礼
+        </div>
+        <div
+          :class="['menu-text', { active: currentTitle === '呼朋唤友领福利' }]"
+          @click="onTextClick('呼朋唤友领福利')"
+        >
+          呼朋唤友领福利
+        </div>
+        <div :class="['menu-text', { active: currentTitle === '游戏特色' }]" @click="onTextClick('游戏特色')">
+          游戏特色
+          <img
+            v-show="needShowSegment('游戏特色', '凶萌角色')"
+            class="menu-segment"
+            src="~/assets/images/pc/guide/nav/content_segment.png"
+          />
+        </div>
+        <div :class="['menu-text', { active: currentTitle === '凶萌角色' }]" @click="onTextClick('凶萌角色')">
+          凶萌角色
+          <img
+            v-show="needShowSegment('凶萌角色', '高能赛场')"
+            class="menu-segment"
+            src="~/assets/images/pc/guide/nav/content_segment.png"
+          />
+        </div>
+        <div :class="['menu-text', { active: currentTitle === '高能赛场' }]" @click="onTextClick('高能赛场')">
+          高能赛场
+          <img
+            v-show="needShowSegment('高能赛场', '趣味玩法')"
+            class="menu-segment"
+            src="~/assets/images/pc/guide/nav/content_segment.png"
+          />
+        </div>
+        <div :class="['menu-text', { active: currentTitle === '趣味玩法' }]" @click="onTextClick('趣味玩法')">
+          趣味玩法
+        </div>
+      </div>
+      <img class="nav-handle-bottom" src="~/assets/images/pc/guide/nav/handle_bottom.png" />
+    </div>
+    <img
+      :class="['nav-handle-open', { hide: isOpen }]"
+      @click="isOpen = true"
+      src="~/assets/images/pc/guide/nav/handle_open.png"
+    />
+  </div>
 </template>
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      isOpen: false,
+      currentTitle: '超人预约见面礼'
+    }
+  },
+  methods: {
+    onTextClick(title) {
+      this.currentTitle = title
+    },
+    needShowSegment(title1, title2) {
+      return this.currentTitle !== title1 && this.currentTitle !== title2
+    }
+  }
+}
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+@vw: 1vw/19.2;
+.nav-box {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0;
+  z-index: 100;
+  .nav-title {
+    width: 166 * @vw;
+    height: 225 * @vw;
+    transform: translate(38 * @vw, 63 * @vw);
+    position: relative;
+  }
+  .nav-content {
+    position: relative;
+    .nav-handle-left {
+      width: 23 * @vw;
+      height: 75 * @vw;
+      vertical-align: top;
+      margin-top: 31 * @vw;
+    }
+    .nav-content-bg {
+      width: 205 * @vw;
+      height: 394 * @vw;
+    }
+    .menu-text {
+      font-size: 16 * @vw;
+      width: 168 * @vw;
+      height: 49 * @vw;
+      padding-top: 10 * @vw;
+      color: #bafe95;
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      right: 0;
+      text-align: center;
+      margin: 0 auto;
+      transform: translateX(5 * @vw);
+      top: 0;
+      &:nth-child(3) {
+        top: 40 * @vw;
+      }
+      &:nth-child(4) {
+        top: 75 * @vw;
+      }
+      &:nth-child(5) {
+        top: 110 * @vw;
+      }
+      &:nth-child(6) {
+        top: 208 * @vw;
+      }
+      &:nth-child(7) {
+        top: 244 * @vw;
+      }
+      &:nth-child(8) {
+        top: 286 * @vw;
+      }
+      &:nth-child(9) {
+        top: 325 * @vw;
+      }
+    }
+    .menu-segment {
+      width: 148 * @vw;
+      height: 1 * @vw;
+      left: 0;
+      right: 0;
+      text-align: center;
+      transform: translateY(-7 * @vw);
+    }
+    .active {
+      background: url('~assets/images/pc/guide/nav/choose_bg.png') no-repeat;
+      background-size: cover;
+      color: #1f750b;
+      font-weight: bold;
+    }
+  }
+  .nav-handle-bottom {
+    width: 131 * @vw;
+    height: 39 * @vw;
+    margin-left: 54 * @vw;
+  }
+}
+.hide {
+  display: none;
+}
+</style>
