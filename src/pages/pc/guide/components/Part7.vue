@@ -35,6 +35,7 @@
           <div class="button-desc">{{ item.desc }}</div>
         </li>
       </ul>
+      <img class="rabbit" src="~/assets/images/pc/guide/part7/rabbit.png" />
     </div>
   </div>
 </template>
@@ -246,6 +247,14 @@ export default {
           }
         }
       }
+    }
+    .rabbit {
+      width: 259 * @vw;
+      height: 332 * @vw;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translateX(107 * @vw);
     }
   }
 }
