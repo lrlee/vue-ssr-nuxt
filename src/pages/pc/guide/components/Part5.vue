@@ -9,7 +9,7 @@
     <div class="content">
       <div class="role-select">
         <ul class="role-list">
-          <li v-for="(item, index) in roleInfo" :key="index" :class="'role-' + item.id" class="role-item"></li>
+          <li v-for="(item, index) in roleInfo" :key="index" :class="'role-head-' + item.id" class="role-item"></li>
         </ul>
         <div class="prev-btn btn"></div>
         <div class="next-btn btn"></div>
@@ -39,6 +39,12 @@ export default {
 </script>
 <style lang="less" scoped>
 @import url('~assets/css/guide.less');
+.role-head-1 {
+  width: 264 * @vw;
+  height: 521 * @vw;
+  background: url('~assets/images/pc/guide/role_select_bg.png') no-repeat;
+  background-size: contain;
+}
 .part-container {
   margin-top: 280 * @vw;
   display: flex;
@@ -73,6 +79,9 @@ export default {
         .role-item {
           width: 118 * @vw;
           height: 131 * @vw;
+          &:hover,
+          &.active {
+          }
           &:nth-of-type((n-1)*7+1) {
           }
         }
