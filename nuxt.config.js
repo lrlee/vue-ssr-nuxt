@@ -49,6 +49,7 @@ module.exports = {
   plugins: [
     { src: '~/plugins/i18n.js' },
     { src: '~/plugins/swiper.js', ssr: false },
+    { src: '~/plugins/intersection.js', ssr: false },
     { src: '~/plugins/element-ui.js', ssr: false },
     { src: '~/plugins/baidu.js', ssr: false }
   ],

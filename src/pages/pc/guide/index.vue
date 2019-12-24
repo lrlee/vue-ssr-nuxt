@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <Nav></Nav>
+    <Nav v-if="showNav" :title="title" :scrollCallback="scrollToPart"></Nav>
     <Pop v-if="showPop" :bookStatus="bookStatus" @closePop="closePop" @changeBookStatus="changeBookStatus"></Pop>
     <div class="top">
       <div class="index">
-        <header class="header">
+        <header id="header" class="header">
           <nuxt-link to="/event/1" class="btn btn-toHome"></nuxt-link>
           <ul class="focus-list">
             <li class="focus-item">
@@ -31,10 +31,10 @@
         <div class="flight-right-pic"></div>
         <div class="paopao-pic">
           <div class="ribbon-pic"></div>
-          <div class="title-pic"></div>
+          <div id="titlePic" class="title-pic"></div>
           <div class="title-activity-pic">
             <div class="play-bg"></div>
-            <div class="play-icon"></div>
+            <div @click="scrollToPart('top')" class="play-icon"></div>
           </div>
           <div class="doll-lili"></div>
           <div class="doll-rabbit"></div>
@@ -52,7 +52,7 @@
         <div class="part1-box">
           <div class="pipe pipe2"></div>
           <div class="part1">
-            <div class="title">
+            <div id="part1" class="title">
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">超人预约</span><span class="part-title-yellow">见面礼</span>
@@ -112,7 +112,7 @@
         <div class="part2-box">
           <div class="pipe pipe3"></div>
           <div class="part2">
-            <div class="title">
+            <div id="part2" class="title">
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">超人预约</span><span class="part-title-yellow">加码礼</span>
@@ -403,7 +403,7 @@
       <div class="part3-box">
         <div class="part3">
           <div class="top">
-            <div class="title">
+            <div id="part3" class="title">
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">呼朋唤友</span><span class="part-title-yellow">领福利</span>
@@ -479,6 +479,7 @@
 </template>
 <script>
 // import qs from 'qs'
+// import 'intersection-observer'
 import Nav from './components/Nav'
 import Pop from './components/Pop'
 import CountNumber from './components/CountNumber'
@@ -494,8 +495,15 @@ export default {
     return {
       showPop: false,
       invite_id_self: '', // 本用户的邀请码 也是本用户的guid
-      bookStatus: 'booking' // 预约状态： success 预约成功 | booking 预约中
+      bookStatus: 'booking', // 预约状态： success 预约成功 | booking 预约中
+      showNav: false,
+      title: '超人预约见面礼'
     }
+  },
+  created() {},
+  mounted() {
+    this.observeTitlePic()
+    this.observePartScroll()
   },
   methods: {
     openBookPop() {
@@ -510,9 +518,66 @@ export default {
     },
     changeBookStatus(status) {
       this.bookStatus = status
+    },
+    scrollToPart(partName) {
+      let element
+      switch (partName) {
+        case 'top':
+          element = document.getElementById('header')
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          return
+        case 'part1':
+          element = document.getElementById('part1')
+          break
+        case 'part2':
+          element = document.getElementById('part2')
+          break
+        case 'part3':
+          element = document.getElementById('part3')
+          break
+        case 'part4':
+          element = document.getElementById('part4')
+          break
+        case 'part5':
+          element = document.getElementById('part5')
+          break
+        case 'part6':
+          element = document.getElementById('part6')
+          break
+        default:
+          break
+      }
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    },
+    observeTitlePic() {
+      const _this = this
+      const io = new IntersectionObserver(function(entry) {
+        entry.forEach(e => {
+          _this.showNav = !e.isIntersecting
+        })
+      })
+      io.POLL_INTERVAL = 100
+      const titlePic = document.getElementById('titlePic')
+      io.observe(titlePic)
+    },
+    observePartScroll() {
+      const _this = this
+      const io = new IntersectionObserver(function(entry) {
+        entry.forEach(e => {
+          if (e.isIntersecting) {
+            _this.title = e.target.textContent.trim()
+          }
+        })
+      })
+      io.POLL_INTERVAL = 100
+      const part1 = document.getElementById('part1')
+      const part2 = document.getElementById('part2')
+      const part3 = document.getElementById('part3')
+      io.observe(part1)
+      io.observe(part2)
+      io.observe(part3)
     }
-  },
-  created() {}
+  }
 }
 </script>
 <style lang="less" scoped>
