@@ -4,13 +4,8 @@
     <Pop v-if="showPop" :bookStatus="bookStatus" @closePop="closePop" @changeBookStatus="changeBookStatus"></Pop>
     <div class="top">
       <div class="index">
-<<<<<<< HEAD
         <header id="header" class="header">
-          <nuxt-link to="/event/1" class="btn btn-toHome"></nuxt-link>
-=======
-        <header class="header">
           <nuxt-link to="/home" class="btn btn-toHome"></nuxt-link>
->>>>>>> 056c596d029c92c3433311373f4dfc9b372f888c
           <ul class="focus-list">
             <li class="focus-item">
               <i class="icon wechat-icon"></i>
@@ -57,11 +52,7 @@
         <div class="part1-box">
           <div class="pipe pipe2"></div>
           <div class="part1">
-<<<<<<< HEAD
-            <div id="part1" class="title">
-=======
-            <div class="title part-title-type1">
->>>>>>> 056c596d029c92c3433311373f4dfc9b372f888c
+            <div id="part1" class="title part-title-type1">
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">超人预约</span><span class="part-title-yellow">见面礼</span>
@@ -121,11 +112,7 @@
         <div class="part2-box">
           <div class="pipe pipe3"></div>
           <div class="part2">
-<<<<<<< HEAD
-            <div id="part2" class="title">
-=======
-            <div class="title part-title-type1">
->>>>>>> 056c596d029c92c3433311373f4dfc9b372f888c
+            <div id="part2" class="title part-title-type1">
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">超人预约</span><span class="part-title-yellow">加码礼</span>
@@ -401,11 +388,7 @@
       <div class="part3-box">
         <div class="part3">
           <div class="top">
-<<<<<<< HEAD
-            <div id="part3" class="title">
-=======
-            <div class="title part-title-type2">
->>>>>>> 056c596d029c92c3433311373f4dfc9b372f888c
+            <div id="part3" class="title part-title-type2">
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">呼朋唤友</span><span class="part-title-yellow">领福利</span>
