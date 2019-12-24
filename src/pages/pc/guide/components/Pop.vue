@@ -58,7 +58,7 @@
             </div>
           </div>
         </div>
-        <p class="change-account"><span class="btn">切换绑定手机</span></p>
+        <p class="change-account"><span @click="changeAuth" class="btn">切换绑定手机</span></p>
       </div>
     </div>
   </div>
@@ -95,9 +95,9 @@ export default {
   created() {
     if (this.bookStatus === 'success') {
       this.invite_id_self = local.getGuid()
-      this.inviteLink = location.origin + '?code=' + this.invite_id_self
+      this.inviteLink = location.origin + '?invite_code=' + this.invite_id_self
     } else {
-      this.form.inviter_id = this.$route.query.code
+      this.form.inviter_id = this.$route.query.invite_code
     }
   },
   methods: {
@@ -160,6 +160,10 @@ export default {
     changeBookStatus(status) {
       this.$emit('changeBookStatus', status)
     },
+    changeAuth() {
+      local.removeGuid()
+      this.$emit('changeBookStatus', 'booking')
+    },
     submitForm() {
       this.checkPhone()
       this.checkCode()
@@ -169,7 +173,7 @@ export default {
             // this.bookStatus = 'success'
             this.changeBookStatus('success')
             this.invite_id_self = res.data.invite_id
-            this.inviteLink = location.origin + '?code=' + this.invite_id_self
+            this.inviteLink = location.origin + '?invite_code=' + this.invite_id_self
             local.setGuid(this.invite_id_self)
           } else {
             this.codeErr = true

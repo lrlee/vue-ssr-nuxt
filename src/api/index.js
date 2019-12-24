@@ -86,6 +86,13 @@ export function getStrategyDesc(id) {
   })
 }
 
+// 预约活动开关
+export function bookingOnOrOff() {
+  return request({
+    url: `/booking/on_off`,
+    method: 'get'
+  })
+}
 // 预约活动 验证码
 export function getBookVeriCode(data) {
   return request({
@@ -94,11 +101,18 @@ export function getBookVeriCode(data) {
     data
   })
 }
-
+// 用户预约
 export function toBook(data) {
   return request({
     url: `/booking`,
     method: 'post',
     data
+  })
+}
+// 预约有礼总人数
+export function getBookTotal() {
+  return request({
+    url: `/booking/total`,
+    method: 'get'
   })
 }

@@ -4,8 +4,13 @@
     <Pop v-if="showPop" :bookStatus="bookStatus" @closePop="closePop" @changeBookStatus="changeBookStatus"></Pop>
     <div class="top">
       <div class="index">
+<<<<<<< HEAD
         <header id="header" class="header">
           <nuxt-link to="/event/1" class="btn btn-toHome"></nuxt-link>
+=======
+        <header class="header">
+          <nuxt-link to="/home" class="btn btn-toHome"></nuxt-link>
+>>>>>>> 056c596d029c92c3433311373f4dfc9b372f888c
           <ul class="focus-list">
             <li class="focus-item">
               <i class="icon wechat-icon"></i>
@@ -45,14 +50,18 @@
         <div class="book-wrapper">
           <div @click="openBookPop" class="book-box btn">
             <div class="book-btn"></div>
-            <p class="book-time">活动时间：2019.11.19-2020.01.15</p>
+            <p class="book-time">活动时间：{{ beginTime }} - {{ endTime }}</p>
           </div>
           <div class="pipe pipe1"></div>
         </div>
         <div class="part1-box">
           <div class="pipe pipe2"></div>
           <div class="part1">
+<<<<<<< HEAD
             <div id="part1" class="title">
+=======
+            <div class="title part-title-type1">
+>>>>>>> 056c596d029c92c3433311373f4dfc9b372f888c
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">超人预约</span><span class="part-title-yellow">见面礼</span>
@@ -98,7 +107,7 @@
                 </li>
               </ul>
               <div class="book-btn-box">
-                <div class="book-btn btn"></div>
+                <div @click="openBookPop" class="book-btn btn"></div>
               </div>
               <div class="part-description">
                 <i class="description-order-icon icon"></i>
@@ -112,7 +121,11 @@
         <div class="part2-box">
           <div class="pipe pipe3"></div>
           <div class="part2">
+<<<<<<< HEAD
             <div id="part2" class="title">
+=======
+            <div class="title part-title-type1">
+>>>>>>> 056c596d029c92c3433311373f4dfc9b372f888c
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">超人预约</span><span class="part-title-yellow">加码礼</span>
@@ -124,28 +137,13 @@
                 <div class="count-board">
                   <p class="board-title">当前预约人数</p>
                   <ul class="board-num-list">
-                    <li class="board-num-item">
-                      <Count-number :number="0"></Count-number>
-                    </li>
-                    <li class="board-num-item">
-                      <Count-number :number="0"></Count-number>
-                    </li>
-                    <li class="board-num-item">
-                      <Count-number :number="0"></Count-number>
-                    </li>
-                    <li class="board-num-item">
-                      <Count-number :number="0"></Count-number>
-                    </li>
-                    <li class="board-num-item">
-                      <Count-number :number="0"></Count-number>
-                    </li>
-                    <li class="board-num-item">
-                      <Count-number :number="0"></Count-number>
+                    <li v-for="(num, index) in 6" :key="index" class="board-num-item">
+                      <Count-number :number="bookedTotal_arr[index]"></Count-number>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div class="achieve-box light box-10w">
+              <div :class="{ light: bookedTotal >= 10 * 10000 }" class="achieve-box box-10w">
                 <div class="bult-pic"></div>
                 <div class="achieve-content">
                   <div class="achieve-num">
@@ -189,7 +187,7 @@
                   </div>
                 </div>
               </div>
-              <div class="achieve-box light box-30w">
+              <div :class="{ light: bookedTotal >= 30 * 10000 }" class="achieve-box box-30w">
                 <div class="bult-pic"></div>
                 <div class="achieve-content">
                   <div class="achieve-num">
@@ -235,7 +233,7 @@
               </div>
             </div>
             <div class="part-row row2">
-              <div class="achieve-box light box-100w">
+              <div :class="{ light: bookedTotal >= 100 * 10000 }" class="achieve-box box-100w">
                 <div class="bult-pic"></div>
                 <div class="achieve-content">
                   <div class="achieve-num">
@@ -286,7 +284,7 @@
                   </div>
                 </div>
               </div>
-              <div class="achieve-box box-80w">
+              <div :class="{ light: bookedTotal >= 80 * 10000 }" class="achieve-box box-80w">
                 <div class="bult-pic"></div>
                 <div class="achieve-content">
                   <div class="achieve-num">
@@ -337,7 +335,7 @@
                   </div>
                 </div>
               </div>
-              <div class="achieve-box box-50w">
+              <div :class="{ light: bookedTotal >= 50 * 10000 }" class="achieve-box box-50w">
                 <div class="bult-pic"></div>
                 <div class="achieve-content">
                   <div class="achieve-num">
@@ -403,7 +401,11 @@
       <div class="part3-box">
         <div class="part3">
           <div class="top">
+<<<<<<< HEAD
             <div id="part3" class="title">
+=======
+            <div class="title part-title-type2">
+>>>>>>> 056c596d029c92c3433311373f4dfc9b372f888c
               <div class="title-order"></div>
               <p class="title-text">
                 <span class="part-title-white">呼朋唤友</span><span class="part-title-yellow">领福利</span>
@@ -464,16 +466,20 @@
             <div class="invite-board">
               <p class="invite-text">
                 您已邀请
-                <span class="invite-num">1位</span>
+                <span class="invite-num">0位</span>
                 好友
               </p>
               <div class="invite-btn-box">
-                <div class="invite-btn btn"></div>
+                <div @click="openBookPop" class="invite-btn btn"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Part4></Part4>
+      <Part5></Part5>
+      <Part6></Part6>
+      <Part7></Part7>
     </div>
   </div>
 </template>
@@ -483,13 +489,22 @@
 import Nav from './components/Nav'
 import Pop from './components/Pop'
 import CountNumber from './components/CountNumber'
+import Part4 from './components/Part4'
+import Part5 from './components/Part5'
+import Part6 from './components/Part6'
+import Part7 from './components/Part7'
 import * as local from '@/utils/auth'
-// import { getBookVeriCode } from '@/api/index'
+import { bookingOnOrOff, getBookTotal } from '@/api/index'
+import { parseTime } from '@/utils/common'
 export default {
   components: {
     Nav,
     CountNumber,
-    Pop
+    Pop,
+    Part4,
+    Part5,
+    Part6,
+    Part7
   },
   data() {
     return {
@@ -500,12 +515,51 @@ export default {
       title: '超人预约见面礼'
     }
   },
-  created() {},
+  asyncData({ store }) {
+    return bookingOnOrOff().then(res => {
+      console.log(res)
+      if (res.code === 0) {
+        if (!res.data.on_off) {
+          store.$router.replace({
+            path: '/home'
+          })
+          return {
+            beginTime: '',
+            endTime: '',
+            on_off: res.data.on_off,
+            bookedTotal: 0,
+            bookedTotal_arr: [0]
+          }
+        } else {
+          return {
+            beginTime: parseTime(res.data.begin_time, '{y}.{m}.{d}'),
+            endTime: parseTime(res.data.end_time, '{y}.{m}.{d}'),
+            on_off: res.data.on_off,
+            bookedTotal: res.data.total,
+            bookedTotal_arr: res.data.total.toString().split('')
+          }
+        }
+      }
+    })
+  },
   mounted() {
     this.observeTitlePic()
     this.observePartScroll()
   },
+  created() {
+    this.setBookTotalPolling()
+  },
   methods: {
+    setBookTotalPolling() {
+      this.totalPolling = setInterval(() => {
+        getBookTotal().then(res => {
+          if (res.code === 0) {
+            this.bookedTotal = res.data
+            this.bookedTotal_arr = res.data.toString().split('')
+          }
+        })
+      }, 3000)
+    },
     openBookPop() {
       this.invite_id_self = local.getGuid()
       if (this.invite_id_self) {
@@ -581,7 +635,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@vw: 1vw/19.2;
+@import url('~assets/css/guide.less');
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -635,22 +689,6 @@ export default {
   to {
     transform: translateY(-120 * @vw);
   }
-}
-.part-title-white {
-  font-size: 38 * @vw;
-  font-weight: bold;
-  color: #ffffff;
-  background: linear-gradient(0deg, rgba(196, 238, 255, 1) 0%, rgba(255, 255, 255, 1) 41.9677734375%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.part-title-yellow {
-  font-size: 38 * @vw;
-  font-weight: bold;
-  color: #fff947;
-  background: linear-gradient(0deg, rgba(253, 242, 106, 1) 0%, rgba(255, 252, 184, 1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .part-description {
   display: flex;
@@ -979,10 +1017,6 @@ export default {
         position: absolute;
         top: -85 * @vw;
         left: 452 * @vw;
-        width: 559 * @vw;
-        height: 118 * @vw;
-        background: url('~assets/images/pc/guide/part_title_bg1.png') no-repeat;
-        background-size: contain;
         display: flex;
         justify-content: center;
         .title-order {
@@ -1181,10 +1215,6 @@ export default {
         position: absolute;
         top: -85 * @vw;
         left: 370 * @vw;
-        width: 559 * @vw;
-        height: 118 * @vw;
-        background: url('~assets/images/pc/guide/part_title_bg1.png') no-repeat;
-        background-size: contain;
         display: flex;
         justify-content: center;
         .title-order {
@@ -1467,7 +1497,12 @@ export default {
               }
               .board-num-list {
                 display: flex;
+                margin-top: 10 * @vw;
+                margin-left: 42 * @vw;
                 .board-num-item {
+                  width: 33 * @vw;
+                  height: 56 * @vw;
+                  overflow: hidden;
                 }
               }
             }
@@ -1514,10 +1549,6 @@ export default {
       flex-direction: column;
       align-items: center;
       .title {
-        width: 559 * @vw;
-        height: 97 * @vw;
-        background: url('~assets/images/pc/guide/part_title_bg2.png') no-repeat;
-        background-size: contain;
         display: flex;
         justify-content: center;
         .title-order {
