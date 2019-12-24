@@ -587,6 +587,9 @@ export default {
         case 'part6':
           element = document.getElementById('part6')
           break
+        case 'part7':
+          element = document.getElementById('part7')
+          break
         default:
           break
       }
@@ -616,9 +619,17 @@ export default {
       const part1 = document.getElementById('part1')
       const part2 = document.getElementById('part2')
       const part3 = document.getElementById('part3')
+      const part4 = document.getElementById('part4')
+      const part5 = document.getElementById('part5')
+      const part6 = document.getElementById('part6')
+      const part7 = document.getElementById('part7')
       io.observe(part1)
       io.observe(part2)
       io.observe(part3)
+      io.observe(part4)
+      io.observe(part5)
+      io.observe(part6)
+      io.observe(part7)
     }
   }
 }

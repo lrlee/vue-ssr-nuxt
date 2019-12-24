@@ -1,6 +1,6 @@
 <template>
   <div class="part-container">
-    <div class="title part-title-type2">
+    <div id="part6" class="title part-title-type2">
       <div class="title-order"></div>
       <p class="title-text">
         <span class="part-title-white">高能赛场</span>

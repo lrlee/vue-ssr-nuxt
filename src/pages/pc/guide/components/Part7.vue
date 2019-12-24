@@ -1,6 +1,6 @@
 <template>
   <div class="part-container">
-    <div class="title part-title-type2">
+    <div id="part7" class="title part-title-type2">
       <div class="title-order"></div>
       <p class="title-text">
         <span class="part-title-white">趣味玩法</span>
@@ -18,17 +18,17 @@
         您的浏览器暂不支持视频播放，请下载最新版本的浏览器...
       </video>
       <img class="content-cover" src="~/assets/images/pc/guide/part7/part7_bg.png" />
-      <div :class="['handle-left', { disable: chooseIndex === 0 }]" @click="handleLeftClick"></div>
+      <div :class="['handle-left', 'btn', { disable: chooseIndex === 0 }]" @click="handleLeftClick"></div>
       <div
-        :class="['handle-right', { disable: chooseIndex === videoOptions.length - 1 }]"
+        :class="['handle-right', 'btn', { disable: chooseIndex === videoOptions.length - 1 }]"
         @click="handleRightClick"
       ></div>
-      <div @click="handlePlayClick" v-show="!isPlaying" class="play"></div>
+      <div @click="handlePlayClick" v-show="!isPlaying" class="play btn"></div>
       <ul class="action-wrapper">
         <li
           v-for="(item, index) in videoOptions"
           :key="index"
-          :class="['action-button', { active: chooseIndex === index }]"
+          :class="['action-button', 'btn', { active: chooseIndex === index }]"
           @click="handleButtonClick(index)"
         >
           <div class="button-title">{{ item.title }}</div>
@@ -111,7 +111,7 @@ export default {
       height: 504 * @vw;
       position: absolute;
       top: 43 * @vw;
-      left: 166 * @vw;
+      left: 165 * @vw;
       background: #000000;
       border-top-left-radius: 50% 4%;
       border-top-right-radius: 50% 4%;

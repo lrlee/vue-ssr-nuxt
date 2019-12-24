@@ -3,20 +3,21 @@
     <div :class="['nav-open', { hide: !isOpen }]">
       <img class="nav-title" src="~/assets/images/pc/guide/nav/title_bg.png" />
       <div class="nav-content">
-        <img @click="isOpen = false" class="nav-handle-left" src="~/assets/images/pc/guide/nav/handle_left.png" /><img
-          class="nav-content-bg"
-          src="~/assets/images/pc/guide/nav/content_bg.png"
-        />
-        <div :class="['menu-text', { active: title == '超人预约见面礼' }]" @click="onTextClick('part1')">
+        <img
+          @click="isOpen = false"
+          class="nav-handle-left btn"
+          src="~/assets/images/pc/guide/nav/handle_left.png"
+        /><img class="nav-content-bg" src="~/assets/images/pc/guide/nav/content_bg.png" />
+        <div :class="['menu-text', 'btn', { active: title == '超人预约见面礼' }]" @click="onTextClick('part1')">
           超人预约见面礼
         </div>
-        <div :class="['menu-text', { active: title == '超人预约加码礼' }]" @click="onTextClick('part2')">
+        <div :class="['menu-text', 'btn', { active: title == '超人预约加码礼' }]" @click="onTextClick('part2')">
           超人预约加码礼
         </div>
-        <div :class="['menu-text', { active: title == '呼朋唤友领福利' }]" @click="onTextClick('part3')">
+        <div :class="['menu-text', 'btn', { active: title == '呼朋唤友领福利' }]" @click="onTextClick('part3')">
           呼朋唤友领福利
         </div>
-        <div :class="['menu-text', { active: title == '游戏特色' }]" @click="onTextClick('游戏特色')">
+        <div :class="['menu-text', 'btn', { active: title == '游戏特色' }]" @click="onTextClick('part4')">
           游戏特色
           <img
             v-show="needShowSegment('游戏特色', '凶萌角色')"
@@ -24,7 +25,7 @@
             src="~/assets/images/pc/guide/nav/content_segment.png"
           />
         </div>
-        <div :class="['menu-text', { active: title == '凶萌角色' }]" @click="onTextClick('凶萌角色')">
+        <div :class="['menu-text', 'btn', { active: title == '凶萌角色' }]" @click="onTextClick('part5')">
           凶萌角色
           <img
             v-show="needShowSegment('凶萌角色', '高能赛场')"
@@ -32,7 +33,7 @@
             src="~/assets/images/pc/guide/nav/content_segment.png"
           />
         </div>
-        <div :class="['menu-text', { active: title == '高能赛场' }]" @click="onTextClick('高能赛场')">
+        <div :class="['menu-text', 'btn', { active: title == '高能赛场' }]" @click="onTextClick('part6')">
           高能赛场
           <img
             v-show="needShowSegment('高能赛场', '趣味玩法')"
@@ -40,14 +41,14 @@
             src="~/assets/images/pc/guide/nav/content_segment.png"
           />
         </div>
-        <div :class="['menu-text', { active: title == '趣味玩法' }]" @click="onTextClick('趣味玩法')">
+        <div :class="['menu-text', 'btn', { active: title == '趣味玩法' }]" @click="onTextClick('part7')">
           趣味玩法
         </div>
       </div>
-      <img @click="onBackTopClick" class="nav-handle-bottom" src="~/assets/images/pc/guide/nav/handle_bottom.png" />
+      <img @click="onBackTopClick" class="nav-handle-bottom btn" src="~/assets/images/pc/guide/nav/handle_bottom.png" />
     </div>
     <img
-      :class="['nav-handle-open', { hide: isOpen }]"
+      :class="['nav-handle-open', 'btn', { hide: isOpen }]"
       @click="isOpen = true"
       src="~/assets/images/pc/guide/nav/handle_open.png"
     />
