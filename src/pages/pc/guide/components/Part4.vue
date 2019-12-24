@@ -42,8 +42,10 @@ export default {
     return {
       swiperOption: {
         effect: 'coverflow',
-        prevButton: '.swiper-button-prev',
-        nextButton: '.swiper-button-next',
+        navigation: {
+          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next'
+        },
         pagination: {
           el: '.swiper-pagination',
           type: 'bullets',

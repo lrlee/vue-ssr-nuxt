@@ -535,6 +535,7 @@ export default {
     this.observePartScroll()
   },
   created() {
+    console.log('ok', this.roleInfo)
     this.setBookTotalPolling()
   },
   methods: {

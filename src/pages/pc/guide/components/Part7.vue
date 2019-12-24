@@ -82,7 +82,7 @@ export default {
 @import url('~assets/css/guide.less');
 .part-container {
   position: relative;
-  margin-top: 172 * @vw;
+  margin-top: 239 * @vw;
   display: flex;
   flex-direction: column;
   align-items: center;

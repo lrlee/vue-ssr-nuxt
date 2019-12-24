@@ -9,7 +9,7 @@
     <div class="content">
       <div class="role-select">
         <ul class="role-list">
-          <li v-for="item in roleInfo" :key="item" :class="'role-' + item.id" class="role-item"></li>
+          <li v-for="(item, index) in roleInfo" :key="index" :class="'role-' + item.id" class="role-item"></li>
         </ul>
         <div class="prev-btn btn"></div>
         <div class="next-btn btn"></div>
@@ -29,7 +29,7 @@ export default {
   props: {
     roleInfo: {
       required: true,
-      type: Object
+      type: Array
     }
   },
   data() {
