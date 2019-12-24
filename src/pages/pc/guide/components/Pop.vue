@@ -215,14 +215,14 @@ export default {
   .close-icon {
     width: 93 * @vw;
     height: 93 * @vw;
-    background: url('~assets/images/pc/guide/close_pop.png') no-repeat;
+    background: url('~assets/images/pc/guide/close_circle_pop.png') no-repeat;
     background-size: contain;
     position: absolute;
     right: -21 * @vw;
     top: 219 * @vw;
     z-index: 3;
     &:hover {
-      background-image: url('~assets/images/pc/guide/close_hover_pop.png');
+      background-image: url('~assets/images/pc/guide/close_circle_hover_pop.png');
     }
   }
 }

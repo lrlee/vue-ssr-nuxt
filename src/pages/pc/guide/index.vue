@@ -460,7 +460,7 @@
         </div>
       </div>
       <Part4></Part4>
-      <Part5></Part5>
+      <Part5 :roleInfo="roleInfo"></Part5>
       <Part6></Part6>
       <Part7></Part7>
     </div>
@@ -477,7 +477,7 @@ import Part5 from './components/Part5'
 import Part6 from './components/Part6'
 import Part7 from './components/Part7'
 import * as local from '@/utils/auth'
-import { bookingOnOrOff, getBookTotal } from '@/api/index'
+import { bookingOnOrOff, getBookTotal, getBookingRole } from '@/api/index'
 import { parseTime } from '@/utils/common'
 export default {
   components: {
@@ -499,29 +499,34 @@ export default {
     }
   },
   asyncData({ store }) {
-    return bookingOnOrOff().then(res => {
-      console.log(res)
-      if (res.code === 0) {
-        if (!res.data.on_off) {
+    return Promise.all([bookingOnOrOff(), getBookingRole()]).then(arr => {
+      let bookInfo = {}
+      if (arr[0].code === 0) {
+        if (!arr[0].data.on_off) {
           store.$router.replace({
             path: '/home'
           })
-          return {
+          bookInfo = {
             beginTime: '',
             endTime: '',
-            on_off: res.data.on_off,
+            on_off: arr[0].data.on_off,
             bookedTotal: 0,
             bookedTotal_arr: [0]
           }
         } else {
-          return {
-            beginTime: parseTime(res.data.begin_time, '{y}.{m}.{d}'),
-            endTime: parseTime(res.data.end_time, '{y}.{m}.{d}'),
-            on_off: res.data.on_off,
-            bookedTotal: res.data.total,
-            bookedTotal_arr: res.data.total.toString().split('')
+          bookInfo = {
+            beginTime: parseTime(arr[0].data.begin_time, '{y}.{m}.{d}'),
+            endTime: parseTime(arr[0].data.end_time, '{y}.{m}.{d}'),
+            on_off: arr[0].data.on_off,
+            bookedTotal: arr[0].data.total,
+            bookedTotal_arr: arr[0].data.total.toString().split('')
           }
         }
+      }
+      console.log('role', arr[1].data)
+      return {
+        ...bookInfo,
+        roleInfo: arr[1].data
       }
     })
   },

@@ -116,3 +116,11 @@ export function getBookTotal() {
     method: 'get'
   })
 }
+
+// 前置页获取人物信息
+export function getBookingRole() {
+  return request({
+    url: `/booking/role`,
+    method: 'get'
+  })
+}

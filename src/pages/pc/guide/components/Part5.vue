@@ -9,7 +9,7 @@
     <div class="content">
       <div class="role-select">
         <ul class="role-list">
-          <li v-for="item in 6" :key="item" class="role-item"></li>
+          <li v-for="item in roleInfo" :key="item" :class="'role-' + item.id" class="role-item"></li>
         </ul>
         <div class="prev-btn btn"></div>
         <div class="next-btn btn"></div>
@@ -25,7 +25,17 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  props: {
+    roleInfo: {
+      required: true,
+      type: Object
+    }
+  },
+  data() {
+    return {}
+  }
+}
 </script>
 <style lang="less" scoped>
 @import url('~assets/css/guide.less');
@@ -59,6 +69,32 @@ export default {}
       background: url('~assets/images/pc/guide/role_select_bg.png') no-repeat;
       background-size: contain;
       margin-right: 20 * @vw;
+      .role-list {
+        .role-item {
+          width: 118 * @vw;
+          height: 131 * @vw;
+          &:nth-of-type((n-1)*7+1) {
+          }
+        }
+      }
+      .prev-btn {
+        position: absolute;
+        right: 31 * @vw;
+        bottom: 12 * @vw;
+        width: 20 * @vw;
+        height: 69 * @vw;
+        background: url('~assets/images/pc/guide/role_select_pre.png') no-repeat;
+        background-size: contain;
+      }
+      .next-btn {
+        position: absolute;
+        right: 31 * @vw;
+        top: 20 * @vw;
+        width: 20 * @vw;
+        height: 69 * @vw;
+        background: url('~assets/images/pc/guide/role_select_next.png') no-repeat;
+        background-size: contain;
+      }
     }
     .role-display {
       height: 700 * @vw;

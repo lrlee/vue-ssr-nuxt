@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="content">
-      <div class="swiper-container feature-swiper">
+      <div v-swiper="swiperOption" class="swiper-container feature-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img class="swipwr-pic" src="@/assets/images/pc/guide/pic_part4.png" />
@@ -38,58 +38,54 @@
 <script>
 export default {
   data() {
+    const _this = this
     return {
-      grabCursor: true,
-      direction: 'horizontal'
+      swiperOption: {
+        effect: 'coverflow',
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true,
+          renderBullet(index, className) {
+            if (index === 2) {
+              return (
+                '<div class="' +
+                className +
+                '">' +
+                '<div class="bullet-pic"><p class="bullet-text">' +
+                _this.getBulletText(index) +
+                '</p></div>' +
+                '</div>'
+              )
+            }
+            return (
+              '<div class="' +
+              className +
+              '">' +
+              '<div class="bullet-pic"><p class="bullet-text">' +
+              _this.getBulletText(index) +
+              '</p></div><div class="bullet-dot"></div>' +
+              '</div>'
+            )
+          }
+        },
+
+        loop: true,
+        loopedSlides: 2,
+        grabCursor: true,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        coverflowEffect: {
+          rotate: 30,
+          stretch: 520,
+          depth: 400,
+          modifier: 1,
+          slideShadows: true
+        }
+      }
     }
-  },
-  head: {
-    script: [{ src: '/js/swiper.min.js' }],
-    link: [{ href: '/css/swiper.min.css' }]
-  },
-  mounted() {
-    // const self = this
-    // const mySwiper = new Swiper('.swiper-container', {
-    //   effect: 'coverflow',
-    //   prevButton: '.swiper-button-prev',
-    //   nextButton: '.swiper-button-next',
-    //   pagination: '.swiper-pagination',
-    //   paginationClickable: true,
-    //   paginationBulletRender(swiper, index, className) {
-    //     if (index === 2) {
-    //       return (
-    //         '<div class="' +
-    //         className +
-    //         '">' +
-    //         '<div class="bullet-pic"><p class="bullet-text">' +
-    //         self.getBulletText(index) +
-    //         '</p></div>' +
-    //         '</div>'
-    //       )
-    //     }
-    //     return (
-    //       '<div class="' +
-    //       className +
-    //       '">' +
-    //       '<div class="bullet-pic"><p class="bullet-text">' +
-    //       self.getBulletText(index) +
-    //       '</p></div><div class="bullet-dot"></div>' +
-    //       '</div>'
-    //     )
-    //   },
-    //   loop: true,
-    //   loopedSlides: 2,
-    //   grabCursor: true,
-    //   slidesPerView: 'auto',
-    //   centeredSlides: true,
-    //   coverflow: {
-    //     rotate: 30,
-    //     stretch: 520,
-    //     depth: 400,
-    //     modifier: 1,
-    //     slideShadows: true
-    //   }
-    // })
   },
   methods: {
     getBulletText(index) {
