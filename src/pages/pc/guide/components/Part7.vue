@@ -108,11 +108,11 @@ export default {
     height: 766 * @vw;
 
     .video {
-      width: 877 * @vw;
+      width: 878 * @vw;
       height: 504 * @vw;
       position: absolute;
       top: 43 * @vw;
-      left: 165 * @vw;
+      left: 166 * @vw;
       background: #000000;
       border-top-left-radius: 50% 4%;
       border-top-right-radius: 50% 4%;

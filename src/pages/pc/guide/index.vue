@@ -463,6 +463,7 @@
       <Part5 :roleInfo="roleInfo"></Part5>
       <Part6></Part6>
       <Part7></Part7>
+      <Rules></Rules>
     </div>
   </div>
 </template>
@@ -476,6 +477,7 @@ import Part4 from './components/Part4'
 import Part5 from './components/Part5'
 import Part6 from './components/Part6'
 import Part7 from './components/Part7'
+import Rules from './components/Rules'
 import * as local from '@/utils/auth'
 import { bookingOnOrOff, getBookTotal, getBookingRole } from '@/api/index'
 import { parseTime } from '@/utils/common'
@@ -487,7 +489,8 @@ export default {
     Part4,
     Part5,
     Part6,
-    Part7
+    Part7,
+    Rules
   },
   data() {
     return {

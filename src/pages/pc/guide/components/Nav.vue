@@ -49,7 +49,7 @@
     </div>
     <img
       :class="['nav-handle-open', 'btn', { hide: isOpen }]"
-      @click="isOpen = true"
+      @mouseenter="isOpen = true"
       src="~/assets/images/pc/guide/nav/handle_open.png"
     />
   </div>
