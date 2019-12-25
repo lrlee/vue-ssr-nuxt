@@ -40,7 +40,8 @@
         <div class="colorpaper-animation"></div>
         <div class="book-success-box">
           <div class="qr-box">
-            <div class="qr-pic"></div>
+            <div class="qr-sticker"></div>
+            <div id="qrcode" ref="qrcode" class="qr-pic"></div>
           </div>
           <div class="invite-content">
             <div class="invite-text">
@@ -65,6 +66,7 @@
 </template>
 <script>
 import qs from 'qs'
+// import QRCode from 'qrcodejs2'
 import { getBookVeriCode, toBook } from '@/api/index'
 import * as local from '@/utils/auth'
 export default {
@@ -76,6 +78,7 @@ export default {
   },
   data() {
     return {
+      qrCode: null,
       codeErr: false,
       phoneErr: false,
       codeBtnText: '请输入验证码',
@@ -92,15 +95,31 @@ export default {
       inviteLink: ''
     }
   },
-  created() {
+  mounted() {
     if (this.bookStatus === 'success') {
       this.invite_id_self = local.getGuid()
       this.inviteLink = location.origin + '?invite_code=' + this.invite_id_self
+      this.$nextTick(() => {
+        this.crateQrcode()
+      })
     } else {
       this.form.inviter_id = this.$route.query.invite_code
     }
   },
   methods: {
+    crateQrcode() {
+      if (process.client) {
+        const QRCode = require('qrcodejs2')
+        this.qrCode = new QRCode('qrcode', {
+          width: 150,
+          height: 150,
+          text: this.inviteLink
+          // render: 'canvas' // 设置渲染方式（有两种方式 table和canvas，默认是canvas）
+          // background: '#f0f'
+          // foreground: '#ff0'
+        })
+      }
+    },
     closePop() {
       this.$emit('closePop')
     },
@@ -174,6 +193,9 @@ export default {
             this.changeBookStatus('success')
             this.invite_id_self = res.data.invite_id
             this.inviteLink = location.origin + '?invite_code=' + this.invite_id_self
+            this.$nextTick(() => {
+              this.crateQrcode()
+            })
             local.setGuid(this.invite_id_self)
           } else {
             this.codeErr = true
@@ -242,6 +264,7 @@ export default {
     z-index: 2;
   }
   .colorpaper-animation {
+    pointer-events: none;
     position: absolute;
     top: -38 * @vw;
     right: -21 * @vw;
@@ -407,10 +430,22 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    .qr-sticker {
+      position: absolute;
+      width: 261 * @vw;
+      height: 258 * @vw;
+      background: url('~assets/images/pc/guide/qr_sticker_pop.png') bottom center no-repeat;
+      background-size: contain;
+    }
     .qr-pic {
       width: 159 * @vw;
       height: 159 * @vw;
       background-color: #fff;
+      /deep/ img {
+        width: 159 * @vw;
+        height: 159 * @vw;
+      }
     }
   }
   .invite-content {

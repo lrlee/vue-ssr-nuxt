@@ -124,3 +124,19 @@ export function getBookingRole() {
     method: 'get'
   })
 }
+
+// 预约活动静态数据
+export function getBookingData() {
+  return request({
+    url: `/reserve_gift/awards`,
+    method: 'get'
+  })
+}
+
+// 获取邀请人数
+export function getInvitedCount(guid) {
+  return request({
+    url: `/booking/invited_count/${guid}`,
+    method: 'get'
+  })
+}

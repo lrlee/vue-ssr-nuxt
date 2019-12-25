@@ -13,7 +13,7 @@
         </li>
       </ul>
       <div class="rules-button">
-        <div class="book-button btn"></div>
+        <div @click="openBookPop" class="book-button btn"></div>
         <div class="book-text">指尖泡泡一触即发</div>
       </div>
       <div class="aircraft"></div>
@@ -59,6 +59,11 @@ export default {
     return {
       rulesOptions,
       codeOptions
+    }
+  },
+  methods: {
+    openBookPop() {
+      this.$emit('openBookPop')
     }
   }
 }

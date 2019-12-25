@@ -61,40 +61,19 @@
             <div class="content">
               <p class="content-title"><span class="title-text">预约即得，人人有份</span></p>
               <ul class="gift-list">
-                <li class="gift-item gift1">
+                <li
+                  v-for="(gift, index) in part1Data"
+                  :key="index"
+                  :class="'gift' + (index + 1)"
+                  class="gift-item gift1"
+                >
                   <div class="gift-pic-box">
-                    <div class="gift-pic"></div>
+                    <img :src="part1Data[index].pic" class="gift-pic" />
                   </div>
-                  <p class="gift-name">加速鞋子</p>
-                  <div class="ribbon-icon"><span>7天</span></div>
-                </li>
-                <li class="gift-item gift2">
-                  <div class="gift-pic-box">
-                    <div class="gift-pic"></div>
+                  <p class="gift-name">{{ $t('game.' + part1Data[index].name.key) }}</p>
+                  <div class="ribbon-icon">
+                    <span>x{{ part1Data[index].amount }}</span>
                   </div>
-                  <p class="gift-name">加速鞋子</p>
-                  <div class="ribbon-icon"><span>7天</span></div>
-                </li>
-                <li class="gift-item gift3">
-                  <div class="gift-pic-box">
-                    <div class="gift-pic"></div>
-                  </div>
-                  <p class="gift-name">加速鞋子</p>
-                  <div class="ribbon-icon"><span>7天</span></div>
-                </li>
-                <li class="gift-item gift4">
-                  <div class="gift-pic-box">
-                    <div class="gift-pic"></div>
-                  </div>
-                  <p class="gift-name">加速鞋子</p>
-                  <div class="ribbon-icon"><span>7天</span></div>
-                </li>
-                <li class="gift-item gift5">
-                  <div class="gift-pic-box">
-                    <div class="gift-pic"></div>
-                  </div>
-                  <p class="gift-name">加速鞋子</p>
-                  <div class="ribbon-icon"><span>7天</span></div>
                 </li>
               </ul>
               <div class="book-btn-box">
@@ -141,34 +120,13 @@
                   </div>
                   <div class="achieve-gift">
                     <p class="gift-note">预约达成奖励</p>
-                    <ul class="gift-list list-4">
-                      <li class="gift-item">
+                    <ul v-if="part2Data[0].awards" class="gift-list list-4">
+                      <li v-for="(gift, index) in part2Data[0].awards" :key="index" class="gift-item">
                         <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
+                          <img :src="part2Data[0].awards[index].pic" class="gift-pic" />
+                          <span class="gift-num">x{{ part2Data[0].awards[index].amount }}</span>
                         </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
+                        <p class="gift-name">{{ $t('game.' + part2Data[0].awards[index].name.key) }}</p>
                       </li>
                     </ul>
                   </div>
@@ -185,34 +143,13 @@
                   </div>
                   <div class="achieve-gift">
                     <p class="gift-note">预约达成奖励</p>
-                    <ul class="gift-list list-4">
-                      <li class="gift-item">
+                    <ul v-if="part2Data[1].awards" class="gift-list list-4">
+                      <li v-for="(gift, index) in part2Data[1].awards" :key="index" class="gift-item">
                         <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
+                          <img :src="part2Data[1].awards[index].pic" class="gift-pic" />
+                          <span class="gift-num">x{{ part2Data[1].awards[index].amount }}</span>
                         </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
+                        <p class="gift-name">{{ $t('game.' + part2Data[1].awards[index].name.key) }}</p>
                       </li>
                     </ul>
                   </div>
@@ -221,157 +158,79 @@
             </div>
             <div class="part-row row2">
               <div :class="{ light: bookedTotal >= 100 * 10000 }" class="achieve-box box-100w">
-                <div class="bult-pic"></div>
-                <div class="achieve-content">
-                  <div class="achieve-num">
-                    <div class="num-pic num-100w">
-                      <span class="num-note">预约人数</span>
+                <template v-if="part2Data[4]">
+                  <div class="bult-pic"></div>
+                  <div class="achieve-content">
+                    <div class="achieve-num">
+                      <div class="num-pic num-100w">
+                        <span class="num-note">预约人数</span>
+                      </div>
+                      <div class="achieved-seal gift-5"></div>
                     </div>
-                    <div class="achieved-seal gift-5"></div>
+                    <div class="achieve-gift">
+                      <p class="gift-note">预约达成奖励</p>
+                      <ul v-if="part2Data[4].awards" class="gift-list list-5">
+                        <li v-for="(gift, index) in part2Data[4].awards" :key="index" class="gift-item">
+                          <div class="gift-box">
+                            <img :src="part2Data[4].awards[index].pic" class="gift-pic" />
+                            <span class="gift-num">x{{ part2Data[4].awards[index].amount }}</span>
+                          </div>
+                          <p class="gift-name">{{ $t('game.' + part2Data[4].awards[index].name.key) }}</p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="achieve-gift">
-                    <p class="gift-note">预约达成奖励</p>
-                    <ul class="gift-list list-5">
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                </template>
               </div>
               <div :class="{ light: bookedTotal >= 80 * 10000 }" class="achieve-box box-80w">
-                <div class="bult-pic"></div>
-                <div class="achieve-content">
-                  <div class="achieve-num">
-                    <div class="num-pic num-80w">
-                      <span class="num-note">预约人数</span>
+                <template v-if="part2Data[3]">
+                  <div class="bult-pic"></div>
+                  <div class="achieve-content">
+                    <div class="achieve-num">
+                      <div class="num-pic num-80w">
+                        <span class="num-note">预约人数</span>
+                      </div>
+                      <div class="achieved-seal gift-5"></div>
                     </div>
-                    <div class="achieved-seal gift-5"></div>
+                    <div class="achieve-gift">
+                      <p class="gift-note">预约达成奖励</p>
+                      <ul v-if="part2Data[3].awards" class="gift-list list-5">
+                        <li v-for="(gift, index) in part2Data[3].awards" :key="index" class="gift-item">
+                          <div class="gift-box">
+                            <img :src="part2Data[3].awards[index].pic" class="gift-pic" />
+                            <span class="gift-num">x{{ part2Data[3].awards[index].amount }}</span>
+                          </div>
+                          <p class="gift-name">{{ $t('game.' + part2Data[3].awards[index].name.key) }}</p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="achieve-gift">
-                    <p class="gift-note">预约达成奖励</p>
-                    <ul class="gift-list list-5">
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                </template>
               </div>
               <div :class="{ light: bookedTotal >= 50 * 10000 }" class="achieve-box box-50w">
-                <div class="bult-pic"></div>
-                <div class="achieve-content">
-                  <div class="achieve-num">
-                    <div class="num-pic num-50w">
-                      <span class="num-note">预约人数</span>
+                <template v-if="part2Data[2]">
+                  <div class="bult-pic"></div>
+                  <div class="achieve-content">
+                    <div class="achieve-num">
+                      <div class="num-pic num-50w">
+                        <span class="num-note">预约人数</span>
+                      </div>
+                      <div class="achieved-seal gift-5"></div>
                     </div>
-                    <div class="achieved-seal gift-5"></div>
+                    <div class="achieve-gift">
+                      <p class="gift-note">预约达成奖励</p>
+                      <ul v-if="part2Data[2].awards" class="gift-list list-5">
+                        <li v-for="(gift, index) in part2Data[2].awards" :key="index" class="gift-item">
+                          <div class="gift-box">
+                            <img :src="part2Data[2].awards[index].pic" class="gift-pic" />
+                            <span class="gift-num">x{{ part2Data[2].awards[index].amount }}</span>
+                          </div>
+                          <p class="gift-name">{{ $t('game.' + part2Data[2].awards[index].name.key) }}</p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="achieve-gift">
-                    <p class="gift-note">预约达成奖励</p>
-                    <ul class="gift-list list-5">
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                      <li class="gift-item">
-                        <div class="gift-box">
-                          <img class="gift-pic" src="~/assets/images/pc/guide/gift_gold.png" />
-                          <span class="gift-num">X200</span>
-                        </div>
-                        <p class="gift-name">金币</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                </template>
               </div>
             </div>
             <div class="part-description">
@@ -398,44 +257,52 @@
           </div>
           <div class="gift-content">
             <ul class="gift-list">
-              <li class="gift-item light">
+              <li :class="{ light: invitedNum > 0 }" class="gift-item">
                 <div class="gift-box">
-                  <div class="gift-wrapper">
-                    <div class="gift-pic"></div>
-                    <p class="gift-name">钱袋X200</p>
+                  <div v-if="part3Data[0] && part3Data[0].awards" class="gift-wrapper">
+                    <img :src="part3Data[0].awards[0].pic" class="gift-pic" />
+                    <p class="gift-name">
+                      {{ $t('game.' + part3Data[0].awards[0].name.key) }}x{{ part3Data[0].awards[0].amount }}
+                    </p>
                     <div class="gift-label">邀请1位好友</div>
                     <div class="paopao-pic"></div>
                   </div>
                 </div>
                 <div class="wire wire1"></div>
               </li>
-              <li class="gift-item light">
+              <li :class="{ light: invitedNum > 2 }" class="gift-item">
                 <div class="gift-box">
-                  <div class="gift-wrapper">
-                    <div class="gift-pic"></div>
-                    <p class="gift-name">钱袋X200</p>
+                  <div v-if="part3Data[1] && part3Data[1].awards" class="gift-wrapper">
+                    <img :src="part3Data[1].awards[0].pic" class="gift-pic" />
+                    <p class="gift-name">
+                      {{ $t('game.' + part3Data[1].awards[0].name.key) }}x{{ part3Data[1].awards[0].amount }}
+                    </p>
                     <div class="gift-label">邀请3位好友</div>
                     <div class="paopao-pic"></div>
                   </div>
                 </div>
                 <div class="wire wire2"></div>
               </li>
-              <li class="gift-item">
+              <li :class="{ light: invitedNum > 4 }" class="gift-item">
                 <div class="gift-box">
-                  <div class="gift-wrapper">
-                    <div class="gift-pic"></div>
-                    <p class="gift-name">钱袋X200</p>
+                  <div v-if="part3Data[2] && part3Data[2].awards" class="gift-wrapper">
+                    <img :src="part3Data[2].awards[0].pic" class="gift-pic" />
+                    <p class="gift-name">
+                      {{ $t('game.' + part3Data[2].awards[0].name.key) }}x{{ part3Data[2].awards[0].amount }}
+                    </p>
                     <div class="gift-label">邀请5位好友</div>
                     <div class="paopao-pic"></div>
                   </div>
                 </div>
                 <div class="wire wire3"></div>
               </li>
-              <li class="gift-item">
+              <li :class="{ light: invitedNum > 7 }" class="gift-item">
                 <div class="gift-box">
-                  <div class="gift-wrapper">
-                    <div class="gift-pic"></div>
-                    <p class="gift-name">钱袋X200</p>
+                  <div v-if="part3Data[3] && part3Data[3].awards" class="gift-wrapper">
+                    <img :src="part3Data[3].awards[0].pic" class="gift-pic" />
+                    <p class="gift-name">
+                      {{ $t('game.' + part3Data[3].awards[0].name.key) }}x{{ part3Data[3].awards[0].amount }}
+                    </p>
                     <div class="gift-label">邀请8位好友</div>
                     <div class="paopao-pic"></div>
                   </div>
@@ -449,7 +316,7 @@
             <div class="invite-board">
               <p class="invite-text">
                 您已邀请
-                <span class="invite-num">0位</span>
+                <span class="invite-num">{{ invitedNum }}位</span>
                 好友
               </p>
               <div class="invite-btn-box">
@@ -463,13 +330,11 @@
       <Part5 :roleInfo="roleInfo"></Part5>
       <Part6></Part6>
       <Part7></Part7>
-      <Rules></Rules>
+      <Rules @openBookPop="openBookPop"></Rules>
     </div>
   </div>
 </template>
 <script>
-// import qs from 'qs'
-// import 'intersection-observer'
 import Nav from './components/Nav'
 import Pop from './components/Pop'
 import CountNumber from './components/CountNumber'
@@ -479,7 +344,7 @@ import Part6 from './components/Part6'
 import Part7 from './components/Part7'
 import Rules from './components/Rules'
 import * as local from '@/utils/auth'
-import { bookingOnOrOff, getBookTotal, getBookingRole } from '@/api/index'
+import { bookingOnOrOff, getBookTotal, getBookingRole, getBookingData, getInvitedCount } from '@/api/index'
 import { parseTime } from '@/utils/common'
 export default {
   components: {
@@ -494,16 +359,19 @@ export default {
   },
   data() {
     return {
+      defaultGiftUrl: require('~/assets/images/pc/guide/gift_gold.png'),
       showPop: false,
       invite_id_self: '', // 本用户的邀请码 也是本用户的guid
       bookStatus: 'booking', // 预约状态： success 预约成功 | booking 预约中
       showNav: false,
-      title: '超人预约见面礼'
+      title: '超人预约见面礼',
+      invitedNum: 0 // 邀请人数
     }
   },
   asyncData({ store }) {
-    return Promise.all([bookingOnOrOff(), getBookingRole()]).then(arr => {
+    return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole()]).then(arr => {
       let bookInfo = {}
+      console.log(111, arr[0])
       if (arr[0].code === 0) {
         if (!arr[0].data.on_off) {
           store.$router.replace({
@@ -518,18 +386,22 @@ export default {
           }
         } else {
           bookInfo = {
-            beginTime: parseTime(arr[0].data.begin_time, '{y}.{m}.{d}'),
-            endTime: parseTime(arr[0].data.end_time, '{y}.{m}.{d}'),
+            beginTime: arr[0].data.begin_time ? parseTime(arr[0].data.begin_time, '{y}.{m}.{d}') : '',
+            endTime: arr[0].data.end_time ? parseTime(arr[0].data.end_time, '{y}.{m}.{d}') : '',
             on_off: arr[0].data.on_off,
             bookedTotal: arr[0].data.total,
             bookedTotal_arr: arr[0].data.total.toString().split('')
           }
         }
       }
-      console.log('role', arr[1].data)
+      console.log('activity', arr[1].data)
+      const activityData = arr[1].data
       return {
         ...bookInfo,
-        roleInfo: arr[1].data
+        roleInfo: arr[2].data,
+        part1Data: activityData.part1,
+        part2Data: activityData.part2,
+        part3Data: activityData.part3
       }
     })
   },
@@ -538,10 +410,23 @@ export default {
     this.observePartScroll()
   },
   created() {
+    if (process.client) {
+      this.invite_id_self = local.getGuid() || ''
+      if (this.invite_id_self) {
+        this.toGetInviteDCount()
+      }
+    }
     console.log('ok', this.roleInfo)
     this.setBookTotalPolling()
   },
   methods: {
+    toGetInviteDCount() {
+      getInvitedCount(this.invite_id_self).then(res => {
+        if (res.code === 0) {
+          this.invitedNum = res.data
+        }
+      })
+    },
     setBookTotalPolling() {
       this.totalPolling = setInterval(() => {
         getBookTotal().then(res => {
@@ -550,7 +435,7 @@ export default {
             this.bookedTotal_arr = res.data.toString().split('')
           }
         })
-      }, 3000)
+      }, 30000)
     },
     openBookPop() {
       this.invite_id_self = local.getGuid()
@@ -1068,8 +953,8 @@ export default {
               justify-content: center;
               .gift-pic {
                 width: 82 * @vw;
-                height: 82 * @vw;
-                background-color: #fff947;
+                // height: 82 * @vw;
+                // background-color: #fff947;
               }
             }
             .gift-name {
@@ -1382,7 +1267,7 @@ export default {
                     position: relative;
                     .gift-pic {
                       width: 44 * @vw;
-                      height: 38 * @vw;
+                      // height: 38 * @vw;
                     }
                     .gift-num {
                       font-size: 13 * @vw;
@@ -1652,15 +1537,13 @@ export default {
               overflow: hidden;
               .gift-pic {
                 width: 100 * @vw;
-                height: 106 * @vw;
-                background: url('~assets/images/pc/guide/gift_purse.png') no-repeat;
-                background-size: contain;
               }
               .gift-name {
                 margin-top: 5 * @vw;
                 color: #1c3899;
                 font-size: 16 * @vw;
                 // -webkit-text-stroke: 1px #fff;
+                text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
               }
               .gift-label {
                 margin-top: 11 * @vw;

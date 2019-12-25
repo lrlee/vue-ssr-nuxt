@@ -227,6 +227,48 @@ export default {
     background-size: contain;
   }
 }
+.role-1 {
+  width: 327 * @vw;
+  height: 482 * @vw;
+  background: url('~assets/images/pc/guide/role/role_display/role_1.png') no-repeat;
+  background-size: contain;
+}
+.role-2 {
+  width: 369 * @vw;
+  height: 474 * @vw;
+  background: url('~assets/images/pc/guide/role/role_display/role_2.png') no-repeat;
+  background-size: contain;
+}
+.role-4 {
+  width: 456 * @vw;
+  height: 441 * @vw;
+  background: url('~assets/images/pc/guide/role/role_display/role_4.png') no-repeat;
+  background-size: contain;
+}
+.role-7 {
+  width: 382 * @vw;
+  height: 510 * @vw;
+  background: url('~assets/images/pc/guide/role/role_display/role_7.png') no-repeat;
+  background-size: contain;
+}
+.role-8 {
+  width: 369 * @vw;
+  height: 437 * @vw;
+  background: url('~assets/images/pc/guide/role/role_display/role_8.png') no-repeat;
+  background-size: contain;
+}
+.role-12 {
+  width: 322 * @vw;
+  height: 526 * @vw;
+  background: url('~assets/images/pc/guide/role/role_display/role_12.png') no-repeat;
+  background-size: contain;
+}
+.role-14 {
+  width: 417 * @vw;
+  height: 420 * @vw;
+  background: url('~assets/images/pc/guide/role/role_display/role_14.png') no-repeat;
+  background-size: contain;
+}
 .part-container {
   margin-top: 280 * @vw;
   display: flex;
@@ -249,7 +291,8 @@ export default {
   .content {
     display: flex;
     align-items: center;
-    margin-top: 70 * @vw;
+    margin-bottom: 70 * @vw;
+    margin-left: 100 * @vw;
     .role-select {
       position: relative;
       width: 264 * @vw;
@@ -357,10 +400,10 @@ export default {
         .role-pic {
           position: absolute;
           bottom: 130 * @vw;
-          width: 383 * @vw;
-          height: 556 * @vw;
-          background: url('~assets/images/pc/guide/role_lili_part5.png') no-repeat;
-          background-size: contain;
+          // width: 383 * @vw;
+          // height: 556 * @vw;
+          // background: url('~assets/images/pc/guide/role_lili_part5.png') no-repeat;
+          // background-size: contain;
         }
       }
     }

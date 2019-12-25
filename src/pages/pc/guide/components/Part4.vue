@@ -172,19 +172,19 @@ export default {
         .left {
           visibility: hidden;
           transform: translateX(-300 * @vw);
-          animation: move_in 1.5s;
+          animation: move_in 1s;
           animation-fill-mode: forwards;
         }
         .right {
           visibility: hidden;
           transform: translateX(300 * @vw);
-          animation: move_in 1.5s;
+          animation: move_in 1s;
           animation-fill-mode: forwards;
         }
         .swiper-doll {
           position: absolute;
           display: none;
-          animation-delay: 1.6s;
+          animation-delay: 1s;
           &.doll1 {
             left: -260 * @vw;
             bottom: -60 * @vw;
@@ -213,7 +213,7 @@ export default {
         .swiper-role {
           position: absolute;
           display: none;
-          animation-delay: 0.8s;
+          animation-delay: 0.5s;
           &.role1 {
             right: -160 * @vw;
             bottom: -120 * @vw;
