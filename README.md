@@ -37,7 +37,8 @@ inviter_id:
 
 get: http://127.0.0.1:8080/booking/invited_count/e10548fef8c23077
 
-
+#game_zh.json数据
+http://api.paopao.vip/activityitems/localizetojson/0
 
 
 

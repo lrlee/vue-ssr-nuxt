@@ -11,7 +11,7 @@
               <i class="icon wechat-icon"></i>
               <div class="qrCode-tip wechat">
                 <div class="qrCode-box">
-                  <img class="qrCode-pic" />
+                  <img v-if="contactsInfo && contactsInfo.woa" :src="contactsInfo.woa.qrcode" class="qrCode-pic" />
                 </div>
                 <p class="qrCode-title">官方微信公众号</p>
               </div>
@@ -74,12 +74,7 @@
             <div class="content">
               <p class="content-title"><span class="title-text">预约即得，人人有份</span></p>
               <ul class="gift-list">
-                <li
-                  v-for="(gift, index) in part1Data"
-                  :key="index"
-                  :class="'gift' + (index + 1)"
-                  class="gift-item gift1"
-                >
+                <li v-for="(gift, index) in part1Data" :key="index" :class="'gift' + (index + 1)" class="gift-item">
                   <div class="gift-pic-box">
                     <img :src="part1Data[index].pic" class="gift-pic" />
                   </div>
@@ -116,62 +111,66 @@
                 <div class="count-board">
                   <p class="board-title">当前预约人数</p>
                   <ul class="board-num-list">
-                    <li v-for="(num, index) in 6" :key="index" class="board-num-item">
+                    <li v-for="(num, index) in 7" :key="index" class="board-num-item">
                       <Count-number :number="bookedTotal_arr[index]"></Count-number>
                     </li>
                   </ul>
                 </div>
               </div>
               <div :class="{ light: bookedTotal >= 10 * 10000 }" class="achieve-box box-10w">
-                <div class="bult-pic"></div>
-                <div class="achieve-content">
-                  <div class="achieve-num">
-                    <div class="num-pic num-10w">
-                      <span class="num-note">预约人数</span>
+                <template v-if="part2Data && part2Data[0]">
+                  <div class="bult-pic"></div>
+                  <div class="achieve-content">
+                    <div class="achieve-num">
+                      <div class="num-pic num-10w">
+                        <span class="num-note">预约人数</span>
+                      </div>
+                      <div class="achieved-seal"></div>
                     </div>
-                    <div class="achieved-seal"></div>
+                    <div class="achieve-gift">
+                      <p class="gift-note">预约达成奖励</p>
+                      <ul v-if="part2Data && part2Data[0].awards" class="gift-list list-4">
+                        <li v-for="(gift, index) in part2Data[0].awards" :key="index" class="gift-item">
+                          <div class="gift-box">
+                            <img :src="part2Data[0].awards[index].pic" class="gift-pic" />
+                            <span class="gift-num">x{{ part2Data[0].awards[index].amount }}</span>
+                          </div>
+                          <p class="gift-name">{{ $t('game.' + part2Data[0].awards[index].name.key) }}</p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="achieve-gift">
-                    <p class="gift-note">预约达成奖励</p>
-                    <ul v-if="part2Data[0].awards" class="gift-list list-4">
-                      <li v-for="(gift, index) in part2Data[0].awards" :key="index" class="gift-item">
-                        <div class="gift-box">
-                          <img :src="part2Data[0].awards[index].pic" class="gift-pic" />
-                          <span class="gift-num">x{{ part2Data[0].awards[index].amount }}</span>
-                        </div>
-                        <p class="gift-name">{{ $t('game.' + part2Data[0].awards[index].name.key) }}</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                </template>
               </div>
               <div :class="{ light: bookedTotal >= 30 * 10000 }" class="achieve-box box-30w">
-                <div class="bult-pic"></div>
-                <div class="achieve-content">
-                  <div class="achieve-num">
-                    <div class="num-pic num-30w">
-                      <span class="num-note">预约人数</span>
+                <template v-if="part2Data && part2Data[1]">
+                  <div class="bult-pic"></div>
+                  <div class="achieve-content">
+                    <div class="achieve-num">
+                      <div class="num-pic num-30w">
+                        <span class="num-note">预约人数</span>
+                      </div>
+                      <div class="achieved-seal"></div>
                     </div>
-                    <div class="achieved-seal"></div>
+                    <div class="achieve-gift">
+                      <p class="gift-note">预约达成奖励</p>
+                      <ul v-if="part2Data && part2Data[1].awards" class="gift-list list-4">
+                        <li v-for="(gift, index) in part2Data[1].awards" :key="index" class="gift-item">
+                          <div class="gift-box">
+                            <img :src="part2Data[1].awards[index].pic" class="gift-pic" />
+                            <span class="gift-num">x{{ part2Data[1].awards[index].amount }}</span>
+                          </div>
+                          <p class="gift-name">{{ $t('game.' + part2Data[1].awards[index].name.key) }}</p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="achieve-gift">
-                    <p class="gift-note">预约达成奖励</p>
-                    <ul v-if="part2Data[1].awards" class="gift-list list-4">
-                      <li v-for="(gift, index) in part2Data[1].awards" :key="index" class="gift-item">
-                        <div class="gift-box">
-                          <img :src="part2Data[1].awards[index].pic" class="gift-pic" />
-                          <span class="gift-num">x{{ part2Data[1].awards[index].amount }}</span>
-                        </div>
-                        <p class="gift-name">{{ $t('game.' + part2Data[1].awards[index].name.key) }}</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                </template>
               </div>
             </div>
             <div class="part-row row2">
               <div :class="{ light: bookedTotal >= 100 * 10000 }" class="achieve-box box-100w">
-                <template v-if="part2Data[4]">
+                <template v-if="part2Data && part2Data[4]">
                   <div class="bult-pic"></div>
                   <div class="achieve-content">
                     <div class="achieve-num">
@@ -182,7 +181,7 @@
                     </div>
                     <div class="achieve-gift">
                       <p class="gift-note">预约达成奖励</p>
-                      <ul v-if="part2Data[4].awards" class="gift-list list-5">
+                      <ul v-if="part2Data && part2Data[4].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[4].awards" :key="index" class="gift-item">
                           <div class="gift-box">
                             <img :src="part2Data[4].awards[index].pic" class="gift-pic" />
@@ -196,7 +195,7 @@
                 </template>
               </div>
               <div :class="{ light: bookedTotal >= 80 * 10000 }" class="achieve-box box-80w">
-                <template v-if="part2Data[3]">
+                <template v-if="part2Data && part2Data[3]">
                   <div class="bult-pic"></div>
                   <div class="achieve-content">
                     <div class="achieve-num">
@@ -207,7 +206,7 @@
                     </div>
                     <div class="achieve-gift">
                       <p class="gift-note">预约达成奖励</p>
-                      <ul v-if="part2Data[3].awards" class="gift-list list-5">
+                      <ul v-if="part2Data && part2Data[3].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[3].awards" :key="index" class="gift-item">
                           <div class="gift-box">
                             <img :src="part2Data[3].awards[index].pic" class="gift-pic" />
@@ -221,7 +220,7 @@
                 </template>
               </div>
               <div :class="{ light: bookedTotal >= 50 * 10000 }" class="achieve-box box-50w">
-                <template v-if="part2Data[2]">
+                <template v-if="part2Data && part2Data[2]">
                   <div class="bult-pic"></div>
                   <div class="achieve-content">
                     <div class="achieve-num">
@@ -232,7 +231,7 @@
                     </div>
                     <div class="achieve-gift">
                       <p class="gift-note">预约达成奖励</p>
-                      <ul v-if="part2Data[2].awards" class="gift-list list-5">
+                      <ul v-if="part2Data && part2Data[2].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[2].awards" :key="index" class="gift-item">
                           <div class="gift-box">
                             <img :src="part2Data[2].awards[index].pic" class="gift-pic" />
@@ -348,6 +347,7 @@
   </div>
 </template>
 <script>
+import PipeBubble from './components/PipeBubble'
 import Nav from './components/Nav'
 import Pop from './components/Pop'
 import CountNumber from './components/CountNumber'
@@ -368,6 +368,7 @@ import {
 import { parseTime } from '@/utils/common'
 export default {
   components: {
+    PipeBubble,
     Nav,
     CountNumber,
     Pop,
@@ -391,6 +392,7 @@ export default {
   asyncData({ store }) {
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
       let bookInfo = {}
+      console.log('on_off', arr[0])
       console.log(111, arr[3])
       if (arr[0].code === 0) {
         if (!arr[0].data.on_off) {
@@ -402,26 +404,35 @@ export default {
             endTime: '',
             on_off: arr[0].data.on_off,
             bookedTotal: 0,
-            bookedTotal_arr: [0]
+            bookedTotal_arr: ['0', '0', '0', '0', '0', '0']
           }
         } else {
+          // 预定总数设置7位
+          const totalArr = arr[0].data.total.toString().split('')
+          const cTotalArr = []
+          const cLength = 7 - totalArr.length > 0 ? 7 - totalArr.length : 0
+          for (let i = 0; i < cLength; i++) {
+            cTotalArr.push('-1')
+          }
+          const rTotalArr = [...cTotalArr, ...totalArr]
           bookInfo = {
             beginTime: arr[0].data.begin_time ? parseTime(arr[0].data.begin_time, '{y}.{m}.{d}') : '',
             endTime: arr[0].data.end_time ? parseTime(arr[0].data.end_time, '{y}.{m}.{d}') : '',
             on_off: arr[0].data.on_off,
             bookedTotal: arr[0].data.total,
-            bookedTotal_arr: arr[0].data.total.toString().split('')
+            bookedTotal_arr: rTotalArr
           }
         }
       }
       console.log('activity', arr[1].data)
+      console.log('contact', arr[3].data)
       const activityData = arr[1].data
       return {
         ...bookInfo,
         roleInfo: arr[2].data,
-        part1Data: activityData.part1,
-        part2Data: activityData.part2,
-        part3Data: activityData.part3,
+        part1Data: activityData.part1 ? activityData.part1 : {},
+        part2Data: activityData.part2 ? activityData.part1 : {},
+        part3Data: activityData.part3 ? activityData.part1 : {},
         contactsInfo: arr[3].data
       }
     })

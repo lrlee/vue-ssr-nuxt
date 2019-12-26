@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      preNumber: 0,
+      preNumber: '0',
       needToJump: false,
       moveY: `translateY(${-this.number * (56 / 19.2)}vw)`
     }
