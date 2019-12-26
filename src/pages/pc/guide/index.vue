@@ -367,6 +367,7 @@ import {
 } from '@/api/index'
 import { parseTime } from '@/utils/common'
 export default {
+  middleware: 'booking',
   components: {
     PipeBubble,
     Nav,
@@ -395,33 +396,20 @@ export default {
       console.log('on_off', arr[0])
       console.log(111, arr[3])
       if (arr[0].code === 0) {
-        if (!arr[0].data.on_off) {
-          store.$router.replace({
-            path: '/home'
-          })
-          bookInfo = {
-            beginTime: '',
-            endTime: '',
-            on_off: arr[0].data.on_off,
-            bookedTotal: 0,
-            bookedTotal_arr: ['0', '0', '0', '0', '0', '0']
-          }
-        } else {
-          // 预定总数设置7位
-          const totalArr = arr[0].data.total.toString().split('')
-          const cTotalArr = []
-          const cLength = 7 - totalArr.length > 0 ? 7 - totalArr.length : 0
-          for (let i = 0; i < cLength; i++) {
-            cTotalArr.push('-1')
-          }
-          const rTotalArr = [...cTotalArr, ...totalArr]
-          bookInfo = {
-            beginTime: arr[0].data.begin_time ? parseTime(arr[0].data.begin_time, '{y}.{m}.{d}') : '',
-            endTime: arr[0].data.end_time ? parseTime(arr[0].data.end_time, '{y}.{m}.{d}') : '',
-            on_off: arr[0].data.on_off,
-            bookedTotal: arr[0].data.total,
-            bookedTotal_arr: rTotalArr
-          }
+        // 预定总数设置7位
+        const totalArr = arr[0].data.total.toString().split('')
+        const cTotalArr = []
+        const cLength = 7 - totalArr.length > 0 ? 7 - totalArr.length : 0
+        for (let i = 0; i < cLength; i++) {
+          cTotalArr.push('-1')
+        }
+        const rTotalArr = [...cTotalArr, ...totalArr]
+        bookInfo = {
+          beginTime: arr[0].data.begin_time ? parseTime(arr[0].data.begin_time, '{y}.{m}.{d}') : '',
+          endTime: arr[0].data.end_time ? parseTime(arr[0].data.end_time, '{y}.{m}.{d}') : '',
+          on_off: arr[0].data.on_off,
+          bookedTotal: arr[0].data.total,
+          bookedTotal_arr: rTotalArr
         }
       }
       console.log('activity', arr[1].data)
@@ -442,6 +430,11 @@ export default {
     this.observePartScroll()
   },
   created() {
+    if (!this.on_off) {
+      this.$router.replace({
+        path: '/home'
+      })
+    }
     if (process.client) {
       this.invite_id_self = local.getGuid() || ''
       if (this.invite_id_self) {
