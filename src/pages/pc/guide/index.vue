@@ -9,16 +9,29 @@
           <ul class="focus-list">
             <li class="focus-item">
               <i class="icon wechat-icon"></i>
+              <div class="qrCode-tip wechat">
+                <div class="qrCode-box">
+                  <img class="qrCode-pic" />
+                </div>
+                <p class="qrCode-title">官方微信公众号</p>
+              </div>
             </li>
             <li class="focus-item">
-              <i class="icon weibo-icon"></i>
+              <a target="_blank" href="https://weibo.com/u/7054585490?is_hot=1">
+                <i class="icon weibo-icon"></i>
+              </a>
             </li>
             <li class="focus-item">
-              <i class="icon qq-icon"></i>
+              <a
+                target="_blank"
+                href="//shang.qq.com/wpa/qunwpa?idkey=50569d2d089dfffdac32cf1adfdd5be82c9c953e5cfc78d80616551b63f2fe5e"
+              >
+                <i class="icon qq-icon"></i>
+              </a>
             </li>
-            <li class="focus-item">
+            <!-- <li class="focus-item">
               <i class="icon service-icon"></i>
-            </li>
+            </li> -->
           </ul>
         </header>
         <div class="light">
@@ -643,11 +656,57 @@ export default {
       .focus-list {
         display: flex;
         .focus-item {
+          position: relative;
           margin-right: 27 * @vw;
           .icon {
             cursor: pointer;
             &:hover {
               opacity: 0.8;
+            }
+          }
+          .qrCode-tip {
+            visibility: hidden;
+            position: absolute;
+            left: -57 * @vw;
+            top: 50 * @vw;
+            width: 139 * @vw;
+            height: 160 * @vw;
+            background-color: #0048a8;
+            border-radius: 10 * @vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            &::after {
+              position: absolute;
+              top: -6 * @vw;
+              content: '';
+              width: 0;
+              height: 0;
+              border-bottom: 7 * @vw solid #0048a8;
+              border-left: 8 * @vw solid transparent;
+              border-right: 8 * @vw solid transparent;
+            }
+            .qrCode-box {
+              width: 126 * @vw;
+              height: 126 * @vw;
+              border-radius: 10 * @vw;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .qrCode-pic {
+                width: 115 * @vw;
+                height: 115 * @vw;
+              }
+            }
+            .qrCode-title {
+              font-size: 14 * @vw;
+              color: #fff;
+            }
+          }
+          &:hover {
+            .qrCode-tip {
+              visibility: visible;
             }
           }
         }
