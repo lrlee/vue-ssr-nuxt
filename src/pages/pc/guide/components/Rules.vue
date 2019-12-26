@@ -37,28 +37,48 @@ const rulesOptions = [
   '用户使用刷奖软件，雇佣他人参加活动等任何不正当手段或违法违规行为，活动参与资格和获奖资格将被取消；',
   '若因不可抗拒的因素，比如网络、作弊等非官方原因导致活动出现异常情况，《全民泡泡超人》保留在法律允许的范围内，对活动规则进行解释的权利。'
 ]
-const codeOptions = [
-  {
-    bg: require('~/assets/images/pc/guide/rules/wx_bg.png'),
-    text: '关注《全名泡泡超人》<br>微信公众号，揭秘隐藏福利!',
-    img: ''
-  },
-  {
-    bg: require('~/assets/images/pc/guide/rules/wb_bg.png'),
-    text: '关注《全民泡泡超人》<br>官方微博，掌握第一手速报!',
-    img: ''
-  },
-  {
-    bg: require('~/assets/images/pc/guide/rules/qq_bg.png'),
-    text: '邂逅更多精彩!加入《全民泡泡超人》<br>官方①群：707841609',
-    img: ''
-  }
-]
 export default {
+  props: {
+    contactsInfo: {
+      default() {
+        return {
+          woa: {
+            qrcode: undefined,
+            desc: undefined
+          },
+          weibo: {
+            qrcode: undefined,
+            desc: undefined
+          },
+          qqgroup: {
+            qrcode: undefined,
+            desc: undefined
+          }
+        }
+      },
+      type: Object
+    }
+  },
   data() {
     return {
       rulesOptions,
-      codeOptions
+      codeOptions: [
+        {
+          bg: require('~/assets/images/pc/guide/rules/wx_bg.png'),
+          text: this.contactsInfo.woa.desc,
+          img: this.contactsInfo.woa.qrcode
+        },
+        {
+          bg: require('~/assets/images/pc/guide/rules/wb_bg.png'),
+          text: this.contactsInfo.weibo.desc,
+          img: this.contactsInfo.weibo.qrcode
+        },
+        {
+          bg: require('~/assets/images/pc/guide/rules/qq_bg.png'),
+          text: this.contactsInfo.qqgroup.desc,
+          img: this.contactsInfo.qqgroup.qrcode
+        }
+      ]
     }
   },
   methods: {
@@ -145,12 +165,13 @@ export default {
   }
   .code-parent {
     width: 1207 * @vw;
-    margin-top: 97 * @vw;
+    height: 337 * @vw;
     .code-item-parent {
       display: flex;
       justify-content: space-between;
       .code-item {
         width: 250 * @vw;
+        height: 337 * @vw;
         position: relative;
         .code-bg {
           width: 200 * @vw;
@@ -158,7 +179,7 @@ export default {
         }
         .code-detail {
           position: absolute;
-          top: 0;
+          top: -1 * @vw;
           right: 0;
           width: 200 * @vw;
           height: 200 * @vw;
@@ -169,6 +190,31 @@ export default {
           color: #ffffff;
           text-align: center;
         }
+      }
+    }
+  }
+  @media (min-width: 1280px) {
+    .code-parent {
+      margin-top: 10 * @vw;
+      .code-text {
+        width: 320 * @vw;
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .code-parent {
+      margin-top: 67 * @vw;
+      .code-text {
+        width: 280 * @vw;
+      }
+    }
+  }
+  @media (min-width: 1600px) {
+    .code-parent {
+      margin-top: 97 * @vw;
+      .code-text {
+        width: 250 * @vw;
       }
     }
   }

@@ -330,7 +330,7 @@
       <Part5 :roleInfo="roleInfo"></Part5>
       <Part6></Part6>
       <Part7></Part7>
-      <Rules @openBookPop="openBookPop"></Rules>
+      <Rules @openBookPop="openBookPop" :contactsInfo="contactsInfo"></Rules>
     </div>
   </div>
 </template>
@@ -344,7 +344,14 @@ import Part6 from './components/Part6'
 import Part7 from './components/Part7'
 import Rules from './components/Rules'
 import * as local from '@/utils/auth'
-import { bookingOnOrOff, getBookTotal, getBookingRole, getBookingData, getInvitedCount } from '@/api/index'
+import {
+  bookingOnOrOff,
+  getBookTotal,
+  getBookingRole,
+  getBookingData,
+  getInvitedCount,
+  getContactsWeb
+} from '@/api/index'
 import { parseTime } from '@/utils/common'
 export default {
   components: {
@@ -369,9 +376,9 @@ export default {
     }
   },
   asyncData({ store }) {
-    return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole()]).then(arr => {
+    return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
       let bookInfo = {}
-      console.log(111, arr[0])
+      console.log(111, arr[3])
       if (arr[0].code === 0) {
         if (!arr[0].data.on_off) {
           store.$router.replace({
@@ -401,7 +408,8 @@ export default {
         roleInfo: arr[2].data,
         part1Data: activityData.part1,
         part2Data: activityData.part2,
-        part3Data: activityData.part3
+        part3Data: activityData.part3,
+        contactsInfo: arr[3].data
       }
     })
   },

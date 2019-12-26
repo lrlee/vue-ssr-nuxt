@@ -140,3 +140,11 @@ export function getInvitedCount(guid) {
     method: 'get'
   })
 }
+
+// 获取二维码联系方式
+export function getContactsWeb() {
+  return request({
+    url: '/contacts/web',
+    method: 'get'
+  })
+}

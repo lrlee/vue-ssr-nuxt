@@ -5,7 +5,7 @@
   "author": "zhangxiexia",
   "private": true,
   "scripts": {
-    "dev": "nuxt --hostname 192.168.100.49",
+    "dev": "nuxt --hostname 192.168.100.50",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
