@@ -20,10 +20,10 @@
     </div>
     <div class="code-parent">
       <ul class="code-item-parent">
-        <li v-for="item in codeOptions" :key="item.text" class="code-item">
+        <li v-for="(item, index) in codeOptions" :key="index" class="code-item">
           <img :src="item.bg" class="code-bg" />
           <img :src="item.img" class="code-detail" />
-          <div v-html="item.text" class="code-text"></div>
+          <div v-if="item.text" v-html="item.text" class="code-text"></div>
         </li>
       </ul>
     </div>
