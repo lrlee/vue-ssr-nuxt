@@ -171,6 +171,11 @@ export default {
     height: 39 * @vw;
     margin-left: 54 * @vw;
   }
+
+  .nav-handle-open {
+    width: 180 * @vw;
+    height: 230 * @vw;
+  }
 }
 .hide {
   display: none;
