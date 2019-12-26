@@ -513,7 +513,7 @@ export default {
       })
       io.POLL_INTERVAL = 100
       const titlePic = document.getElementById('titlePic')
-      io.observe(titlePic)
+      titlePic && io.observe(titlePic)
     },
     observePartScroll() {
       const _this = this
@@ -532,13 +532,13 @@ export default {
       const part5 = document.getElementById('part5')
       const part6 = document.getElementById('part6')
       const part7 = document.getElementById('part7')
-      io.observe(part1)
-      io.observe(part2)
-      io.observe(part3)
-      io.observe(part4)
-      io.observe(part5)
-      io.observe(part6)
-      io.observe(part7)
+      part1 && io.observe(part1)
+      part2 && io.observe(part2)
+      part3 && io.observe(part3)
+      part4 && io.observe(part4)
+      part5 && io.observe(part5)
+      part6 && io.observe(part6)
+      part7 && io.observe(part7)
     }
   }
 }
@@ -619,7 +619,6 @@ export default {
 .container {
   width: 100%;
   min-width: 1280px;
-  min-height: 8751 * @vw;
   overflow: hidden;
   background: url('~assets/images/pc/guide/bg.png') top center no-repeat;
   background-size: cover;
