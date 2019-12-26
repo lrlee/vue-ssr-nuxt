@@ -2,6 +2,7 @@
   <div class="container">
     <Nav v-if="showNav" :title="title" :scrollCallback="scrollToPart"></Nav>
     <Pop v-if="showPop" :bookStatus="bookStatus" @closePop="closePop" @changeBookStatus="changeBookStatus"></Pop>
+    <VideoDialog v-show="showVideo" @closeVideo="showVideo = false" :dialogVisible="showVideo"></VideoDialog>
     <div class="top">
       <div class="index">
         <header id="header" class="header">
@@ -47,7 +48,7 @@
           <div id="titlePic" class="title-pic"></div>
           <div class="title-activity-pic">
             <div class="play-bg"></div>
-            <div @click="scrollToPart('top')" class="play-icon"></div>
+            <div @click="showVideo = true" class="play-icon"></div>
           </div>
           <div class="doll-lili"></div>
           <div class="doll-rabbit"></div>
@@ -350,6 +351,7 @@
 import PipeBubble from './components/PipeBubble'
 import Nav from './components/Nav'
 import Pop from './components/Pop'
+import VideoDialog from './components/VideoDialog'
 import CountNumber from './components/CountNumber'
 import Part4 from './components/Part4'
 import Part5 from './components/Part5'
@@ -373,6 +375,7 @@ export default {
     Nav,
     CountNumber,
     Pop,
+    VideoDialog,
     Part4,
     Part5,
     Part6,
@@ -383,6 +386,7 @@ export default {
     return {
       defaultGiftUrl: require('~/assets/images/pc/guide/gift_gold.png'),
       showPop: false,
+      showVideo: false,
       invite_id_self: '', // 本用户的邀请码 也是本用户的guid
       bookStatus: 'booking', // 预约状态： success 预约成功 | booking 预约中
       showNav: false,

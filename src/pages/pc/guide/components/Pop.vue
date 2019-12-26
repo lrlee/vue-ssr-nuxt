@@ -1,5 +1,5 @@
 <template>
-  <div class="pop">
+  <div @wheel.prevent class="pop">
     <div class="pop-box">
       <i @click="closePop" class="close-icon icon btn"></i>
       <div v-if="bookStatus == 'booking'" class="pop-content">

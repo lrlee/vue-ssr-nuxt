@@ -41,7 +41,7 @@
         </div>
       </template>
     </div>
-    <div v-if="showpop" class="pic-pop">
+    <div @wheel.prevent v-if="showpop" class="pic-pop">
       <template v-for="(item, index) in selectLists">
         <div :key="index" v-if="selectedIndex === index" class="pop-body">
           <i @click="showpop = false" class="close-icon icon btn"></i>
