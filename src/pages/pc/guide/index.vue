@@ -47,8 +47,9 @@
           <div class="ribbon-pic"></div>
           <div id="titlePic" class="title-pic"></div>
           <div class="title-activity-pic">
-            <div class="play-bg"></div>
-            <div @click="showVideo = true" class="play-icon"></div>
+            <div @click="showVideo = true" class="play-bg btn">
+              <div class="play-icon"></div>
+            </div>
           </div>
           <div class="doll-lili"></div>
           <div class="doll-rabbit"></div>
@@ -435,9 +436,9 @@ export default {
       return {
         ...bookInfo,
         roleInfo: arr[2].data,
-        part1Data: activityData.part1 ? activityData.part1 : {},
-        part2Data: activityData.part2 ? activityData.part1 : {},
-        part3Data: activityData.part3 ? activityData.part1 : {},
+        part1Data: activityData.part1,
+        part2Data: activityData.part2,
+        part3Data: activityData.part3,
         contactsInfo: arr[3].data
       }
     })
@@ -655,8 +656,8 @@ export default {
     z-index: 1;
     width: 100%;
     height: 961 * @vw;
-    background: url('~assets/images/pc/guide/bg_city.png') bottom center no-repeat;
-    background-size: cover;
+    background: url('~assets/images/pc/guide/bg_city.png') center bottom no-repeat;
+    background-size: contain;
     .header {
       position: relative;
       z-index: 2;
@@ -856,12 +857,12 @@ export default {
         height: 108 * @vw;
         background: url('~assets/images/pc/guide/play_bg_index.png') no-repeat;
         background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         animation: scale_play 3s infinite;
       }
       .play-icon {
-        position: absolute;
-        top: 8 * @vw;
-        margin-left: -3 * @vw;
         width: 44 * @vw;
         height: 49 * @vw;
         background: url('~assets/images/pc/guide/play_index.png') no-repeat;
@@ -904,7 +905,7 @@ export default {
     z-index: 2;
     width: 100%;
     height: 3646 * @vw;
-    background: url('~assets/images/pc/guide/bg_active.png') top center no-repeat;
+    background: url('/images/guide/bg_active.png') top center no-repeat;
     background-size: cover;
     margin-top: -423 * @vw;
     padding-top: 230 * @vw;
@@ -941,13 +942,16 @@ export default {
       .book-btn {
         width: 352 * @vw;
         height: 147 * @vw;
-        background: url('~assets/images/pc/guide/btn_book_big_normal.png') no-repeat;
+        background: url('~assets/images/pc/guide/btn_book_big_normal.png') center bottom no-repeat;
         background-size: contain;
         z-index: 2;
       }
       &:hover {
         .book-btn {
-          background-image: url('~assets/images/pc/guide/btn_book_big_click.png');
+          width: 352 * @vw;
+          height: 141 * @vw;
+          background: url('~assets/images/pc/guide/btn_book_big_click.png') center bottom no-repeat;
+          background-size: contain;
         }
       }
       .book-time {
@@ -1517,7 +1521,7 @@ export default {
   position: relative;
   width: 100%;
   height: 5259 * @vw;
-  background: url('~assets/images/pc/guide/bg_content.png') top center no-repeat;
+  background: url('/images/guide/bg_content.png') top center no-repeat;
   background-size: cover;
   z-index: 3;
   display: flex;
