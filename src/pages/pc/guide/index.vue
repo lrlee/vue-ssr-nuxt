@@ -655,8 +655,8 @@ export default {
     z-index: 1;
     width: 100%;
     height: 961 * @vw;
-    background: url('~assets/images/pc/guide/bg_city.png') bottom center no-repeat;
-    background-size: cover;
+    background: url('~assets/images/pc/guide/bg_city.png') center bottom no-repeat;
+    background-size: contain;
     .header {
       position: relative;
       z-index: 2;
@@ -904,7 +904,7 @@ export default {
     z-index: 2;
     width: 100%;
     height: 3646 * @vw;
-    background: url('~assets/images/pc/guide/bg_active.png') top center no-repeat;
+    background: url('/images/guide/bg_active.png') top center no-repeat;
     background-size: cover;
     margin-top: -423 * @vw;
     padding-top: 230 * @vw;
@@ -941,13 +941,16 @@ export default {
       .book-btn {
         width: 352 * @vw;
         height: 147 * @vw;
-        background: url('~assets/images/pc/guide/btn_book_big_normal.png') no-repeat;
+        background: url('~assets/images/pc/guide/btn_book_big_normal.png') center bottom no-repeat;
         background-size: contain;
         z-index: 2;
       }
       &:hover {
         .book-btn {
-          background-image: url('~assets/images/pc/guide/btn_book_big_click.png');
+          width: 352 * @vw;
+          height: 141 * @vw;
+          background: url('~assets/images/pc/guide/btn_book_big_click.png') center bottom no-repeat;
+          background-size: contain;
         }
       }
       .book-time {
@@ -1517,7 +1520,7 @@ export default {
   position: relative;
   width: 100%;
   height: 5259 * @vw;
-  background: url('~assets/images/pc/guide/bg_content.png') top center no-repeat;
+  background: url('/images/guide/bg_content.png') top center no-repeat;
   background-size: cover;
   z-index: 3;
   display: flex;
