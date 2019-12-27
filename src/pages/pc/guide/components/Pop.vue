@@ -1,6 +1,6 @@
 <template>
   <div @wheel.prevent class="pop">
-    <div class="pop-box">
+    <div :class="{ 'paopao-animation': bookStatus == 'success' }" class="pop-box">
       <i @click="closePop" class="close-icon icon btn"></i>
       <div v-if="bookStatus == 'booking'" class="pop-content">
         <div class="form-box">
@@ -20,13 +20,25 @@
               <i class="android-icon icon"></i>
             </div>
           </div>
-          <div class="phone-edit">
-            <input @blur="checkPhone" v-model="form.mobile" type="text" />
+          <div>
+            <input
+              @blur="checkPhone"
+              v-model="form.mobile"
+              type="text"
+              placeholder="请填写手机号码即可参与活动"
+              class="phone-edit"
+            />
             <div v-show="phoneErr" class="input-err"><i class="err-icon icon"></i>请输入正确的手机号码</div>
           </div>
           <div class="code-edit">
-            <div class="code-input">
-              <input @blur="checkCode" v-model="form.sms_captcha" type="text" placeholder="请输入验证码" />
+            <div>
+              <input
+                @blur="checkCode"
+                v-model="form.sms_captcha"
+                type="text"
+                placeholder="请输入验证码"
+                class="code-input"
+              />
             </div>
             <div v-if="startCount" class="code-btn btn">{{ countDown }}s</div>
             <div @click="getCode" v-else class="code-btn btn">请输入验证码</div>
@@ -221,6 +233,18 @@ export default {
     transform: scale(1);
   }
 }
+@keyframes scale_colorpaper {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
+.paopao-animation {
+  animation: scale_ribbon 0.4s ease;
+  animation-fill-mode: forwards;
+}
 .pop {
   position: fixed;
   top: 0;
@@ -259,14 +283,18 @@ export default {
   position: relative;
   .ribbon-animation {
     position: absolute;
-    right: 9 * @vw;
+    right: -8 * @vw;
     top: 50 * @vw;
     width: 249 * @vw;
     height: 104 * @vw;
     background: url('~assets/images/pc/guide/ribbon_pop.png') no-repeat;
     background-size: contain;
-    animation: scale_ribbon 2s ease;
-    z-index: 2;
+    transform: scale(0);
+    animation: scale_ribbon 0.4s cubic-bezier(0.36, 0.35, 0.29, 1.32);
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    transform-origin: left bottom;
+    z-index: 1;
   }
   .colorpaper-animation {
     pointer-events: none;
@@ -277,7 +305,10 @@ export default {
     height: 629 * @vw;
     background: url('~assets/images/pc/guide/colorpaper_pop.png') no-repeat;
     background-size: contain;
-    animation: scale_ribbon 2s ease;
+    transform: scale(0);
+    animation: scale_colorpaper 1s cubic-bezier(0.66, 0.22, 0.1, 1.35);
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
     z-index: 1;
   }
 }
@@ -285,12 +316,17 @@ export default {
   width: 400 * @vw;
   margin: 285 * @vw auto 0 auto;
   input {
-    background-color: transparent;
     height: 50 * @vw;
-    margin: 0 22 * @vw;
+    padding: 0 22 * @vw;
+    background-color: #c1e4ff;
     color: #0079d0;
     font-size: 18 * @vw;
     font-weight: bold;
+    &:focus {
+      background-color: #fff;
+      border: 1 * @vw solid rgba(0, 121, 208, 0.8);
+      box-shadow: inset 0 0 9 * @vw 0 rgba(0, 121, 208, 1);
+    }
   }
   .input-err {
     position: absolute;
@@ -311,23 +347,27 @@ export default {
   }
   ::-webkit-input-placeholder {
     /* WebKit browsers */
-    color: #0079d0;
+    color: #4999d7;
     font-size: 16 * @vw;
+    font-weight: 400;
   }
   :-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
-    color: #0079d0;
+    color: #4999d7;
     font-size: 16 * @vw;
+    font-weight: 400;
   }
   ::-moz-placeholder {
     /* Mozilla Firefox 19+ */
-    color: #0079d0;
+    color: #4999d7;
     font-size: 16 * @vw;
+    font-weight: 400;
   }
   :-ms-input-placeholder {
     /* Internet Explorer 10+ */
-    color: #0079d0;
+    color: #4999d7;
     font-size: 16 * @vw;
+    font-weight: 400;
   }
   .platform-select {
     display: flex;
@@ -371,15 +411,9 @@ export default {
   .phone-edit {
     position: relative;
     width: 100%;
-    height: 52 * @vw;
-    background-color: #fff;
+    height: 50 * @vw;
     border-radius: 25 * @vw;
-    border: 1 * @vw solid rgba(0, 121, 208, 0.8);
-    box-shadow: inset 0 0 9 * @vw 0 rgba(0, 121, 208, 1);
     margin-bottom: 34 * @vw;
-    input {
-      width: 356 * @vw;
-    }
   }
   .code-edit {
     position: relative;
@@ -389,11 +423,7 @@ export default {
     .code-input {
       width: 257 * @vw;
       height: 50 * @vw;
-      background-color: #c1e4ff;
       border-radius: 25 * @vw 0 0 25 * @vw;
-      input {
-        width: 213 * @vw;
-      }
     }
     .code-btn {
       width: 153 * @vw;
@@ -428,6 +458,7 @@ export default {
   padding-top: 330 * @vw;
   display: flex;
   .qr-box {
+    background-color: #fff;
     width: 199 * @vw;
     height: 199 * @vw;
     border-radius: 13 * @vw;

@@ -1061,7 +1061,7 @@ export default {
               align-items: center;
               justify-content: center;
               .gift-pic {
-                width: 82 * @vw;
+                width: 110 * @vw;
                 // height: 82 * @vw;
                 // background-color: #fff947;
               }
@@ -1083,7 +1083,7 @@ export default {
               font-size: 16 * @vw;
               color: #ffffff;
               font-weight: bolder;
-              // -webkit-text-stroke: 1px #28a001;
+              text-shadow: #28a001 1px 0 0, #28a001 0 1px 0, #28a001 -1px 0 0, #28a001 0 -1px 0;
             }
             &.gift1 {
               width: 213 * @vw;
@@ -1375,7 +1375,7 @@ export default {
                     justify-content: center;
                     position: relative;
                     .gift-pic {
-                      width: 44 * @vw;
+                      width: 55 * @vw;
                       // height: 38 * @vw;
                     }
                     .gift-num {
@@ -1384,6 +1384,7 @@ export default {
                       position: absolute;
                       right: 5 * @vw;
                       bottom: 5 * @vw;
+                      text-shadow: #0b2e66 1px 0 0, #0b2e66 0 1px 0, #0b2e66 -1px 0 0, #0b2e66 0 -1px 0;
                     }
                   }
                   .gift-name {
@@ -1494,11 +1495,11 @@ export default {
               }
               .board-num-list {
                 display: flex;
-                margin-top: 10 * @vw;
+                margin-top: 8 * @vw;
                 margin-left: 8 * @vw;
                 .board-num-item {
                   width: 33 * @vw;
-                  height: 56 * @vw;
+                  height: 50 * @vw;
                   overflow: hidden;
                 }
               }
@@ -1646,7 +1647,8 @@ export default {
               padding-bottom: 65 * @vw;
               overflow: hidden;
               .gift-pic {
-                width: 100 * @vw;
+                opacity: 0.5;
+                width: 120 * @vw;
               }
               .gift-name {
                 margin-top: 5 * @vw;
@@ -1750,6 +1752,7 @@ export default {
             }
             .gift-wrapper {
               .gift-pic {
+                opacity: 1;
                 animation: move_updown 3.5s ease infinite;
               }
               .paopao-pic {
