@@ -44,17 +44,17 @@ export default {
   z-index: 999;
   .content {
     width: 837 * @vw;
-    height: 489 * @vw;
-    background: url('~assets/images/pc/guide/video_bg.png') no-repeat;
-    background-size: contain;
+    border-radius: 10 * @vw;
+    padding: 20 * @vw;
+    background-color: rgb(0, 168, 255);
+    box-shadow: inset 0 0 8.55 * @vw 0.45 * @vw rgba(39, 122, 255, 0.004);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     .video {
-      width: 797 * @vw;
-      height: 449 * @vw;
-      border-radius: 6px;
+      width: 100%;
+      border-radius: 6 * @vw;
     }
   }
   .close-icon {
