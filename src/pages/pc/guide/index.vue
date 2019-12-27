@@ -47,8 +47,9 @@
           <div class="ribbon-pic"></div>
           <div id="titlePic" class="title-pic"></div>
           <div class="title-activity-pic">
-            <div class="play-bg"></div>
-            <div @click="showVideo = true" class="play-icon"></div>
+            <div @click="showVideo = true" class="play-bg btn">
+              <div class="play-icon"></div>
+            </div>
           </div>
           <div class="doll-lili"></div>
           <div class="doll-rabbit"></div>
@@ -856,12 +857,12 @@ export default {
         height: 108 * @vw;
         background: url('~assets/images/pc/guide/play_bg_index.png') no-repeat;
         background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         animation: scale_play 3s infinite;
       }
       .play-icon {
-        position: absolute;
-        top: 8 * @vw;
-        margin-left: -3 * @vw;
         width: 44 * @vw;
         height: 49 * @vw;
         background: url('~assets/images/pc/guide/play_index.png') no-repeat;
