@@ -184,7 +184,7 @@ export default {
         .swiper-doll {
           position: absolute;
           display: none;
-          animation-delay: 0.1s;
+          animation-delay: 0.5s;
           &.doll1 {
             left: -260 * @vw;
             bottom: -60 * @vw;
@@ -213,7 +213,7 @@ export default {
         .swiper-role {
           position: absolute;
           display: none;
-          animation-delay: 0.5s;
+          animation-delay: 0.1s;
           &.role1 {
             right: -160 * @vw;
             bottom: -120 * @vw;
