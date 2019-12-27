@@ -644,8 +644,8 @@ export default {
   width: 100%;
   min-width: 1280px;
   overflow: hidden;
-  background: url('~assets/images/pc/guide/bg.png') top center no-repeat;
-  background-size: cover;
+  background: url('~assets/images/pc/guide/bg.jpg') top center no-repeat;
+  background-size: contain;
 }
 .top {
   width: 100%;
