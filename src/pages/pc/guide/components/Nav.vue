@@ -68,7 +68,7 @@ export default {
   },
   data() {
     return {
-      isOpen: false
+      isOpen: true
     }
   },
   methods: {
