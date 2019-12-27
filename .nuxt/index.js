@@ -14,7 +14,9 @@ import { createStore } from './store.js'
 
 import nuxt_plugin_axios_349b1eca from 'nuxt_plugin_axios_349b1eca' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_router_13154625 from 'nuxt_plugin_router_13154625' // Source: ./router.js (mode: 'all')
+import nuxt_plugin_i18n_1fba523a from 'nuxt_plugin_i18n_1fba523a' // Source: ../src/plugins/i18n.js (mode: 'all')
 import nuxt_plugin_swiper_68e7f06e from 'nuxt_plugin_swiper_68e7f06e' // Source: ../src/plugins/swiper.js (mode: 'client')
+import nuxt_plugin_intersection_97373ed0 from 'nuxt_plugin_intersection_97373ed0' // Source: ../src/plugins/intersection.js (mode: 'client')
 import nuxt_plugin_elementui_72a9ed1c from 'nuxt_plugin_elementui_72a9ed1c' // Source: ../src/plugins/element-ui.js (mode: 'client')
 import nuxt_plugin_baidu_7b6ad772 from 'nuxt_plugin_baidu_7b6ad772' // Source: ../src/plugins/baidu.js (mode: 'client')
 
@@ -181,8 +183,16 @@ async function createApp (ssrContext) {
     await nuxt_plugin_router_13154625(app.context, inject)
   }
 
+  if (typeof nuxt_plugin_i18n_1fba523a === 'function') {
+    await nuxt_plugin_i18n_1fba523a(app.context, inject)
+  }
+
   if (process.client && typeof nuxt_plugin_swiper_68e7f06e === 'function') {
     await nuxt_plugin_swiper_68e7f06e(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_intersection_97373ed0 === 'function') {
+    await nuxt_plugin_intersection_97373ed0(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_elementui_72a9ed1c === 'function') {
