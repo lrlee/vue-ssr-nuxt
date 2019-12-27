@@ -61,10 +61,14 @@
             <div class="book-btn"></div>
             <p class="book-time">活动时间：{{ beginTime }} - {{ endTime }}</p>
           </div>
-          <div class="pipe pipe1"></div>
+          <div class="pipe pipe1">
+            <Pipe-Bubble :path="bubblePath1" :width="605" :height="742" class="pipe-bubble" />
+          </div>
         </div>
         <div class="part1-box">
-          <div class="pipe pipe2"></div>
+          <div class="pipe pipe2">
+            <Pipe-Bubble :path="bubblePath2" :width="210" :height="768" class="pipe-bubble" />
+          </div>
           <div class="part1">
             <div id="part1" class="title part-title-type1">
               <div class="title-order"></div>
@@ -98,7 +102,9 @@
           </div>
         </div>
         <div class="part2-box">
-          <div class="pipe pipe3"></div>
+          <div class="pipe pipe3">
+            <Pipe-Bubble :path="bubblePath3" :width="274" :height="997" class="pipe-bubble" />
+          </div>
           <div class="part2">
             <div id="part2" class="title part-title-type1">
               <div class="title-order"></div>
@@ -384,6 +390,12 @@ export default {
   },
   data() {
     return {
+      bubblePath1:
+        'M591.000,19.999 C591.000,19.999 228.067,-52.484 363.000,201.999 C509.518,478.332 493.419,416.059 206.000,458.999 C-44.677,496.449 -23.535,670.422 100.000,699.000 ',
+      bubblePath2:
+        'M56.000,-0.000 C258.066,9.200 174.804,268.767 42.000,351.999 C-112.764,448.994 229.585,647.485 71.000,695.999 ',
+      bubblePath3:
+        'M237.000,-0.001 C1.555,8.504 -65.925,557.302 70.000,527.999 C399.344,456.998 63.803,802.372 229.000,945.999 ',
       defaultGiftUrl: require('~/assets/images/pc/guide/gift_gold.png'),
       showPop: false,
       showVideo: false,
@@ -400,7 +412,7 @@ export default {
       console.log('on_off', arr[0])
       console.log(111, arr[3])
       if (arr[0].code === 0) {
-        // 预定总数设置7位
+        // 预定总数设置7位 不足前面补‘-1’
         const totalArr = arr[0].data.total.toString().split('')
         const cTotalArr = []
         const cLength = 7 - totalArr.length > 0 ? 7 - totalArr.length : 0
@@ -408,6 +420,7 @@ export default {
           cTotalArr.push('-1')
         }
         const rTotalArr = [...cTotalArr, ...totalArr]
+        console.log(rTotalArr)
         bookInfo = {
           beginTime: arr[0].data.begin_time ? parseTime(arr[0].data.begin_time, '{y}.{m}.{d}') : '',
           endTime: arr[0].data.end_time ? parseTime(arr[0].data.end_time, '{y}.{m}.{d}') : '',
@@ -434,11 +447,6 @@ export default {
     this.observePartScroll()
   },
   created() {
-    if (!this.on_off) {
-      this.$router.replace({
-        path: '/home'
-      })
-    }
     if (process.client) {
       this.invite_id_self = local.getGuid() || ''
       if (this.invite_id_self) {
@@ -460,8 +468,16 @@ export default {
       this.totalPolling = setInterval(() => {
         getBookTotal().then(res => {
           if (res.code === 0) {
+            // 预定总数设置7位 不足前面补‘-1
+            const totalArr = res.data.toString().split('')
+            const cTotalArr = []
+            const cLength = 7 - totalArr.length > 0 ? 7 - totalArr.length : 0
+            for (let i = 0; i < cLength; i++) {
+              cTotalArr.push('-1')
+            }
+            const rTotalArr = [...cTotalArr, ...totalArr]
             this.bookedTotal = res.data
-            this.bookedTotal_arr = res.data.toString().split('')
+            this.bookedTotal_arr = rTotalArr
           }
         })
       }, 30000)
@@ -900,12 +916,17 @@ export default {
       .pipe1 {
         position: absolute;
         top: 46 * @vw;
-        left: -558 * @vw;
-        width: 605 * @vw;
+        left: -590 * @vw;
+        width: 634 * @vw;
         height: 742 * @vw;
         background: url('~assets/images/pc/guide/pipe1.png') no-repeat;
         background-size: contain;
         z-index: 1;
+        .pipe-bubble {
+          position: absolute;
+          top: -2 * @vw;
+          right: 24 * @vw;
+        }
       }
     }
     .book-box {
@@ -950,6 +971,11 @@ export default {
         background: url('~assets/images/pc/guide/pipe2.png') no-repeat;
         background-size: contain;
         z-index: 1;
+        .pipe-bubble {
+          position: absolute;
+          top: 30 * @vw;
+          right: -10 * @vw;
+        }
       }
     }
     .part2-box {
@@ -958,12 +984,17 @@ export default {
       .pipe3 {
         position: absolute;
         top: 530 * @vw;
-        left: -228 * @vw;
+        left: -283 * @vw;
         width: 274 * @vw;
         height: 997 * @vw;
         background: url('~assets/images/pc/guide/pipe3.png') no-repeat;
         background-size: contain;
         z-index: 1;
+        .pipe-bubble {
+          position: absolute;
+          top: 30 * @vw;
+          left: 10 * @vw;
+        }
       }
     }
     .part1 {
@@ -972,7 +1003,7 @@ export default {
       height: 636 * @vw;
       background: url('~assets/images/pc/guide/part1_bg.png') no-repeat;
       background-size: contain;
-      margin-left: -55 * @vw;
+      margin-left: -110 * @vw;
       z-index: 2;
       padding-top: 95 * @vw;
       .title {
@@ -1170,7 +1201,7 @@ export default {
       height: 821 * @vw;
       background: url('~assets/images/pc/guide/part2_bg.png') no-repeat;
       background-size: contain;
-      margin-left: 40 * @vw;
+      margin-left: -15 * @vw;
       z-index: 2;
       padding-top: 57 * @vw;
       .title {
@@ -1460,7 +1491,7 @@ export default {
               .board-num-list {
                 display: flex;
                 margin-top: 10 * @vw;
-                margin-left: 42 * @vw;
+                margin-left: 8 * @vw;
                 .board-num-item {
                   width: 33 * @vw;
                   height: 56 * @vw;
@@ -1503,6 +1534,7 @@ export default {
     height: 317 * @vw;
     background: url('~assets/images/pc/guide/part3_bg.png') no-repeat;
     background-size: contain;
+    margin-left: -55 * @vw;
     .top {
       position: absolute;
       top: -472 * @vw;

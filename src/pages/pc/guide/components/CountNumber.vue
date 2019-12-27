@@ -1,12 +1,17 @@
 <template>
-  <ul ref="numberList" :style="{ transform: moveY }" class="numbers-list">
-    <li v-for="(num, i) in 10" :key="i" class="number-item">
-      <div :class="`num-${i}`" class="num-pic"></div>
-    </li>
-    <li v-for="(num2, i) in 10" :key="i + 10" class="number-item">
-      <div :class="`num-${i}`" class="num-pic"></div>
-    </li>
-  </ul>
+  <div>
+    <div v-if="number == '-1'" class="number-dot">
+      <div class="dot-pic"></div>
+    </div>
+    <ul ref="numberList" v-else :style="{ transform: moveY }" class="numbers-list">
+      <li v-for="(num, i) in 10" :key="i" class="number-item">
+        <div :class="`num-${i}`" class="num-pic"></div>
+      </li>
+      <li v-for="(num2, i) in 10" :key="i + 10" class="number-item">
+        <div :class="`num-${i}`" class="num-pic"></div>
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
@@ -47,6 +52,19 @@ export default {
 </script>
 <style lang="less" scoped>
 @vw: 1vw/19.2;
+.number-dot {
+  width: 33 * @vw;
+  height: 56 * @vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .dot-pic {
+    width: 11 * @vw;
+    height: 12 * @vw;
+    background: url('~assets/images/pc/guide/count_dot.png') no-repeat;
+    background-size: contain;
+  }
+}
 .numbers-list {
   transition: all 2s ease;
   .number-item {
