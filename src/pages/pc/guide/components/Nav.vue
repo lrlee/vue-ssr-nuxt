@@ -3,11 +3,8 @@
     <div :class="['nav-open', { hide: !isOpen }]">
       <img class="nav-title" src="~/assets/images/pc/guide/nav/title_bg.png" />
       <div class="nav-content">
-        <img
-          @click="isOpen = false"
-          class="nav-handle-left btn"
-          src="~/assets/images/pc/guide/nav/handle_left.png"
-        /><img class="nav-content-bg" src="~/assets/images/pc/guide/nav/content_bg.png" />
+        <span @click="isOpen = false" class="nav-handle-left btn">收起</span
+        ><img class="nav-content-bg" src="~/assets/images/pc/guide/nav/content_bg.png" />
         <div :class="['menu-text', 'btn', { active: title == '超人预约见面礼' }]" @click="onTextClick('part1')">
           超人预约见面礼
         </div>
@@ -45,13 +42,9 @@
           趣味玩法
         </div>
       </div>
-      <img @click="onBackTopClick" class="nav-handle-bottom btn" src="~/assets/images/pc/guide/nav/handle_bottom.png" />
+      <div @click="onBackTopClick" class="nav-handle-bottom btn">返回顶部</div>
     </div>
-    <img
-      :class="['nav-handle-open', 'btn', { hide: isOpen }]"
-      @mouseenter="isOpen = true"
-      src="~/assets/images/pc/guide/nav/handle_open.png"
-    />
+    <div :class="['nav-handle-open', 'btn', { hide: isOpen }]" @mouseenter="isOpen = true">展开</div>
   </div>
 </template>
 <script>
@@ -106,10 +99,19 @@ export default {
   .nav-content {
     position: relative;
     .nav-handle-left {
+      display: inline-block;
       width: 23 * @vw;
       height: 75 * @vw;
       vertical-align: top;
       margin-top: 31 * @vw;
+      background: url('~assets/images/pc/guide/nav/handle_left.png') no-repeat;
+      background-size: cover;
+      font-size: 14 * @vw;
+      font-weight: 500;
+      color: #1f750b;
+      padding-left: 4 * @vw;
+      padding-top: 26 * @vw;
+      line-height: 16 * @vw;
     }
     .nav-content-bg {
       width: 205 * @vw;
@@ -167,14 +169,30 @@ export default {
     }
   }
   .nav-handle-bottom {
+    display: inline-block;
+    font-size: 14 * @vw;
+    font-weight: 500;
+    color: #2e9106;
     width: 131 * @vw;
     height: 39 * @vw;
     margin-left: 54 * @vw;
+    background: url('~assets/images/pc/guide/nav/handle_bottom.png') no-repeat;
+    background-size: contain;
+    padding-left: 30 * @vw;
+    padding-top: 12 * @vw;
   }
 
   .nav-handle-open {
+    display: inline-block;
+    background: url('~assets/images/pc/guide/nav/handle_open.png') no-repeat;
+    background-size: contain;
     width: 180 * @vw;
     height: 230 * @vw;
+    font-size: 14 * @vw;
+    color: #ffffff;
+    font-weight: 500;
+    padding-top: 212 * @vw;
+    padding-left: 132 * @vw;
   }
 }
 .hide {
