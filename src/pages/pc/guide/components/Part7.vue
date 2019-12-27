@@ -58,14 +58,18 @@ export default {
     handleLeftClick() {
       if (this.chooseIndex > 0) {
         this.chooseIndex--
-        this.$refs.video.load()
+      } else {
+        this.chooseIndex = this.videoOptions.length - 1
       }
+      this.$refs.video.load()
     },
     handleRightClick() {
       if (this.chooseIndex < this.videoOptions.length - 1) {
         this.chooseIndex++
-        this.$refs.video.load()
+      } else {
+        this.chooseIndex = 0
       }
+      this.$refs.video.load()
     },
     handleButtonClick(index) {
       if (this.chooseIndex !== index) {
@@ -133,10 +137,10 @@ export default {
       height: 70 * @vw;
       background: url('~assets/images/pc/guide/swiper_left.png') no-repeat;
       background-size: contain;
-      &.disable {
-        background: url('~assets/images/pc/guide/swiper_disable_left.png') no-repeat;
-        background-size: contain;
-      }
+      // &.disable {
+      //   background: url('~assets/images/pc/guide/swiper_disable_left.png') no-repeat;
+      //   background-size: contain;
+      // }
     }
     .handle-right {
       position: absolute;
@@ -146,10 +150,10 @@ export default {
       height: 70 * @vw;
       background: url('~assets/images/pc/guide/swiper_right.png') no-repeat;
       background-size: contain;
-      &.disable {
-        background: url('~assets/images/pc/guide/swiper_disable_right.png') no-repeat;
-        background-size: contain;
-      }
+      // &.disable {
+      //   background: url('~assets/images/pc/guide/swiper_disable_right.png') no-repeat;
+      //   background-size: contain;
+      // }
     }
 
     .play {
