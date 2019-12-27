@@ -52,9 +52,9 @@
               <p class="title">专属邀请链接：</p>
               <div class="link-box">
                 <div class="input-box">
-                  <input v-model="inviteLink" type="text" readonly />
+                  <input id="inviteLink" v-model="inviteLink" type="text" readonly />
                 </div>
-                <div class="copy-btn btn">复制链接</div>
+                <div @click="toCopyLink" class="copy-btn btn">复制链接</div>
               </div>
             </div>
           </div>
@@ -107,6 +107,11 @@ export default {
     }
   },
   methods: {
+    toCopyLink() {
+      const inviteLink = document.getElementById('inviteLink')
+      inviteLink.select()
+      document.execCommand('copy')
+    },
     crateQrcode() {
       if (process.client) {
         const QRCode = require('qrcodejs2')

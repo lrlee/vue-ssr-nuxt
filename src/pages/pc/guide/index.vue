@@ -435,9 +435,9 @@ export default {
       return {
         ...bookInfo,
         roleInfo: arr[2].data,
-        part1Data: activityData.part1 ? activityData.part1 : {},
-        part2Data: activityData.part2 ? activityData.part1 : {},
-        part3Data: activityData.part3 ? activityData.part1 : {},
+        part1Data: activityData.part1,
+        part2Data: activityData.part2,
+        part3Data: activityData.part3,
         contactsInfo: arr[3].data
       }
     })
