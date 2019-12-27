@@ -109,13 +109,13 @@
             </li>
           </ul>
           <ul class="value-reference">
-            <li class="reference-item">
+            <li class="reference-item base">
               <i class="water-drop-icon base icon"></i>
-              <span>基础值</span>
+              <span class="text">基础值</span>
             </li>
-            <li class="reference-item">
+            <li class="reference-item max">
               <i class="water-drop-icon max icon"></i>
-              <span>最大值</span>
+              <span class="text">最大值</span>
             </li>
           </ul>
         </div>
@@ -522,9 +522,18 @@ export default {
           display: flex;
           padding: 8 * @vw 30 * @vw;
           .reference-item {
+            font-size: 14 * @vw;
             display: flex;
             align-items: center;
             margin-right: 56 * @vw;
+            .text {
+              margin-left: 5 * @vw;
+            }
+            &.max {
+              .text {
+                color: #2df6f4;
+              }
+            }
           }
         }
       }
