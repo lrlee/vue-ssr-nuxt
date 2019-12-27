@@ -74,7 +74,7 @@ export default {
         {
           title: '部落丛林',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_conglin.png'),
+          pic: require('~/assets/images/pc/guide/map/map_conglin.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_conglin.jpg'),
           content:
             '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
@@ -82,7 +82,7 @@ export default {
         {
           title: '沙漠遗迹',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_shamo.png'),
+          pic: require('~/assets/images/pc/guide/map/map_shamo.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_shamo.jpg'),
           content:
             '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
@@ -90,7 +90,7 @@ export default {
         {
           title: '风暴海船',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_haidao.png'),
+          pic: require('~/assets/images/pc/guide/map/map_haidao.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_haidao.jpg'),
           content:
             '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
@@ -98,7 +98,7 @@ export default {
         {
           title: '乐高乐园',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_legao.png'),
+          pic: require('~/assets/images/pc/guide/map/map_legao.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_legao.jpg'),
           content:
             '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
@@ -106,7 +106,7 @@ export default {
         {
           title: '梦幻城堡',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_chengbao.png'),
+          pic: require('~/assets/images/pc/guide/map/map_chengbao.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_chengbao.jpg'),
           content:
             '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
