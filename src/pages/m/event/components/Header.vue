@@ -83,22 +83,22 @@ export default {
     }
   },
   mounted() {
-    console.log(window.location.href)
-    this.nativeShare = new NativeShare()
-    const shareData = {
-      title: '',
-      desc: '',
-      link: window.location.href,
-      icon: '~assets/images/logo.png',
-      // 不要过于依赖以下两个回调，很多浏览器是不支持的
-      success: () => {
-        console.log('success')
-      },
-      fail: () => {
-        console.log('fail')
-      }
-    }
-    this.nativeShare.setShareData(shareData)
+    // console.log(window.location.href)
+    // this.nativeShare = new NativeShare()
+    // const shareData = {
+    //   title: '',
+    //   desc: '',
+    //   link: window.location.href,
+    //   icon: '~assets/images/logo.png',
+    //   // 不要过于依赖以下两个回调，很多浏览器是不支持的
+    //   success: () => {
+    //     console.log('success')
+    //   },
+    //   fail: () => {
+    //     console.log('fail')
+    //   }
+    // }
+    // this.nativeShare.setShareData(shareData)
   },
   methods: {
     callShare(type) {

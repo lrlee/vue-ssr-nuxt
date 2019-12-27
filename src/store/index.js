@@ -2,7 +2,9 @@ import * as api from '@/api'
 
 export const state = () => ({
   downloadLinks: null,
-  userAgent: ''
+  userAgent: '',
+  locales: ['en', 'zh'],
+  locale: 'zh'
 })
 
 export const mutations = {
@@ -11,6 +13,11 @@ export const mutations = {
   },
   setUserAgent(state, userAgent) {
     state.userAgent = userAgent
+  },
+  SET_LANG(state, locale) {
+    if (state.locales.includes(locale)) {
+      state.locale = locale
+    }
   }
 }
 

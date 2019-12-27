@@ -1,0 +1,69 @@
+* {
+  -webkit-text-size-adjust: auto !important;
+}
+.part-title-white {
+  font-size: 1.97916667vw;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(0deg, #c4eeff 0%, #ffffff 41.96777344%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.part-title-yellow {
+  font-size: 1.97916667vw;
+  font-weight: bold;
+  color: #fff947;
+  background: linear-gradient(0deg, #fdf26a 0%, #fffcb8 100%);
+  -webkit-background-clip: text;
+}
+.part-title-type1 {
+  width: 29.11458333vw;
+  height: 6.14583333vw;
+  background: url('~assets/images/pc/guide/part_title_bg1.png') no-repeat;
+  background-size: contain;
+}
+.part-title-type2 {
+  width: 29.11458333vw;
+  height: 5.05208333vw;
+  background: url('~assets/images/pc/guide/part_title_bg2.png') no-repeat;
+  background-size: contain;
+}
+.swiper-pagination-bullet {
+  width: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  background-color: transparent !important;
+}
+.swiper-pagination-bullet .bullet-pic {
+  width: 3.80208333vw;
+  height: 3.80208333vw;
+  background: url('~assets/images/pc/guide/swiper_pagina.png') no-repeat;
+  background-size: contain;
+  position: relative;
+}
+.swiper-pagination-bullet .bullet-pic .bullet-text {
+  width: 3.80208333vw;
+  text-align: center;
+  font-size: 0.9375vw;
+  color: #fff;
+  position: absolute;
+  bottom: -1.04166667vw;
+}
+.swiper-pagination-bullet .bullet-dot {
+  width: 6.35416667vw;
+  height: 0.26041667vw;
+  background: url('~assets/images/pc/guide/swiper_pagina_dot.png') no-repeat;
+  background-size: contain;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active .bullet-pic {
+  width: 4.6875vw;
+  height: 4.32291667vw;
+  background: url('~assets/images/pc/guide/swiper_pagina_hover.png') no-repeat;
+  background-size: contain;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active .bullet-text {
+  color: #FFE14D;
+  font-weight: bold;
+}

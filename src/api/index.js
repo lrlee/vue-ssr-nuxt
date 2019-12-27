@@ -85,3 +85,66 @@ export function getStrategyDesc(id) {
     method: 'get'
   })
 }
+
+// 预约活动开关
+export function bookingOnOrOff() {
+  return request({
+    url: `/booking/on_off`,
+    method: 'get'
+  })
+}
+// 预约活动 验证码
+export function getBookVeriCode(data) {
+  return request({
+    url: `/captcha/sms/booking`,
+    method: 'post',
+    data
+  })
+}
+// 用户预约
+export function toBook(data) {
+  return request({
+    url: `/booking`,
+    method: 'post',
+    data
+  })
+}
+// 预约有礼总人数
+export function getBookTotal() {
+  return request({
+    url: `/booking/total`,
+    method: 'get'
+  })
+}
+
+// 前置页获取人物信息
+export function getBookingRole() {
+  return request({
+    url: `/booking/role`,
+    method: 'get'
+  })
+}
+
+// 预约活动静态数据
+export function getBookingData() {
+  return request({
+    url: `/reserve_gift/awards`,
+    method: 'get'
+  })
+}
+
+// 获取邀请人数
+export function getInvitedCount(guid) {
+  return request({
+    url: `/booking/invited_count/${guid}`,
+    method: 'get'
+  })
+}
+
+// 获取二维码联系方式
+export function getContactsWeb() {
+  return request({
+    url: '/contacts/web',
+    method: 'get'
+  })
+}

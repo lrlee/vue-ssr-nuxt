@@ -23,5 +23,9 @@ module.exports = {
     'vue/require-component-is': 'off',
     'vue/no-unused-components': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-var': 'off',
+    'no-use-before-define': 'off',
+    'no-useless-return': 'off',
+    'vue/no-side-effects-in-computed-properties': 'off'
   }
 }
