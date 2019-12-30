@@ -46,3 +46,13 @@ export function parseTime(time, cFormat) {
   })
   return timeStr
 }
+
+export function checkSafeData(param, key) {
+  if (!param) {
+    return 'null'
+  } else if (key) {
+    return param.key
+  } else {
+    return param
+  }
+}
