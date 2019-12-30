@@ -84,7 +84,10 @@
                   <div class="gift-pic-box">
                     <img :src="part1Data[index].pic" class="gift-pic" />
                   </div>
-                  <p class="gift-name">{{ $t('game.' + part1Data[index].name.key) }}</p>
+                  <p class="gift-name">
+                    <!-- {{ $t('game.' + (part1Data[index].name ? part1Data[index].name.key : 'null')) }} -->
+                    {{ $t('game.' + checkSafeData(part1Data[index].name, 'key')) }}
+                  </p>
                   <div class="ribbon-icon">
                     <span>x{{ part1Data[index].amount }}</span>
                   </div>
@@ -143,7 +146,9 @@
                             <img :src="part2Data[0].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[0].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">{{ $t('game.' + part2Data[0].awards[index].name.key) }}</p>
+                          <p class="gift-name">
+                            {{ $t('game.' + checkSafeData(part2Data[0].awards[index].name, 'key')) }}
+                          </p>
                         </li>
                       </ul>
                     </div>
@@ -168,7 +173,9 @@
                             <img :src="part2Data[1].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[1].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">{{ $t('game.' + part2Data[1].awards[index].name.key) }}</p>
+                          <p class="gift-name">
+                            {{ $t('game.' + checkSafeData(part2Data[1].awards[index].name, 'key')) }}
+                          </p>
                         </li>
                       </ul>
                     </div>
@@ -195,7 +202,9 @@
                             <img :src="part2Data[4].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[4].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">{{ $t('game.' + part2Data[4].awards[index].name.key) }}</p>
+                          <p class="gift-name">
+                            {{ $t('game.' + checkSafeData(part2Data[4].awards[index].name, 'key')) }}
+                          </p>
                         </li>
                       </ul>
                     </div>
@@ -220,7 +229,9 @@
                             <img :src="part2Data[3].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[3].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">{{ $t('game.' + part2Data[3].awards[index].name.key) }}</p>
+                          <p class="gift-name">
+                            {{ $t('game.' + checkSafeData(part2Data[3].awards[index].name, 'key')) }}
+                          </p>
                         </li>
                       </ul>
                     </div>
@@ -245,7 +256,9 @@
                             <img :src="part2Data[2].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[2].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">{{ $t('game.' + part2Data[2].awards[index].name.key) }}</p>
+                          <p class="gift-name">
+                            {{ $t('game.' + checkSafeData(part2Data[2].awards[index].name, 'key')) }}
+                          </p>
                         </li>
                       </ul>
                     </div>
@@ -282,7 +295,9 @@
                   <div v-if="part3Data[0] && part3Data[0].awards" class="gift-wrapper">
                     <img :src="part3Data[0].awards[0].pic" class="gift-pic" />
                     <p class="gift-name">
-                      {{ $t('game.' + part3Data[0].awards[0].name.key) }}x{{ part3Data[0].awards[0].amount }}
+                      {{ $t('game.' + checkSafeData(part3Data[0].awards[0].name, 'key')) }}
+                      x
+                      {{ part3Data[0].awards[0].amount }}
                     </p>
                     <div class="gift-label">邀请1位好友</div>
                     <div class="paopao-pic"></div>
@@ -295,7 +310,9 @@
                   <div v-if="part3Data[1] && part3Data[1].awards" class="gift-wrapper">
                     <img :src="part3Data[1].awards[0].pic" class="gift-pic" />
                     <p class="gift-name">
-                      {{ $t('game.' + part3Data[1].awards[0].name.key) }}x{{ part3Data[1].awards[0].amount }}
+                      {{ $t('game.' + checkSafeData(part3Data[1].awards[0].name, 'key')) }}
+                      x
+                      {{ part3Data[1].awards[0].amount }}
                     </p>
                     <div class="gift-label">邀请3位好友</div>
                     <div class="paopao-pic"></div>
@@ -308,7 +325,9 @@
                   <div v-if="part3Data[2] && part3Data[2].awards" class="gift-wrapper">
                     <img :src="part3Data[2].awards[0].pic" class="gift-pic" />
                     <p class="gift-name">
-                      {{ $t('game.' + part3Data[2].awards[0].name.key) }}x{{ part3Data[2].awards[0].amount }}
+                      {{ $t('game.' + checkSafeData(part3Data[2].awards[0].name, 'key')) }}
+                      x
+                      {{ part3Data[2].awards[0].amount }}
                     </p>
                     <div class="gift-label">邀请5位好友</div>
                     <div class="paopao-pic"></div>
@@ -321,7 +340,9 @@
                   <div v-if="part3Data[3] && part3Data[3].awards" class="gift-wrapper">
                     <img :src="part3Data[3].awards[0].pic" class="gift-pic" />
                     <p class="gift-name">
-                      {{ $t('game.' + part3Data[3].awards[0].name.key) }}x{{ part3Data[3].awards[0].amount }}
+                      {{ $t('game.' + checkSafeData(part3Data[3].awards[0].name, 'key')) }}
+                      x
+                      {{ part3Data[3].awards[0].amount }}
                     </p>
                     <div class="gift-label">邀请8位好友</div>
                     <div class="paopao-pic"></div>
@@ -374,7 +395,7 @@ import {
   getInvitedCount,
   getContactsWeb
 } from '@/api/index'
-import { parseTime } from '@/utils/common'
+import { parseTime, checkSafeData } from '@/utils/common'
 export default {
   middleware: 'booking',
   components: {
@@ -458,6 +479,9 @@ export default {
     this.setBookTotalPolling()
   },
   methods: {
+    checkSafeData(param, key) {
+      return checkSafeData(param, key)
+    },
     toGetInviteDCount() {
       getInvitedCount(this.invite_id_self).then(res => {
         if (res.code === 0) {
