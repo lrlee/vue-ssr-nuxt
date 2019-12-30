@@ -22,6 +22,7 @@
       <ul class="code-item-parent">
         <li v-for="(item, index) in codeOptions" :key="index" class="code-item">
           <img :src="item.bg" class="code-bg" />
+          <span class="code-bg-text">{{ item.bgText }} </span>
           <img :src="item.img" class="code-detail" />
           <div v-if="item.text" v-html="item.text" class="code-text"></div>
         </li>
@@ -65,16 +66,19 @@ export default {
       codeOptions: [
         {
           bg: require('~/assets/images/pc/guide/rules/wx_bg.png'),
+          bgText: '官方公众号',
           text: this.contactsInfo.woa.desc,
           img: this.contactsInfo.woa.qrcode
         },
         {
           bg: require('~/assets/images/pc/guide/rules/wb_bg.png'),
+          bgText: '官方微博',
           text: this.contactsInfo.weibo.desc,
           img: this.contactsInfo.weibo.qrcode
         },
         {
           bg: require('~/assets/images/pc/guide/rules/qq_bg.png'),
+          bgText: '官方交流群',
           text: this.contactsInfo.qqgroup.desc,
           img: this.contactsInfo.qqgroup.qrcode
         }
@@ -176,6 +180,15 @@ export default {
         .code-bg {
           width: 200 * @vw;
           height: 210 * @vw;
+        }
+        .code-bg-text {
+          position: absolute;
+          left: 18 * @vw;
+          top: 54 * @vw;
+          width: 18 * @vw;
+          font-size: 18 * @vw;
+          line-height: 20 * @vw;
+          color: #30a3f6;
         }
         .code-detail {
           position: absolute;
