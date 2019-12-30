@@ -85,7 +85,7 @@ export default {
           pic: require('~/assets/images/pc/guide/map/map_shamo.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_shamo.jpg'),
           content:
-            '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
+            '当风雨不来，日月同辉，被风沙掩埋着的拉玛遗迹将重现于世。传说这所神秘的沙漠遗迹之下埋藏了大量宝藏，然而，所有进去过的人都无法寻找到出路，最终成为这座遗迹的一部分。你，能离开这里吗？'
         },
         {
           title: '风暴海船',
@@ -93,7 +93,7 @@ export default {
           pic: require('~/assets/images/pc/guide/map/map_haidao.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_haidao.jpg'),
           content:
-            '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
+            '耳边是大海的呼啸，飓风的怒嚎，眼前是破旧的甲板，沉重的货箱。章鱼海盗听着船上传来的哭声，无比愤怒瞪向惊恐的人们。一边是可怜的章鱼宝宝，一边是无辜的人们，千钧一发，应该先帮谁呢？'
         },
         {
           title: '乐高乐园',
@@ -101,7 +101,7 @@ export default {
           pic: require('~/assets/images/pc/guide/map/map_legao.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_legao.jpg'),
           content:
-            '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
+            '刺激的过山车轰轰而过，温馨的旋转木马缓缓转动，惊险的海盗船来回摇摆……欢迎来到欢乐的乐高乐园，和好朋友追逐，和喜欢的人打闹，唤醒内心的童真，成为一个快乐的孩子。'
         },
         {
           title: '梦幻城堡',
@@ -109,7 +109,7 @@ export default {
           pic: require('~/assets/images/pc/guide/map/map_chengbao.jpg'),
           pic_big: require('~/assets/images/pc/guide/map/map_big_chengbao.jpg'),
           content:
-            '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
+            '广场上有趣的玩偶，四周奇妙的建筑，远处漂浮的时钟，这所粉色的梦幻城堡充满了神奇色彩。这里是仙女座星系，受到宇宙之力的庇护，到处都充斥着魔法的力量，没有人可以破坏这里的宁静，这里是宇宙最和平最美丽的地方。'
         }
       ],
       selectedIndex: 0

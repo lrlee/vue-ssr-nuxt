@@ -43,14 +43,21 @@
         <i class="icon logo-icon"></i>
         <div class="flight-left-pic"></div>
         <div class="flight-right-pic"></div>
-        <div class="paopao-pic">
-          <div class="ribbon-pic"></div>
-          <div id="titlePic" class="title-pic"></div>
-          <div class="title-activity-pic">
-            <div @click="showVideo = true" class="play-bg btn">
-              <div class="play-icon"></div>
+        <div class="paopao-wrapper">
+          <div class="colorpaper-pic"></div>
+          <div class="paopao-big-pic">
+            <div class="right-paopao"></div>
+            <div class="ribbon-pic-1"></div>
+            <div class="ribbon-pic-2"></div>
+            <div id="titlePic" class="title-pic"></div>
+            <div class="title-activity-pic">
+              <div @click="showVideo = true" class="play-bg btn">
+                <div class="play-icon"></div>
+              </div>
             </div>
           </div>
+          <div class="paopap-left-pic"></div>
+          <div class="paopao-right-pic"></div>
           <div class="doll-lili"></div>
           <div class="doll-rabbit"></div>
           <div class="doll-cactus"></div>
@@ -80,18 +87,20 @@
             <div class="content">
               <p class="content-title"><span class="title-text">预约即得，人人有份</span></p>
               <ul class="gift-list">
-                <li v-for="(gift, index) in part1Data" :key="index" :class="'gift' + (index + 1)" class="gift-item">
-                  <div class="gift-pic-box">
-                    <img :src="part1Data[index].pic" class="gift-pic" />
-                  </div>
-                  <p class="gift-name">
-                    <!-- {{ $t('game.' + (part1Data[index].name ? part1Data[index].name.key : 'null')) }} -->
-                    {{ $t('game.' + checkSafeData(part1Data[index].name, 'key')) }}
-                  </p>
-                  <div class="ribbon-icon">
-                    <span>x{{ part1Data[index].amount }}</span>
-                  </div>
-                </li>
+                <template v-for="(gift, index) in part1Data">
+                  <li v-if="index < 5" :key="index" :class="'gift' + (index + 1)" class="gift-item">
+                    <div class="gift-pic-box">
+                      <img :src="part1Data[index].pic" class="gift-pic" />
+                    </div>
+                    <p class="gift-name">
+                      <!-- {{ $t('game.' + (part1Data[index].name ? part1Data[index].name.key : 'null')) }} -->
+                      {{ $t('game.' + checkSafeData(part1Data[index].name, 'key')) }}
+                    </p>
+                    <div class="ribbon-icon">
+                      <span>x{{ part1Data[index].amount }}</span>
+                    </div>
+                  </li>
+                </template>
               </ul>
               <div class="book-btn-box">
                 <div @click="openBookPop" class="book-btn btn"></div>
@@ -146,7 +155,10 @@
                             <img :src="part2Data[0].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[0].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">
+                          <p
+                            :title="$t('game.' + checkSafeData(part2Data[0].awards[index].name, 'key'))"
+                            class="gift-name"
+                          >
                             {{ $t('game.' + checkSafeData(part2Data[0].awards[index].name, 'key')) }}
                           </p>
                         </li>
@@ -173,7 +185,10 @@
                             <img :src="part2Data[1].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[1].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">
+                          <p
+                            :title="$t('game.' + checkSafeData(part2Data[1].awards[index].name, 'key'))"
+                            class="gift-name"
+                          >
                             {{ $t('game.' + checkSafeData(part2Data[1].awards[index].name, 'key')) }}
                           </p>
                         </li>
@@ -202,7 +217,10 @@
                             <img :src="part2Data[4].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[4].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">
+                          <p
+                            :title="$t('game.' + checkSafeData(part2Data[4].awards[index].name, 'key'))"
+                            class="gift-name"
+                          >
                             {{ $t('game.' + checkSafeData(part2Data[4].awards[index].name, 'key')) }}
                           </p>
                         </li>
@@ -229,7 +247,10 @@
                             <img :src="part2Data[3].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[3].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">
+                          <p
+                            :title="$t('game.' + checkSafeData(part2Data[3].awards[index].name, 'key'))"
+                            class="gift-name"
+                          >
                             {{ $t('game.' + checkSafeData(part2Data[3].awards[index].name, 'key')) }}
                           </p>
                         </li>
@@ -256,7 +277,10 @@
                             <img :src="part2Data[2].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[2].awards[index].amount }}</span>
                           </div>
-                          <p class="gift-name">
+                          <p
+                            :title="$t('game.' + checkSafeData(part2Data[2].awards[index].name, 'key'))"
+                            class="gift-name"
+                          >
                             {{ $t('game.' + checkSafeData(part2Data[2].awards[index].name, 'key')) }}
                           </p>
                         </li>
@@ -429,6 +453,10 @@ export default {
     }
   },
   asyncData({ store }) {
+    // 图片预加载
+    require('~/assets/images/pc/guide/big_paopao.png')
+    require('~/assets/images/pc/guide/bg.jpg')
+    require('~/assets/images/pc/guide/bg_active.png')
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
       let bookInfo = {}
       console.log('on_off', arr[0])
@@ -453,13 +481,13 @@ export default {
       }
       console.log('activity', arr[1].data)
       console.log('contact', arr[3].data)
-      const activityData = arr[1].data
+      const activityData = arr[1].data ? arr[1].data : null
       return {
         ...bookInfo,
         roleInfo: arr[2].data,
-        part1Data: activityData.part1,
-        part2Data: activityData.part2,
-        part3Data: activityData.part3,
+        part1Data: activityData ? activityData.part1 : null,
+        part2Data: activityData ? activityData.part2 : null,
+        part3Data: activityData ? activityData.part3 : null,
         contactsInfo: arr[3].data
       }
     })
@@ -796,7 +824,7 @@ export default {
         height: 1461 * @vw;
         background: url('~assets/images/pc/guide/light_index.png') no-repeat;
         background-size: contain;
-        animation: rotate 7s linear infinite;
+        animation: rotate 15s linear infinite;
       }
     }
   }
@@ -835,93 +863,214 @@ export default {
       background-size: contain;
       animation: flight_right_move 15s linear infinite;
     }
-    .paopao-pic {
+    .paopao-wrapper {
       position: relative;
       display: flex;
       justify-content: center;
-      width: 1113 * @vw;
-      height: 726 * @vw;
-      background: url('~assets/images/pc/guide/paopao_index.png') no-repeat;
-      background-size: contain;
-      margin-left: 45 * @vw;
+      width: 774 * @vw;
+      height: 748 * @vw;
     }
-    .ribbon-pic {
+    .colorpaper-pic {
       position: absolute;
-      top: 110 * @vw;
-      margin-left: 21 * @vw;
-      width: 944 * @vw;
-      height: 599 * @vw;
-      background: url('~assets/images/pc/guide/ribbon_index.png') no-repeat;
-      background-size: contain;
+      top: -200 * @vw;
+      left: -600 * @vw;
+      width: 1975 * @vw;
+      height: 974 * @vw;
+      background: url('~assets/images/pc/guide/colorpaper_index.png') no-repeat;
+      background-size: cover;
+      background-position: 0;
+      animation: colorpaper 5s infinite steps(54, end);
+      z-index: 3;
     }
-    .title-pic {
-      position: absolute;
-      top: 242 * @vw;
-      margin-left: -23 * @vw;
-      width: 713 * @vw;
-      height: 271 * @vw;
-      background: url('~assets/images/pc/guide/title.png') no-repeat;
-      background-size: contain;
+    @keyframes colorpaper {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: -106650 * @vw;
+      }
     }
-    .title-activity-pic {
+    @keyframes paopao {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: -29412 * @vw;
+      }
+    }
+    .paopao-big-pic {
       position: absolute;
-      bottom: 110 * @vw;
-      margin-left: -9 * @vw;
-      width: 628 * @vw;
-      height: 67 * @vw;
-      background: url('~assets/images/pc/guide/title_activity.png') no-repeat;
-      background-size: contain;
-      display: flex;
-      justify-content: center;
-      .play-bg {
+      z-index: 2;
+      top: -30 * @vw;
+      width: 774 * @vw;
+      height: 748 * @vw;
+      background: url('~assets/images/pc/guide/big_paopao.png');
+      background-size: cover;
+      background-position: 0;
+      animation: paopao 2.5s infinite steps(38, end);
+      .ribbon-pic-1 {
         position: absolute;
-        top: -22 * @vw;
-        margin-left: -4 * @vw;
-        width: 108 * @vw;
-        height: 108 * @vw;
-        background: url('~assets/images/pc/guide/play_bg_index.png') no-repeat;
+        left: 20 * @vw;
+        bottom: 60 * @vw;
+        width: 695 * @vw;
+        height: 193 * @vw;
+        background: url('~assets/images/pc/guide/ribbon1_index.png') no-repeat;
+        background-size: contain;
+        z-index: 2;
+      }
+      .ribbon-pic-2 {
+        position: absolute;
+        bottom: 30 * @vw;
+        right: -180 * @vw;
+        width: 270 * @vw;
+        height: 193 * @vw;
+        background: url('~assets/images/pc/guide/ribbon2_index.png') no-repeat;
+        background-size: contain;
+        z-index: 1;
+      }
+      .title-pic {
+        position: absolute;
+        top: 270 * @vw;
+        left: 20 * @vw;
+        width: 713 * @vw;
+        height: 271 * @vw;
+        background: url('~assets/images/pc/guide/title.png') no-repeat;
+        background-size: contain;
+        z-index: 3;
+      }
+      .title-activity-pic {
+        position: absolute;
+        z-index: 3;
+        left: 60 * @vw;
+        bottom: 103 * @vw;
+        width: 630 * @vw;
+        height: 69 * @vw;
+        background: url('~assets/images/pc/guide/title_activity.png') no-repeat;
         background-size: contain;
         display: flex;
-        align-items: center;
         justify-content: center;
-        animation: scale_play 3s infinite;
+        .play-bg {
+          position: absolute;
+          top: -22 * @vw;
+          margin-left: -4 * @vw;
+          width: 108 * @vw;
+          height: 108 * @vw;
+          background: url('~assets/images/pc/guide/play_bg_index.png') no-repeat;
+          background-size: contain;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: scale_play 3s infinite;
+        }
+        .play-icon {
+          width: 44 * @vw;
+          height: 49 * @vw;
+          background: url('~assets/images/pc/guide/play_index.png') no-repeat;
+          background-size: contain;
+          animation: scale_play 3s infinite;
+          animation-delay: 0.8s;
+        }
       }
-      .play-icon {
-        width: 44 * @vw;
-        height: 49 * @vw;
-        background: url('~assets/images/pc/guide/play_index.png') no-repeat;
-        background-size: contain;
-        animation: scale_play 3s infinite;
-        animation-delay: 0.8s;
+    }
+    @keyframes paopao_left {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: -9548 * @vw;
+      }
+    }
+    .paopap-left-pic {
+      position: absolute;
+      z-index: 1;
+      bottom: 80 * @vw;
+      left: -140 * @vw;
+      width: 341 * @vw;
+      height: 354 * @vw;
+      background: url('~assets/images/pc/guide/left_paopao.png');
+      background-size: cover;
+      background-position: 0;
+      animation: paopao_left 2.5s infinite steps(28, end);
+    }
+    .paopao-right-pic {
+      position: absolute;
+      z-index: 1;
+      bottom: 150 * @vw;
+      right: -70 * @vw;
+      width: 143 * @vw;
+      height: 163 * @vw;
+      background: url('~assets/images/pc/guide/right_paopao.png');
+      background-size: cover;
+      background-position: 0;
+      animation: paopao_right 3s infinite steps(28, end);
+    }
+    @keyframes paopao_right {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: -4004 * @vw;
       }
     }
     .doll-lili {
       position: absolute;
-      right: -190 * @vw;
-      top: 328 * @vw;
-      width: 324 * @vw;
-      height: 569 * @vw;
+      z-index: 2;
+      right: -350 * @vw;
+      top: 240 * @vw;
+      width: 338 * @vw;
+      height: 462 * @vw;
       background: url('~assets/images/pc/guide/lili_doll_index.png') no-repeat;
-      background-size: contain;
+      background-position: 0;
+      background-size: cover;
+      animation: lili_index 1.8s infinite steps(28, end);
+    }
+    @keyframes lili_index {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: -9464 * @vw;
+      }
     }
     .doll-rabbit {
       position: absolute;
-      left: -125 * @vw;
+      z-index: 2;
+      left: -280 * @vw;
       top: 380 * @vw;
-      width: 261 * @vw;
-      height: 488 * @vw;
+      width: 268 * @vw;
+      height: 472 * @vw;
       background: url('~assets/images/pc/guide/rabbit_doll_index.png') no-repeat;
-      background-size: contain;
+      background-position: 0;
+      background-size: cover;
+      animation: rabbit_index 2.8s infinite steps(28, end);
+    }
+    @keyframes rabbit_index {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: -7504 * @vw;
+      }
     }
     .doll-cactus {
       position: absolute;
-      right: 87 * @vw;
+      z-index: 2;
+      right: -100 * @vw;
       top: 102 * @vw;
-      width: 174 * @vw;
-      height: 162 * @vw;
+      width: 193 * @vw;
+      height: 177 * @vw;
       background: url('~assets/images/pc/guide/cactus_doll_index.png') no-repeat;
-      background-size: contain;
-      animation: move_updown 2s ease infinite;
+      background-position: 0;
+      background-size: cover;
+      animation: cactus_index 3s infinite steps(34, end);
+    }
+    @keyframes cactus_index {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: -6562 * @vw;
+      }
     }
   }
   .activity {
@@ -929,7 +1078,7 @@ export default {
     z-index: 2;
     width: 100%;
     height: 3646 * @vw;
-    background: url('/images/guide/bg_active.png') top center no-repeat;
+    background: url('~assets/images/pc/guide/bg_active.png') top center no-repeat;
     background-size: cover;
     margin-top: -423 * @vw;
     padding-top: 230 * @vw;
@@ -1379,7 +1528,7 @@ export default {
                   text-align: center;
                   padding-top: 5 * @vw;
                   opacity: 0.6;
-                  margin: 0 10 * @vw;
+                  margin: 0 8 * @vw;
                   &:nth-of-type(1) {
                     margin-left: 16 * @vw;
                   }
@@ -1415,6 +1564,10 @@ export default {
                     color: #fff;
                     font-size: 14 * @vw;
                     margin-top: 3 * @vw;
+                    max-width: 75 * @vw;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                   }
                 }
               }
@@ -1546,7 +1699,7 @@ export default {
   position: relative;
   width: 100%;
   height: 5259 * @vw;
-  background: url('/images/guide/bg_content.png') top center no-repeat;
+  background: url('~assets/images/pc/guide/bg_content.png') top center no-repeat;
   background-size: cover;
   z-index: 3;
   display: flex;

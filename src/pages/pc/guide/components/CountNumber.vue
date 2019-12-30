@@ -44,7 +44,7 @@ export default {
         setTimeout(() => {
           this.$refs.numberList.style.transform = `translateY(${-this.number * (56 / 19.2)}vw)`
           this.$refs.numberList.style.transitionDuration = this.number - this.preNumber * 1 + 's'
-        }, 50)
+        }, 300)
       }
     }
   }
