@@ -16,7 +16,7 @@ module.exports = {
   //   routes: ['/', '/event/index', '/event/1', '/event/2', '/event/3', '/event/4', '/event/5', '/event/6']
   // },
   head: {
-    title: process.env.npm_package_name || '',
+    title: '全民泡泡超人-官方网站',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
