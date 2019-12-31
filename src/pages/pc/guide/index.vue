@@ -454,9 +454,9 @@ export default {
   },
   asyncData({ store }) {
     // 图片预加载
-    require('~/assets/images/pc/guide/big_paopao.png')
-    require('~/assets/images/pc/guide/bg.jpg')
-    require('~/assets/images/pc/guide/bg_active.png')
+    // require('~/assets/images/pc/guide/big_paopao.png')
+    // require('~/assets/images/pc/guide/bg.jpg')
+    // require('~/assets/images/pc/guide/bg_active.png')
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
       let bookInfo = {}
       console.log('on_off', arr[0])
@@ -848,20 +848,31 @@ export default {
       position: absolute;
       left: 0 * @vw;
       top: 135 * @vw;
-      width: 87 * @vw;
-      height: 52 * @vw;
+      width: 88 * @vw;
+      height: 53 * @vw;
       background: url('~assets/images/pc/guide/flight_index.png') no-repeat;
-      background-size: contain;
-      animation: flight_left_move 25s linear infinite;
+      background-size: cover;
+      background-position: 0;
+      animation: flight_steps 0.5s infinite steps(14, end), flight_left_move 25s linear infinite;
+    }
+    @keyframes flight_steps {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: -1232 * @vw;
+      }
     }
     .flight-right-pic {
       position: absolute;
       top: 370 * @vw;
-      width: 57 * @vw;
-      height: 34 * @vw;
+      width: 88 * @vw;
+      height: 53 * @vw;
+      transform: scale(0.6);
       background: url('~assets/images/pc/guide/flight_index.png') no-repeat;
-      background-size: contain;
-      animation: flight_right_move 15s linear infinite;
+      background-size: cover;
+      background-position: 0;
+      animation: flight_steps 0.5s infinite steps(14, end), flight_right_move 15s linear infinite;
     }
     .paopao-wrapper {
       position: relative;
@@ -881,6 +892,7 @@ export default {
       background-position: 0;
       animation: colorpaper 5s infinite steps(54, end);
       z-index: 3;
+      pointer-events: none;
     }
     @keyframes colorpaper {
       0% {
@@ -1042,14 +1054,14 @@ export default {
       background: url('~assets/images/pc/guide/rabbit_doll_index.png') no-repeat;
       background-position: 0;
       background-size: cover;
-      animation: rabbit_index 2.8s infinite steps(28, end);
+      animation: rabbit_index 2.8s infinite steps(55, end);
     }
     @keyframes rabbit_index {
       0% {
         background-position: 0;
       }
       100% {
-        background-position: -7504 * @vw;
+        background-position: -14740 * @vw;
       }
     }
     .doll-cactus {
