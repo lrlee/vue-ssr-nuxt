@@ -11,12 +11,6 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img class="swipwr-pic" src="@/assets/images/pc/guide/pic_part4.png" />
-            <div class="swiper-title title1 left"></div>
-            <div class="swiper-doll doll1 left"></div>
-            <div class="swiper-role role1 right"></div>
-          </div>
-          <div class="swiper-slide">
-            <img class="swipwr-pic" src="@/assets/images/pc/guide/pic_part4.png" />
             <div class="swiper-title title2 left"></div>
             <div class="swiper-doll doll2 right"></div>
             <div class="swiper-role role2 left"></div>
@@ -26,6 +20,12 @@
             <div class="swiper-title title3 left"></div>
             <div class="swiper-doll doll3 left"></div>
             <div class="swiper-role role3 right"></div>
+          </div>
+          <div class="swiper-slide">
+            <img class="swipwr-pic" src="@/assets/images/pc/guide/pic_part4.png" />
+            <div class="swiper-title title1 left"></div>
+            <div class="swiper-doll doll1 left"></div>
+            <div class="swiper-role role1 right"></div>
           </div>
         </div>
         <div class="swiper-pagination"></div>
