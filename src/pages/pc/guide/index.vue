@@ -99,6 +99,7 @@
                     <div class="ribbon-icon">
                       <span>x{{ part1Data[index].amount }}</span>
                     </div>
+                    <div v-if="part1Data[index].major" class="label-major"></div>
                   </li>
                 </template>
               </ul>
@@ -151,7 +152,7 @@
                       <p class="gift-note">预约达成奖励</p>
                       <ul v-if="part2Data && part2Data[0].awards" class="gift-list list-4">
                         <li v-for="(gift, index) in part2Data[0].awards" :key="index" class="gift-item">
-                          <div class="gift-box">
+                          <div :class="{ major: part2Data[0].awards[index].major }" class="gift-box">
                             <img :src="part2Data[0].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[0].awards[index].amount }}</span>
                           </div>
@@ -181,7 +182,7 @@
                       <p class="gift-note">预约达成奖励</p>
                       <ul v-if="part2Data && part2Data[1].awards" class="gift-list list-4">
                         <li v-for="(gift, index) in part2Data[1].awards" :key="index" class="gift-item">
-                          <div class="gift-box">
+                          <div :class="{ major: part2Data[1].awards[index].major }" class="gift-box">
                             <img :src="part2Data[1].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[1].awards[index].amount }}</span>
                           </div>
@@ -213,7 +214,7 @@
                       <p class="gift-note">预约达成奖励</p>
                       <ul v-if="part2Data && part2Data[4].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[4].awards" :key="index" class="gift-item">
-                          <div class="gift-box">
+                          <div :class="{ major: part2Data[4].awards[index].major }" class="gift-box">
                             <img :src="part2Data[4].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[4].awards[index].amount }}</span>
                           </div>
@@ -243,7 +244,7 @@
                       <p class="gift-note">预约达成奖励</p>
                       <ul v-if="part2Data && part2Data[3].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[3].awards" :key="index" class="gift-item">
-                          <div class="gift-box">
+                          <div :class="{ major: part2Data[3].awards[index].major }" class="gift-box">
                             <img :src="part2Data[3].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[3].awards[index].amount }}</span>
                           </div>
@@ -273,7 +274,7 @@
                       <p class="gift-note">预约达成奖励</p>
                       <ul v-if="part2Data && part2Data[2].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[2].awards" :key="index" class="gift-item">
-                          <div class="gift-box">
+                          <div :class="{ major: part2Data[2].awards[index].major }" class="gift-box">
                             <img :src="part2Data[2].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[2].awards[index].amount }}</span>
                           </div>
@@ -676,6 +677,85 @@ export default {
     transform: translateY(-120 * @vw);
   }
 }
+@media screen and (max-width: 1700px) {
+  .paopao-big-pic,
+  .paopap-left-pic,
+  .paopao-right-pic,
+  .doll-lili,
+  .doll-rabbit,
+  .doll-cactus,
+  .flight-left-pic {
+    transform: scale(0.85) !important;
+  }
+  .flight-right-pic {
+    transform: scale(0.65) !important;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .paopao-big-pic,
+  .paopap-left-pic,
+  .paopao-right-pic,
+  .doll-lili,
+  .doll-rabbit,
+  .doll-cactus,
+  .flight-left-pic {
+    transform: scale(0.8) !important;
+  }
+  .flight-right-pic {
+    transform: scale(0.6) !important;
+  }
+}
+@media screen and (max-width: 1500px) {
+  // @vw: 1vw/19.2;
+  .paopao-big-pic,
+  .paopap-left-pic,
+  .paopao-right-pic,
+  .doll-lili,
+  .doll-rabbit,
+  .doll-cactus,
+  .flight-left-pic {
+    transform: scale(0.75) !important;
+  }
+  .flight-right-pic {
+    transform: scale(0.55) !important;
+  }
+  .doll-lili {
+    right: -380 * @vw !important;
+    top: 180 * @vw !important;
+  }
+  .doll-rabbit {
+    left: -280 * @vw !important;
+    top: 300 * @vw !important;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .paopao-big-pic,
+  .paopap-left-pic,
+  .paopao-right-pic,
+  .doll-lili,
+  .doll-rabbit,
+  .doll-cactus,
+  .flight-left-pic {
+    transform: scale(0.7) !important;
+  }
+  .flight-right-pic {
+    transform: scale(0.5) !important;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .paopao-big-pic,
+  .paopap-left-pic,
+  .paopao-right-pic,
+  .doll-lili,
+  .doll-rabbit,
+  .doll-cactus,
+  .flight-left-pic {
+    transform: scale(0.65) !important;
+  }
+  .flight-right-pic {
+    transform: scale(0.45) !important;
+  }
+}
 .part-description {
   display: flex;
   margin-top: 20 * @vw;
@@ -848,8 +928,8 @@ export default {
       position: absolute;
       left: 0 * @vw;
       top: 135 * @vw;
-      width: 88 * @vw;
-      height: 53 * @vw;
+      width: 88px;
+      height: 53px;
       background: url('~assets/images/pc/guide/flight_index.png') no-repeat;
       background-size: cover;
       background-position: 0;
@@ -860,15 +940,15 @@ export default {
         background-position: 0;
       }
       100% {
-        background-position: -1232 * @vw;
+        background-position: -1232px;
       }
     }
     .flight-right-pic {
       position: absolute;
       top: 370 * @vw;
-      width: 88 * @vw;
-      height: 53 * @vw;
-      transform: scale(0.6);
+      width: 88px;
+      height: 53px;
+      transform: scale(0.65);
       background: url('~assets/images/pc/guide/flight_index.png') no-repeat;
       background-size: cover;
       background-position: 0;
@@ -878,8 +958,10 @@ export default {
       position: relative;
       display: flex;
       justify-content: center;
+      align-items: center;
       width: 774 * @vw;
       height: 748 * @vw;
+      padding-bottom: 50 * @vw;
     }
     .colorpaper-pic {
       position: absolute;
@@ -907,45 +989,44 @@ export default {
         background-position: 0;
       }
       100% {
-        background-position: -29412 * @vw;
+        background-position: -29412px;
       }
     }
     .paopao-big-pic {
       position: absolute;
       z-index: 2;
-      top: -30 * @vw;
-      width: 774 * @vw;
-      height: 748 * @vw;
+      width: 774px;
+      height: 748px;
       background: url('~assets/images/pc/guide/big_paopao.png');
       background-size: cover;
       background-position: 0;
       animation: paopao 2.5s infinite steps(38, end);
       .ribbon-pic-1 {
         position: absolute;
-        left: 20 * @vw;
-        bottom: 60 * @vw;
-        width: 695 * @vw;
-        height: 193 * @vw;
+        left: 20px;
+        bottom: 60px;
+        width: 695px;
+        height: 193px;
         background: url('~assets/images/pc/guide/ribbon1_index.png') no-repeat;
         background-size: contain;
         z-index: 2;
       }
       .ribbon-pic-2 {
         position: absolute;
-        bottom: 30 * @vw;
-        right: -180 * @vw;
-        width: 270 * @vw;
-        height: 193 * @vw;
+        bottom: 30px;
+        right: -180px;
+        width: 270px;
+        height: 193px;
         background: url('~assets/images/pc/guide/ribbon2_index.png') no-repeat;
         background-size: contain;
         z-index: 1;
       }
       .title-pic {
         position: absolute;
-        top: 270 * @vw;
-        left: 20 * @vw;
-        width: 713 * @vw;
-        height: 271 * @vw;
+        top: 270px;
+        left: 20px;
+        width: 713px;
+        height: 271px;
         background: url('~assets/images/pc/guide/title.png') no-repeat;
         background-size: contain;
         z-index: 3;
@@ -953,20 +1034,20 @@ export default {
       .title-activity-pic {
         position: absolute;
         z-index: 3;
-        left: 60 * @vw;
-        bottom: 103 * @vw;
-        width: 630 * @vw;
-        height: 69 * @vw;
+        left: 60px;
+        bottom: 103px;
+        width: 630px;
+        height: 69px;
         background: url('~assets/images/pc/guide/title_activity.png') no-repeat;
         background-size: contain;
         display: flex;
         justify-content: center;
         .play-bg {
           position: absolute;
-          top: -22 * @vw;
-          margin-left: -4 * @vw;
-          width: 108 * @vw;
-          height: 108 * @vw;
+          top: -22px;
+          margin-left: -4px;
+          width: 108px;
+          height: 108px;
           background: url('~assets/images/pc/guide/play_bg_index.png') no-repeat;
           background-size: contain;
           display: flex;
@@ -989,7 +1070,7 @@ export default {
         background-position: 0;
       }
       100% {
-        background-position: -9548 * @vw;
+        background-position: -9548px;
       }
     }
     .paopap-left-pic {
@@ -997,8 +1078,8 @@ export default {
       z-index: 1;
       bottom: 80 * @vw;
       left: -140 * @vw;
-      width: 341 * @vw;
-      height: 354 * @vw;
+      width: 341px;
+      height: 354px;
       background: url('~assets/images/pc/guide/left_paopao.png');
       background-size: cover;
       background-position: 0;
@@ -1009,8 +1090,8 @@ export default {
       z-index: 1;
       bottom: 150 * @vw;
       right: -70 * @vw;
-      width: 143 * @vw;
-      height: 163 * @vw;
+      width: 143px;
+      height: 163px;
       background: url('~assets/images/pc/guide/right_paopao.png');
       background-size: cover;
       background-position: 0;
@@ -1021,7 +1102,7 @@ export default {
         background-position: 0;
       }
       100% {
-        background-position: -4004 * @vw;
+        background-position: -4004px;
       }
     }
     .doll-lili {
@@ -1029,8 +1110,8 @@ export default {
       z-index: 2;
       right: -350 * @vw;
       top: 240 * @vw;
-      width: 338 * @vw;
-      height: 462 * @vw;
+      width: 338px;
+      height: 462px;
       background: url('~assets/images/pc/guide/lili_doll_index.png') no-repeat;
       background-position: 0;
       background-size: cover;
@@ -1041,7 +1122,7 @@ export default {
         background-position: 0;
       }
       100% {
-        background-position: -9464 * @vw;
+        background-position: -9464px;
       }
     }
     .doll-rabbit {
@@ -1049,8 +1130,9 @@ export default {
       z-index: 2;
       left: -280 * @vw;
       top: 380 * @vw;
-      width: 268 * @vw;
-      height: 472 * @vw;
+      width: 268px;
+      height: 472px;
+      // transform: scale(0.8);
       background: url('~assets/images/pc/guide/rabbit_doll_index.png') no-repeat;
       background-position: 0;
       background-size: cover;
@@ -1061,7 +1143,7 @@ export default {
         background-position: 0;
       }
       100% {
-        background-position: -14740 * @vw;
+        background-position: -14740px;
       }
     }
     .doll-cactus {
@@ -1069,8 +1151,8 @@ export default {
       z-index: 2;
       right: -100 * @vw;
       top: 102 * @vw;
-      width: 193 * @vw;
-      height: 177 * @vw;
+      width: 193px;
+      height: 177px;
       background: url('~assets/images/pc/guide/cactus_doll_index.png') no-repeat;
       background-position: 0;
       background-size: cover;
@@ -1081,7 +1163,7 @@ export default {
         background-position: 0;
       }
       100% {
-        background-position: -6562 * @vw;
+        background-position: -6562px;
       }
     }
   }
@@ -1269,6 +1351,14 @@ export default {
               color: #ffffff;
               font-weight: bolder;
               text-shadow: #28a001 1px 0 0, #28a001 0 1px 0, #28a001 -1px 0 0, #28a001 0 -1px 0;
+            }
+            .label-major {
+              position: absolute;
+              left: 14 * @vw;
+              width: 29 * @vw;
+              height: 48 * @vw;
+              background: url('~assets/images/pc/guide/label_major_part1.png') no-repeat;
+              background-size: contain;
             }
             &.gift1 {
               width: 213 * @vw;
@@ -1559,6 +1649,9 @@ export default {
                     align-items: center;
                     justify-content: center;
                     position: relative;
+                    &.major {
+                      background-image: url('~assets/images/pc/guide/gift_box_major_part2.png');
+                    }
                     .gift-pic {
                       width: 55 * @vw;
                       // height: 38 * @vw;
