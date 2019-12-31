@@ -153,6 +153,9 @@
                       <ul v-if="part2Data && part2Data[0].awards" class="gift-list list-4">
                         <li v-for="(gift, index) in part2Data[0].awards" :key="index" class="gift-item">
                           <div :class="{ major: part2Data[0].awards[index].major }" class="gift-box">
+                            <div v-if="part2Data[0].awards[index].tag" class="gift-label">
+                              <span class="label-text">{{ part2Data[0].awards[index].tag }}</span>
+                            </div>
                             <img :src="part2Data[0].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[0].awards[index].amount }}</span>
                           </div>
@@ -183,6 +186,9 @@
                       <ul v-if="part2Data && part2Data[1].awards" class="gift-list list-4">
                         <li v-for="(gift, index) in part2Data[1].awards" :key="index" class="gift-item">
                           <div :class="{ major: part2Data[1].awards[index].major }" class="gift-box">
+                            <div v-if="part2Data[1].awards[index].tag" class="gift-label">
+                              <span class="label-text">{{ part2Data[1].awards[index].tag }}</span>
+                            </div>
                             <img :src="part2Data[1].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[1].awards[index].amount }}</span>
                           </div>
@@ -215,6 +221,9 @@
                       <ul v-if="part2Data && part2Data[4].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[4].awards" :key="index" class="gift-item">
                           <div :class="{ major: part2Data[4].awards[index].major }" class="gift-box">
+                            <div v-if="part2Data[4].awards[index].tag" class="gift-label">
+                              <span class="label-text">{{ part2Data[4].awards[index].tag }}</span>
+                            </div>
                             <img :src="part2Data[4].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[4].awards[index].amount }}</span>
                           </div>
@@ -245,6 +254,9 @@
                       <ul v-if="part2Data && part2Data[3].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[3].awards" :key="index" class="gift-item">
                           <div :class="{ major: part2Data[3].awards[index].major }" class="gift-box">
+                            <div v-if="part2Data[3].awards[index].tag" class="gift-label">
+                              <span class="label-text">{{ part2Data[3].awards[index].tag }}</span>
+                            </div>
                             <img :src="part2Data[3].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[3].awards[index].amount }}</span>
                           </div>
@@ -275,6 +287,9 @@
                       <ul v-if="part2Data && part2Data[2].awards" class="gift-list list-5">
                         <li v-for="(gift, index) in part2Data[2].awards" :key="index" class="gift-item">
                           <div :class="{ major: part2Data[2].awards[index].major }" class="gift-box">
+                            <div v-if="part2Data[2].awards[index].tag" class="gift-label">
+                              <span class="label-text">{{ part2Data[2].awards[index].tag }}</span>
+                            </div>
                             <img :src="part2Data[2].awards[index].pic" class="gift-pic" />
                             <span class="gift-num">x{{ part2Data[2].awards[index].amount }}</span>
                           </div>
@@ -1649,8 +1664,25 @@ export default {
                     align-items: center;
                     justify-content: center;
                     position: relative;
-                    &.major {
-                      background-image: url('~assets/images/pc/guide/gift_box_major_part2.png');
+                    .gift-label {
+                      width: 35 * @vw;
+                      height: 17 * @vw;
+                      border-radius: 0 9 * @vw 0 12 * @vw;
+                      background-color: #ff5757;
+                      position: absolute;
+                      right: 0;
+                      top: 0;
+                      text-align: center;
+                      line-height: 17 * @vw;
+                      font-size: 12 * @vw;
+                      color: #fff;
+                      .label-text {
+                        display: inline-block;
+                        max-width: 35 * @vw;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                      }
                     }
                     .gift-pic {
                       width: 55 * @vw;
@@ -1663,6 +1695,12 @@ export default {
                       right: 5 * @vw;
                       bottom: 5 * @vw;
                       text-shadow: #0b2e66 1px 0 0, #0b2e66 0 1px 0, #0b2e66 -1px 0 0, #0b2e66 0 -1px 0;
+                    }
+                    &.major {
+                      background-image: url('~assets/images/pc/guide/gift_box_major_part2.png');
+                      .gift-label {
+                        background-color: #7950ff;
+                      }
                     }
                   }
                   .gift-name {
