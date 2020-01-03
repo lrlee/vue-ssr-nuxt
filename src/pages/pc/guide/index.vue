@@ -6,7 +6,10 @@
     <div class="top">
       <div class="index">
         <header id="header" class="header">
-          <nuxt-link to="/home" class="btn btn-toHome"></nuxt-link>
+          <nuxt-link to="/home" class="btn btn-toHome">
+            <span class="btn-text">进入官网</span>
+            <i class="icon enter-icon"></i>
+          </nuxt-link>
           <ul class="focus-list">
             <li class="focus-item">
               <i class="icon wechat-icon"></i>
@@ -45,7 +48,7 @@
         <div class="flight-right-pic"></div>
         <div class="paopao-wrapper">
           <div class="colorpaper-pic"></div>
-          <div :class="{ 'vi-hidden': showAnimation }" class="paopao-big-pic">
+          <div v-if="!showAn_paopao" class="paopao-big-pic">
             <div class="right-paopao"></div>
             <div class="ribbon-pic-1"></div>
             <div class="ribbon-pic-2"></div>
@@ -56,7 +59,7 @@
               </div>
             </div>
           </div>
-          <div :class="{ 'vi-hidden': !showAnimation }" class="paopao-big-pic animation">
+          <div :class="{ 'vi-hidden': !showAn_paopao }" class="paopao-big-pic animation">
             <div class="right-paopao"></div>
             <div class="ribbon-pic-1"></div>
             <div class="ribbon-pic-2"></div>
@@ -69,12 +72,12 @@
           </div>
           <div class="paopap-left-pic"></div>
           <div class="paopao-right-pic"></div>
-          <div :class="{ 'vi-hidden': showAnimation }" class="doll-lili"></div>
-          <div :class="{ 'vi-hidden': showAnimation }" class="doll-rabbit"></div>
-          <div :class="{ 'vi-hidden': showAnimation }" class="doll-cactus"></div>
-          <div :class="{ 'vi-hidden': !showAnimation }" class="doll-lili animation"></div>
-          <div :class="{ 'vi-hidden': !showAnimation }" class="doll-rabbit animation"></div>
-          <div :class="{ 'vi-hidden': !showAnimation }" class="doll-cactus animation"></div>
+          <div v-if="!showAn_lili" class="doll-lili"></div>
+          <div v-if="!showAn_rabbit" class="doll-rabbit"></div>
+          <div v-if="!showAn_cactus" class="doll-cactus"></div>
+          <div :class="{ 'vi-hidden': !showAn_lili }" class="doll-lili animation"></div>
+          <div :class="{ 'vi-hidden': !showAn_rabbit }" class="doll-rabbit animation"></div>
+          <div :class="{ 'vi-hidden': !showAn_cactus }" class="doll-cactus animation"></div>
         </div>
       </div>
       <div class="activity">
@@ -467,6 +470,10 @@ export default {
   data() {
     return {
       showAnimation: false,
+      showAn_paopao: false,
+      showAn_lili: false,
+      showAn_rabbit: false,
+      showAn_cactus: false,
       bubblePath1:
         'M591.000,19.999 C591.000,19.999 228.067,-52.484 363.000,201.999 C509.518,478.332 493.419,416.059 206.000,458.999 C-44.677,496.449 -23.535,670.422 100.000,699.000 ',
       bubblePath2:
@@ -484,10 +491,6 @@ export default {
     }
   },
   asyncData({ store }) {
-    // 图片预加载
-    // require('~/assets/images/guide/big_paopao.png')
-    // require('~/assets/images/guide/bg.jpg')
-    // require('~/assets/images/guide/bg_active.png')
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
       let bookInfo = {}
       console.log('on_off', arr[0])
@@ -524,10 +527,10 @@ export default {
     })
   },
   mounted() {
-    window.onload = () => {
-      console.log('3333')
-      this.showAnimation = true
-    }
+    // window.onload = () => {
+    //   this.showAnimation = true
+    // }
+    this.indexImgReplace()
     this.observeTitlePic()
     this.observePartScroll()
   },
@@ -542,6 +545,28 @@ export default {
     this.setBookTotalPolling()
   },
   methods: {
+    indexImgReplace() {
+      const paopao = new Image()
+      const lili = new Image()
+      const rabbit = new Image()
+      const cactus = new Image()
+      paopao.src = require('~/assets/images/guide/index/big_paopao.png')
+      lili.src = require('~/assets/images/guide/index/lili_doll_index.png')
+      rabbit.src = require('~/assets/images/guide/index/rabbit_doll_index.png')
+      cactus.src = require('~/assets/images/guide/index/cactus_doll_index.png')
+      paopao.onload = () => {
+        this.showAn_paopao = true
+      }
+      lili.onload = () => {
+        this.showAn_lili = true
+      }
+      rabbit.onload = () => {
+        this.showAn_rabbit = true
+      }
+      cactus.onload = () => {
+        this.showAn_cactus = true
+      }
+    },
     checkSafeData(param, key) {
       return checkSafeData(param, key)
     },
@@ -842,6 +867,24 @@ export default {
         background: url('~assets/images/guide/btn_toHome_normal.png') no-repeat;
         background-size: contain;
         margin-right: 37 * @vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .btn-text {
+          font-size: 16 * @vw;
+          color: #fff;
+          font-weight: bold;
+          font-family: Microsoft YaHei;
+          padding-bottom: 2 * @vw;
+        }
+        .enter-icon {
+          width: 6.4 * @vw;
+          height: 9.6 * @vw;
+          background: url('~assets/images/guide/enter_icon.png') no-repeat;
+          background-size: contain;
+          margin-left: 12 * @vw;
+          margin-right: 5 * @vw;
+        }
         &:hover {
           background-image: url('~assets/images/guide/btn_toHome_click.png');
         }
@@ -861,7 +904,7 @@ export default {
             visibility: hidden;
             position: absolute;
             left: -57 * @vw;
-            top: 50 * @vw;
+            top: 40 * @vw;
             width: 139 * @vw;
             height: 160 * @vw;
             background-color: #0048a8;
@@ -1076,7 +1119,7 @@ export default {
         position: absolute;
         z-index: 3;
         left: 60px;
-        bottom: 103px;
+        bottom: 100px;
         width: 630px;
         height: 69px;
         background: url('~assets/images/guide/index/title_activity.png') no-repeat;
