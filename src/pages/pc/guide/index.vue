@@ -52,7 +52,7 @@
             <div class="right-paopao"></div>
             <div class="ribbon-pic-1"></div>
             <div class="ribbon-pic-2"></div>
-            <div id="titlePic" class="title-pic"></div>
+            <div class="title-pic"></div>
             <div class="title-activity-pic">
               <div @click="showVideo = true" class="play-bg btn">
                 <div class="play-icon"></div>
@@ -1040,8 +1040,7 @@ export default {
       justify-content: center;
       align-items: center;
       width: 774 * @vw;
-      height: 748 * @vw;
-      padding-bottom: 50 * @vw;
+      height: 660 * @vw;
     }
     .colorpaper-pic {
       position: absolute;
