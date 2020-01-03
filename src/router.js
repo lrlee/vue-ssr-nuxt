@@ -34,7 +34,7 @@ export function createRouter() {
       {
         path: '/m',
         name: 'guide_m',
-        component: _import('guide', '/m')
+        component: _import('index', '/m/guide')
       },
       {
         path: '/event',
