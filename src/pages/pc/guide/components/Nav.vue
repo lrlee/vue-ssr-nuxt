@@ -1,10 +1,10 @@
 <template>
   <div class="nav-box">
     <div :class="['nav-open', { hide: !isOpen }]">
-      <img class="nav-title" src="~/assets/images/pc/guide/nav/title_bg.png" />
+      <img class="nav-title" src="~/assets/images/guide/nav/title_bg.png" />
       <div class="nav-content">
         <span @click="isOpen = false" class="nav-handle-left btn">收起</span
-        ><img class="nav-content-bg" src="~/assets/images/pc/guide/nav/content_bg.png" />
+        ><img class="nav-content-bg" src="~/assets/images/guide/nav/content_bg.png" />
         <div :class="['menu-text', 'btn', { active: title == '超人预约见面礼' }]" @click="onTextClick('part1')">
           超人预约见面礼
         </div>
@@ -19,7 +19,7 @@
           <img
             v-show="needShowSegment('游戏特色', '凶萌角色')"
             class="menu-segment"
-            src="~/assets/images/pc/guide/nav/content_segment.png"
+            src="~/assets/images/guide/nav/content_segment.png"
           />
         </div>
         <div :class="['menu-text', 'btn', { active: title == '凶萌角色' }]" @click="onTextClick('part5')">
@@ -27,7 +27,7 @@
           <img
             v-show="needShowSegment('凶萌角色', '高能赛场')"
             class="menu-segment"
-            src="~/assets/images/pc/guide/nav/content_segment.png"
+            src="~/assets/images/guide/nav/content_segment.png"
           />
         </div>
         <div :class="['menu-text', 'btn', { active: title == '高能赛场' }]" @click="onTextClick('part6')">
@@ -35,7 +35,7 @@
           <img
             v-show="needShowSegment('高能赛场', '趣味玩法')"
             class="menu-segment"
-            src="~/assets/images/pc/guide/nav/content_segment.png"
+            src="~/assets/images/guide/nav/content_segment.png"
           />
         </div>
         <div :class="['menu-text', 'btn', { active: title == '趣味玩法' }]" @click="onTextClick('part7')">
@@ -104,7 +104,7 @@ export default {
       height: 75 * @vw;
       vertical-align: top;
       margin-top: 31 * @vw;
-      background: url('~assets/images/pc/guide/nav/handle_left.png') no-repeat;
+      background: url('~assets/images/guide/nav/handle_left.png') no-repeat;
       background-size: cover;
       font-size: 14 * @vw;
       font-weight: 500;
@@ -162,7 +162,7 @@ export default {
       transform: translateY(-7 * @vw);
     }
     .active {
-      background: url('~assets/images/pc/guide/nav/choose_bg.png') no-repeat;
+      background: url('~assets/images/guide/nav/choose_bg.png') no-repeat;
       background-size: cover;
       color: #1f750b;
       font-weight: bold;
@@ -176,7 +176,7 @@ export default {
     width: 131 * @vw;
     height: 39 * @vw;
     margin-left: 54 * @vw;
-    background: url('~assets/images/pc/guide/nav/handle_bottom.png') no-repeat;
+    background: url('~assets/images/guide/nav/handle_bottom.png') no-repeat;
     background-size: contain;
     padding-left: 30 * @vw;
     padding-top: 12 * @vw;
@@ -184,7 +184,7 @@ export default {
 
   .nav-handle-open {
     display: inline-block;
-    background: url('~assets/images/pc/guide/nav/handle_open.png') no-repeat;
+    background: url('~assets/images/guide/nav/handle_open.png') no-repeat;
     background-size: contain;
     width: 180 * @vw;
     height: 230 * @vw;

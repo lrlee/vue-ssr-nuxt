@@ -63,7 +63,7 @@ export default {
     top: 0;
     width: 33 * @vw;
     height: 33 * @vw;
-    background: url('~assets/images/pc/guide/close_pop.png') no-repeat;
+    background: url('~assets/images/guide/close_pop.png') no-repeat;
     background-size: contain;
   }
 }

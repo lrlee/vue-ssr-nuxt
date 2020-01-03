@@ -74,40 +74,40 @@ export default {
         {
           title: '部落丛林',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_conglin.jpg'),
-          pic_big: require('~/assets/images/pc/guide/map/map_big_conglin.jpg'),
+          pic: require('~/assets/images/guide/map/map_conglin.jpg'),
+          pic_big: require('~/assets/images/guide/map/map_big_conglin.jpg'),
           content:
             '古老的启星系部落，保留着宇宙最久远的智慧与文明。这里树木相伴，花草相依，远离喧嚣，是朴质的净土，探索的乐园。远古的人们热爱自由，热爱学问，拥有对宇宙最悠久的探索历史，成为宇宙历史和文明的见证者。'
         },
         {
           title: '沙漠遗迹',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_shamo.jpg'),
-          pic_big: require('~/assets/images/pc/guide/map/map_big_shamo.jpg'),
+          pic: require('~/assets/images/guide/map/map_shamo.jpg'),
+          pic_big: require('~/assets/images/guide/map/map_big_shamo.jpg'),
           content:
             '当风雨不来，日月同辉，被风沙掩埋着的拉玛遗迹将重现于世。传说这所神秘的沙漠遗迹之下埋藏了大量宝藏，然而，所有进去过的人都无法寻找到出路，最终成为这座遗迹的一部分。你，能离开这里吗？'
         },
         {
           title: '风暴海船',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_haidao.jpg'),
-          pic_big: require('~/assets/images/pc/guide/map/map_big_haidao.jpg'),
+          pic: require('~/assets/images/guide/map/map_haidao.jpg'),
+          pic_big: require('~/assets/images/guide/map/map_big_haidao.jpg'),
           content:
             '耳边是大海的呼啸，飓风的怒嚎，眼前是破旧的甲板，沉重的货箱。章鱼海盗听着船上传来的哭声，无比愤怒瞪向惊恐的人们。一边是可怜的章鱼宝宝，一边是无辜的人们，千钧一发，应该先帮谁呢？'
         },
         {
           title: '乐高乐园',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_legao.jpg'),
-          pic_big: require('~/assets/images/pc/guide/map/map_big_legao.jpg'),
+          pic: require('~/assets/images/guide/map/map_legao.jpg'),
+          pic_big: require('~/assets/images/guide/map/map_big_legao.jpg'),
           content:
             '刺激的过山车轰轰而过，温馨的旋转木马缓缓转动，惊险的海盗船来回摇摆……欢迎来到欢乐的乐高乐园，和好朋友追逐，和喜欢的人打闹，唤醒内心的童真，成为一个快乐的孩子。'
         },
         {
           title: '梦幻城堡',
           heartNum: 3,
-          pic: require('~/assets/images/pc/guide/map/map_chengbao.jpg'),
-          pic_big: require('~/assets/images/pc/guide/map/map_big_chengbao.jpg'),
+          pic: require('~/assets/images/guide/map/map_chengbao.jpg'),
+          pic_big: require('~/assets/images/guide/map/map_big_chengbao.jpg'),
           content:
             '广场上有趣的玩偶，四周奇妙的建筑，远处漂浮的时钟，这所粉色的梦幻城堡充满了神奇色彩。这里是仙女座星系，受到宇宙之力的庇护，到处都充斥着魔法的力量，没有人可以破坏这里的宁静，这里是宇宙最和平最美丽的地方。'
         }
@@ -149,7 +149,7 @@ export default {
       margin-right: 10 * @vw;
       width: 21 * @vw;
       height: 18 * @vw;
-      background: url('~assets/images/pc/guide/heart.png') no-repeat;
+      background: url('~assets/images/guide/heart.png') no-repeat;
       background-size: contain;
     }
   }
@@ -165,7 +165,7 @@ export default {
     .title-order {
       width: 108 * @vw;
       height: 28 * @vw;
-      background: url('~assets/images/pc/guide/part06.png') no-repeat;
+      background: url('~assets/images/guide/part06.png') no-repeat;
       background-size: contain;
       position: absolute;
     }
@@ -177,7 +177,7 @@ export default {
     margin-top: 111 * @vw;
     width: 1005 * @vw;
     height: 530 * @vw;
-    background: url('~assets/images/pc/guide/part6_bg.png') no-repeat;
+    background: url('~assets/images/guide/part6_bg.png') no-repeat;
     background-size: contain;
     .pic-wraper {
       width: 859 * @vw;
@@ -192,7 +192,7 @@ export default {
         top: -31 * @vw;
         width: 890 * @vw;
         height: 532 * @vw;
-        background: url('~assets/images/pc/guide/pic_mask_part6.png') no-repeat;
+        background: url('~assets/images/guide/pic_mask_part6.png') no-repeat;
         background-size: contain;
         z-index: 3;
         .zoom-icon {
@@ -201,7 +201,7 @@ export default {
           right: 36 * @vw;
           width: 46 * @vw;
           height: 46 * @vw;
-          background: url('~assets/images/pc/guide/zoom_part6.png') no-repeat;
+          background: url('~assets/images/guide/zoom_part6.png') no-repeat;
           background-size: contain;
         }
       }
@@ -250,42 +250,42 @@ export default {
           top: 10 * @vw;
           width: 188 * @vw;
           height: 68 * @vw;
-          background: url('~assets/images/pc/guide/select_btn1_part6.png') no-repeat;
+          background: url('~assets/images/guide/select_btn1_part6.png') no-repeat;
           background-size: contain;
           .item-doll {
             left: -30 * @vw;
             top: -21 * @vw;
             width: 85 * @vw;
             height: 85 * @vw;
-            background: url('~assets/images/pc/guide/select_btn1_doll_part6.png') no-repeat;
+            background: url('~assets/images/guide/select_btn1_doll_part6.png') no-repeat;
             background-size: contain;
           }
           &.active,
           &:hover {
-            background-image: url('~assets/images/pc/guide/select_btn1_hover_part6.png');
+            background-image: url('~assets/images/guide/select_btn1_hover_part6.png');
           }
         }
         &:nth-of-type(2) {
           top: (78+18) * @vw;
           width: 181 * @vw;
           height: 69 * @vw;
-          background: url('~assets/images/pc/guide/select_btn2_part6.png') no-repeat;
+          background: url('~assets/images/guide/select_btn2_part6.png') no-repeat;
           background-size: contain;
           .item-doll {
             left: -28 * @vw;
             top: -22 * @vw;
             width: 83 * @vw;
             height: 98 * @vw;
-            background: url('~assets/images/pc/guide/select_btn2_doll_part6.png') no-repeat;
+            background: url('~assets/images/guide/select_btn2_doll_part6.png') no-repeat;
             background-size: contain;
           }
           &.active,
           &:hover {
-            background-image: url('~assets/images/pc/guide/select_btn2_hover_part6.png');
+            background-image: url('~assets/images/guide/select_btn2_hover_part6.png');
             &::after {
               width: 181 * @vw;
               height: 69 * @vw;
-              background: url('~assets/images/pc/guide/select_btn2_part6.png') no-repeat;
+              background: url('~assets/images/guide/select_btn2_part6.png') no-repeat;
               background-size: contain;
             }
           }
@@ -294,57 +294,57 @@ export default {
           top: (78+18+69+18) * @vw;
           width: 184 * @vw;
           height: 71 * @vw;
-          background: url('~assets/images/pc/guide/select_btn3_part6.png') no-repeat;
+          background: url('~assets/images/guide/select_btn3_part6.png') no-repeat;
           background-size: contain;
           .item-doll {
             left: -42 * @vw;
             top: -21 * @vw;
             width: 104 * @vw;
             height: 109 * @vw;
-            background: url('~assets/images/pc/guide/select_btn3_doll_part6.png') no-repeat;
+            background: url('~assets/images/guide/select_btn3_doll_part6.png') no-repeat;
             background-size: contain;
           }
           &.active,
           &:hover {
-            background-image: url('~assets/images/pc/guide/select_btn3_hover_part6.png');
+            background-image: url('~assets/images/guide/select_btn3_hover_part6.png');
           }
         }
         &:nth-of-type(4) {
           top: (78+18+69+18+71+18) * @vw;
           width: 181 * @vw;
           height: 70 * @vw;
-          background: url('~assets/images/pc/guide/select_btn4_part6.png') no-repeat;
+          background: url('~assets/images/guide/select_btn4_part6.png') no-repeat;
           background-size: contain;
           .item-doll {
             left: -35 * @vw;
             top: -21 * @vw;
             width: 81 * @vw;
             height: 102 * @vw;
-            background: url('~assets/images/pc/guide/select_btn4_doll_part6.png') no-repeat;
+            background: url('~assets/images/guide/select_btn4_doll_part6.png') no-repeat;
             background-size: contain;
           }
           &.active,
           &:hover {
-            background-image: url('~assets/images/pc/guide/select_btn4_hover_part6.png');
+            background-image: url('~assets/images/guide/select_btn4_hover_part6.png');
           }
         }
         &:nth-of-type(5) {
           top: (78+18+69+18+71+18+70+18) * @vw;
           width: 184 * @vw;
           height: 71 * @vw;
-          background: url('~assets/images/pc/guide/select_btn5_part6.png') no-repeat;
+          background: url('~assets/images/guide/select_btn5_part6.png') no-repeat;
           background-size: contain;
           .item-doll {
             left: -20 * @vw;
             top: 0 * @vw;
             width: 74 * @vw;
             height: 75 * @vw;
-            background: url('~assets/images/pc/guide/select_btn5_doll_part6.png') no-repeat;
+            background: url('~assets/images/guide/select_btn5_doll_part6.png') no-repeat;
             background-size: contain;
           }
           &.active,
           &:hover {
-            background-image: url('~assets/images/pc/guide/select_btn5_hover_part6.png');
+            background-image: url('~assets/images/guide/select_btn5_hover_part6.png');
           }
         }
       }
@@ -369,7 +369,7 @@ export default {
         top: -68 * @vw;
         width: 243 * @vw;
         height: 225 * @vw;
-        background: url('~assets/images/pc/guide/doll1_part6.png') no-repeat;
+        background: url('~assets/images/guide/doll1_part6.png') no-repeat;
         background-size: contain;
       }
       &.doll2 {
@@ -377,7 +377,7 @@ export default {
         top: -120 * @vw;
         width: 224 * @vw;
         height: 298 * @vw;
-        background: url('~assets/images/pc/guide/doll2_part6.png') no-repeat;
+        background: url('~assets/images/guide/doll2_part6.png') no-repeat;
         background-size: contain;
       }
       &.doll3 {
@@ -385,7 +385,7 @@ export default {
         top: -100 * @vw;
         width: 193 * @vw;
         height: 303 * @vw;
-        background: url('~assets/images/pc/guide/doll3_part6.png') no-repeat;
+        background: url('~assets/images/guide/doll3_part6.png') no-repeat;
         background-size: contain;
       }
       &.doll4 {
@@ -393,7 +393,7 @@ export default {
         top: -110 * @vw;
         width: 256 * @vw;
         height: 298 * @vw;
-        background: url('~assets/images/pc/guide/doll4_part6.png') no-repeat;
+        background: url('~assets/images/guide/doll4_part6.png') no-repeat;
         background-size: contain;
       }
       &.doll5 {
@@ -401,7 +401,7 @@ export default {
         top: -90 * @vw;
         width: 221 * @vw;
         height: 285 * @vw;
-        background: url('~assets/images/pc/guide/doll5_part6.png') no-repeat;
+        background: url('~assets/images/guide/doll5_part6.png') no-repeat;
         background-size: contain;
       }
     }
@@ -426,7 +426,7 @@ export default {
         top: 0;
         width: 33 * @vw;
         height: 33 * @vw;
-        background: url('~assets/images/pc/guide/close_pop.png') no-repeat;
+        background: url('~assets/images/guide/close_pop.png') no-repeat;
         background-size: contain;
       }
       .pop-pic-box {
