@@ -20,13 +20,13 @@
               <i class="android-icon icon"></i>
             </div>
           </div>
-          <div>
+          <div class="phone-edit">
             <input
               @blur="checkPhone"
               v-model="form.mobile"
               type="text"
               placeholder="请填写手机号码即可参与活动"
-              class="phone-edit"
+              class="phone-input"
             />
             <div v-show="phoneErr" class="input-err"><i class="err-icon icon"></i>请输入正确的手机号码</div>
           </div>
@@ -411,9 +411,12 @@ export default {
   .phone-edit {
     position: relative;
     width: 100%;
-    height: 50 * @vw;
-    border-radius: 25 * @vw;
     margin-bottom: 34 * @vw;
+    .phone-input {
+      width: 100%;
+      height: 50 * @vw;
+      border-radius: 25 * @vw;
+    }
   }
   .code-edit {
     position: relative;

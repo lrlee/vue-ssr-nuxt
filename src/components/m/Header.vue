@@ -1,8 +1,5 @@
 <template>
-  <div class="container">
-    <div></div>
-    <div></div>
-  </div>
+  <header>header</header>
 </template>
 <script>
 export default {}
