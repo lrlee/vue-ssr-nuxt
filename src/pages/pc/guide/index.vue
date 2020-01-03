@@ -458,7 +458,7 @@ export default {
         'M56.000,-0.000 C258.066,9.200 174.804,268.767 42.000,351.999 C-112.764,448.994 229.585,647.485 71.000,695.999 ',
       bubblePath3:
         'M237.000,-0.001 C1.555,8.504 -65.925,557.302 70.000,527.999 C399.344,456.998 63.803,802.372 229.000,945.999 ',
-      defaultGiftUrl: require('~/assets/images/pc/guide/gift_gold.png'),
+      defaultGiftUrl: require('~/assets/images/guide/gift_gold.png'),
       showPop: false,
       showVideo: false,
       invite_id_self: '', // 本用户的邀请码 也是本用户的guid
@@ -470,9 +470,9 @@ export default {
   },
   asyncData({ store }) {
     // 图片预加载
-    // require('~/assets/images/pc/guide/big_paopao.png')
-    // require('~/assets/images/pc/guide/bg.jpg')
-    // require('~/assets/images/pc/guide/bg_active.png')
+    // require('~/assets/images/guide/big_paopao.png')
+    // require('~/assets/images/guide/bg.jpg')
+    // require('~/assets/images/guide/bg_active.png')
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
       let bookInfo = {}
       console.log('on_off', arr[0])
@@ -792,7 +792,7 @@ export default {
   width: 100%;
   min-width: 1280px;
   overflow: hidden;
-  background: url('~assets/images/pc/guide/bg.jpg') top center no-repeat;
+  background: url('~assets/images/guide/bg.jpg') top center no-repeat;
   background-size: contain;
 }
 .top {
@@ -803,7 +803,7 @@ export default {
     z-index: 1;
     width: 100%;
     height: 961 * @vw;
-    background: url('~assets/images/pc/guide/bg_city.png') center bottom no-repeat;
+    background: url('~assets/images/guide/bg_city.png') center bottom no-repeat;
     background-size: contain;
     .header {
       position: relative;
@@ -817,11 +817,11 @@ export default {
       .btn-toHome {
         width: 134 * @vw;
         height: 38 * @vw;
-        background: url('~assets/images/pc/guide/btn_toHome_normal.png') no-repeat;
+        background: url('~assets/images/guide/btn_toHome_normal.png') no-repeat;
         background-size: contain;
         margin-right: 37 * @vw;
         &:hover {
-          background-image: url('~assets/images/pc/guide/btn_toHome_click.png');
+          background-image: url('~assets/images/guide/btn_toHome_click.png');
         }
       }
       .focus-list {
@@ -884,25 +884,25 @@ export default {
         .wechat-icon {
           width: 24 * @vw;
           height: 19 * @vw;
-          background: url('~assets/images/pc/guide/wechat_icon.png') no-repeat;
+          background: url('~assets/images/guide/wechat_icon.png') no-repeat;
           background-size: contain;
         }
         .weibo-icon {
           width: 25 * @vw;
           height: 19 * @vw;
-          background: url('~assets/images/pc/guide/weibo_icon.png') no-repeat;
+          background: url('~assets/images/guide/weibo_icon.png') no-repeat;
           background-size: contain;
         }
         .qq-icon {
           width: 22 * @vw;
           height: 19 * @vw;
-          background: url('~assets/images/pc/guide/qq_icon.png') no-repeat;
+          background: url('~assets/images/guide/qq_icon.png') no-repeat;
           background-size: contain;
         }
         .service-icon {
           width: 23 * @vw;
           height: 17 * @vw;
-          background: url('~assets/images/pc/guide/service_icon.png') no-repeat;
+          background: url('~assets/images/guide/service_icon.png') no-repeat;
           background-size: contain;
         }
       }
@@ -917,7 +917,7 @@ export default {
       .light-pic {
         width: 1461 * @vw;
         height: 1461 * @vw;
-        background: url('~assets/images/pc/guide/light_index.png') no-repeat;
+        background: url('~assets/images/guide/light_index.png') no-repeat;
         background-size: contain;
         animation: rotate 15s linear infinite;
       }
@@ -936,7 +936,7 @@ export default {
       left: 310 * @vw;
       width: 277 * @vw;
       height: 120 * @vw;
-      background: url('~assets/images/pc/guide/logo.png') no-repeat;
+      background: url('~assets/images/guide/logo.png') no-repeat;
       background-size: contain;
     }
     .flight-left-pic {
@@ -945,7 +945,7 @@ export default {
       top: 135 * @vw;
       width: 88px;
       height: 53px;
-      background: url('~assets/images/pc/guide/flight_index.png') no-repeat;
+      background: url('~assets/images/guide/flight_index.png') no-repeat;
       background-size: cover;
       background-position: 0;
       animation: flight_steps 0.5s infinite steps(14, end), flight_left_move 25s linear infinite;
@@ -964,7 +964,7 @@ export default {
       width: 88px;
       height: 53px;
       transform: scale(0.65);
-      background: url('~assets/images/pc/guide/flight_index.png') no-repeat;
+      background: url('~assets/images/guide/flight_index.png') no-repeat;
       background-size: cover;
       background-position: 0;
       animation: flight_steps 0.5s infinite steps(14, end), flight_right_move 15s linear infinite;
@@ -984,7 +984,7 @@ export default {
       left: -600 * @vw;
       width: 1975 * @vw;
       height: 974 * @vw;
-      background: url('~assets/images/pc/guide/colorpaper_index.png') no-repeat;
+      background: url('~assets/images/guide/colorpaper_index.png') no-repeat;
       background-size: cover;
       background-position: 0;
       animation: colorpaper 5s infinite steps(54, end);
@@ -1012,7 +1012,7 @@ export default {
       z-index: 2;
       width: 774px;
       height: 748px;
-      background: url('~assets/images/pc/guide/big_paopao.png');
+      background: url('~assets/images/guide/big_paopao.png');
       background-size: cover;
       background-position: 0;
       animation: paopao 2.5s infinite steps(38, end);
@@ -1022,7 +1022,7 @@ export default {
         bottom: 60px;
         width: 695px;
         height: 193px;
-        background: url('~assets/images/pc/guide/ribbon1_index.png') no-repeat;
+        background: url('~assets/images/guide/ribbon1_index.png') no-repeat;
         background-size: contain;
         z-index: 2;
       }
@@ -1032,7 +1032,7 @@ export default {
         right: -180px;
         width: 270px;
         height: 193px;
-        background: url('~assets/images/pc/guide/ribbon2_index.png') no-repeat;
+        background: url('~assets/images/guide/ribbon2_index.png') no-repeat;
         background-size: contain;
         z-index: 1;
       }
@@ -1042,7 +1042,7 @@ export default {
         left: 20px;
         width: 713px;
         height: 271px;
-        background: url('~assets/images/pc/guide/title.png') no-repeat;
+        background: url('~assets/images/guide/title.png') no-repeat;
         background-size: contain;
         z-index: 3;
       }
@@ -1053,7 +1053,7 @@ export default {
         bottom: 103px;
         width: 630px;
         height: 69px;
-        background: url('~assets/images/pc/guide/title_activity.png') no-repeat;
+        background: url('~assets/images/guide/title_activity.png') no-repeat;
         background-size: contain;
         display: flex;
         justify-content: center;
@@ -1063,7 +1063,7 @@ export default {
           margin-left: -4px;
           width: 108px;
           height: 108px;
-          background: url('~assets/images/pc/guide/play_bg_index.png') no-repeat;
+          background: url('~assets/images/guide/play_bg_index.png') no-repeat;
           background-size: contain;
           display: flex;
           align-items: center;
@@ -1073,7 +1073,7 @@ export default {
         .play-icon {
           width: 44 * @vw;
           height: 49 * @vw;
-          background: url('~assets/images/pc/guide/play_index.png') no-repeat;
+          background: url('~assets/images/guide/play_index.png') no-repeat;
           background-size: contain;
           animation: scale_play 3s infinite;
           animation-delay: 0.8s;
@@ -1095,7 +1095,7 @@ export default {
       left: -140 * @vw;
       width: 341px;
       height: 354px;
-      background: url('~assets/images/pc/guide/left_paopao.png');
+      background: url('~assets/images/guide/left_paopao.png');
       background-size: cover;
       background-position: 0;
       animation: paopao_left 2.5s infinite steps(28, end);
@@ -1107,7 +1107,7 @@ export default {
       right: -70 * @vw;
       width: 143px;
       height: 163px;
-      background: url('~assets/images/pc/guide/right_paopao.png');
+      background: url('~assets/images/guide/right_paopao.png');
       background-size: cover;
       background-position: 0;
       animation: paopao_right 3s infinite steps(28, end);
@@ -1127,7 +1127,7 @@ export default {
       top: 240 * @vw;
       width: 338px;
       height: 462px;
-      background: url('~assets/images/pc/guide/lili_doll_index.png') no-repeat;
+      background: url('~assets/images/guide/lili_doll_index.png') no-repeat;
       background-position: 0;
       background-size: cover;
       animation: lili_index 1.8s infinite steps(28, end);
@@ -1148,7 +1148,7 @@ export default {
       width: 268px;
       height: 472px;
       // transform: scale(0.8);
-      background: url('~assets/images/pc/guide/rabbit_doll_index.png') no-repeat;
+      background: url('~assets/images/guide/rabbit_doll_index.png') no-repeat;
       background-position: 0;
       background-size: cover;
       animation: rabbit_index 2.8s infinite steps(55, end);
@@ -1168,7 +1168,7 @@ export default {
       top: 102 * @vw;
       width: 193px;
       height: 177px;
-      background: url('~assets/images/pc/guide/cactus_doll_index.png') no-repeat;
+      background: url('~assets/images/guide/cactus_doll_index.png') no-repeat;
       background-position: 0;
       background-size: cover;
       animation: cactus_index 3s infinite steps(34, end);
@@ -1187,7 +1187,7 @@ export default {
     z-index: 2;
     width: 100%;
     height: 3646 * @vw;
-    background: url('~assets/images/pc/guide/bg_active.png') top center no-repeat;
+    background: url('~assets/images/guide/bg_active.png') top center no-repeat;
     background-size: cover;
     margin-top: -423 * @vw;
     padding-top: 230 * @vw;
@@ -1202,7 +1202,7 @@ export default {
         left: -590 * @vw;
         width: 634 * @vw;
         height: 742 * @vw;
-        background: url('~assets/images/pc/guide/pipe1.png') no-repeat;
+        background: url('~assets/images/guide/pipe1.png') no-repeat;
         background-size: contain;
         z-index: 1;
         .pipe-bubble {
@@ -1215,7 +1215,7 @@ export default {
     .book-box {
       width: 391 * @vw;
       height: 166 * @vw;
-      background: url('~assets/images/pc/guide/invite_btn_bg.png') no-repeat;
+      background: url('~assets/images/guide/invite_btn_bg.png') no-repeat;
       background-size: contain;
       // margin: 0 auto;
       display: flex;
@@ -1224,7 +1224,7 @@ export default {
       .book-btn {
         width: 352 * @vw;
         height: 147 * @vw;
-        background: url('~assets/images/pc/guide/btn_book_big_normal.png') center bottom no-repeat;
+        background: url('~assets/images/guide/btn_book_big_normal.png') center bottom no-repeat;
         background-size: contain;
         z-index: 2;
       }
@@ -1232,7 +1232,7 @@ export default {
         .book-btn {
           width: 352 * @vw;
           height: 141 * @vw;
-          background: url('~assets/images/pc/guide/btn_book_big_click.png') center bottom no-repeat;
+          background: url('~assets/images/guide/btn_book_big_click.png') center bottom no-repeat;
           background-size: contain;
         }
       }
@@ -1254,7 +1254,7 @@ export default {
         top: 210 * @vw;
         width: 210 * @vw;
         height: 768 * @vw;
-        background: url('~assets/images/pc/guide/pipe2.png') no-repeat;
+        background: url('~assets/images/guide/pipe2.png') no-repeat;
         background-size: contain;
         z-index: 1;
         .pipe-bubble {
@@ -1273,7 +1273,7 @@ export default {
         left: -283 * @vw;
         width: 274 * @vw;
         height: 997 * @vw;
-        background: url('~assets/images/pc/guide/pipe3.png') no-repeat;
+        background: url('~assets/images/guide/pipe3.png') no-repeat;
         background-size: contain;
         z-index: 1;
         .pipe-bubble {
@@ -1287,7 +1287,7 @@ export default {
       position: relative;
       width: 1397 * @vw;
       height: 636 * @vw;
-      background: url('~assets/images/pc/guide/part1_bg.png') no-repeat;
+      background: url('~assets/images/guide/part1_bg.png') no-repeat;
       background-size: contain;
       margin-left: -110 * @vw;
       z-index: 2;
@@ -1302,7 +1302,7 @@ export default {
           position: absolute;
           width: 105 * @vw;
           height: 28 * @vw;
-          background: url('~assets/images/pc/guide/part01.png') no-repeat;
+          background: url('~assets/images/guide/part01.png') no-repeat;
           background-size: contain;
         }
         .title-text {
@@ -1318,7 +1318,7 @@ export default {
           width: 100%;
           height: 30 * @vw;
           text-align: center;
-          background: url('~assets/images/pc/guide/line_part1.png') center center no-repeat;
+          background: url('~assets/images/guide/line_part1.png') center center no-repeat;
           .title-text {
             padding-right: 20 * @vw;
             font-size: 23 * @vw;
@@ -1357,7 +1357,7 @@ export default {
             .ribbon-icon {
               width: 114 * @vw;
               height: 33 * @vw;
-              background: url('~assets/images/pc/guide/ribbon_part1.png') no-repeat;
+              background: url('~assets/images/guide/ribbon_part1.png') no-repeat;
               background-size: contain;
               position: absolute;
               bottom: 0;
@@ -1372,13 +1372,13 @@ export default {
               left: 14 * @vw;
               width: 29 * @vw;
               height: 48 * @vw;
-              background: url('~assets/images/pc/guide/label_major_part1.png') no-repeat;
+              background: url('~assets/images/guide/label_major_part1.png') no-repeat;
               background-size: contain;
             }
             &.gift1 {
               width: 213 * @vw;
               height: 197 * @vw;
-              background: url('~assets/images/pc/guide/gift1_bg_part1.png') no-repeat;
+              background: url('~assets/images/guide/gift1_bg_part1.png') no-repeat;
               background-size: contain;
               .gift-pic-box {
                 align-self: flex-start;
@@ -1398,7 +1398,7 @@ export default {
             &.gift2 {
               width: 196 * @vw;
               height: 221 * @vw;
-              background: url('~assets/images/pc/guide/gift2_bg_part1.png') no-repeat;
+              background: url('~assets/images/guide/gift2_bg_part1.png') no-repeat;
               background-size: contain;
               .gift-pic-box {
                 align-self: flex-start;
@@ -1417,7 +1417,7 @@ export default {
             &.gift3 {
               width: 179 * @vw;
               height: 226 * @vw;
-              background: url('~assets/images/pc/guide/gift3_bg_part1.png') no-repeat;
+              background: url('~assets/images/guide/gift3_bg_part1.png') no-repeat;
               background-size: contain;
               .gift-pic-box {
                 align-self: flex-start;
@@ -1433,7 +1433,7 @@ export default {
             &.gift4 {
               width: 198 * @vw;
               height: 220 * @vw;
-              background: url('~assets/images/pc/guide/gift4_bg_part1.png') no-repeat;
+              background: url('~assets/images/guide/gift4_bg_part1.png') no-repeat;
               background-size: contain;
               .gift-pic-box {
                 align-self: flex-end;
@@ -1452,7 +1452,7 @@ export default {
             &.gift5 {
               width: 212 * @vw;
               height: 197 * @vw;
-              background: url('~assets/images/pc/guide/gift5_bg_part1.png') no-repeat;
+              background: url('~assets/images/guide/gift5_bg_part1.png') no-repeat;
               background-size: contain;
               .gift-pic-box {
                 align-self: flex-end;
@@ -1479,11 +1479,11 @@ export default {
           .book-btn {
             width: 232 * @vw;
             height: 85 * @vw;
-            background: url('~assets/images/pc/guide/btn_book_normal.png') no-repeat;
+            background: url('~assets/images/guide/btn_book_normal.png') no-repeat;
             background-size: contain;
             cursor: pointer;
             &:hover {
-              background-image: url('~assets/images/pc/guide/btn_book_click.png');
+              background-image: url('~assets/images/guide/btn_book_click.png');
             }
           }
         }
@@ -1493,7 +1493,7 @@ export default {
       position: relative;
       width: 1300 * @vw;
       height: 821 * @vw;
-      background: url('~assets/images/pc/guide/part2_bg.png') no-repeat;
+      background: url('~assets/images/guide/part2_bg.png') no-repeat;
       background-size: contain;
       margin-left: -15 * @vw;
       z-index: 2;
@@ -1508,7 +1508,7 @@ export default {
           position: absolute;
           width: 105 * @vw;
           height: 28 * @vw;
-          background: url('~assets/images/pc/guide/part02.png') no-repeat;
+          background: url('~assets/images/guide/part02.png') no-repeat;
           background-size: contain;
         }
         .title-text {
@@ -1548,7 +1548,7 @@ export default {
             position: absolute;
             width: 315 * @vw;
             height: 8 * @vw;
-            background: url('~assets/images/pc/guide/bulb.png') no-repeat;
+            background: url('~assets/images/guide/bulb.png') no-repeat;
             background-size: contain;
           }
           .achieve-content {
@@ -1564,31 +1564,31 @@ export default {
                 &.num-10w {
                   width: 108 * @vw;
                   height: 67 * @vw;
-                  background: url('~assets/images/pc/guide/10W.png') no-repeat;
+                  background: url('~assets/images/guide/10W.png') no-repeat;
                   background-size: contain;
                 }
                 &.num-30w {
                   width: 111 * @vw;
                   height: 67 * @vw;
-                  background: url('~assets/images/pc/guide/30W.png') no-repeat;
+                  background: url('~assets/images/guide/30W.png') no-repeat;
                   background-size: contain;
                 }
                 &.num-100w {
                   width: 151 * @vw;
                   height: 67 * @vw;
-                  background: url('~assets/images/pc/guide/100W.png') no-repeat;
+                  background: url('~assets/images/guide/100W.png') no-repeat;
                   background-size: contain;
                 }
                 &.num-80w {
                   width: 111 * @vw;
                   height: 67 * @vw;
-                  background: url('~assets/images/pc/guide/80W.png') no-repeat;
+                  background: url('~assets/images/guide/80W.png') no-repeat;
                   background-size: contain;
                 }
                 &.num-50w {
                   width: 111 * @vw;
                   height: 67 * @vw;
-                  background: url('~assets/images/pc/guide/50W.png') no-repeat;
+                  background: url('~assets/images/guide/50W.png') no-repeat;
                   background-size: contain;
                 }
               }
@@ -1601,7 +1601,7 @@ export default {
               .achieved-seal {
                 width: 104 * @vw;
                 height: 93 * @vw;
-                background: url('~assets/images/pc/guide/achieved_seal.png') no-repeat;
+                background: url('~assets/images/guide/achieved_seal.png') no-repeat;
                 background-size: contain;
                 position: absolute;
                 right: 40 * @vw;
@@ -1637,7 +1637,7 @@ export default {
                   height: 229 * @vw;
                   position: absolute;
                   bottom: 0;
-                  background: url('~assets/images/pc/guide/gift_bg_part2.png') no-repeat;
+                  background: url('~assets/images/guide/gift_bg_part2.png') no-repeat;
                   background-size: contain;
                   justify-content: flex-end;
                 }
@@ -1658,7 +1658,7 @@ export default {
                   .gift-box {
                     width: 68 * @vw;
                     height: 71 * @vw;
-                    background: url('~assets/images/pc/guide/gift_box_part2.png') no-repeat;
+                    background: url('~assets/images/guide/gift_box_part2.png') no-repeat;
                     background-size: contain;
                     display: flex;
                     align-items: center;
@@ -1697,7 +1697,7 @@ export default {
                       text-shadow: #0b2e66 1px 0 0, #0b2e66 0 1px 0, #0b2e66 -1px 0 0, #0b2e66 0 -1px 0;
                     }
                     &.major {
-                      background-image: url('~assets/images/pc/guide/gift_box_major_part2.png');
+                      background-image: url('~assets/images/guide/gift_box_major_part2.png');
                       .gift-label {
                         background-color: #7950ff;
                       }
@@ -1720,7 +1720,7 @@ export default {
             .bult-pic {
               width: 403 * @vw;
               height: 142 * @vw;
-              background: url('~assets/images/pc/guide/bulb_light.png') no-repeat;
+              background: url('~assets/images/guide/bulb_light.png') no-repeat;
               background-size: contain;
             }
             .achieve-content {
@@ -1729,31 +1729,31 @@ export default {
                   &.num-10w {
                     width: 108 * @vw;
                     height: 72 * @vw;
-                    background: url('~assets/images/pc/guide/10W_light.png') no-repeat;
+                    background: url('~assets/images/guide/10W_light.png') no-repeat;
                     background-size: contain;
                   }
                   &.num-30w {
                     width: 111 * @vw;
                     height: 72 * @vw;
-                    background: url('~assets/images/pc/guide/30W_light.png') no-repeat;
+                    background: url('~assets/images/guide/30W_light.png') no-repeat;
                     background-size: contain;
                   }
                   &.num-100w {
                     width: 151 * @vw;
                     height: 72 * @vw;
-                    background: url('~assets/images/pc/guide/100W_light.png') no-repeat;
+                    background: url('~assets/images/guide/100W_light.png') no-repeat;
                     background-size: contain;
                   }
                   &.num-80w {
                     width: 111 * @vw;
                     height: 72 * @vw;
-                    background: url('~assets/images/pc/guide/80W_light.png') no-repeat;
+                    background: url('~assets/images/guide/80W_light.png') no-repeat;
                     background-size: contain;
                   }
                   &.num-50w {
                     width: 111 * @vw;
                     height: 72 * @vw;
-                    background: url('~assets/images/pc/guide/50W_light.png') no-repeat;
+                    background: url('~assets/images/guide/50W_light.png') no-repeat;
                     background-size: contain;
                   }
                 }
@@ -1773,7 +1773,7 @@ export default {
                     background-color: #30a3f6;
                   }
                   &.list-5 {
-                    background-image: url('~assets/images/pc/guide/gift_bg_light_part2.png');
+                    background-image: url('~assets/images/guide/gift_bg_light_part2.png');
                   }
                 }
               }
@@ -1794,7 +1794,7 @@ export default {
               left: 165 * @vw;
               width: 259 * @vw;
               height: 365 * @vw;
-              background: url('~assets/images/pc/guide/pirate_doll_part2.png') no-repeat;
+              background: url('~assets/images/guide/pirate_doll_part2.png') no-repeat;
               background-size: contain;
             }
             .count-board {
@@ -1803,7 +1803,7 @@ export default {
               left: 45 * @vw;
               width: 262 * @vw;
               height: 150 * @vw;
-              background: url('~assets/images/pc/guide/count_bg.png') no-repeat;
+              background: url('~assets/images/guide/count_bg.png') no-repeat;
               background-size: contain;
               .board-title {
                 width: 100%;
@@ -1842,7 +1842,7 @@ export default {
   position: relative;
   width: 100%;
   height: 5259 * @vw;
-  background: url('~assets/images/pc/guide/bg_content.png') top center no-repeat;
+  background: url('~assets/images/guide/bg_content.png') top center no-repeat;
   background-size: cover;
   z-index: 3;
   display: flex;
@@ -1857,7 +1857,7 @@ export default {
   .part3 {
     width: 1422 * @vw;
     height: 317 * @vw;
-    background: url('~assets/images/pc/guide/part3_bg.png') no-repeat;
+    background: url('~assets/images/guide/part3_bg.png') no-repeat;
     background-size: contain;
     margin-left: -55 * @vw;
     .top {
@@ -1873,7 +1873,7 @@ export default {
         .title-order {
           width: 108 * @vw;
           height: 28 * @vw;
-          background: url('~assets/images/pc/guide/part03.png') no-repeat;
+          background: url('~assets/images/guide/part03.png') no-repeat;
           background-size: contain;
           position: absolute;
         }
@@ -1898,7 +1898,7 @@ export default {
         position: relative;
         width: 268 * @vw;
         height: 280 * @vw;
-        background: url('~assets/images/pc/guide/robot_doll_part3.png') no-repeat;
+        background: url('~assets/images/guide/robot_doll_part3.png') no-repeat;
         background-size: contain;
         z-index: 2;
       }
@@ -1908,7 +1908,7 @@ export default {
         left: -40 * @vw;
         width: 250 * @vw;
         height: 202 * @vw;
-        background: url('~assets/images/pc/guide/invite_bg.png') no-repeat;
+        background: url('~assets/images/guide/invite_bg.png') no-repeat;
         background-size: contain;
         z-index: 1;
         .invite-text {
@@ -1930,10 +1930,10 @@ export default {
           margin: 10 * @vw auto 0 auto;
           width: 195 * @vw;
           height: 70 * @vw;
-          background: url('~assets/images/pc/guide/btn_invite_normal.png') no-repeat;
+          background: url('~assets/images/guide/btn_invite_normal.png') no-repeat;
           background-size: contain;
           &:hover {
-            background-image: url('~assets/images/pc/guide/btn_invite_click.png');
+            background-image: url('~assets/images/guide/btn_invite_click.png');
           }
         }
       }
@@ -1954,7 +1954,7 @@ export default {
           .gift-box {
             width: 308 * @vw;
             height: 355 * @vw;
-            background: url('~assets/images/pc/guide/gift_part3_bg.png') no-repeat;
+            background: url('~assets/images/guide/gift_part3_bg.png') no-repeat;
             background-size: contain;
             overflow: hidden;
             .gift-wrapper {
@@ -1981,7 +1981,7 @@ export default {
                 margin-top: 11 * @vw;
                 width: 144 * @vw;
                 height: 41 * @vw;
-                background: url('~assets/images/pc/guide/gift_label_part3.png') no-repeat;
+                background: url('~assets/images/guide/gift_label_part3.png') no-repeat;
                 background-size: contain;
                 text-align: center;
                 line-height: 41 * @vw;
@@ -1992,7 +1992,7 @@ export default {
               .paopao-pic {
                 width: 177 * @vw;
                 height: 166 * @vw;
-                background: url('~assets/images/pc/guide/paopao_part3.png') no-repeat;
+                background: url('~assets/images/guide/paopao_part3.png') no-repeat;
                 background-size: contain;
                 position: absolute;
                 z-index: -1;
@@ -2024,7 +2024,7 @@ export default {
             left: 77 * @vw;
             width: 582 * @vw;
             height: 119 * @vw;
-            background: url('~assets/images/pc/guide/wire1.png') no-repeat;
+            background: url('~assets/images/guide/wire1.png') no-repeat;
             background-size: contain;
           }
           .wire2 {
@@ -2032,7 +2032,7 @@ export default {
             right: 182 * @vw;
             width: 274 * @vw;
             height: 86 * @vw;
-            background: url('~assets/images/pc/guide/wire2.png') no-repeat;
+            background: url('~assets/images/guide/wire2.png') no-repeat;
             background-size: contain;
           }
           .wire3 {
@@ -2040,7 +2040,7 @@ export default {
             right: 180 * @vw;
             width: 278 * @vw;
             height: 26 * @vw;
-            background: url('~assets/images/pc/guide/wire3.png') no-repeat;
+            background: url('~assets/images/guide/wire3.png') no-repeat;
             background-size: contain;
           }
           .wire4 {
@@ -2048,27 +2048,27 @@ export default {
             right: 180 * @vw;
             width: 279 * @vw;
             height: 90 * @vw;
-            background: url('~assets/images/pc/guide/wire4.png') no-repeat;
+            background: url('~assets/images/guide/wire4.png') no-repeat;
             background-size: contain;
           }
           &.light {
             .gift-box {
               width: 308 * @vw;
               height: 440 * @vw;
-              background: url('~assets/images/pc/guide/gift_part3_bg_light.png') no-repeat;
+              background: url('~assets/images/guide/gift_part3_bg_light.png') no-repeat;
               background-size: contain;
             }
             .wire1 {
-              background-image: url('~assets/images/pc/guide/wire1_light.png');
+              background-image: url('~assets/images/guide/wire1_light.png');
             }
             .wire2 {
-              background-image: url('~assets/images/pc/guide/wire2_light.png');
+              background-image: url('~assets/images/guide/wire2_light.png');
             }
             .wire3 {
-              background-image: url('~assets/images/pc/guide/wire3_light.png');
+              background-image: url('~assets/images/guide/wire3_light.png');
             }
             .wire4 {
-              background-image: url('~assets/images/pc/guide/wire4_light.png');
+              background-image: url('~assets/images/guide/wire4_light.png');
             }
             .gift-wrapper {
               .gift-pic {

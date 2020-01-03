@@ -17,7 +17,7 @@
       >
         您的浏览器暂不支持视频播放，请下载最新版本的浏览器...
       </video>
-      <img class="content-cover" src="~/assets/images/pc/guide/part7/part7_bg.png" />
+      <img class="content-cover" src="~/assets/images/guide/part7/part7_bg.png" />
       <div :class="['handle-left', 'btn', { disable: chooseIndex === 0 }]" @click="handleLeftClick"></div>
       <div
         :class="['handle-right', 'btn', { disable: chooseIndex === videoOptions.length - 1 }]"
@@ -35,7 +35,7 @@
           <div class="button-desc">{{ item.desc }}</div>
         </li>
       </ul>
-      <img class="rabbit" src="~/assets/images/pc/guide/part7/rabbit.png" />
+      <img class="rabbit" src="~/assets/images/guide/part7/rabbit.png" />
     </div>
   </div>
 </template>
@@ -97,7 +97,7 @@ export default {
     .title-order {
       width: 108 * @vw;
       height: 28 * @vw;
-      background: url('~assets/images/pc/guide/part7/part07.png') no-repeat;
+      background: url('~assets/images/guide/part7/part07.png') no-repeat;
       background-size: contain;
       position: absolute;
     }
@@ -135,10 +135,10 @@ export default {
       top: 290 * @vw;
       width: 46 * @vw;
       height: 70 * @vw;
-      background: url('~assets/images/pc/guide/swiper_left.png') no-repeat;
+      background: url('~assets/images/guide/swiper_left.png') no-repeat;
       background-size: contain;
       // &.disable {
-      //   background: url('~assets/images/pc/guide/swiper_disable_left.png') no-repeat;
+      //   background: url('~assets/images/guide/swiper_disable_left.png') no-repeat;
       //   background-size: contain;
       // }
     }
@@ -148,10 +148,10 @@ export default {
       top: 290 * @vw;
       width: 46 * @vw;
       height: 70 * @vw;
-      background: url('~assets/images/pc/guide/swiper_right.png') no-repeat;
+      background: url('~assets/images/guide/swiper_right.png') no-repeat;
       background-size: contain;
       // &.disable {
-      //   background: url('~assets/images/pc/guide/swiper_disable_right.png') no-repeat;
+      //   background: url('~assets/images/guide/swiper_disable_right.png') no-repeat;
       //   background-size: contain;
       // }
     }
@@ -162,10 +162,10 @@ export default {
       top: 240 * @vw;
       width: 128 * @vw;
       height: 128 * @vw;
-      background: url('~assets/images/pc/guide/part7/play_normal.png') no-repeat;
+      background: url('~assets/images/guide/part7/play_normal.png') no-repeat;
       background-size: contain;
       &:hover {
-        background: url('~assets/images/pc/guide/part7/play_hover.png') no-repeat;
+        background: url('~assets/images/guide/part7/play_hover.png') no-repeat;
         background-size: contain;
       }
     }
@@ -209,10 +209,10 @@ export default {
         &:nth-child(1) {
           width: 225 * @vw;
           height: 94 * @vw;
-          background: url('~assets/images/pc/guide/part7/action_normal_01.png') no-repeat;
+          background: url('~assets/images/guide/part7/action_normal_01.png') no-repeat;
           background-size: contain;
           &.active {
-            background: url('~assets/images/pc/guide/part7/action_active_01.png') no-repeat;
+            background: url('~assets/images/guide/part7/action_active_01.png') no-repeat;
             background-size: contain;
           }
         }
@@ -221,10 +221,10 @@ export default {
           height: 88 * @vw;
           position: relative;
           top: 9 * @vw;
-          background: url('~assets/images/pc/guide/part7/action_normal_02.png') no-repeat;
+          background: url('~assets/images/guide/part7/action_normal_02.png') no-repeat;
           background-size: contain;
           &.active {
-            background: url('~assets/images/pc/guide/part7/action_active_02.png') no-repeat;
+            background: url('~assets/images/guide/part7/action_active_02.png') no-repeat;
             background-size: contain;
           }
         }
@@ -233,20 +233,20 @@ export default {
           height: 88 * @vw;
           position: relative;
           top: 9 * @vw;
-          background: url('~assets/images/pc/guide/part7/action_normal_03.png') no-repeat;
+          background: url('~assets/images/guide/part7/action_normal_03.png') no-repeat;
           background-size: contain;
           &.active {
-            background: url('~assets/images/pc/guide/part7/action_active_03.png') no-repeat;
+            background: url('~assets/images/guide/part7/action_active_03.png') no-repeat;
             background-size: contain;
           }
         }
         &:nth-child(4) {
           width: 225 * @vw;
           height: 94 * @vw;
-          background: url('~assets/images/pc/guide/part7/action_normal_04.png') no-repeat;
+          background: url('~assets/images/guide/part7/action_normal_04.png') no-repeat;
           background-size: contain;
           &.active {
-            background: url('~assets/images/pc/guide/part7/action_active_04.png') no-repeat;
+            background: url('~assets/images/guide/part7/action_active_04.png') no-repeat;
             background-size: contain;
           }
         }

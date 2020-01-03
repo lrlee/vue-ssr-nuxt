@@ -10,19 +10,19 @@
       <div v-swiper="swiperOption" class="swiper-container feature-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img class="swipwr-pic" src="@/assets/images/pc/guide/pic_part4.png" />
+            <img class="swipwr-pic" src="~/assets/images/guide/pic_part4.png" />
             <div class="swiper-title title2 left"></div>
             <div class="swiper-doll doll2 right"></div>
             <div class="swiper-role role2 left"></div>
           </div>
           <div class="swiper-slide">
-            <img class="swipwr-pic" src="@/assets/images/pc/guide/pic_part4.png" />
+            <img class="swipwr-pic" src="~/assets/images/guide/pic_part4.png" />
             <div class="swiper-title title3 left"></div>
             <div class="swiper-doll doll3 left"></div>
             <div class="swiper-role role3 right"></div>
           </div>
           <div class="swiper-slide">
-            <img class="swipwr-pic" src="@/assets/images/pc/guide/pic_part4.png" />
+            <img class="swipwr-pic" src="~/assets/images/guide/pic_part4.png" />
             <div class="swiper-title title1 left"></div>
             <div class="swiper-doll doll1 left"></div>
             <div class="swiper-role role1 right"></div>
@@ -122,7 +122,7 @@ export default {
     .title-order {
       width: 108 * @vw;
       height: 28 * @vw;
-      background: url('~assets/images/pc/guide/part04.png') no-repeat;
+      background: url('~assets/images/guide/part04.png') no-repeat;
       background-size: contain;
       position: absolute;
     }
@@ -153,19 +153,19 @@ export default {
           &.title1 {
             width: 360 * @vw;
             height: 176 * @vw;
-            background: url('~assets/images/pc/guide/title1_part4.png') no-repeat;
+            background: url('~assets/images/guide/title1_part4.png') no-repeat;
             background-size: contain;
           }
           &.title2 {
             width: 363 * @vw;
             height: 179 * @vw;
-            background: url('~assets/images/pc/guide/title2_part4.png') no-repeat;
+            background: url('~assets/images/guide/title2_part4.png') no-repeat;
             background-size: contain;
           }
           &.title3 {
             width: 346 * @vw;
             height: 175 * @vw;
-            background: url('~assets/images/pc/guide/title3_part4.png') no-repeat;
+            background: url('~assets/images/guide/title3_part4.png') no-repeat;
             background-size: contain;
           }
         }
@@ -190,7 +190,7 @@ export default {
             bottom: -60 * @vw;
             width: 164 * @vw;
             height: 254 * @vw;
-            background: url('~assets/images/pc/guide/doll1_part4.png') no-repeat;
+            background: url('~assets/images/guide/doll1_part4.png') no-repeat;
             background-size: contain;
           }
           &.doll2 {
@@ -198,7 +198,7 @@ export default {
             bottom: -72 * @vw;
             width: 271 * @vw;
             height: 267 * @vw;
-            background: url('~assets/images/pc/guide/doll2_part4.png') no-repeat;
+            background: url('~assets/images/guide/doll2_part4.png') no-repeat;
             background-size: contain;
           }
           &.doll3 {
@@ -206,7 +206,7 @@ export default {
             bottom: -61 * @vw;
             width: 215 * @vw;
             height: 205 * @vw;
-            background: url('~assets/images/pc/guide/doll3_part4.png') no-repeat;
+            background: url('~assets/images/guide/doll3_part4.png') no-repeat;
             background-size: contain;
           }
         }
@@ -219,7 +219,7 @@ export default {
             bottom: -120 * @vw;
             width: 272 * @vw;
             height: 329 * @vw;
-            background: url('~assets/images/pc/guide/role1_part4.png') no-repeat;
+            background: url('~assets/images/guide/role1_part4.png') no-repeat;
             background-size: contain;
           }
           &.role2 {
@@ -227,7 +227,7 @@ export default {
             bottom: -116 * @vw;
             width: 290 * @vw;
             height: 388 * @vw;
-            background: url('~assets/images/pc/guide/role2_part4.png') no-repeat;
+            background: url('~assets/images/guide/role2_part4.png') no-repeat;
             background-size: contain;
           }
           &.role3 {
@@ -235,7 +235,7 @@ export default {
             bottom: -112 * @vw;
             width: 327 * @vw;
             height: 313 * @vw;
-            background: url('~assets/images/pc/guide/role3_part4.png') no-repeat;
+            background: url('~assets/images/guide/role3_part4.png') no-repeat;
             background-size: contain;
           }
         }
@@ -255,14 +255,14 @@ export default {
         left: -63 * @vw;
         width: 46 * @vw;
         height: 70 * @vw;
-        background: url('~assets/images/pc/guide/swiper_left.png') no-repeat;
+        background: url('~assets/images/guide/swiper_left.png') no-repeat;
         background-size: contain;
       }
       .swiper-button-next {
         right: -63 * @vw;
         width: 46 * @vw;
         height: 70 * @vw;
-        background: url('~assets/images/pc/guide/swiper_right.png') no-repeat;
+        background: url('~assets/images/guide/swiper_right.png') no-repeat;
         background-size: contain;
       }
       .swiper-pagination {

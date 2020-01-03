@@ -61,7 +61,7 @@ export default {
   .dot-pic {
     width: 11 * @vw;
     height: 12 * @vw;
-    background: url('~assets/images/pc/guide/count_dot.png') no-repeat;
+    background: url('~assets/images/guide/count_dot.png') no-repeat;
     background-size: contain;
   }
 }
@@ -78,45 +78,45 @@ export default {
       height: 41 * @vw;
     }
     .num-0 {
-      background: url('~assets/images/pc/guide/0.png') no-repeat;
+      background: url('~assets/images/guide/0.png') no-repeat;
       background-size: contain;
     }
     .num-1 {
       width: 18 * @vw;
-      background: url('~assets/images/pc/guide/1.png') no-repeat;
+      background: url('~assets/images/guide/1.png') no-repeat;
       background-size: contain;
     }
     .num-2 {
-      background: url('~assets/images/pc/guide/2.png') no-repeat;
+      background: url('~assets/images/guide/2.png') no-repeat;
       background-size: contain;
     }
     .num-3 {
-      background: url('~assets/images/pc/guide/3.png') no-repeat;
+      background: url('~assets/images/guide/3.png') no-repeat;
       background-size: contain;
     }
     .num-4 {
       width: 27 * @vw;
-      background: url('~assets/images/pc/guide/4.png') no-repeat;
+      background: url('~assets/images/guide/4.png') no-repeat;
       background-size: contain;
     }
     .num-5 {
-      background: url('~assets/images/pc/guide/5.png') no-repeat;
+      background: url('~assets/images/guide/5.png') no-repeat;
       background-size: contain;
     }
     .num-6 {
-      background: url('~assets/images/pc/guide/6.png') no-repeat;
+      background: url('~assets/images/guide/6.png') no-repeat;
       background-size: contain;
     }
     .num-7 {
-      background: url('~assets/images/pc/guide/7.png') no-repeat;
+      background: url('~assets/images/guide/7.png') no-repeat;
       background-size: contain;
     }
     .num-8 {
-      background: url('~assets/images/pc/guide/8.png') no-repeat;
+      background: url('~assets/images/guide/8.png') no-repeat;
       background-size: contain;
     }
     .num-9 {
-      background: url('~assets/images/pc/guide/9.png') no-repeat;
+      background: url('~assets/images/guide/9.png') no-repeat;
       background-size: contain;
     }
   }

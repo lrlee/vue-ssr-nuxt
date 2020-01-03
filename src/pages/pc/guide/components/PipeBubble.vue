@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      paopaoUrl: require('~/assets/images/pc/guide/paopao_pipe.png'),
+      paopaoUrl: require('~/assets/images/guide/paopao_pipe.png'),
       viewBox: `0 0 ${this.width} ${this.height}`,
       paopao_rate: 1 // 泡泡变化比例
     }

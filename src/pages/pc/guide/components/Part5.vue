@@ -165,108 +165,108 @@ export default {
 <style lang="less" scoped>
 @import url('~assets/css/guide.less');
 .role-head-1 {
-  background: url('~assets/images/pc/guide/role/role_head/head_1.png') no-repeat;
+  background: url('~assets/images/guide/role/role_head/head_1.png') no-repeat;
   background-size: contain;
   &:hover,
   &.active {
-    background: url('~assets/images/pc/guide/role/role_head/head_1_active.png') no-repeat;
+    background: url('~assets/images/guide/role/role_head/head_1_active.png') no-repeat;
     background-size: contain;
   }
 }
 .role-head-2 {
-  background: url('~assets/images/pc/guide/role/role_head/head_2.png') no-repeat;
+  background: url('~assets/images/guide/role/role_head/head_2.png') no-repeat;
   background-size: contain;
   &:hover,
   &.active {
-    background: url('~assets/images/pc/guide/role/role_head/head_2_active.png') no-repeat;
+    background: url('~assets/images/guide/role/role_head/head_2_active.png') no-repeat;
     background-size: contain;
   }
 }
 .role-head-4 {
-  background: url('~assets/images/pc/guide/role/role_head/head_4.png') no-repeat;
+  background: url('~assets/images/guide/role/role_head/head_4.png') no-repeat;
   background-size: contain;
   &:hover,
   &.active {
-    background: url('~assets/images/pc/guide/role/role_head/head_4_active.png') no-repeat;
+    background: url('~assets/images/guide/role/role_head/head_4_active.png') no-repeat;
     background-size: contain;
   }
 }
 .role-head-7 {
-  background: url('~assets/images/pc/guide/role/role_head/head_7.png') no-repeat;
+  background: url('~assets/images/guide/role/role_head/head_7.png') no-repeat;
   background-size: contain;
   &:hover,
   &.active {
-    background: url('~assets/images/pc/guide/role/role_head/head_7_active.png') no-repeat;
+    background: url('~assets/images/guide/role/role_head/head_7_active.png') no-repeat;
     background-size: contain;
   }
 }
 .role-head-8 {
-  background: url('~assets/images/pc/guide/role/role_head/head_8.png') no-repeat;
+  background: url('~assets/images/guide/role/role_head/head_8.png') no-repeat;
   background-size: contain;
   &:hover,
   &.active {
-    background: url('~assets/images/pc/guide/role/role_head/head_8_active.png') no-repeat;
+    background: url('~assets/images/guide/role/role_head/head_8_active.png') no-repeat;
     background-size: contain;
   }
 }
 .role-head-12 {
-  background: url('~assets/images/pc/guide/role/role_head/head_12.png') no-repeat;
+  background: url('~assets/images/guide/role/role_head/head_12.png') no-repeat;
   background-size: contain;
   &:hover,
   &.active {
-    background: url('~assets/images/pc/guide/role/role_head/head_12_active.png') no-repeat;
+    background: url('~assets/images/guide/role/role_head/head_12_active.png') no-repeat;
     background-size: contain;
   }
 }
 .role-head-14 {
-  background: url('~assets/images/pc/guide/role/role_head/head_14.png') no-repeat;
+  background: url('~assets/images/guide/role/role_head/head_14.png') no-repeat;
   background-size: contain;
   &:hover,
   &.active {
-    background: url('~assets/images/pc/guide/role/role_head/head_14_active.png') no-repeat;
+    background: url('~assets/images/guide/role/role_head/head_14_active.png') no-repeat;
     background-size: contain;
   }
 }
 .role-1 {
   width: 327 * @vw;
   height: 482 * @vw;
-  background: url('~assets/images/pc/guide/role/role_display/role_1.png') no-repeat;
+  background: url('~assets/images/guide/role/role_display/role_1.png') no-repeat;
   background-size: contain;
 }
 .role-2 {
   width: 369 * @vw;
   height: 474 * @vw;
-  background: url('~assets/images/pc/guide/role/role_display/role_2.png') no-repeat;
+  background: url('~assets/images/guide/role/role_display/role_2.png') no-repeat;
   background-size: contain;
 }
 .role-4 {
   width: 456 * @vw;
   height: 441 * @vw;
-  background: url('~assets/images/pc/guide/role/role_display/role_4.png') no-repeat;
+  background: url('~assets/images/guide/role/role_display/role_4.png') no-repeat;
   background-size: contain;
 }
 .role-7 {
   width: 382 * @vw;
   height: 510 * @vw;
-  background: url('~assets/images/pc/guide/role/role_display/role_7.png') no-repeat;
+  background: url('~assets/images/guide/role/role_display/role_7.png') no-repeat;
   background-size: contain;
 }
 .role-8 {
   width: 369 * @vw;
   height: 437 * @vw;
-  background: url('~assets/images/pc/guide/role/role_display/role_8.png') no-repeat;
+  background: url('~assets/images/guide/role/role_display/role_8.png') no-repeat;
   background-size: contain;
 }
 .role-12 {
   width: 322 * @vw;
   height: 526 * @vw;
-  background: url('~assets/images/pc/guide/role/role_display/role_12.png') no-repeat;
+  background: url('~assets/images/guide/role/role_display/role_12.png') no-repeat;
   background-size: contain;
 }
 .role-14 {
   width: 417 * @vw;
   height: 420 * @vw;
-  background: url('~assets/images/pc/guide/role/role_display/role_14.png') no-repeat;
+  background: url('~assets/images/guide/role/role_display/role_14.png') no-repeat;
   background-size: contain;
 }
 .part-container {
@@ -280,7 +280,7 @@ export default {
     .title-order {
       width: 108 * @vw;
       height: 28 * @vw;
-      background: url('~assets/images/pc/guide/part05.png') no-repeat;
+      background: url('~assets/images/guide/part05.png') no-repeat;
       background-size: contain;
       position: absolute;
     }
@@ -297,7 +297,7 @@ export default {
       position: relative;
       width: 264 * @vw;
       height: 521 * @vw;
-      background: url('~assets/images/pc/guide/role_select_bg.png') no-repeat;
+      background: url('~assets/images/guide/role_select_bg.png') no-repeat;
       background-size: contain;
       margin-right: 20 * @vw;
       .select-list-box {
@@ -352,10 +352,10 @@ export default {
         bottom: 12 * @vw;
         width: 20 * @vw;
         height: 69 * @vw;
-        background: url('~assets/images/pc/guide/role_select_pre.png') no-repeat;
+        background: url('~assets/images/guide/role_select_pre.png') no-repeat;
         background-size: contain;
         &.disabled {
-          background-image: url('~assets/images/pc/guide/role_select_pre_disabled.png');
+          background-image: url('~assets/images/guide/role_select_pre_disabled.png');
         }
       }
       .next-btn {
@@ -364,10 +364,10 @@ export default {
         top: 20 * @vw;
         width: 20 * @vw;
         height: 69 * @vw;
-        background: url('~assets/images/pc/guide/role_select_next.png') no-repeat;
+        background: url('~assets/images/guide/role_select_next.png') no-repeat;
         background-size: contain;
         &.disabled {
-          background-image: url('~assets/images/pc/guide/role_select_next_disabled.png');
+          background-image: url('~assets/images/guide/role_select_next_disabled.png');
         }
       }
     }
@@ -383,14 +383,14 @@ export default {
         bottom: 105 * @vw;
         width: 346 * @vw;
         height: 125 * @vw;
-        background: url('~assets/images/pc/guide/stage_light.png') no-repeat;
+        background: url('~assets/images/guide/stage_light.png') no-repeat;
         background-size: contain;
         z-index: 2;
       }
       .role-stage {
         width: 531 * @vw;
         height: 393 * @vw;
-        background: url('~assets/images/pc/guide/stage.png') no-repeat;
+        background: url('~assets/images/guide/stage.png') no-repeat;
         background-size: contain;
         position: absolute;
         bottom: 0 * @vw;
@@ -402,7 +402,7 @@ export default {
           bottom: 130 * @vw;
           // width: 383 * @vw;
           // height: 556 * @vw;
-          // background: url('~assets/images/pc/guide/role_lili_part5.png') no-repeat;
+          // background: url('~assets/images/guide/role_lili_part5.png') no-repeat;
           // background-size: contain;
         }
       }
@@ -411,7 +411,7 @@ export default {
       margin-top: 30 * @vw;
       width: 536 * @vw;
       height: 603 * @vw;
-      background: url('~assets/images/pc/guide/role_introduce_bg.png') no-repeat;
+      background: url('~assets/images/guide/role_introduce_bg.png') no-repeat;
       background-size: contain;
       display: flex;
       flex-direction: column;
@@ -436,7 +436,7 @@ export default {
             .star-item {
               width: 28 * @vw;
               height: 26 * @vw;
-              background: url('~assets/images/pc/guide/star.png') no-repeat;
+              background: url('~assets/images/guide/star.png') no-repeat;
               background-size: contain;
               margin-right: 13 * @vw;
               margin-bottom: 13 * @vw;
@@ -452,7 +452,7 @@ export default {
         .ability-label {
           width: 71 * @vw;
           height: 30 * @vw;
-          background: url('~assets/images/pc/guide/ability_label.png') no-repeat;
+          background: url('~assets/images/guide/ability_label.png') no-repeat;
           background-size: contain;
           color: #0d1d4e;
           text-align: center;
@@ -469,15 +469,15 @@ export default {
           height: 24 * @vw;
           margin-top: 5 * @vw;
           &.base {
-            background: url('~assets/images/pc/guide/role/water_drop_base.png') no-repeat;
+            background: url('~assets/images/guide/role/water_drop_base.png') no-repeat;
             background-size: contain;
           }
           &.max {
-            background: url('~assets/images/pc/guide/role/water_drop_max.png') no-repeat;
+            background: url('~assets/images/guide/role/water_drop_max.png') no-repeat;
             background-size: contain;
           }
           &.default {
-            background: url('~assets/images/pc/guide/role/water_drop_default.png') no-repeat;
+            background: url('~assets/images/guide/role/water_drop_default.png') no-repeat;
             background-size: contain;
           }
         }
@@ -495,19 +495,19 @@ export default {
             .bubble-icon {
               width: 37 * @vw;
               height: 43 * @vw;
-              background: url('~assets/images/pc/guide/role/role_ability_bubble.png') no-repeat;
+              background: url('~assets/images/guide/role/role_ability_bubble.png') no-repeat;
               background-size: contain;
             }
             .waterspout-icon {
               width: 39 * @vw;
               height: 40 * @vw;
-              background: url('~assets/images/pc/guide/role/role_ability_spout.png') no-repeat;
+              background: url('~assets/images/guide/role/role_ability_spout.png') no-repeat;
               background-size: contain;
             }
             .speed-icon {
               width: 35 * @vw;
               height: 38 * @vw;
-              background: url('~assets/images/pc/guide/role/role_ability_speed.png') no-repeat;
+              background: url('~assets/images/guide/role/role_ability_speed.png') no-repeat;
               background-size: contain;
             }
             .values-name {

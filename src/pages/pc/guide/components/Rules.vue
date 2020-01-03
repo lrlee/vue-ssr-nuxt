@@ -65,19 +65,19 @@ export default {
       rulesOptions,
       codeOptions: [
         {
-          bg: require('~/assets/images/pc/guide/rules/wx_bg.png'),
+          bg: require('~/assets/images/guide/rules/wx_bg.png'),
           bgText: '官方公众号',
           text: this.contactsInfo.woa.desc,
           img: this.contactsInfo.woa.qrcode
         },
         {
-          bg: require('~/assets/images/pc/guide/rules/wb_bg.png'),
+          bg: require('~/assets/images/guide/rules/wb_bg.png'),
           bgText: '官方微博',
           text: this.contactsInfo.weibo.desc,
           img: this.contactsInfo.weibo.qrcode
         },
         {
-          bg: require('~/assets/images/pc/guide/rules/qq_bg.png'),
+          bg: require('~/assets/images/guide/rules/qq_bg.png'),
           bgText: '官方交流群',
           text: this.contactsInfo.qqgroup.desc,
           img: this.contactsInfo.qqgroup.qrcode
@@ -120,7 +120,7 @@ export default {
           display: inline-block;
           width: 15 * @vw;
           height: 18 * @vw;
-          background: url('~assets/images/pc/guide/rules/tag_icon.png') no-repeat;
+          background: url('~assets/images/guide/rules/tag_icon.png') no-repeat;
           background-size: contain;
           line-height: 20 * @vw;
           font-size: 12 * @vw;
@@ -142,10 +142,10 @@ export default {
         width: 269 * @vw;
         height: 112 * @vw;
         margin-top: 7 * @vw;
-        background: url('~assets/images/pc/guide/rules/book_normal.png') no-repeat;
+        background: url('~assets/images/guide/rules/book_normal.png') no-repeat;
         background-size: contain;
         &:hover {
-          background: url('~assets/images/pc/guide/rules/book_hover.png') no-repeat;
+          background: url('~assets/images/guide/rules/book_hover.png') no-repeat;
           background-size: contain;
         }
       }
@@ -163,7 +163,7 @@ export default {
       height: 178 * @vw;
       top: -83 * @vw;
       right: 227 * @vw;
-      background: url('~assets/images/pc/guide/rules/aircraft.png') no-repeat;
+      background: url('~assets/images/guide/rules/aircraft.png') no-repeat;
       background-size: contain;
     }
   }

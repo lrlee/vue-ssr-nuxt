@@ -260,20 +260,20 @@ export default {
 .pop-box {
   width: 674 * @vw;
   height: 668 * @vw;
-  background: url('~assets/images/pc/guide/pop_bg.png') no-repeat;
+  background: url('~assets/images/guide/pop_bg.png') no-repeat;
   background-size: contain;
   position: relative;
   .close-icon {
     width: 93 * @vw;
     height: 93 * @vw;
-    background: url('~assets/images/pc/guide/close_circle_pop.png') no-repeat;
+    background: url('~assets/images/guide/close_circle_pop.png') no-repeat;
     background-size: contain;
     position: absolute;
     right: -21 * @vw;
     top: 219 * @vw;
     z-index: 3;
     &:hover {
-      background-image: url('~assets/images/pc/guide/close_circle_hover_pop.png');
+      background-image: url('~assets/images/guide/close_circle_hover_pop.png');
     }
   }
 }
@@ -287,7 +287,7 @@ export default {
     top: 50 * @vw;
     width: 249 * @vw;
     height: 104 * @vw;
-    background: url('~assets/images/pc/guide/ribbon_pop.png') no-repeat;
+    background: url('~assets/images/guide/ribbon_pop.png') no-repeat;
     background-size: contain;
     transform: scale(0);
     animation: scale_ribbon 0.4s cubic-bezier(0.36, 0.35, 0.29, 1.32);
@@ -303,7 +303,7 @@ export default {
     right: -21 * @vw;
     width: 522 * @vw;
     height: 629 * @vw;
-    background: url('~assets/images/pc/guide/colorpaper_pop.png') no-repeat;
+    background: url('~assets/images/guide/colorpaper_pop.png') no-repeat;
     background-size: contain;
     transform: scale(0);
     animation: scale_colorpaper 1s cubic-bezier(0.66, 0.22, 0.1, 1.35);
@@ -338,7 +338,7 @@ export default {
     .err-icon {
       width: 12 * @vw;
       height: 12 * @vw;
-      background: url('~assets/images/pc/guide/input_err_icon.png') no-repeat;
+      background: url('~assets/images/guide/input_err_icon.png') no-repeat;
       background-size: contain;
       margin-right: 3 * @vw;
       position: relative;
@@ -388,22 +388,22 @@ export default {
       .ios-icon {
         width: 48 * @vw;
         height: 19 * @vw;
-        background: url('~assets/images/pc/guide/platform_ios_pop.png') no-repeat;
+        background: url('~assets/images/guide/platform_ios_pop.png') no-repeat;
         background-size: contain;
       }
       .android-icon {
         width: 105 * @vw;
         height: 19 * @vw;
-        background: url('~assets/images/pc/guide/platform_android_pop.png') no-repeat;
+        background: url('~assets/images/guide/platform_android_pop.png') no-repeat;
         background-size: contain;
       }
       &.selected {
         background-color: #0079d0;
         .ios-icon {
-          background-image: url('~assets/images/pc/guide/platform_ios_selected_pop.png');
+          background-image: url('~assets/images/guide/platform_ios_selected_pop.png');
         }
         .android-icon {
-          background-image: url('~assets/images/pc/guide/platform_android_selected_pop.png');
+          background-image: url('~assets/images/guide/platform_android_selected_pop.png');
         }
       }
     }
@@ -471,7 +471,7 @@ export default {
       position: absolute;
       width: 261 * @vw;
       height: 258 * @vw;
-      background: url('~assets/images/pc/guide/qr_sticker_pop.png') bottom center no-repeat;
+      background: url('~assets/images/guide/qr_sticker_pop.png') bottom center no-repeat;
       background-size: contain;
     }
     .qr-pic {
