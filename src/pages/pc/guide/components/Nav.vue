@@ -44,7 +44,7 @@
       </div>
       <div @click="onBackTopClick" class="nav-handle-bottom btn">返回顶部</div>
     </div>
-    <div :class="['nav-handle-open', 'btn', { hide: isOpen }]" @mouseenter="isOpen = true">展开</div>
+    <div :class="['nav-handle-open', 'btn', { hide: isOpen }]" @click="isOpen = true">展开</div>
   </div>
 </template>
 <script>

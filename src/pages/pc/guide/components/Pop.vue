@@ -41,7 +41,7 @@
               />
             </div>
             <div v-if="startCount" class="code-btn btn">{{ countDown }}s</div>
-            <div @click="getCode" v-else class="code-btn btn">请输入验证码</div>
+            <div @click="getCode" v-else class="code-btn btn">获取验证码</div>
             <div v-show="codeErr" class="input-err"><i class="err-icon icon"></i>请输入正确的短信验证码</div>
           </div>
           <div @click="submitForm" class="submit-btn btn">立即预约</div>
