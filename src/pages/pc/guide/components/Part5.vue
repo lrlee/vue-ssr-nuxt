@@ -15,7 +15,7 @@
               :key="index"
               :class="[`role-head-${item.id}`, selectedId === item.id ? 'active' : '']"
               @click="selecteRole(item.id, index)"
-              class="role-item"
+              class="role-item btn"
             ></li>
           </ul>
         </div>

@@ -990,7 +990,7 @@ export default {
   }
   .index-main {
     position: absolute;
-    top: 66 * @vw;
+    top: 75 * @vw;
     z-index: 10;
     width: 100%;
     display: flex;
@@ -1159,7 +1159,7 @@ export default {
     .paopap-left-pic {
       position: absolute;
       z-index: 1;
-      bottom: 80 * @vw;
+      bottom: 20 * @vw;
       left: -140 * @vw;
       width: 341px;
       height: 354px;
@@ -1171,7 +1171,7 @@ export default {
     .paopao-right-pic {
       position: absolute;
       z-index: 1;
-      bottom: 150 * @vw;
+      bottom: 80 * @vw;
       right: -70 * @vw;
       width: 143px;
       height: 163px;
@@ -1219,7 +1219,6 @@ export default {
       top: 380 * @vw;
       width: 268px;
       height: 472px;
-      // transform: scale(0.8);
       background: url('~assets/images/guide/index/rabbit_0.png') no-repeat;
       background-size: cover;
       &.animation {

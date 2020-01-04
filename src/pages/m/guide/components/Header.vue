@@ -20,6 +20,7 @@ export default {}
 @vw: 1vw/7.5;
 .header-container {
   position: absolute;
+  z-index: 10;
   top: 0;
   right: 0;
   width: 750 * @vw;
@@ -50,6 +51,7 @@ export default {}
       color: #fff;
     }
     .title-desc {
+      margin-top: 3 * @vw;
       font-size: 24 * @vw;
       color: #30a3f6;
     }
