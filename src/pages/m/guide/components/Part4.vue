@@ -80,7 +80,7 @@ export default {
         case 0:
           return '重塑经典'
         case 1:
-          return '团队交战'
+          return '团队交锋'
         case 2:
           return '休闲竞技'
       }
