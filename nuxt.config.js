@@ -10,11 +10,6 @@ module.exports = {
   /*
    ** Headers of the page
    */
-  // generate: {
-  //   devtools: true,
-  //   subFolders: false,
-  //   routes: ['/', '/event/index', '/event/1', '/event/2', '/event/3', '/event/4', '/event/5', '/event/6']
-  // },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -69,9 +64,10 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources'
   ],
-  styleResources: {
-    less: './assets/**/*.less'
-  },
+  // 当您需要在页面中注入一些变量和mixin而不必每次都导入它们时（全局样式）
+  // styleResources: {
+  //   less: './assets/**/*.less'
+  // },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
