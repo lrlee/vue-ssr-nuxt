@@ -32,6 +32,7 @@
       <Part1 :part1Data="part1Data" @openBookPop="openBookPop"></Part1>
       <Part2 :bookedTotalArr="bookedTotal_arr"></Part2>
       <Part3></Part3>
+      <Part4></Part4>
     </div>
     <div class="introduct-bg"></div>
   </div>
@@ -41,7 +42,7 @@ import Header from './components/Header'
 import Part1 from './components/Part1'
 import Part2 from './components/Part2'
 import Part3 from './components/Part3'
-// import Part4 from './components/Part4'
+import Part4 from './components/Part4'
 // import Part5 from './components/Part5'
 // import Part6 from './components/Part6'
 // import Part7 from './components/Part7'
@@ -59,7 +60,8 @@ export default {
     Header,
     Part1,
     Part2,
-    Part3
+    Part3,
+    Part4
   },
   asyncData({ store }) {
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
