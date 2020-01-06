@@ -54,6 +54,9 @@ export default {
   methods: {
     checkSafeData(param, key) {
       return checkSafeData(param, key)
+    },
+    openBookPop() {
+      this.$emit('openBookPop')
     }
   }
 }

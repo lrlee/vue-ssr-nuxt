@@ -29,8 +29,8 @@
         </div>
         <div class="pipe pipe1"></div>
       </div>
-      <Part1 :part1Data="part1Data"></Part1>
-      <Part2></Part2>
+      <Part1 :part1Data="part1Data" @openBookPop="openBookPop"></Part1>
+      <Part2 :bookedTotalArr="bookedTotal_arr"></Part2>
       <Part3></Part3>
     </div>
     <div class="introduct-bg"></div>
