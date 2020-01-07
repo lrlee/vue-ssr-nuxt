@@ -1,5 +1,11 @@
 <template>
   <div class="container">
+    <Book-pop
+      v-if="showBookPop"
+      :bookStatus="bookStatus"
+      @closePop="closePop"
+      @changeBookStatus="changeBookStatus"
+    ></Book-pop>
     <Header></Header>
     <div class="index-bg">
       <div class="header-space"></div>
@@ -41,6 +47,7 @@
 </template>
 <script>
 import Header from './components/Header'
+import BookPop from './components/BookPop'
 import Part1 from './components/Part1'
 import Part2 from './components/Part2'
 import Part3 from './components/Part3'
@@ -61,6 +68,7 @@ import {
 export default {
   components: {
     Header,
+    BookPop,
     Part1,
     Part2,
     Part3,
@@ -69,6 +77,8 @@ export default {
   },
   data() {
     return {
+      showBookPop: false,
+      bookStatus: 'booking', // 预约状态： success 预约成功 | booking 预约中
       invite_id_self: '', // 本用户的邀请码 也是本用户的guid
       invitedNum: 0 // 邀请人数
     }
@@ -120,7 +130,19 @@ export default {
     this.setBookTotalPolling()
   },
   methods: {
-    openBookPop() {},
+    openBookPop() {
+      this.invite_id_self = local.getGuid()
+      if (this.invite_id_self) {
+        this.bookStatus = 'success'
+      }
+      this.showBookPop = true
+    },
+    closePop() {
+      this.showBookPop = false
+    },
+    changeBookStatus(status) {
+      this.bookStatus = status
+    },
     setBookTotalPolling() {
       this.totalPolling = setInterval(() => {
         getBookTotal().then(res => {
