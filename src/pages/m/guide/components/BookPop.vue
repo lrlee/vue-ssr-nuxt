@@ -2,6 +2,7 @@
   <div @wheel.prevent class="pop">
     <div :class="{ 'paopao-animation': bookStatus == 'success' }" class="pop-box">
       <i @click="closePop" class="close-icon icon btn"></i>
+      <i class="title-icon icon"></i>
       <div v-if="bookStatus == 'booking'" class="pop-content">
         <div class="form-box">
           <div class="platform-select">
@@ -51,23 +52,21 @@
         <div class="ribbon-animation"></div>
         <div class="colorpaper-animation"></div>
         <div class="book-success-box">
-          <div class="qr-box">
-            <div class="qr-sticker"></div>
-            <div id="qrcode" ref="qrcode" class="qr-pic"></div>
-          </div>
-          <div class="invite-content">
-            <div class="invite-text">
-              <p class="title">恭喜您预约成功!</p>
-              <p class="invite-des">截图保存二维码或复制邀请链接，发给小伙伴抱团一起来玩吧，抱团人数越多，奖励越大。</p>
+          <p class="success-title">恭喜您预约成功!</p>
+          <div class="invite-QR">
+            <div class="qr-box">
+              <div class="qr-sticker"></div>
+              <div id="qrcode" ref="qrcode" class="qr-pic"></div>
             </div>
-            <div class="invite-link">
-              <p class="title">专属邀请链接：</p>
-              <div class="link-box">
-                <div class="input-box">
-                  <input id="inviteLink" v-model="inviteLink" type="text" readonly />
-                </div>
-                <div @click="toCopyLink" class="copy-btn btn">复制链接</div>
+            <p class="invite-des">截图保存二维码或复制邀请链接，发给小伙伴抱团一起来玩吧，抱团人数越多，奖励越大。</p>
+          </div>
+          <div class="invite-link">
+            <p class="title">专属邀请链接：</p>
+            <div class="link-box">
+              <div class="input-box">
+                <input id="inviteLink" v-model="inviteLink" type="text" readonly />
               </div>
+              <div @click="toCopyLink" class="copy-btn btn">复制链接</div>
             </div>
           </div>
         </div>
@@ -224,7 +223,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@vw: 1vw/19.2;
+@vw: 1vw/7.5;
 @keyframes scale_ribbon {
   0% {
     transform: scale(0);
@@ -251,40 +250,50 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
 }
 .pop-box {
-  width: 674 * @vw;
-  height: 668 * @vw;
-  background: url('~assets/images/guide/pop_bg.png') no-repeat;
+  margin-left: 26 * @vw;
+  width: 678 * @vw;
+  height: 768 * @vw;
+  background: url('~assets/images/guide/m/pop_book/pop_bg.png') no-repeat;
   background-size: contain;
   position: relative;
+  .title-icon {
+    width: 444 * @vw;
+    height: 352 * @vw;
+    background: url('~assets/images/guide/m/pop_book/pop_title.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: -12 * @vw;
+    top: -153 * @vw;
+  }
   .close-icon {
     width: 93 * @vw;
     height: 93 * @vw;
     background: url('~assets/images/guide/close_circle_pop.png') no-repeat;
     background-size: contain;
     position: absolute;
-    right: -21 * @vw;
-    top: 219 * @vw;
+    right: -6 * @vw;
+    top: -38 * @vw;
     z-index: 3;
-    &:hover {
+    &:active {
       background-image: url('~assets/images/guide/close_circle_hover_pop.png');
     }
   }
 }
 .pop-content {
   width: 100%;
-  height: 380 * @vw;
+  padding-right: 52 * @vw;
   position: relative;
   .ribbon-animation {
     position: absolute;
-    right: -8 * @vw;
-    top: 50 * @vw;
+    left: -35 * @vw;
+    bottom: -50 * @vw;
     width: 249 * @vw;
     height: 104 * @vw;
     background: url('~assets/images/guide/ribbon_pop.png') no-repeat;
@@ -299,32 +308,33 @@ export default {
   .colorpaper-animation {
     pointer-events: none;
     position: absolute;
-    top: -38 * @vw;
-    right: -21 * @vw;
+    bottom: 20 * @vw;
+    left: 50 * @vw;
     width: 522 * @vw;
     height: 629 * @vw;
-    background: url('~assets/images/guide/colorpaper_pop.png') no-repeat;
+    background: url('~assets/images/guide/m/pop_book/colorpaper_pop.png') no-repeat;
     background-size: contain;
     transform: scale(0);
     animation: scale_colorpaper 1s cubic-bezier(0.66, 0.22, 0.1, 1.35);
     animation-delay: 0.2s;
     animation-fill-mode: forwards;
+    transform-origin: left bottom;
     z-index: 1;
   }
 }
 .form-box {
-  width: 400 * @vw;
-  margin: 285 * @vw auto 0 auto;
+  width: 440 * @vw;
+  margin: 215 * @vw auto 0 auto;
   input {
-    height: 50 * @vw;
-    padding: 0 22 * @vw;
+    height: 80 * @vw;
+    padding: 0 30 * @vw;
     background-color: #c1e4ff;
     color: #0079d0;
-    font-size: 18 * @vw;
+    font-size: 28 * @vw;
     font-weight: bold;
     &:focus {
       background-color: #fff;
-      border: 1 * @vw solid rgba(0, 121, 208, 0.8);
+      // border: 1 * @vw solid rgba(0, 121, 208, 0.8);
       box-shadow: inset 0 0 9 * @vw 0 rgba(0, 121, 208, 1);
     }
   }
@@ -333,80 +343,80 @@ export default {
     left: 21 * @vw;
     top: 100%;
     color: #fff;
-    font-size: 14 * @vw;
+    font-size: 24 * @vw;
     padding-top: 5 * @vw;
     .err-icon {
-      width: 12 * @vw;
-      height: 12 * @vw;
+      width: 24 * @vw;
+      height: 24 * @vw;
       background: url('~assets/images/guide/input_err_icon.png') no-repeat;
       background-size: contain;
-      margin-right: 3 * @vw;
+      margin-right: 10 * @vw;
       position: relative;
-      top: 1 * @vw;
+      top: 4 * @vw;
     }
   }
   ::-webkit-input-placeholder {
     /* WebKit browsers */
     color: #4999d7;
-    font-size: 16 * @vw;
+    font-size: 28 * @vw;
     font-weight: 400;
   }
   :-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     color: #4999d7;
-    font-size: 16 * @vw;
+    font-size: 28 * @vw;
     font-weight: 400;
   }
   ::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     color: #4999d7;
-    font-size: 16 * @vw;
+    font-size: 28 * @vw;
     font-weight: 400;
   }
   :-ms-input-placeholder {
     /* Internet Explorer 10+ */
     color: #4999d7;
-    font-size: 16 * @vw;
+    font-size: 28 * @vw;
     font-weight: 400;
   }
   .platform-select {
     display: flex;
-    margin-bottom: 22 * @vw;
+    margin-bottom: 30 * @vw;
     .platform-item {
-      width: 200 * @vw;
-      height: 50 * @vw;
+      width: 220 * @vw;
+      height: 80 * @vw;
       background-color: #c1e4ff;
       display: flex;
       align-items: center;
       justify-content: center;
       &.left {
-        border-radius: 25 * @vw 0 0 25 * @vw;
+        border-radius: 40 * @vw 0 0 40 * @vw;
       }
       &.right {
-        border-radius: 0 25 * @vw 25 * @vw 0;
+        border-radius: 0 40 * @vw 40 * @vw 0;
       }
       .ios-icon {
-        width: 48 * @vw;
-        height: 19 * @vw;
+        width: 67.4 * @vw;
+        height: 26 * @vw;
         background: url('~assets/images/guide/platform_ios_pop.png') no-repeat;
         background-size: contain;
       }
       .android-icon {
-        width: 105 * @vw;
-        height: 19 * @vw;
+        width: 148 * @vw;
+        height: 26 * @vw;
         background: url('~assets/images/guide/platform_android_pop.png') no-repeat;
         background-size: contain;
       }
       &.selected {
         background-color: #0079d0;
         .ios-icon {
-          width: 52 * @vw;
-          height: 23 * @vw;
+          width: 72 * @vw;
+          height: 30 * @vw;
           background-image: url('~assets/images/guide/platform_ios_selected_pop.png');
         }
         .android-icon {
-          width: 109 * @vw;
-          height: 23 * @vw;
+          width: 150 * @vw;
+          height: 30 * @vw;
           background-image: url('~assets/images/guide/platform_android_selected_pop.png');
         }
       }
@@ -415,135 +425,140 @@ export default {
   .phone-edit {
     position: relative;
     width: 100%;
-    margin-bottom: 34 * @vw;
+    margin-bottom: 57 * @vw;
     .phone-input {
       width: 100%;
-      height: 50 * @vw;
-      border-radius: 25 * @vw;
+      height: 80 * @vw;
+      border-radius: 40 * @vw;
     }
   }
   .code-edit {
     position: relative;
     width: 100%;
     display: flex;
-    margin-bottom: 47 * @vw;
+    margin-bottom: 69 * @vw;
     .code-input {
-      width: 257 * @vw;
-      height: 50 * @vw;
-      border-radius: 25 * @vw 0 0 25 * @vw;
+      width: 277 * @vw;
+      height: 80 * @vw;
+      border-radius: 40 * @vw 0 0 40 * @vw;
     }
     .code-btn {
-      width: 153 * @vw;
-      height: 50 * @vw;
+      width: 163 * @vw;
+      height: 80 * @vw;
       background-color: #0079d0;
-      border-radius: 0 25 * @vw 25 * @vw 0;
+      border-radius: 0 40 * @vw 40 * @vw 0;
       text-align: center;
-      line-height: 50 * @vw;
+      line-height: 80 * @vw;
       color: #fff;
-      font-size: 16 * @vw;
+      font-size: 24 * @vw;
     }
   }
   .submit-btn {
     width: 100%;
-    height: 62 * @vw;
+    height: 88 * @vw;
     background: linear-gradient(0deg, rgba(53, 246, 255, 1), rgba(0, 143, 246, 1));
-    border-radius: 31 * @vw;
+    border-radius: 44 * @vw;
     box-shadow: 0 0 21 * @vw 0 rgba(5, 101, 170, 1), inset 0 5 * @vw 0 0 rgba(196, 254, 255, 0.43);
-    font-size: 24 * @vw;
+    font-size: 34 * @vw;
     color: #fff;
     font-weight: bold;
     text-align: center;
-    line-height: 62 * @vw;
-    &:hover {
+    line-height: 88 * @vw;
+    &:active {
       background: linear-gradient(0deg, rgba(0, 143, 246, 1), rgba(53, 246, 255, 1));
     }
   }
 }
 .book-success-box {
-  width: 570 * @vw;
-  margin: 0 auto;
-  padding-top: 330 * @vw;
+  width: 508 * @vw;
+  padding-top: 208 * @vw;
+  margin: auto;
   display: flex;
-  .qr-box {
-    background-color: #fff;
-    width: 199 * @vw;
-    height: 199 * @vw;
-    border-radius: 13 * @vw;
-    border: 8 * @vw solid #0062a5;
+  flex-direction: column;
+  align-items: center;
+  .success-title {
+    font-size: 42 * @vw;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    // -webkit-text-stroke: 3px #0d1d4e;
+    margin-bottom: 10 * @vw;
+  }
+  .invite-QR {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    .qr-sticker {
-      position: absolute;
-      width: 261 * @vw;
-      height: 258 * @vw;
-      background: url('~assets/images/guide/qr_sticker_pop.png') bottom center no-repeat;
-      background-size: contain;
-    }
-    .qr-pic {
-      width: 159 * @vw;
-      height: 159 * @vw;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20 * @vw;
+    .qr-box {
       background-color: #fff;
-      /deep/ img {
+      width: 199 * @vw;
+      height: 199 * @vw;
+      border-radius: 13 * @vw;
+      border: 8 * @vw solid #0062a5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      .qr-sticker {
+        position: absolute;
+        width: 261 * @vw;
+        height: 258 * @vw;
+        background: url('~assets/images/guide/qr_sticker_pop.png') bottom center no-repeat;
+        background-size: contain;
+      }
+      .qr-pic {
         width: 159 * @vw;
         height: 159 * @vw;
+        background-color: #fff;
+        /deep/ img {
+          width: 159 * @vw;
+          height: 159 * @vw;
+        }
       }
+    }
+    .invite-des {
+      width: 284 * @vw;
+      font-size: 24 * @vw;
+      color: #fff;
+      line-height: 1.5;
     }
   }
-  .invite-content {
-    width: 349 * @vw;
-    margin-left: 25 * @vw;
-    .invite-text {
-      margin-bottom: 20 * @vw;
-      .title {
-        font-size: 28 * @vw;
-        font-weight: bold;
-        color: #fff;
-        // -webkit-text-stroke: 3px #0d1d4e;
-        margin-bottom: 10 * @vw;
-      }
-      .invite-des {
-        font-size: 16 * @vw;
-        color: #13356d;
-        line-height: 1.5;
-      }
+  .invite-link {
+    width: 100%;
+    margin-top: 30 * @vw;
+    .title {
+      font-size: 24 * @vw;
+      color: #fff;
+      margin-bottom: 15 * @vw;
     }
-    .invite-link {
-      .title {
-        font-size: 16 * @vw;
-        color: #fff;
-        margin-bottom: 8 * @vw;
+    .link-box {
+      display: flex;
+      align-items: center;
+      .input-box {
+        width: 352 * @vw;
+        height: 60 * @vw;
+        box-shadow: inset 0 3 * @vw 0 0 rgba(6, 154, 247, 0.25);
+        background-color: #fff;
+        border-radius: 30 * @vw 0 0 30 * @vw;
+        input {
+          margin: 0 20 * @vw;
+          background-color: transparent;
+          height: 60 * @vw;
+          width: 312 * @vw;
+          font-size: 24 * @vw;
+          color: #585858;
+        }
       }
-      .link-box {
-        display: flex;
-        align-items: center;
-        .input-box {
-          width: 253 * @vw;
-          height: 33 * @vw;
-          box-shadow: inset 0 3 * @vw 0 0 rgba(6, 154, 247, 0.25);
-          background-color: #fff;
-          border-radius: 17 * @vw 0 0 17 * @vw;
-          input {
-            margin: 0 10 * @vw;
-            background-color: transparent;
-            height: 33 * @vw;
-            width: 233 * @vw;
-            font-size: 14 * @vw;
-            color: #585858;
-          }
-        }
-        .copy-btn {
-          width: 96 * @vw;
-          height: 33 * @vw;
-          background: linear-gradient(0deg, rgba(53, 246, 255, 1), rgba(0, 143, 246, 1));
-          box-shadow: inset 0 3 * @vw 0 0 rgba(196, 254, 255, 0.43);
-          border-radius: 0 17 * @vw 17 * @vw 0;
-          text-align: center;
-          line-height: 33 * @vw;
-          color: #fff;
-          font-size: 16 * @vw;
-        }
+      .copy-btn {
+        width: 156 * @vw;
+        height: 60 * @vw;
+        background: linear-gradient(0deg, rgba(53, 246, 255, 1), rgba(0, 143, 246, 1));
+        box-shadow: inset 0 3 * @vw 0 0 rgba(196, 254, 255, 0.43);
+        border-radius: 0 30 * @vw 30 * @vw 0;
+        text-align: center;
+        line-height: 60 * @vw;
+        color: #fff;
+        font-size: 16 * @vw;
       }
     }
   }
