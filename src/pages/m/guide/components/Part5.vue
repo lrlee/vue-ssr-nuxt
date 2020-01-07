@@ -20,6 +20,22 @@
         <i class="role-left"></i>
         <i class="role-right"></i>
       </div>
+      <div class="screen-container">
+        <div class="screen-main">
+          <div v-html="$t('game.' + roleInfo[selectedIndex].name_key)" class="role-name"></div>
+          <ul class="star-list">
+            <li v-for="num in roleInfo[selectedIndex].star" :key="num" class="star-item"></li>
+          </ul>
+          <p v-html="$t('game.' + roleInfo[selectedIndex].desc_key)" class="character-desc"></p>
+        </div>
+        <p class="screen-btn">查看技能介绍</p>
+      </div>
+      <div class="role-display">
+        <div class="role-stage_light"></div>
+        <div class="role-stage">
+          <div :class="`role-${selectedId}`" class="role-pic"></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -56,7 +72,7 @@ export default {
   flex-direction: column;
   align-items: center;
   .title {
-    position: absolute;
+    position: relative;
     display: flex;
     justify-content: center;
     .title-order {
@@ -73,12 +89,13 @@ export default {
   }
   .content {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    position: relative;
     .role-container {
       height: 183 * @vw;
       width: 750 * @vw;
       margin-top: 31 * @vw;
-      position: relative;
       .role-list {
         display: flex;
         overflow: auto;
@@ -87,7 +104,11 @@ export default {
           width: 118 * @vw;
           height: 131 * @vw;
           margin-left: 10 * @vw;
+          margin-top: 16 * @vw;
           flex: none;
+          &:nth-child(1) {
+            margin-left: 28 * @vw;
+          }
           &:hover,
           &.active {
             width: 118 * @vw;
@@ -102,6 +123,7 @@ export default {
         width: 28 * @vw;
         height: 183 * @vw;
         background: url('~assets/images/guide/m/role_left.png') no-repeat;
+        background-size: contain;
       }
       .role-right {
         position: absolute;
@@ -110,6 +132,93 @@ export default {
         width: 28 * @vw;
         height: 183 * @vw;
         background: url('~assets/images/guide/m/role_right.png') no-repeat;
+        background-size: contain;
+      }
+    }
+    .screen-container {
+      width: 372 * @vw;
+      height: 561 * @vw;
+      align-self: flex-start;
+      margin-top: 71 * @vw;
+      margin-left: 19 * @vw;
+      background: url('~assets/images/guide/m/screen_bg.png') no-repeat;
+      background-size: contain;
+      .screen-main {
+        margin-left: 40 * @vw;
+        .role-name {
+          font-size: 46 * @vw;
+          font-weight: bold;
+          color: #ffffff;
+          width: 300 * @vw;
+          margin-top: 20 * @vw;
+        }
+        .star-list {
+          display: flex;
+          align-items: flex-end;
+          margin-top: 6 * @vw;
+          margin-left: 4 * @vw;
+          .star-item {
+            width: 38 * @vw;
+            height: 35 * @vw;
+            background: url('~assets/images/guide/star.png') no-repeat;
+            background-size: contain;
+            margin-right: 13 * @vw;
+            margin-bottom: 13 * @vw;
+          }
+        }
+        .character-desc {
+          width: 272 * @vw;
+          height: 156 * @vw;
+          margin-top: 2 * @vw;
+          overflow: scroll;
+          color: #ffffff;
+          font-size: 24 * @vw;
+        }
+      }
+      .screen-btn {
+        width: 350 * @vw;
+        height: 82 * @vw;
+        font-size: 26 * @vw;
+        margin: 8 * @vw;
+        font-weight: bold;
+        color: #fff448;
+        text-align: center;
+        margin-top: 62 * @vw;
+      }
+    }
+    .role-display {
+      height: 700 * @vw;
+      width: 540 * @vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      right: -50 * @vw;
+      top: 140 * @vw;
+
+      .role-stage_light {
+        position: absolute;
+        bottom: 105 * @vw;
+        width: 346 * @vw;
+        height: 125 * @vw;
+        background: url('~assets/images/guide/stage_light.png') no-repeat;
+        background-size: contain;
+        z-index: 2;
+      }
+      .role-stage {
+        width: 531 * @vw;
+        height: 393 * @vw;
+        background: url('~assets/images/guide/stage.png') no-repeat;
+        background-size: contain;
+        position: absolute;
+        bottom: 0 * @vw;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+        .role-pic {
+          position: absolute;
+          bottom: 130 * @vw;
+        }
       }
     }
   }
