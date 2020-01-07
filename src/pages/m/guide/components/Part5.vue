@@ -187,27 +187,27 @@ export default {
       }
     }
     .role-display {
-      height: 700 * @vw;
-      width: 540 * @vw;
+      height: 498 * @vw;
+      width: 410 * @vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: absolute;
-      right: -50 * @vw;
-      top: 140 * @vw;
+      right: 0 * @vw;
+      top: 342 * @vw;
 
       .role-stage_light {
         position: absolute;
-        bottom: 105 * @vw;
-        width: 346 * @vw;
-        height: 125 * @vw;
+        bottom: 82 * @vw;
+        width: 268 * @vw;
+        height: 98 * @vw;
         background: url('~assets/images/guide/stage_light.png') no-repeat;
         background-size: contain;
         z-index: 2;
       }
       .role-stage {
-        width: 531 * @vw;
-        height: 393 * @vw;
+        width: 410 * @vw;
+        height: 304 * @vw;
         background: url('~assets/images/guide/stage.png') no-repeat;
         background-size: contain;
         position: absolute;
@@ -217,7 +217,7 @@ export default {
         z-index: 1;
         .role-pic {
           position: absolute;
-          bottom: 130 * @vw;
+          bottom: 102 * @vw;
         }
       }
     }
@@ -293,38 +293,38 @@ export default {
   background-size: contain;
 }
 .role-2 {
-  width: 369 * @vw;
-  height: 474 * @vw;
+  width: 312 * @vw;
+  height: 402 * @vw;
   background: url('~assets/images/guide/role/role_display/role_2.png') no-repeat;
   background-size: contain;
 }
 .role-4 {
-  width: 456 * @vw;
-  height: 441 * @vw;
+  width: 380 * @vw;
+  height: 369 * @vw;
   background: url('~assets/images/guide/role/role_display/role_4.png') no-repeat;
   background-size: contain;
 }
 .role-7 {
-  width: 382 * @vw;
-  height: 510 * @vw;
+  width: 323 * @vw;
+  height: 432 * @vw;
   background: url('~assets/images/guide/role/role_display/role_7.png') no-repeat;
   background-size: contain;
 }
 .role-8 {
-  width: 369 * @vw;
-  height: 437 * @vw;
+  width: 317 * @vw;
+  height: 376 * @vw;
   background: url('~assets/images/guide/role/role_display/role_8.png') no-repeat;
   background-size: contain;
 }
 .role-12 {
-  width: 322 * @vw;
-  height: 526 * @vw;
+  width: 293 * @vw;
+  height: 479 * @vw;
   background: url('~assets/images/guide/role/role_display/role_12.png') no-repeat;
   background-size: contain;
 }
 .role-14 {
-  width: 417 * @vw;
-  height: 420 * @vw;
+  width: 367 * @vw;
+  height: 371 * @vw;
   background: url('~assets/images/guide/role/role_display/role_14.png') no-repeat;
   background-size: contain;
 }
