@@ -32,9 +32,11 @@
       <Part1 :part1Data="part1Data" @openBookPop="openBookPop"></Part1>
       <Part2 :bookedTotalArr="bookedTotal_arr"></Part2>
       <Part3></Part3>
-      <Part4></Part4>
     </div>
-    <div class="introduct-bg"></div>
+    <div class="introduct-bg">
+      <Part4></Part4>
+      <Part5 :roleInfo="roleInfo"></Part5>
+    </div>
   </div>
 </template>
 <script>
@@ -43,7 +45,7 @@ import Part1 from './components/Part1'
 import Part2 from './components/Part2'
 import Part3 from './components/Part3'
 import Part4 from './components/Part4'
-// import Part5 from './components/Part5'
+import Part5 from './components/Part5'
 // import Part6 from './components/Part6'
 // import Part7 from './components/Part7'
 import { parseTime } from '@/utils/common'
@@ -61,7 +63,8 @@ export default {
     Part1,
     Part2,
     Part3,
-    Part4
+    Part4,
+    Part5
   },
   asyncData({ store }) {
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
@@ -333,6 +336,7 @@ export default {
   position: relative;
   z-index: 1;
   margin-top: 170 * @vw;
+  padding-top: 584 * @vw;
   width: 750 * @vw;
   height: 5021 * @vw;
   background: url('~assets/images/guide/m_bg/bg_content.png') center center no-repeat;

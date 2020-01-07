@@ -1,0 +1,222 @@
+<template>
+  <div class="part-container">
+    <div class="title part-title-type2">
+      <div class="title-order"></div>
+      <p class="title-text">
+        <span class="part-title-white">凶萌角色</span>
+      </p>
+    </div>
+    <div class="content">
+      <div class="role-container">
+        <ul class="role-list">
+          <li
+            v-for="(item, index) in roleInfo"
+            :key="index"
+            :class="[`role-head-${item.id}`, selectedId === item.id ? 'active' : '']"
+            @click="selecteRole(item.id, index)"
+            class="role-item btn"
+          ></li>
+        </ul>
+        <i class="role-left"></i>
+        <i class="role-right"></i>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  props: {
+    roleInfo: {
+      required: true,
+      type: Array
+    }
+  },
+  data() {
+    return {
+      selectedId: this.roleInfo[0] ? this.roleInfo[0].id : 1,
+      selectedIndex: 0
+    }
+  },
+  methods: {
+    selecteRole(id, index) {
+      this.selectedId = id
+      this.selectedIndex = index
+    }
+  }
+}
+</script>
+<style lang="less" scoped>
+@import url('~assets/css/guide_m.less');
+.part-container {
+  position: relative;
+  z-index: 2;
+  margin-top: 230 * @vw;
+  width: 750 * @vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    .title-order {
+      width: 108 * @vw;
+      height: 28 * @vw;
+      background: url('~assets/images/guide/part05.png') no-repeat;
+      background-size: contain;
+      position: absolute;
+    }
+    .title-text {
+      font-size: 38 * @vw;
+      line-height: 100 * @vw;
+    }
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    .role-container {
+      height: 183 * @vw;
+      width: 750 * @vw;
+      margin-top: 31 * @vw;
+      position: relative;
+      .role-list {
+        display: flex;
+        overflow: auto;
+        transition: all 1s;
+        .role-item {
+          width: 118 * @vw;
+          height: 131 * @vw;
+          margin-left: 10 * @vw;
+          flex: none;
+          &:hover,
+          &.active {
+            width: 118 * @vw;
+            height: 131 * @vw;
+          }
+        }
+      }
+      .role-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 28 * @vw;
+        height: 183 * @vw;
+        background: url('~assets/images/guide/m/role_left.png') no-repeat;
+      }
+      .role-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 28 * @vw;
+        height: 183 * @vw;
+        background: url('~assets/images/guide/m/role_right.png') no-repeat;
+      }
+    }
+  }
+}
+.role-head-1 {
+  background: url('~assets/images/guide/role/role_head/head_1.png') no-repeat;
+  background-size: contain;
+  &:hover,
+  &.active {
+    background: url('~assets/images/guide/role/role_head/head_1_active.png') no-repeat;
+    background-size: contain;
+  }
+}
+.role-head-2 {
+  background: url('~assets/images/guide/role/role_head/head_2.png') no-repeat;
+  background-size: contain;
+  &:hover,
+  &.active {
+    background: url('~assets/images/guide/role/role_head/head_2_active.png') no-repeat;
+    background-size: contain;
+  }
+}
+.role-head-4 {
+  background: url('~assets/images/guide/role/role_head/head_4.png') no-repeat;
+  background-size: contain;
+  &:hover,
+  &.active {
+    background: url('~assets/images/guide/role/role_head/head_4_active.png') no-repeat;
+    background-size: contain;
+  }
+}
+.role-head-7 {
+  background: url('~assets/images/guide/role/role_head/head_7.png') no-repeat;
+  background-size: contain;
+  &:hover,
+  &.active {
+    background: url('~assets/images/guide/role/role_head/head_7_active.png') no-repeat;
+    background-size: contain;
+  }
+}
+.role-head-8 {
+  background: url('~assets/images/guide/role/role_head/head_8.png') no-repeat;
+  background-size: contain;
+  &:hover,
+  &.active {
+    background: url('~assets/images/guide/role/role_head/head_8_active.png') no-repeat;
+    background-size: contain;
+  }
+}
+.role-head-12 {
+  background: url('~assets/images/guide/role/role_head/head_12.png') no-repeat;
+  background-size: contain;
+  &:hover,
+  &.active {
+    background: url('~assets/images/guide/role/role_head/head_12_active.png') no-repeat;
+    background-size: contain;
+  }
+}
+.role-head-14 {
+  background: url('~assets/images/guide/role/role_head/head_14.png') no-repeat;
+  background-size: contain;
+  &:hover,
+  &.active {
+    background: url('~assets/images/guide/role/role_head/head_14_active.png') no-repeat;
+    background-size: contain;
+  }
+}
+.role-1 {
+  width: 327 * @vw;
+  height: 482 * @vw;
+  background: url('~assets/images/guide/role/role_display/role_1.png') no-repeat;
+  background-size: contain;
+}
+.role-2 {
+  width: 369 * @vw;
+  height: 474 * @vw;
+  background: url('~assets/images/guide/role/role_display/role_2.png') no-repeat;
+  background-size: contain;
+}
+.role-4 {
+  width: 456 * @vw;
+  height: 441 * @vw;
+  background: url('~assets/images/guide/role/role_display/role_4.png') no-repeat;
+  background-size: contain;
+}
+.role-7 {
+  width: 382 * @vw;
+  height: 510 * @vw;
+  background: url('~assets/images/guide/role/role_display/role_7.png') no-repeat;
+  background-size: contain;
+}
+.role-8 {
+  width: 369 * @vw;
+  height: 437 * @vw;
+  background: url('~assets/images/guide/role/role_display/role_8.png') no-repeat;
+  background-size: contain;
+}
+.role-12 {
+  width: 322 * @vw;
+  height: 526 * @vw;
+  background: url('~assets/images/guide/role/role_display/role_12.png') no-repeat;
+  background-size: contain;
+}
+.role-14 {
+  width: 417 * @vw;
+  height: 420 * @vw;
+  background: url('~assets/images/guide/role/role_display/role_14.png') no-repeat;
+  background-size: contain;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div class="part-container">
-    <div id="part4" class="title part-title-type2">
+    <div class="title part-title-type2">
       <div class="title-order"></div>
       <p class="title-text">
         <span class="part-title-white">游戏特色</span>
@@ -100,7 +100,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1450 * @vw;
   .title {
     display: flex;
     justify-content: center;
@@ -121,6 +120,11 @@ export default {
       width: 668 * @vw;
       height: 408 * @vw;
       overflow: unset;
+      /deep/ .swiper-pagination-bullet {
+        &:focus {
+          outline: none;
+        }
+      }
       .swiper-slide {
         width: 668 * @vw !important;
         height: 408 * @vw !important;
@@ -133,7 +137,7 @@ export default {
         .swiper-title {
           position: absolute;
           display: none;
-          top: -50 * @vw;
+          top: -58 * @vw;
           left: 10 * @vw;
           &.title1 {
             width: 360 * @vw;

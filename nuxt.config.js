@@ -77,7 +77,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    extractCSS: { allChunks: true },
+    // extractCSS: { allChunks: true },
     transpile: [/^element-ui/],
     vendor: ['vue-i18n'],
     /*
