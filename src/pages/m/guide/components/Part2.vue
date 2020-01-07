@@ -9,7 +9,7 @@
     </div>
     <div class="content">
       <div class="content-wrapper">
-        <div class="achieve-box box-10w active">
+        <div :class="{ active: bookedTotal >= 10 * 10000 }" class="achieve-box box-10w">
           <div class="book-count">
             <div class="count-doll"></div>
             <div class="count-board">
@@ -22,7 +22,9 @@
             </div>
           </div>
           <div class="achieve-content">
-            <div class="bult-pic double"></div>
+            <div class="bult-wrapper double">
+              <div class="bult-pic"></div>
+            </div>
             <div class="achieve-num">
               <div class="num-pic num-10w">
                 <span class="num-note">预约人数</span>
@@ -30,16 +32,22 @@
             </div>
             <div class="view-gift btn">
               <div class="achieved-seal"></div>
-              <span class="text">查看奖励</span>
+              <span v-if="bookedTotal >= 10 * 10000" class="text">查看奖励</span>
+              <span v-else class="text">未达成</span>
             </div>
           </div>
         </div>
-        <div class="achieve-box box-30w">
-          <div class="bult-pic left"></div>
-          <div class="bult-pic right"></div>
+        <div :class="{ active: bookedTotal >= 30 * 10000 }" class="achieve-box box-30w">
+          <div class="bult-wrapper low left">
+            <div class="bult-pic"></div>
+          </div>
+          <div class="bult-wrapper high right">
+            <div class="bult-pic"></div>
+          </div>
           <div class="view-gift btn">
             <div class="achieved-seal"></div>
-            <span class="text">查看奖励</span>
+            <span v-if="bookedTotal >= 30 * 10000" class="text">查看奖励</span>
+            <span v-else class="text">未达成</span>
           </div>
           <div class="achieve-num">
             <div class="num-pic num-30w">
@@ -47,9 +55,13 @@
             </div>
           </div>
         </div>
-        <div class="achieve-box box-50w">
-          <div class="bult-pic left"></div>
-          <div class="bult-pic right"></div>
+        <div :class="{ active: bookedTotal >= 50 * 10000 }" class="achieve-box box-50w">
+          <div class="bult-wrapper high left">
+            <div class="bult-pic"></div>
+          </div>
+          <div class="bult-wrapper low right">
+            <div class="bult-pic"></div>
+          </div>
           <div class="achieve-num">
             <div class="num-pic num-50w">
               <span class="num-note">预约人数</span>
@@ -57,15 +69,21 @@
           </div>
           <div class="view-gift btn">
             <div class="achieved-seal"></div>
-            <span class="text">查看奖励</span>
+            <span v-if="bookedTotal >= 50 * 10000" class="text">查看奖励</span>
+            <span v-else class="text">未达成</span>
           </div>
         </div>
-        <div class="achieve-box box-80w">
-          <div class="bult-pic left"></div>
-          <div class="bult-pic right"></div>
+        <div :class="{ active: bookedTotal >= 80 * 10000 }" class="achieve-box box-80w">
+          <div class="bult-wrapper low left">
+            <div class="bult-pic"></div>
+          </div>
+          <div class="bult-wrapper high right">
+            <div class="bult-pic"></div>
+          </div>
           <div class="view-gift btn">
             <div class="achieved-seal"></div>
-            <span class="text">查看奖励</span>
+            <span v-if="bookedTotal >= 80 * 10000" class="text">查看奖励</span>
+            <span v-else class="text">未达成</span>
           </div>
           <div class="achieve-num">
             <div class="num-pic num-80w">
@@ -73,9 +91,13 @@
             </div>
           </div>
         </div>
-        <div class="achieve-box box-100w">
-          <div class="bult-pic left"></div>
-          <div class="bult-pic right"></div>
+        <div :class="{ active: bookedTotal >= 100 * 10000 }" class="achieve-box box-100w">
+          <div class="bult-wrapper high left">
+            <div class="bult-pic"></div>
+          </div>
+          <div class="bult-wrapper low right">
+            <div class="bult-pic"></div>
+          </div>
           <div class="achieve-num">
             <div class="num-pic num-100w">
               <span class="num-note">预约人数</span>
@@ -83,8 +105,15 @@
           </div>
           <div class="view-gift btn">
             <div class="achieved-seal"></div>
-            <span class="text">查看奖励</span>
+            <span v-if="bookedTotal >= 100 * 10000" class="text">查看奖励</span>
+            <span v-else class="text">未达成</span>
           </div>
+        </div>
+        <div class="part-description">
+          <i class="description-order-icon icon"></i>
+          <p class="description-text">
+            从XX年XX月XX日-XX年XX月XX日内测服开启时截止，在本页面内测预约的人数达到对应档位时，所有预约玩家均可累计获得对应的加码预约礼包。
+          </p>
         </div>
       </div>
     </div>
@@ -100,6 +129,14 @@ export default {
     bookedTotalArr: {
       type: Array,
       default: () => ['0', '0', '0', '0', '0', '0', '0']
+    },
+    part2Data: {
+      type: Array || Object,
+      default: null
+    },
+    bookedTotal: {
+      type: Number,
+      default: 0
     }
   }
 }
@@ -152,24 +189,57 @@ export default {
   width: 559 * @vw;
   margin-top: 40 * @vw;
   .achieve-box {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding-bottom: 40 * @vw;
-    .bult-pic {
+    padding-bottom: 30 * @vw;
+    .bult-wrapper {
       position: absolute;
-      &.double {
-        width: 315 * @vw;
-        height: 8 * @vw;
-        background: url('~assets/images/guide/bulb.png') no-repeat;
+      width: 216 * @vw;
+      display: flex;
+      justify-content: center;
+      .bult-pic {
+        width: 123 * @vw;
+        height: 11 * @vw;
+        background: url('~assets/images/guide/m/bulb.png') no-repeat;
         background-size: contain;
+      }
+      &.low {
+        top: 35 * @vw;
+        &.left {
+          left: 10 * @vw;
+        }
+        &.right {
+          right: 20 * @vw;
+        }
+      }
+      &.high {
+        top: 0;
+        &.right {
+          right: 20 * @vw;
+        }
+        &.left {
+          left: 10 * @vw;
+        }
+      }
+      &.double {
+        width: 403 * @vw;
+        left: -80 * @vw;
+        top: 2 * @vw;
+        .bult-pic {
+          width: 315 * @vw;
+          height: 8 * @vw;
+          background: url('~assets/images/guide/bulb.png') no-repeat;
+          background-size: contain;
+        }
       }
     }
     .achieve-num {
       position: relative;
-      margin-top: 30 * @vw;
+      padding-bottom: 10 * @vw;
       .num-pic {
         position: relative;
         margin-right: 60 * @vw;
@@ -229,7 +299,7 @@ export default {
       .achieved-seal {
         position: absolute;
         right: -20 * @vw;
-        top: -60 * @vw;
+        top: -50 * @vw;
         width: 104 * @vw;
         height: 93 * @vw;
         background: url('~assets/images/guide/achieved_seal.png') no-repeat;
@@ -288,6 +358,10 @@ export default {
         .bult-pic {
           left: -100 * @vw;
         }
+        .achieve-num {
+          margin-top: 30 * @vw;
+          padding: 0;
+        }
       }
     }
     &.box-30w {
@@ -300,15 +374,23 @@ export default {
       height: 252 * @vw;
     }
     &.box-100w {
-      height: 235 * @vw;
+      height: 250 * @vw;
     }
     &.active {
-      .bult-pic {
-        &.double {
-          width: 403 * @vw;
-          height: 142 * @vw;
-          background: url('~assets/images/guide/bulb_light.png') no-repeat;
+      .bult-wrapper {
+        .bult-pic {
+          width: 216 * @vw;
+          height: 170 * @vw;
+          background: url('~assets/images/guide/m/bulb_light.png') 0 -25 * @vw no-repeat;
           background-size: contain;
+        }
+        &.double {
+          .bult-pic {
+            width: 403 * @vw;
+            height: 142 * @vw;
+            background: url('~assets/images/guide/bulb_light.png') no-repeat;
+            background-size: contain;
+          }
         }
       }
       .achieve-num {

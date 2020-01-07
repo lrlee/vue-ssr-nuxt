@@ -30,8 +30,8 @@
         <div class="pipe pipe1"></div>
       </div>
       <Part1 :part1Data="part1Data" @openBookPop="openBookPop"></Part1>
-      <Part2 :bookedTotalArr="bookedTotal_arr"></Part2>
-      <Part3></Part3>
+      <Part2 :bookedTotalArr="bookedTotal_arr" :bookedTotal="bookedTotal" :part2Data="part2Data"></Part2>
+      <Part3 :invitedNum="invitedNum" :part3Data="part3Data" @openBookPop="openBookPop"></Part3>
     </div>
     <div class="introduct-bg">
       <Part4></Part4>
@@ -49,12 +49,13 @@ import Part5 from './components/Part5'
 // import Part6 from './components/Part6'
 // import Part7 from './components/Part7'
 import { parseTime } from '@/utils/common'
+import * as local from '@/utils/auth'
 import {
   bookingOnOrOff,
-  // getBookTotal,
+  getBookTotal,
   getBookingRole,
   getBookingData,
-  // getInvitedCount,
+  getInvitedCount,
   getContactsWeb
 } from '@/api/index'
 export default {
@@ -65,6 +66,12 @@ export default {
     Part3,
     Part4,
     Part5
+  },
+  data() {
+    return {
+      invite_id_self: '', // 本用户的邀请码 也是本用户的guid
+      invitedNum: 0 // 邀请人数
+    }
   },
   asyncData({ store }) {
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
@@ -102,8 +109,43 @@ export default {
       }
     })
   },
+  created() {
+    if (process.client) {
+      this.invite_id_self = local.getGuid() || ''
+      if (this.invite_id_self) {
+        this.toGetInviteDCount()
+      }
+    }
+    console.log('ok', this.roleInfo)
+    this.setBookTotalPolling()
+  },
   methods: {
-    openBookPop() {}
+    openBookPop() {},
+    setBookTotalPolling() {
+      this.totalPolling = setInterval(() => {
+        getBookTotal().then(res => {
+          if (res.code === 0) {
+            // 预定总数设置7位 不足前面补‘-1
+            const totalArr = res.data.toString().split('')
+            const cTotalArr = []
+            const cLength = 7 - totalArr.length > 0 ? 7 - totalArr.length : 0
+            for (let i = 0; i < cLength; i++) {
+              cTotalArr.push('-1')
+            }
+            const rTotalArr = [...cTotalArr, ...totalArr]
+            this.bookedTotal = res.data
+            this.bookedTotal_arr = rTotalArr
+          }
+        })
+      }, 30000)
+    },
+    toGetInviteDCount() {
+      getInvitedCount(this.invite_id_self).then(res => {
+        if (res.code === 0) {
+          this.invitedNum = res.data
+        }
+      })
+    }
   }
 }
 </script>
