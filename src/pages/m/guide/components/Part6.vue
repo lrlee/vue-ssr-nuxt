@@ -147,6 +147,7 @@ export default {
 }
 .part-container {
   margin-top: 127 * @vw;
+  height: 953 * @vw;
   display: flex;
   flex-direction: column;
   align-items: center;
