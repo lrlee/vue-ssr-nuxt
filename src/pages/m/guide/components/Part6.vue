@@ -8,58 +8,37 @@
     </div>
     <div class="content">
       <div class="pic-wraper">
-        <div
-          v-for="(item, index) in selectLists"
-          :key="index"
-          :class="{ active: selectedIndex === index }"
-          @click="handleSelectPic(index)"
-          class="select-item btn"
-        >
-          <span class="item-title">{{ item.title }}</span>
-          <div class="item-doll"></div>
-        </div>
-        <div class="pic-mask">
-          <span @click="showpop = true" class="zoom-icon icon btn"></span>
-        </div>
+        <ul class="select-wrapper">
+          <li
+            v-for="(item, index) in selectLists"
+            :key="index"
+            :class="{ active: selectedIndex === index }"
+            @click="handleSelectPic(index)"
+            class="select-item btn"
+          >
+            <span v-if="selectedIndex === index" class="item-title">{{ item.title }}</span>
+          </li>
+        </ul>
+        <div class="pic-mask"></div>
         <ul class="pic-list">
           <li class="pic-item">
             <img :src="selectLists[selectedIndex].pic" class="item-image" />
           </li>
         </ul>
+        <i @click="preClick()" class="pre-pic btn"></i>
+        <i @click="nextClick()" class="next-pic btn"></i>
       </div>
       <template v-for="(item, index) in selectLists">
         <div :key="index" v-if="selectedIndex === index" class="introduct-wrapper">
+          <p class="introduct-title">{{ item.title }}</p>
           <div class="hot-heart">
             <span class="hot-title">推荐:</span>
             <ul class="heart-list">
               <li v-for="heart in item.heartNum" :key="heart" class="heart-item"></li>
             </ul>
           </div>
-          <p class="introduct-title">{{ item.title }}</p>
-          <p class="introduct-content">{{ item.content }}</p>
           <div :class="'doll' + (index + 1)" class="pic-doll"></div>
-        </div>
-      </template>
-    </div>
-    <div @wheel.prevent v-if="showpop" class="pic-pop">
-      <template v-for="(item, index) in selectLists">
-        <div :key="index" v-if="selectedIndex === index" class="pop-body">
-          <i @click="showpop = false" class="close-icon icon btn"></i>
-          <div class="pop-pic-box">
-            <img :src="item.pic_big" />
-          </div>
-          <div class="pop-introduct-box">
-            <div class="introduct-box-top">
-              <p class="introduct-title">{{ item.title }}</p>
-              <div class="hot-heart">
-                <span class="hot-title">推荐:</span>
-                <ul class="heart-list">
-                  <li v-for="heart in item.heartNum" :key="heart" class="heart-item"></li>
-                </ul>
-              </div>
-            </div>
-            <p class="introduct-content">{{ item.content }}</p>
-          </div>
+          <p class="introduct-content">{{ item.content }}</p>
         </div>
       </template>
     </div>
@@ -118,6 +97,18 @@ export default {
   methods: {
     handleSelectPic(index) {
       this.selectedIndex = index
+    },
+    preClick() {
+      this.selectedIndex--
+      if (this.selectedIndex < 0) {
+        this.selectedIndex = this.selectLists.length - 1
+      }
+    },
+    nextClick() {
+      this.selectedIndex++
+      if (this.selectedIndex === this.selectLists.length) {
+        this.selectedIndex = 0
+      }
     }
   }
 }
@@ -126,12 +117,12 @@ export default {
 @import url('~assets/css/guide_m.less');
 .introduct-title {
   font-weight: bold;
-  font-size: 30 * @vw;
+  font-size: 36 * @vw;
   color: #fff;
 }
 .introduct-content {
-  margin-top: 20 * @vw;
-  font-size: 16 * @vw;
+  margin-top: 42 * @vw;
+  font-size: 24 * @vw;
   color: #fff;
   line-height: 1.5;
 }
@@ -139,23 +130,23 @@ export default {
   display: flex;
   .hot-title {
     color: #2df6f4;
-    font-size: 14 * @vw;
-    line-height: 18 * @vw;
-    margin-right: 15 * @vw;
+    font-size: 24 * @vw;
+    line-height: 27 * @vw;
+    margin-right: 13 * @vw;
   }
   .heart-list {
     display: flex;
     .heart-item {
-      margin-right: 10 * @vw;
-      width: 21 * @vw;
-      height: 18 * @vw;
+      margin-right: 13 * @vw;
+      width: 32 * @vw;
+      height: 27 * @vw;
       background: url('~assets/images/guide/heart.png') no-repeat;
       background-size: contain;
     }
   }
 }
 .part-container {
-  margin-top: 150 * @vw;
+  margin-top: 127 * @vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,177 +165,165 @@ export default {
     }
   }
   .content {
-    margin-top: 111 * @vw;
-    width: 1005 * @vw;
-    height: 530 * @vw;
-    background: url('~assets/images/guide/part6_bg.png') no-repeat;
+    position: relative;
+    width: 721 * @vw;
+    height: 441 * @vw;
+    top: 177 * @vw;
+    left: -5 * @vw;
+    background: url('~assets/images/guide/m/part6_bg.png') no-repeat;
     background-size: contain;
     .pic-wraper {
-      width: 859 * @vw;
-      height: 480 * @vw;
-      margin-left: 71 * @vw;
-      margin-top: -40 * @vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
+      top: -55 * @vw;
       z-index: 1;
       .pic-mask {
         position: absolute;
-        left: -14 * @vw;
-        top: -31 * @vw;
-        width: 890 * @vw;
-        height: 532 * @vw;
+        width: 693 * @vw;
+        height: 414 * @vw;
         background: url('~assets/images/guide/pic_mask_part6.png') no-repeat;
         background-size: contain;
         z-index: 3;
-        .zoom-icon {
-          position: absolute;
-          bottom: 38 * @vw;
-          right: 36 * @vw;
-          width: 46 * @vw;
-          height: 46 * @vw;
-          background: url('~assets/images/guide/zoom_part6.png') no-repeat;
-          background-size: contain;
-        }
       }
       .pic-list {
         position: relative;
         z-index: 2;
-        width: 859 * @vw;
-        height: 480 * @vw;
+        width: 668 * @vw;
+        height: 374 * @vw;
+        top: 4 * @vw;
         overflow: hidden;
         .pic-item {
           .item-image {
-            width: 859 * @vw;
-            height: 480 * @vw;
+            width: 668 * @vw;
+            height: 374 * @vw;
           }
         }
       }
-      .select-item {
+      .pre-pic {
         position: absolute;
-        left: -140 * @vw;
-        z-index: 1;
-        .item-title {
-          margin-left: 30 * @vw;
-          font-size: 22 * @vw;
-          color: #007cd7;
-          line-height: 70 * @vw;
-        }
-        .item-doll {
-          display: none;
-          position: absolute;
-        }
-        &.active,
-        &:hover {
-          z-index: 4;
-          margin-left: -4 * @vw;
-          .item-title {
-            font-size: 24 * @vw;
-            font-weight: bold;
-            color: #04419e;
-            margin-left: 55 * @vw;
-          }
-          .item-doll {
-            display: block;
-          }
-        }
-        &:nth-of-type(1) {
-          top: 10 * @vw;
-          width: 188 * @vw;
-          height: 68 * @vw;
-          background: url('~assets/images/guide/select_btn1_part6.png') no-repeat;
-          background-size: contain;
-          .item-doll {
-            left: -30 * @vw;
-            top: -21 * @vw;
-            width: 85 * @vw;
-            height: 85 * @vw;
-            background: url('~assets/images/guide/select_btn1_doll_part6.png') no-repeat;
-            background-size: contain;
-          }
+        top: 175 * @vw;
+        width: 46 * @vw;
+        height: 70 * @vw;
+        left: 0;
+        z-index: 4;
+        background: url('~assets/images/guide/swiper_left.png') no-repeat;
+        background-size: contain;
+      }
+      .next-pic {
+        position: absolute;
+        top: 175 * @vw;
+        width: 46 * @vw;
+        height: 70 * @vw;
+        right: 0;
+        z-index: 4;
+        background: url('~assets/images/guide/swiper_right.png') no-repeat;
+        background-size: contain;
+      }
+      .select-wrapper {
+        width: 662 * @vw;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        top: -98 * @vw;
+        .select-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           &.active,
           &:hover {
-            background-image: url('~assets/images/guide/select_btn1_hover_part6.png');
-          }
-        }
-        &:nth-of-type(2) {
-          top: (78+18) * @vw;
-          width: 181 * @vw;
-          height: 69 * @vw;
-          background: url('~assets/images/guide/select_btn2_part6.png') no-repeat;
-          background-size: contain;
-          .item-doll {
-            left: -28 * @vw;
-            top: -22 * @vw;
-            width: 83 * @vw;
-            height: 98 * @vw;
-            background: url('~assets/images/guide/select_btn2_doll_part6.png') no-repeat;
-            background-size: contain;
-          }
-          &.active,
-          &:hover {
-            background-image: url('~assets/images/guide/select_btn2_hover_part6.png');
-            &::after {
-              width: 181 * @vw;
-              height: 69 * @vw;
-              background: url('~assets/images/guide/select_btn2_part6.png') no-repeat;
-              background-size: contain;
+            .item-title {
+              font-size: 23 * @vw;
+              font-weight: bold;
+              color: #04419e;
             }
           }
-        }
-        &:nth-of-type(3) {
-          top: (78+18+69+18) * @vw;
-          width: 184 * @vw;
-          height: 71 * @vw;
-          background: url('~assets/images/guide/select_btn3_part6.png') no-repeat;
-          background-size: contain;
-          .item-doll {
-            left: -42 * @vw;
-            top: -21 * @vw;
-            width: 104 * @vw;
-            height: 109 * @vw;
-            background: url('~assets/images/guide/select_btn3_doll_part6.png') no-repeat;
+          &:nth-of-type(1) {
+            width: 48 * @vw;
+            height: 73 * @vw;
+            background: url('~assets/images/guide/m/doll1_part6.png') no-repeat;
             background-size: contain;
+            &.active,
+            &:hover {
+              width: 172 * @vw;
+              height: 74 * @vw;
+              background: url('~assets/images/guide/m/doll1_part6_1.png') no-repeat;
+              background-size: contain;
+              .item-title {
+                margin-left: 36 * @vw;
+                margin-top: 20 * @vw;
+              }
+            }
           }
-          &.active,
-          &:hover {
-            background-image: url('~assets/images/guide/select_btn3_hover_part6.png');
-          }
-        }
-        &:nth-of-type(4) {
-          top: (78+18+69+18+71+18) * @vw;
-          width: 181 * @vw;
-          height: 70 * @vw;
-          background: url('~assets/images/guide/select_btn4_part6.png') no-repeat;
-          background-size: contain;
-          .item-doll {
-            left: -35 * @vw;
-            top: -21 * @vw;
-            width: 81 * @vw;
-            height: 102 * @vw;
-            background: url('~assets/images/guide/select_btn4_doll_part6.png') no-repeat;
+          &:nth-of-type(2) {
+            width: 72 * @vw;
+            height: 85 * @vw;
+            background: url('~assets/images/guide/m/doll2_part6.png') no-repeat;
             background-size: contain;
+            &.active,
+            &:hover {
+              width: 180 * @vw;
+              height: 85 * @vw;
+              background: url('~assets/images/guide/m/doll2_part6_1.png') no-repeat;
+              background-size: contain;
+              .item-title {
+                margin-left: 46 * @vw;
+                margin-top: 24 * @vw;
+              }
+            }
           }
-          &.active,
-          &:hover {
-            background-image: url('~assets/images/guide/select_btn4_hover_part6.png');
-          }
-        }
-        &:nth-of-type(5) {
-          top: (78+18+69+18+71+18+70+18) * @vw;
-          width: 184 * @vw;
-          height: 71 * @vw;
-          background: url('~assets/images/guide/select_btn5_part6.png') no-repeat;
-          background-size: contain;
-          .item-doll {
-            left: -20 * @vw;
-            top: 0 * @vw;
-            width: 74 * @vw;
-            height: 75 * @vw;
-            background: url('~assets/images/guide/select_btn5_doll_part6.png') no-repeat;
+          &:nth-of-type(3) {
+            width: 90 * @vw;
+            height: 95 * @vw;
+            background: url('~assets/images/guide/m/doll3_part6.png') no-repeat;
             background-size: contain;
+            &.active,
+            &:hover {
+              width: 187 * @vw;
+              height: 95 * @vw;
+              background: url('~assets/images/guide/m/doll3_part6_1.png') no-repeat;
+              background-size: contain;
+              .item-title {
+                margin-left: 72 * @vw;
+                margin-top: 32 * @vw;
+              }
+            }
           }
-          &.active,
-          &:hover {
-            background-image: url('~assets/images/guide/select_btn5_hover_part6.png');
+          &:nth-of-type(4) {
+            width: 70 * @vw;
+            height: 90 * @vw;
+            background-image: url('~assets/images/guide/m/doll4_part6.png');
+            background-size: contain;
+            &.active,
+            &:hover {
+              width: 189 * @vw;
+              height: 90 * @vw;
+              background: url('~assets/images/guide/m/doll4_part6_1.png') no-repeat;
+              background-size: contain;
+              .item-title {
+                margin-left: 62 * @vw;
+                margin-top: 32 * @vw;
+              }
+            }
+          }
+          &:nth-of-type(5) {
+            width: 64 * @vw;
+            height: 65 * @vw;
+            background-image: url('~assets/images/guide/m/doll5_part6.png');
+            background-size: contain;
+            &.active,
+            &:hover {
+              width: 187 * @vw;
+              height: 65 * @vw;
+              background: url('~assets/images/guide/m/doll5_part6_1.png') no-repeat;
+              background-size: contain;
+              .item-title {
+                margin-left: 38 * @vw;
+                margin-top: 10 * @vw;
+              }
+            }
           }
         }
       }
@@ -353,52 +332,49 @@ export default {
       z-index: 2;
       position: relative;
       box-sizing: content-box;
-      width: 630 * @vw;
-      padding-left: 271 * @vw;
-      margin-top: 30 * @vw;
+      width: 654 * @vw;
+      left: 44 * @vw;
+      top: -15 * @vw;
       .hot-heart {
         position: absolute;
-        right: 0;
+        left: 190 * @vw;
         top: 10 * @vw;
       }
     }
     .pic-doll {
       position: absolute;
+      right: -26 * @vw;
+      pointer-events: none;
       &.doll1 {
-        left: 10 * @vw;
-        top: -68 * @vw;
+        top: -132 * @vw;
         width: 243 * @vw;
         height: 225 * @vw;
         background: url('~assets/images/guide/doll1_part6.png') no-repeat;
         background-size: contain;
       }
       &.doll2 {
-        left: 10 * @vw;
-        top: -120 * @vw;
+        top: -208 * @vw;
         width: 224 * @vw;
         height: 298 * @vw;
         background: url('~assets/images/guide/doll2_part6.png') no-repeat;
         background-size: contain;
       }
       &.doll3 {
-        left: 30 * @vw;
-        top: -100 * @vw;
+        top: -208 * @vw;
         width: 193 * @vw;
         height: 303 * @vw;
         background: url('~assets/images/guide/doll3_part6.png') no-repeat;
         background-size: contain;
       }
       &.doll4 {
-        left: 10 * @vw;
-        top: -110 * @vw;
+        top: -208 * @vw;
         width: 256 * @vw;
         height: 298 * @vw;
         background: url('~assets/images/guide/doll4_part6.png') no-repeat;
         background-size: contain;
       }
       &.doll5 {
-        left: 30 * @vw;
-        top: -90 * @vw;
+        top: -192 * @vw;
         width: 221 * @vw;
         height: 285 * @vw;
         background: url('~assets/images/guide/doll5_part6.png') no-repeat;
