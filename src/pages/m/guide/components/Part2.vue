@@ -3,7 +3,7 @@
     <div class="pipe3"></div>
     <div class="title part-title-type1">
       <div class="title-order"></div>
-      <p class="title-text">
+      <p id="part2" class="title-text">
         <span class="part-title-white">超人预约</span><span class="part-title-yellow">加码礼</span>
       </p>
     </div>

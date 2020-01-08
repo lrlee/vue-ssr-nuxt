@@ -3,7 +3,7 @@
     <div class="top">
       <div class="title part-title-type2">
         <div class="title-order"></div>
-        <p class="title-text">
+        <p id="part3" class="title-text">
           <span class="part-title-white">呼朋唤友</span><span class="part-title-yellow">领福利</span>
         </p>
       </div>

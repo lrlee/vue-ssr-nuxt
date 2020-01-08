@@ -2,7 +2,7 @@
   <div class="part-container">
     <div class="title part-title-type2">
       <div class="title-order"></div>
-      <p class="title-text">
+      <p id="part5" class="title-text">
         <span class="part-title-white">凶萌角色</span>
       </p>
     </div>

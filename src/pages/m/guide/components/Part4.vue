@@ -2,7 +2,7 @@
   <div class="part-container">
     <div class="title part-title-type2">
       <div class="title-order"></div>
-      <p class="title-text">
+      <p id="part4" class="title-text">
         <span class="part-title-white">游戏特色</span>
       </p>
     </div>
