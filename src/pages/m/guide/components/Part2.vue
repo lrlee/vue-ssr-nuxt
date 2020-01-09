@@ -30,10 +30,13 @@
                 <span class="num-note">预约人数</span>
               </div>
             </div>
-            <div class="view-gift btn">
+            <div></div>
+            <div class="view-gift">
               <div class="achieved-seal"></div>
-              <span v-if="bookedTotal >= 10 * 10000" class="text">查看奖励</span>
-              <span v-else class="text">未达成</span>
+              <div @click="openGiftPop(0)" class="view-btn btn">
+                <span v-if="bookedTotal >= 10 * 10000" class="btn-text">查看奖励</span>
+                <span v-else class="btn-text">未达成</span>
+              </div>
             </div>
           </div>
         </div>
@@ -44,10 +47,12 @@
           <div class="bult-wrapper high right">
             <div class="bult-pic"></div>
           </div>
-          <div class="view-gift btn">
+          <div class="view-gift">
             <div class="achieved-seal"></div>
-            <span v-if="bookedTotal >= 30 * 10000" class="text">查看奖励</span>
-            <span v-else class="text">未达成</span>
+            <div @click="openGiftPop(1)" class="view-btn btn">
+              <span v-if="bookedTotal >= 30 * 10000" class="btn-text">查看奖励</span>
+              <span v-else class="btn-text">未达成</span>
+            </div>
           </div>
           <div class="achieve-num">
             <div class="num-pic num-30w">
@@ -67,10 +72,12 @@
               <span class="num-note">预约人数</span>
             </div>
           </div>
-          <div class="view-gift btn">
+          <div class="view-gift">
             <div class="achieved-seal"></div>
-            <span v-if="bookedTotal >= 50 * 10000" class="text">查看奖励</span>
-            <span v-else class="text">未达成</span>
+            <div @click="openGiftPop(2)" class="view-btn btn">
+              <span v-if="bookedTotal >= 50 * 10000" class="btn-text">查看奖励</span>
+              <span v-else class="btn-text">未达成</span>
+            </div>
           </div>
         </div>
         <div :class="{ active: bookedTotal >= 80 * 10000 }" class="achieve-box box-80w">
@@ -80,10 +87,12 @@
           <div class="bult-wrapper high right">
             <div class="bult-pic"></div>
           </div>
-          <div class="view-gift btn">
+          <div class="view-gift">
             <div class="achieved-seal"></div>
-            <span v-if="bookedTotal >= 80 * 10000" class="text">查看奖励</span>
-            <span v-else class="text">未达成</span>
+            <div @click="openGiftPop(3)" class="view-btn btn">
+              <span v-if="bookedTotal >= 80 * 10000" class="btn-text">查看奖励</span>
+              <span v-else class="btn-text">未达成</span>
+            </div>
           </div>
           <div class="achieve-num">
             <div class="num-pic num-80w">
@@ -103,10 +112,12 @@
               <span class="num-note">预约人数</span>
             </div>
           </div>
-          <div class="view-gift btn">
+          <div class="view-gift">
             <div class="achieved-seal"></div>
-            <span v-if="bookedTotal >= 100 * 10000" class="text">查看奖励</span>
-            <span v-else class="text">未达成</span>
+            <div @click="openGiftPop(4)" class="view-btn btn">
+              <span v-if="bookedTotal >= 100 * 10000" class="btn-text">查看奖励</span>
+              <span v-else class="btn-text">未达成</span>
+            </div>
           </div>
         </div>
         <div class="part-description">
@@ -137,6 +148,21 @@ export default {
     bookedTotal: {
       type: Number,
       default: 0
+    }
+  },
+  data() {
+    return {
+      showPop: true
+    }
+  },
+  methods: {
+    openGiftPop(index) {
+      console.log(11)
+      if (this.part2Data && this.part2Data[index]) {
+        this.$emit('openGiftPop', this.part2Data[index])
+      } else {
+        this.$emit('openGiftPop', null)
+      }
     }
   }
 }
@@ -285,16 +311,20 @@ export default {
     .view-gift {
       width: 252 * @vw;
       height: 100 * @vw;
-      background: url('~assets/images/guide/m/gift_bg_part2.png') no-repeat;
-      background-size: contain;
       margin-top: 30 * @vw;
-      text-align: center;
       position: relative;
-      .text {
-        color: #02277f;
-        margin-left: 100 * @vw;
-        line-height: 100 * @vw;
-        font-size: 24 * @vw;
+      .view-btn {
+        width: 252 * @vw;
+        height: 100 * @vw;
+        background: url('~assets/images/guide/m/gift_bg_part2.png') no-repeat;
+        background-size: contain;
+        text-align: center;
+        .btn-text {
+          color: #02277f;
+          margin-left: 100 * @vw;
+          line-height: 100 * @vw;
+          font-size: 24 * @vw;
+        }
       }
       .achieved-seal {
         position: absolute;
@@ -418,13 +448,17 @@ export default {
       .view-gift {
         width: 252 * @vw;
         height: 125 * @vw;
-        background: url('~assets/images/guide/m/gift_bg_active_part2.png') no-repeat;
-        background-size: contain;
         margin-top: 0;
-        .text {
-          color: #c15912;
-          margin-left: 100 * @vw;
-          line-height: 150 * @vw;
+        .view-btn {
+          width: 252 * @vw;
+          height: 125 * @vw;
+          background: url('~assets/images/guide/m/gift_bg_active_part2.png') no-repeat;
+          background-size: contain;
+          .btn-text {
+            color: #c15912;
+            margin-left: 100 * @vw;
+            line-height: 150 * @vw;
+          }
         }
         .achieved-seal {
           display: block;

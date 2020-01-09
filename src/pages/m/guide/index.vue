@@ -6,6 +6,13 @@
       @closePop="closePop"
       @changeBookStatus="changeBookStatus"
     ></Book-pop>
+    <Pop-Gift
+      v-if="showGiftPop"
+      :bookedTotal="bookedTotal"
+      :giftData="part2GiftData"
+      @closeGiftPop="closeGiftPop"
+    ></Pop-Gift>
+    <Pop-Role v-if="showRolePop" :roleData="selectedRoleData" @closeRolepop="closeRolepop"></Pop-Role>
     <Header></Header>
     <Nav :navTitle="navTitle" @openBookPop="openBookPop"></Nav>
     <div class="index-bg">
@@ -37,12 +44,17 @@
         <div class="pipe pipe1"></div>
       </div>
       <Part1 :part1Data="part1Data" @openBookPop="openBookPop"></Part1>
-      <Part2 :bookedTotalArr="bookedTotal_arr" :bookedTotal="bookedTotal" :part2Data="part2Data"></Part2>
+      <Part2
+        :bookedTotalArr="bookedTotal_arr"
+        :bookedTotal="bookedTotal"
+        :part2Data="part2Data"
+        @openGiftPop="openGiftPop"
+      ></Part2>
       <Part3 :invitedNum="invitedNum" :part3Data="part3Data" @openBookPop="openBookPop"></Part3>
     </div>
     <div class="introduct-bg">
       <Part4></Part4>
-      <Part5 :roleInfo="roleInfo"></Part5>
+      <Part5 :roleInfo="roleInfo" @openRolePop="openRolePop"></Part5>
       <Part6></Part6>
       <Part7></Part7>
       <Rules></Rules>
@@ -52,6 +64,8 @@
 <script>
 import Header from './components/Header'
 import BookPop from './components/BookPop'
+import PopGift from './components/GiftPop'
+import PopRole from './components/RolePop'
 import Nav from './components/Nav'
 import Part1 from './components/Part1'
 import Part2 from './components/Part2'
@@ -75,6 +89,8 @@ export default {
   components: {
     Header,
     BookPop,
+    PopGift,
+    PopRole,
     Nav,
     Part1,
     Part2,
@@ -88,17 +104,21 @@ export default {
   data() {
     return {
       showBookPop: false,
+      showGiftPop: false,
+      showRolePop: false,
       bookStatus: 'booking', // 预约状态： success 预约成功 | booking 预约中
       invite_id_self: '', // 本用户的邀请码 也是本用户的guid
       invitedNum: 0, // 邀请人数
-      navTitle: '见面礼'
+      navTitle: '超人预约见面礼',
+      part2GiftData: null,
+      selectedRoleData: null
     }
   },
   asyncData({ store }) {
     return Promise.all([bookingOnOrOff(), getBookingData(), getBookingRole(), getContactsWeb()]).then(arr => {
       let bookInfo = {}
       console.log('on_off', arr[0])
-      console.log(111, arr[3])
+      console.log('role', arr[2])
       if (arr[0].code === 0) {
         // 预定总数设置7位 不足前面补‘-1’
         const totalArr = arr[0].data.total.toString().split('')
@@ -144,6 +164,15 @@ export default {
     this.observePartScroll()
   },
   methods: {
+    openGiftPop(data) {
+      this.showGiftPop = true
+      this.part2GiftData = data
+    },
+    openRolePop(data) {
+      this.showRolePop = true
+      this.selectedRoleData = data
+      console.log('okok', this.selectedRoleData)
+    },
     observePartScroll() {
       const _this = this
       const io = new IntersectionObserver(
@@ -151,7 +180,6 @@ export default {
           entry.forEach(e => {
             if (e.isIntersecting) {
               _this.navTitle = e.target.textContent.trim()
-              console.log(_this.navTitle)
             }
           })
         },
@@ -182,6 +210,12 @@ export default {
     },
     closePop() {
       this.showBookPop = false
+    },
+    closeGiftPop() {
+      this.showGiftPop = false
+    },
+    closeRolepop() {
+      this.showRolePop = false
     },
     changeBookStatus(status) {
       this.bookStatus = status
@@ -233,6 +267,17 @@ export default {
   }
   100% {
     transform: scale(0.8);
+  }
+}
+@keyframes move_updown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10 * @vw);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 .container {
@@ -302,6 +347,7 @@ export default {
         height: 190 * @vw;
         background: url('~assets/images/guide/index/cactus_0.png') no-repeat;
         background-size: contain;
+        animation: move_updown 1.2s ease infinite;
       }
       .ribbon-pic-1 {
         position: absolute;

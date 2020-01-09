@@ -28,7 +28,7 @@
           </ul>
           <p v-html="$t('game.' + roleInfo[selectedIndex].desc_key)" class="character-desc"></p>
         </div>
-        <p class="screen-btn">查看技能介绍</p>
+        <p @click="openRolePop" class="screen-btn">查看技能介绍</p>
       </div>
       <div class="role-display">
         <div class="role-stage_light"></div>
@@ -57,6 +57,9 @@ export default {
     selecteRole(id, index) {
       this.selectedId = id
       this.selectedIndex = index
+    },
+    openRolePop() {
+      this.$emit('openRolePop', this.roleInfo[this.selectedIndex])
     }
   }
 }

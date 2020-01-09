@@ -29,7 +29,7 @@ export default {
   props: {
     navTitle: {
       type: String,
-      default: '见面礼'
+      default: '超人预约见面礼'
     }
   },
   data() {
@@ -69,14 +69,20 @@ export default {
   watch: {
     navTitle() {
       const index = this.navData.findIndex(item => item.title === this.navTitle)
-      document.getElementById(`nav${index + 1}`).scrollIntoView({ inline: 'start' })
+      document.getElementById(`nav${index + 1}`).scrollIntoViewIfNeeded(true)
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      const index = this.navData.findIndex(item => item.title === this.navTitle)
+      document.getElementById(`nav${index + 1}`).scrollIntoViewIfNeeded(true)
+    })
   },
   methods: {
     scrollToPart(partName) {
       const element = document.getElementById(partName)
-      console.log(element)
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      // element.scrollIntoView({ block: 'center' })
+      element.scrollIntoViewIfNeeded(true)
     },
     openBookPop() {
       this.$emit('openBookPop')
