@@ -22,10 +22,12 @@
       </div>
       <div class="screen-container">
         <div class="screen-main">
-          <div v-html="$t('game.' + roleInfo[selectedIndex].name_key)" class="role-name"></div>
-          <ul class="star-list">
-            <li v-for="num in roleInfo[selectedIndex].star" :key="num" class="star-item"></li>
-          </ul>
+          <div class="name-wrapper">
+            <div v-html="$t('game.' + roleInfo[selectedIndex].name_key)" class="role-name"></div>
+            <ul class="star-list">
+              <li v-for="num in roleInfo[selectedIndex].star" :key="num" class="star-item"></li>
+            </ul>
+          </div>
           <p v-html="$t('game.' + roleInfo[selectedIndex].desc_key)" class="character-desc"></p>
         </div>
         <p @click="openRolePop" class="screen-btn">查看技能介绍</p>
@@ -148,12 +150,15 @@ export default {
       background-size: contain;
       .screen-main {
         margin-left: 40 * @vw;
+        .name-wrapper {
+          display: flex;
+        }
         .role-name {
           font-size: 46 * @vw;
           font-weight: bold;
           color: #ffffff;
-          width: 300 * @vw;
           margin-top: 20 * @vw;
+          margin-right: 10 * @vw;
         }
         .star-list {
           display: flex;
@@ -171,11 +176,12 @@ export default {
         }
         .character-desc {
           width: 272 * @vw;
-          height: 156 * @vw;
+          height: 200 * @vw;
           margin-top: 2 * @vw;
           overflow: scroll;
           color: #ffffff;
           font-size: 24 * @vw;
+          margin-top: 10 * @vw;
         }
       }
       .screen-btn {
