@@ -5,6 +5,7 @@
       :bookStatus="bookStatus"
       @closePop="closePop"
       @changeBookStatus="changeBookStatus"
+      @toGetInviteDCount="toGetInviteDCount"
     ></Book-pop>
     <Pop-Gift
       v-if="showGiftPop"
@@ -13,6 +14,7 @@
       @closeGiftPop="closeGiftPop"
     ></Pop-Gift>
     <Pop-Role v-if="showRolePop" :roleData="selectedRoleData" @closeRolepop="closeRolepop"></Pop-Role>
+    <Pop-Map v-if="showMapPop" :mapData="mapData" @closeMapPop="closeMapPop"></Pop-Map>
     <Header></Header>
     <Nav :navTitle="navTitle" @openBookPop="openBookPop"></Nav>
     <div class="index-bg">
@@ -55,9 +57,9 @@
     <div class="introduct-bg">
       <Part4></Part4>
       <Part5 :roleInfo="roleInfo" @openRolePop="openRolePop"></Part5>
-      <Part6></Part6>
+      <Part6 @openMapPop="openMapPop"></Part6>
       <Part7></Part7>
-      <Rules></Rules>
+      <Rules :contactsInfo="contactsInfo"></Rules>
     </div>
   </div>
 </template>
@@ -66,6 +68,7 @@ import Header from './components/Header'
 import BookPop from './components/BookPop'
 import PopGift from './components/GiftPop'
 import PopRole from './components/RolePop'
+import PopMap from './components/MapPop'
 import Nav from './components/Nav'
 import Part1 from './components/Part1'
 import Part2 from './components/Part2'
@@ -91,6 +94,7 @@ export default {
     BookPop,
     PopGift,
     PopRole,
+    PopMap,
     Nav,
     Part1,
     Part2,
@@ -106,6 +110,7 @@ export default {
       showBookPop: false,
       showGiftPop: false,
       showRolePop: false,
+      showMapPop: false,
       bookStatus: 'booking', // 预约状态： success 预约成功 | booking 预约中
       invite_id_self: '', // 本用户的邀请码 也是本用户的guid
       invitedNum: 0, // 邀请人数
@@ -128,7 +133,6 @@ export default {
           cTotalArr.push('-1')
         }
         const rTotalArr = [...cTotalArr, ...totalArr]
-        console.log(rTotalArr)
         bookInfo = {
           beginTime: arr[0].data.begin_time ? parseTime(arr[0].data.begin_time, '{y}.{m}.{d}') : '',
           endTime: arr[0].data.end_time ? parseTime(arr[0].data.end_time, '{y}.{m}.{d}') : '',
@@ -173,6 +177,10 @@ export default {
       this.selectedRoleData = data
       console.log('okok', this.selectedRoleData)
     },
+    openMapPop(data) {
+      this.showMapPop = true
+      this.mapData = data
+    },
     observePartScroll() {
       const _this = this
       const io = new IntersectionObserver(
@@ -216,6 +224,9 @@ export default {
     },
     closeRolepop() {
       this.showRolePop = false
+    },
+    closeMapPop() {
+      this.showMapPop = false
     },
     changeBookStatus(status) {
       this.bookStatus = status

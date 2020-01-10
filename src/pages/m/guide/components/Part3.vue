@@ -15,7 +15,7 @@
       <div :class="{ light: invitedNum > 4 }" class="wire wire3"></div>
       <div :class="{ light: invitedNum > 7 }" class="wire wire4"></div>
       <ul class="gift-list">
-        <li :class="{ light: invitedNum > 0 }" class="gift-item light">
+        <li :class="{ light: invitedNum > 0 }" class="gift-item">
           <div class="gift-box">
             <div v-if="part3Data[0] && part3Data[0].awards" class="gift-wrapper">
               <img :src="part3Data[0].awards[0].pic" class="gift-pic" />
@@ -263,25 +263,25 @@ export default {
           overflow: hidden;
           .gift-pic {
             opacity: 0.5;
-            width: 120 * @vw;
+            width: 100 * @vw;
           }
           .gift-name {
             margin-top: 5 * @vw;
             color: #1c3899;
-            font-size: 16 * @vw;
-            text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
+            font-size: 24 * @vw;
+            text-shadow: #fff 1 * @vw 0 0, #fff 0 1 * @vw 0, #fff -1 * @vw 0 0, #fff 0 -1 * @vw 0;
           }
           .gift-label {
             margin-top: 11 * @vw;
-            width: 144 * @vw;
-            height: 41 * @vw;
+            width: 184 * @vw;
+            height: 53 * @vw;
             background: url('~assets/images/guide/gift_label_part3.png') no-repeat;
             background-size: contain;
             text-align: center;
-            line-height: 41 * @vw;
+            line-height: 60 * @vw;
             color: #054392;
             font-weight: bold;
-            font-size: 16 * @vw;
+            font-size: 24 * @vw;
           }
           .paopao-pic {
             width: 177 * @vw;

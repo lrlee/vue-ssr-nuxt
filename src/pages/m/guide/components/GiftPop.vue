@@ -79,7 +79,7 @@ export default {
   position: relative;
   display: flex;
   justify-content: center;
-  animation: scale 0.3s cubic-bezier(0.6, 1.12, 0.88, 1.15);
+  animation: scale 0.3s cubic-bezier(0.31, 0.95, 0.65, 1.23);
   @keyframes scale {
     0% {
       transform: scale(0);
@@ -97,6 +97,27 @@ export default {
     bottom: -95 * @vw;
     right: 17 * @vw;
     z-index: 1;
+    visibility: hidden;
+    animation: toDown 1s 0.3s;
+    animation-fill-mode: forwards;
+    @keyframes toDown {
+      0% {
+        visibility: visible;
+        transform: translateY(-100 * @vw);
+      }
+      25% {
+        visibility: visible;
+        transform: translateY(0);
+      }
+      50% {
+        visibility: visible;
+        transform: rotate(-5deg);
+      }
+      100% {
+        visibility: visible;
+        transform: rotate(0);
+      }
+    }
   }
   .light-icon {
     width: 717 * @vw;

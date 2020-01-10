@@ -106,6 +106,11 @@ export default {
       inviteLink: ''
     }
   },
+  watch: {
+    bookStatus() {
+      this.form.inviter_id = this.$route.query.invite_code || ''
+    }
+  },
   mounted() {
     if (this.bookStatus === 'success') {
       this.invite_id_self = local.getGuid()
@@ -127,8 +132,8 @@ export default {
       if (process.client) {
         const QRCode = require('qrcodejs2')
         this.qrCode = new QRCode('qrcode', {
-          width: 150,
-          height: 150,
+          width: 80,
+          height: 80,
           text: this.inviteLink
           // render: 'canvas' // 设置渲染方式（有两种方式 table和canvas，默认是canvas）
           // background: '#f0f'
@@ -213,6 +218,7 @@ export default {
               this.crateQrcode()
             })
             local.setGuid(this.invite_id_self)
+            this.$emit('toGetInviteDCount')
           } else {
             this.codeErr = true
           }
@@ -514,6 +520,10 @@ export default {
           width: 159 * @vw;
           height: 159 * @vw;
         }
+        /deep/ canvas {
+          width: 159 * @vw;
+          height: 159 * @vw;
+        }
       }
     }
     .invite-des {
@@ -558,14 +568,14 @@ export default {
         text-align: center;
         line-height: 60 * @vw;
         color: #fff;
-        font-size: 16 * @vw;
+        font-size: 24 * @vw;
       }
     }
   }
 }
 .change-account {
   margin: 0 auto;
-  font-size: 14 * @vw;
+  font-size: 24 * @vw;
   color: #fff;
   text-decoration: underline;
   text-align: center;

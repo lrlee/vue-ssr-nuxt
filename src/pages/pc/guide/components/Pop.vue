@@ -107,6 +107,11 @@ export default {
       inviteLink: ''
     }
   },
+  watch: {
+    bookStatus() {
+      this.form.inviter_id = this.$route.query.invite_code || ''
+    }
+  },
   mounted() {
     if (this.bookStatus === 'success') {
       this.invite_id_self = local.getGuid()
@@ -214,6 +219,7 @@ export default {
               this.crateQrcode()
             })
             local.setGuid(this.invite_id_self)
+            this.$emit('toGetInviteDCount')
           } else {
             this.codeErr = true
           }

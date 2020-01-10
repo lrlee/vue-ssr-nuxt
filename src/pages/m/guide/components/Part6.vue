@@ -19,7 +19,7 @@
             <span v-if="selectedIndex === index" class="item-title">{{ item.title }}</span>
           </li>
         </ul>
-        <div class="pic-mask"></div>
+        <div @click="openMapPop" class="pic-mask"></div>
         <ul class="pic-list">
           <li class="pic-item">
             <img :src="selectLists[selectedIndex].pic" class="item-image" />
@@ -109,6 +109,10 @@ export default {
       if (this.selectedIndex === this.selectLists.length) {
         this.selectedIndex = 0
       }
+    },
+    openMapPop() {
+      console.log('ok')
+      this.$emit('openMapPop', this.selectLists[this.selectedIndex])
     }
   }
 }

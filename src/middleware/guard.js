@@ -16,9 +16,9 @@ export default function({ route, req, res, redirect, store }) {
   const isMAgent = isMobile(ua)
   if (isMAgent) {
     if (!isMLink && route.path !== '/404') {
-      return redirect('/m')
+      return redirect('/m', route.query)
     }
   } else if (isMLink) {
-    return redirect('/')
+    return redirect('/', route.query)
   }
 }

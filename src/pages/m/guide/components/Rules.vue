@@ -15,10 +15,24 @@
     </div>
     <div class="code-parent">
       <ul class="code-item-parent">
-        <li v-for="(item, index) in codeOptions" :key="index" class="code-item">
-          <img :src="item.bg" class="code-icon" />
-          <span class="code-bg-text">{{ item.bgText }} </span>
-        </li>
+        <a :href="contactsInfo.woa.qrcode" download>
+          <li class="code-item">
+            <img :src="codeOptions[0].bg" class="code-icon" />
+            <span class="code-bg-text">{{ codeOptions[0].bgText }} </span>
+          </li>
+        </a>
+        <a target="_blank" href="https://weibo.com/u/7054585490?is_hot=1">
+          <li class="code-item">
+            <img :src="codeOptions[1].bg" class="code-icon" />
+            <span class="code-bg-text">{{ codeOptions[1].bgText }} </span>
+          </li>
+        </a>
+        <a :href="isIos ? qqLink_ios : qqLink_android" target="_blank">
+          <li class="code-item">
+            <img :src="codeOptions[2].bg" class="code-icon" />
+            <span class="code-bg-text">{{ codeOptions[2].bgText }} </span>
+          </li>
+        </a>
       </ul>
     </div>
   </div>
@@ -32,8 +46,18 @@ const rulesOptions = [
   '若因不可抗拒的因素，比如网络、作弊等非官方原因导致活动出现异常情况，《全民泡泡超人》保留在法律允许的范围内，对活动规则进行解释的权利。'
 ]
 export default {
+  props: {
+    contactsInfo: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
+      qqLink_android:
+        'mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3DFxcq8VEqYXoAQBq4IfJKvHAs4NnEU4eb',
+      qqLink_ios:
+        'mqqapi://card/show_pslcard?src_type=internal&version=1&uin=707841609&key=50569d2d089dfffdac32cf1adfdd5be82c9c953e5cfc78d80616551b63f2fe5e&card_type=group&source=external',
       rulesOptions,
       codeOptions: [
         {
@@ -50,6 +74,14 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    isIos() {
+      return /like mac os x/i.test(this.$store.state.userAgent)
+    }
+  },
+  created() {
+    console.log('444', this.$store.state.userAgent)
   }
 }
 </script>
@@ -115,10 +147,12 @@ export default {
         display: flex;
         align-items: center;
         position: relative;
-        background: url('~assets/images/guide/m/third_part_bg.png') no-repeat;
+        background: url('~assets/images/guide/m/contact_btn_bg.png') no-repeat;
         background-size: contain;
+        &:active {
+          background-image: url('~assets/images/guide/m/contact_btn_tap_bg.png');
+        }
         .code-icon {
-          width: 24 * @vw;
           height: 24 * @vw;
           margin-left: 23 * @vw;
         }
