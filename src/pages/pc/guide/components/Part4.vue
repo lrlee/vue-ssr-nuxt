@@ -269,6 +269,47 @@ export default {
         bottom: -100 * @vw;
         display: flex;
         justify-content: center;
+        /deep/ .swiper-pagination-bullet {
+          width: auto !important;
+          height: auto !important;
+          opacity: 1 !important;
+          display: flex !important;
+          align-items: center !important;
+          background-color: transparent !important;
+          .bullet-pic {
+            width: 73 * @vw;
+            height: 73 * @vw;
+            background: url('~assets/images/guide/swiper_pagina.png') no-repeat;
+            background-size: contain;
+            position: relative;
+            .bullet-text {
+              width: 73 * @vw;
+              text-align: center;
+              font-size: 18 * @vw;
+              color: #fff;
+              position: absolute;
+              bottom: -20 * @vw;
+            }
+          }
+          .bullet-dot {
+            width: 122 * @vw;
+            height: 5 * @vw;
+            background: url('~assets/images/guide/swiper_pagina_dot.png') no-repeat;
+            background-size: contain;
+          }
+          &.swiper-pagination-bullet-active {
+            .bullet-pic {
+              width: 90 * @vw;
+              height: 83 * @vw;
+              background: url('~assets/images/guide/swiper_pagina_hover.png') no-repeat;
+              background-size: contain;
+            }
+            .bullet-text {
+              color: #ffe14d;
+              font-weight: bold;
+            }
+          }
+        }
       }
     }
   }

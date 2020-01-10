@@ -1,7 +1,13 @@
 <template>
   <div class="container">
     <Nav v-if="showNav" :title="title" :scrollCallback="scrollToPart"></Nav>
-    <Pop v-if="showPop" :bookStatus="bookStatus" @closePop="closePop" @changeBookStatus="changeBookStatus"></Pop>
+    <Pop
+      v-if="showPop"
+      :bookStatus="bookStatus"
+      @closePop="closePop"
+      @changeBookStatus="changeBookStatus"
+      @toGetInviteDCount="toGetInviteDCount"
+    ></Pop>
     <VideoDialog v-show="showVideo" @closeVideo="showVideo = false" :dialogVisible="showVideo"></VideoDialog>
     <div class="top">
       <div class="index">
