@@ -541,13 +541,7 @@ export default {
     this.observePartScroll()
   },
   created() {
-    if (process.client) {
-      this.invite_id_self = local.getGuid() || ''
-      if (this.invite_id_self) {
-        this.toGetInviteDCount()
-      }
-    }
-    console.log('ok', this.roleInfo)
+    this.toGetInviteDCount()
     this.setBookTotalPolling()
   },
   methods: {
@@ -577,11 +571,16 @@ export default {
       return checkSafeData(param, key)
     },
     toGetInviteDCount() {
-      getInvitedCount(this.invite_id_self).then(res => {
-        if (res.code === 0) {
-          this.invitedNum = res.data
+      if (process.client) {
+        this.invite_id_self = local.getGuid() || ''
+        if (this.invite_id_self) {
+          getInvitedCount(this.invite_id_self).then(res => {
+            if (res.code === 0) {
+              this.invitedNum = res.data
+            }
+          })
         }
-      })
+      }
     },
     setBookTotalPolling() {
       this.totalPolling = setInterval(() => {

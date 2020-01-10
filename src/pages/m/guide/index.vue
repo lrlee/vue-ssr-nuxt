@@ -155,13 +155,7 @@ export default {
     })
   },
   created() {
-    if (process.client) {
-      this.invite_id_self = local.getGuid() || ''
-      if (this.invite_id_self) {
-        this.toGetInviteDCount()
-      }
-    }
-    console.log('ok', this.roleInfo)
+    this.toGetInviteDCount()
     this.setBookTotalPolling()
   },
   mounted() {
@@ -250,11 +244,16 @@ export default {
       }, 30000)
     },
     toGetInviteDCount() {
-      getInvitedCount(this.invite_id_self).then(res => {
-        if (res.code === 0) {
-          this.invitedNum = res.data
+      if (process.client) {
+        this.invite_id_self = local.getGuid() || ''
+        if (this.invite_id_self) {
+          getInvitedCount(this.invite_id_self).then(res => {
+            if (res.code === 0) {
+              this.invitedNum = res.data
+            }
+          })
         }
-      })
+      }
     }
   }
 }
