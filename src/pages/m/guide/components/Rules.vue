@@ -79,9 +79,6 @@ export default {
     isIos() {
       return /like mac os x/i.test(this.$store.state.userAgent)
     }
-  },
-  created() {
-    console.log('444', this.$store.state.userAgent)
   }
 }
 </script>
@@ -149,6 +146,10 @@ export default {
         position: relative;
         background: url('~assets/images/guide/m/contact_btn_bg.png') no-repeat;
         background-size: contain;
+        &::after {
+          content: '';
+          background-image: url('~assets/images/guide/m/contact_btn_tap_bg.png');
+        }
         &:active {
           background-image: url('~assets/images/guide/m/contact_btn_tap_bg.png');
         }

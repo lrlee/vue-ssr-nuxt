@@ -890,6 +890,11 @@ export default {
           margin-left: 12 * @vw;
           margin-right: 5 * @vw;
         }
+        // 提前加载好图片
+        &::after {
+          content: '';
+          background-image: url('~assets/images/guide/btn_toHome_click.png');
+        }
         &:hover {
           background-image: url('~assets/images/guide/btn_toHome_click.png');
         }
@@ -1312,6 +1317,11 @@ export default {
         background-size: contain;
         z-index: 2;
       }
+      // 提前加载好图片
+      &::after {
+        content: '';
+        background-image: url('~assets/images/guide/btn_book_big_click.png');
+      }
       &:hover {
         .book-btn {
           width: 352 * @vw;
@@ -1566,6 +1576,11 @@ export default {
             background: url('~assets/images/guide/btn_book_normal.png') no-repeat;
             background-size: contain;
             cursor: pointer;
+            // 提前加载好图片
+            &::after {
+              content: '';
+              background-image: url('~assets/images/guide/btn_book_click.png');
+            }
             &:hover {
               background-image: url('~assets/images/guide/btn_book_click.png');
             }
@@ -2016,6 +2031,10 @@ export default {
           height: 70 * @vw;
           background: url('~assets/images/guide/btn_invite_normal.png') no-repeat;
           background-size: contain;
+          &::after {
+            content: '';
+            background-image: url('~assets/images/guide/btn_invite_click.png');
+          }
           &:hover {
             background-image: url('~assets/images/guide/btn_invite_click.png');
           }

@@ -260,6 +260,10 @@ export default {
             background: url('~assets/images/guide/select_btn1_doll_part6.png') no-repeat;
             background-size: contain;
           }
+          &::after {
+            content: '';
+            background-image: url('~assets/images/guide/select_btn1_hover_part6.png');
+          }
           &.active,
           &:hover {
             background-image: url('~assets/images/guide/select_btn1_hover_part6.png');
@@ -278,6 +282,10 @@ export default {
             height: 98 * @vw;
             background: url('~assets/images/guide/select_btn2_doll_part6.png') no-repeat;
             background-size: contain;
+          }
+          &::after {
+            content: '';
+            background-image: url('~assets/images/guide/select_btn2_hover_part6.png');
           }
           &.active,
           &:hover {
@@ -304,6 +312,10 @@ export default {
             background: url('~assets/images/guide/select_btn3_doll_part6.png') no-repeat;
             background-size: contain;
           }
+          &::after {
+            content: '';
+            background-image: url('~assets/images/guide/select_btn3_hover_part6.png');
+          }
           &.active,
           &:hover {
             background-image: url('~assets/images/guide/select_btn3_hover_part6.png');
@@ -323,6 +335,10 @@ export default {
             background: url('~assets/images/guide/select_btn4_doll_part6.png') no-repeat;
             background-size: contain;
           }
+          &::after {
+            content: '';
+            background-image: url('~assets/images/guide/select_btn4_hover_part6.png');
+          }
           &.active,
           &:hover {
             background-image: url('~assets/images/guide/select_btn4_hover_part6.png');
@@ -341,6 +357,10 @@ export default {
             height: 75 * @vw;
             background: url('~assets/images/guide/select_btn5_doll_part6.png') no-repeat;
             background-size: contain;
+          }
+          &::after {
+            content: '';
+            background-image: url('~assets/images/guide/select_btn5_hover_part6.png');
           }
           &.active,
           &:hover {

@@ -476,6 +476,10 @@ export default {
         background-size: contain;
         z-index: 2;
       }
+      &::after {
+        content: '';
+        background-image: url('~assets/images/guide/btn_book_big_click.png');
+      }
       &:active {
         .book-btn {
           width: 352 * @vw;

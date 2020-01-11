@@ -167,6 +167,10 @@ export default {
 .role-head-1 {
   background: url('~assets/images/guide/role/role_head/head_1.png') no-repeat;
   background-size: contain;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/role/role_head/head_1_active.png');
+  }
   &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_1_active.png') no-repeat;
@@ -176,6 +180,10 @@ export default {
 .role-head-2 {
   background: url('~assets/images/guide/role/role_head/head_2.png') no-repeat;
   background-size: contain;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/role/role_head/head_2_active.png');
+  }
   &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_2_active.png') no-repeat;
@@ -185,6 +193,10 @@ export default {
 .role-head-4 {
   background: url('~assets/images/guide/role/role_head/head_4.png') no-repeat;
   background-size: contain;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/role/role_head/head_4_active.png');
+  }
   &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_4_active.png') no-repeat;
@@ -194,6 +206,10 @@ export default {
 .role-head-7 {
   background: url('~assets/images/guide/role/role_head/head_7.png') no-repeat;
   background-size: contain;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/role/role_head/head_7_active.png');
+  }
   &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_7_active.png') no-repeat;
@@ -203,6 +219,10 @@ export default {
 .role-head-8 {
   background: url('~assets/images/guide/role/role_head/head_8.png') no-repeat;
   background-size: contain;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/role/role_head/head_8_active.png');
+  }
   &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_8_active.png') no-repeat;
@@ -212,6 +232,10 @@ export default {
 .role-head-12 {
   background: url('~assets/images/guide/role/role_head/head_12.png') no-repeat;
   background-size: contain;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/role/role_head/head_12_active.png');
+  }
   &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_12_active.png') no-repeat;
@@ -221,6 +245,10 @@ export default {
 .role-head-14 {
   background: url('~assets/images/guide/role/role_head/head_14.png') no-repeat;
   background-size: contain;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/role/role_head/head_14_active.png');
+  }
   &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_14_active.png') no-repeat;

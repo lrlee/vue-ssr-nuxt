@@ -122,7 +122,7 @@ export default {
       font-weight: bold;
       color: #fefda4;
       line-height: 50 * @vw;
-      text-shadow: #012e65 1px 0 0, #012e65 0 1px 0, #012e65 -1px 0 0, #012e65 0 -1px 0;
+      text-shadow: #012e65 1 * @vw 0 0, #012e65 0 1 * @vw 0, #012e65 -1 * @vw 0 0, #012e65 0 -1 * @vw 0;
     }
   }
   .gift-list {
@@ -168,7 +168,7 @@ export default {
         font-size: 24 * @vw;
         color: #fff;
         font-weight: bold;
-        text-shadow: #28a001 1px 0 0, #28a001 0 1px 0, #28a001 -1px 0 0, #28a001 0 -1px 0;
+        text-shadow: #28a001 1 * @vw 0 0, #28a001 0 1 * @vw 0, #28a001 -1 * @vw 0 0, #28a001 0 -1 * @vw 0;
       }
       .label-major {
         position: absolute;
@@ -196,6 +196,10 @@ export default {
       color: #b36e11;
       font-size: 32 * @vw;
       font-weight: bold;
+      &::after {
+        content: '';
+        background-image: url('~assets/images/guide/m/btn_book_tap.png');
+      }
       &:active {
         background-image: url('~assets/images/guide/m/btn_book_tap.png');
       }

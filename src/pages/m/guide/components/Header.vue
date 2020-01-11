@@ -65,6 +65,10 @@ export default {}
   display: flex;
   align-items: center;
   justify-content: center;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/m/btn_toHome_click.png');
+  }
   &:active {
     background-image: url('~assets/images/guide/m/btn_toHome_click.png');
   }

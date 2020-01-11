@@ -188,6 +188,10 @@ export default {
   margin-top: 20 * @vw;
   line-height: 65 * @vw;
   text-align: center;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/guide/m/btn_book_tap.png');
+  }
   &:active {
     background-image: url('~assets/images/guide/m/btn_book_tap.png');
   }

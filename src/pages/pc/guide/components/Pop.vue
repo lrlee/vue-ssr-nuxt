@@ -278,6 +278,10 @@ export default {
     right: -21 * @vw;
     top: 219 * @vw;
     z-index: 3;
+    &::after {
+      content: '';
+      background-image: url('~assets/images/guide/close_circle_hover_pop.png');
+    }
     &:hover {
       background-image: url('~assets/images/guide/close_circle_hover_pop.png');
     }
