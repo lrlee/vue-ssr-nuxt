@@ -164,6 +164,10 @@ export default {
       height: 128 * @vw;
       background: url('~assets/images/guide/part7/play_normal.png') no-repeat;
       background-size: contain;
+      &::after {
+        content: '';
+        background-image: url('~assets/images/guide/part7/play_hover.png');
+      }
       &:hover {
         background: url('~assets/images/guide/part7/play_hover.png') no-repeat;
         background-size: contain;

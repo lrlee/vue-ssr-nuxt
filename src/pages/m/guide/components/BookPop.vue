@@ -2,7 +2,6 @@
   <div @wheel.prevent class="pop">
     <div :class="{ 'paopao-animation': bookStatus == 'success' }" class="pop-box">
       <i @click="closePop" class="close-icon icon btn"></i>
-      <i class="title-icon icon"></i>
       <div v-if="bookStatus == 'booking'" class="pop-content">
         <div class="form-box">
           <div class="platform-select">
@@ -263,30 +262,25 @@ export default {
   z-index: 999;
 }
 .pop-box {
-  margin-left: 26 * @vw;
-  width: 678 * @vw;
-  height: 768 * @vw;
+  margin-left: 35 * @vw;
+  width: 690 * @vw;
+  height: 921 * @vw;
   background: url('~assets/images/guide/m/pop_book/pop_bg.png') no-repeat;
   background-size: contain;
   position: relative;
-  .title-icon {
-    width: 444 * @vw;
-    height: 352 * @vw;
-    background: url('~assets/images/guide/m/pop_book/pop_title.png') no-repeat;
-    background-size: contain;
-    position: absolute;
-    left: -12 * @vw;
-    top: -153 * @vw;
-  }
   .close-icon {
     width: 93 * @vw;
     height: 93 * @vw;
     background: url('~assets/images/guide/close_circle_pop.png') no-repeat;
     background-size: contain;
     position: absolute;
-    right: -6 * @vw;
-    top: -38 * @vw;
+    right: 29 * @vw;
+    top: 123 * @vw;
     z-index: 3;
+    &::after {
+      content: '';
+      background-image: url('~assets/images/guide/close_circle_hover_pop.png');
+    }
     &:active {
       background-image: url('~assets/images/guide/close_circle_hover_pop.png');
     }
@@ -294,11 +288,11 @@ export default {
 }
 .pop-content {
   width: 100%;
-  padding-right: 52 * @vw;
+  padding-right: 45 * @vw;
   position: relative;
   .ribbon-animation {
     position: absolute;
-    left: -35 * @vw;
+    left: -20 * @vw;
     bottom: -50 * @vw;
     width: 249 * @vw;
     height: 104 * @vw;
@@ -314,8 +308,8 @@ export default {
   .colorpaper-animation {
     pointer-events: none;
     position: absolute;
-    bottom: 20 * @vw;
-    left: 50 * @vw;
+    bottom: -58 * @vw;
+    left: -18 * @vw;
     width: 522 * @vw;
     height: 629 * @vw;
     background: url('~assets/images/guide/m/pop_book/colorpaper_pop.png') no-repeat;
@@ -330,7 +324,7 @@ export default {
 }
 .form-box {
   width: 440 * @vw;
-  margin: 215 * @vw auto 0 auto;
+  margin: 366 * @vw auto 0 auto;
   input {
     height: 80 * @vw;
     padding: 0 30 * @vw;
@@ -477,7 +471,7 @@ export default {
 }
 .book-success-box {
   width: 508 * @vw;
-  padding-top: 208 * @vw;
+  padding-top: 355 * @vw;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -487,7 +481,7 @@ export default {
     text-align: center;
     font-weight: bold;
     color: #fff;
-    // -webkit-text-stroke: 3px #0d1d4e;
+    text-shadow: #0d1d4e 1 * @vw 0 0, #0d1d4e 0 1 * @vw 0, #0d1d4e -1 * @vw 0 0, #0d1d4e 0 -1 * @vw 0;
     margin-bottom: 10 * @vw;
   }
   .invite-QR {
@@ -535,7 +529,7 @@ export default {
   }
   .invite-link {
     width: 100%;
-    margin-top: 30 * @vw;
+    margin-top: 40 * @vw;
     .title {
       font-size: 24 * @vw;
       color: #fff;

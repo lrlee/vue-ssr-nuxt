@@ -251,12 +251,12 @@ export default {
     }
   }
   .ability-display-wrapper {
-    width: 668 * @vw;
-    height: 457 * @vw;
+    width: 562 * @vw;
+    height: 351 * @vw;
     background: url('~assets/images/guide/m/pop_role/ability_display_bg.png') no-repeat;
     background-size: contain;
     position: absolute;
-    top: 150 * @vw;
+    top: 205 * @vw;
     z-index: 2;
     visibility: hidden;
     animation: toDown 0.3s cubic-bezier(0, 0, 0.53, 1.33) 0.2s;
@@ -273,7 +273,7 @@ export default {
     }
     .ability-display {
       width: 100%;
-      padding: 73 * @vw 0 0 126 * @vw;
+      padding: 30 * @vw 0 0 70 * @vw;
       .water-drop-icon {
         width: 26 * @vw;
         height: 33 * @vw;
@@ -292,7 +292,7 @@ export default {
         }
       }
       .ability-values {
-        height: 260 * @vw;
+        height: 248 * @vw;
         font-size: 26 * @vw;
         color: #fff;
         display: flex;

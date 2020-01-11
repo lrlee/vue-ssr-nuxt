@@ -149,7 +149,7 @@ export default {
       background: url('~assets/images/guide/m/screen_bg.png') no-repeat;
       background-size: contain;
       .screen-main {
-        margin-left: 40 * @vw;
+        margin-left: 45 * @vw;
         .name-wrapper {
           display: flex;
         }
@@ -175,7 +175,7 @@ export default {
           }
         }
         .character-desc {
-          width: 272 * @vw;
+          width: 290 * @vw;
           height: 200 * @vw;
           margin-top: 2 * @vw;
           overflow: scroll;
@@ -235,7 +235,6 @@ export default {
 .role-head-1 {
   background: url('~assets/images/guide/role/role_head/head_1.png') no-repeat;
   background-size: contain;
-  &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_1_active.png') no-repeat;
     background-size: contain;
@@ -244,7 +243,6 @@ export default {
 .role-head-2 {
   background: url('~assets/images/guide/role/role_head/head_2.png') no-repeat;
   background-size: contain;
-  &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_2_active.png') no-repeat;
     background-size: contain;
@@ -253,7 +251,6 @@ export default {
 .role-head-4 {
   background: url('~assets/images/guide/role/role_head/head_4.png') no-repeat;
   background-size: contain;
-  &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_4_active.png') no-repeat;
     background-size: contain;
@@ -262,7 +259,6 @@ export default {
 .role-head-7 {
   background: url('~assets/images/guide/role/role_head/head_7.png') no-repeat;
   background-size: contain;
-  &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_7_active.png') no-repeat;
     background-size: contain;
@@ -271,7 +267,6 @@ export default {
 .role-head-8 {
   background: url('~assets/images/guide/role/role_head/head_8.png') no-repeat;
   background-size: contain;
-  &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_8_active.png') no-repeat;
     background-size: contain;
@@ -280,7 +275,6 @@ export default {
 .role-head-12 {
   background: url('~assets/images/guide/role/role_head/head_12.png') no-repeat;
   background-size: contain;
-  &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_12_active.png') no-repeat;
     background-size: contain;
@@ -289,7 +283,6 @@ export default {
 .role-head-14 {
   background: url('~assets/images/guide/role/role_head/head_14.png') no-repeat;
   background-size: contain;
-  &:hover,
   &.active {
     background: url('~assets/images/guide/role/role_head/head_14_active.png') no-repeat;
     background-size: contain;
