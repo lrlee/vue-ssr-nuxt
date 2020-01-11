@@ -23,7 +23,10 @@
         <li v-for="(item, index) in codeOptions" :key="index" class="code-item">
           <img :src="item.bg" class="code-bg" />
           <span class="code-bg-text">{{ item.bgText }} </span>
-          <img :src="item.img" class="code-detail" />
+          <a :href="item.contactLink" v-if="item.contactLink" target="_blank" class="btn"
+            ><img :src="item.img" class="code-detail"
+          /></a>
+          <img v-else :src="item.img" class="code-detail" />
           <div v-if="item.text" v-html="item.text" class="code-text"></div>
         </li>
       </ul>
@@ -68,19 +71,23 @@ export default {
           bg: require('~/assets/images/guide/rules/wx_bg.png'),
           bgText: '官方公众号',
           text: this.contactsInfo.woa.desc,
-          img: this.contactsInfo.woa.qrcode
+          img: this.contactsInfo.woa.qrcode,
+          contactLink: ''
         },
         {
           bg: require('~/assets/images/guide/rules/wb_bg.png'),
           bgText: '官方微博',
           text: this.contactsInfo.weibo.desc,
-          img: this.contactsInfo.weibo.qrcode
+          img: this.contactsInfo.weibo.qrcode,
+          contactLink: 'https://weibo.com/u/7054585490?is_hot=1'
         },
         {
           bg: require('~/assets/images/guide/rules/qq_bg.png'),
           bgText: '官方交流群',
           text: this.contactsInfo.qqgroup.desc,
-          img: this.contactsInfo.qqgroup.qrcode
+          img: this.contactsInfo.qqgroup.qrcode,
+          contactLink:
+            '//shang.qq.com/wpa/qunwpa?idkey=50569d2d089dfffdac32cf1adfdd5be82c9c953e5cfc78d80616551b63f2fe5e'
         }
       ]
     }
