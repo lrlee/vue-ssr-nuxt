@@ -101,10 +101,165 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+@vw: 1vw/13.34;
+@vh: 1vh/7.5;
+@vmin: 1vmin/7.5;
 .detail {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.nav {
+  width: 100%;
+  height: 90 * @vh;
+  border-top-left-radius: 10 * @vmin;
+  border-top-right-radius: 10 * @vmin;
+}
+.detail-top {
+  background-color: rgba(10, 37, 57, 0.6);
+  width: 100%;
+  padding: 0 63 * @vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .title {
+    font-size: 32 * @vmin;
+  }
+  .home-link {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s linear;
+    .home-icon {
+      display: block;
+      width: 26 * @vmin;
+      height: 26 * @vmin;
+      background: url('~assets/images/service/home_icon_normal.png') no-repeat;
+      background-size: contain;
+    }
+    .home-name {
+      line-height: 90 * @vh;
+      font-size: 24 * @vmin;
+      color: #148be0;
+      margin-left: 10 * @vmin;
+    }
+    &:active {
+      .home-icon {
+        background-image: url('~assets/images/service/home_icon_tap.png');
+      }
+      .home-name {
+        color: #1cabeb;
+      }
+    }
+  }
+}
+.toTop-icon {
+  position: absolute;
+  bottom: 30 * @vh;
+  right: 20 * @vw;
+  width: 70 * @vmin;
+  height: 70 * @vmin;
+  background: url('~assets/images/service/toTop_normal.png') no-repeat;
+  background-size: contain;
+  z-index: 99;
+  cursor: pointer;
+  &::after {
+    content: '';
+    background-image: url('~assets/images/service/toTop_tap.png');
+  }
+  &:active {
+    background-image: url('~assets/images/service/toTop_tap.png');
+  }
+}
+.content {
+  width: 100%;
+  height: 530 * @vh;
+  box-sizing: border-box;
+  font-size: 26 * @vmin;
+  position: relative;
+  overflow: auto;
+  .contact-service-link {
+    color: #ffca14;
+    text-decoration: underline;
+    transition: all 0.3s linear;
+    margin-left: 3 * @vmin;
+    &:active {
+      color: #ffdc62;
+    }
+  }
+  .QA-answer {
+    padding: 53 * @vmin 63 * @vmin;
+    .question-text {
+      color: yellow;
+      margin-bottom: 20 * @vmin;
+      font-size: 32 * @vmin;
+    }
+    .answer-text {
+      word-break: break-all;
+    }
+    .QA-feedback {
+      margin-top: 75 * @vmin;
+      .feedback-btn {
+        display: flex;
+        .btn {
+          width: 200 * @vmin;
+          height: 74 * @vmin;
+          border-radius: 4 * @vmin;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #a3d9ff;
+          background-color: #148be0;
+          margin-right: 60 * @vw;
+          &:active {
+            background-color: #1cabeb;
+            color: #fff;
+            .btn-resolve-icon {
+              background-image: url('~assets/images/service/resolve_icon_tap.png');
+            }
+            .btn-unresolve-icon {
+              background-image: url('~assets/images/service/unresolve_icon_tap.png');
+            }
+          }
+          .icon {
+            margin-right: 15 * @vw;
+          }
+          .btn-resolve-icon {
+            width: 31 * @vmin;
+            height: 32 * @vmin;
+            background: url('~assets/images/service/resolve_icon_normal.png') no-repeat;
+            background-size: contain;
+          }
+          .btn-unresolve-icon {
+            width: 30 * @vmin;
+            height: 31 * @vmin;
+            background: url('~assets/images/service/unresolve_icon_normal.png') no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+    }
+    .feedback-result {
+      margin-top: 30 * @vmin;
+      .success-icon {
+        // vertical-align: middle;
+        margin-right: 10 * @vmin;
+        width: 22 * @vmin;
+        height: 22 * @vmin;
+        background: url('~assets/images/service/success-icon.png') no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
+.err-pop {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 28 * @vmin;
+  text-align: center;
+  max-width: 400 * @vmin;
+  padding: 20 * @vmin;
+  border-radius: 10 * @vmin;
 }
 </style>
