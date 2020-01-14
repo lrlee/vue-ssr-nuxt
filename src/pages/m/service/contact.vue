@@ -77,4 +77,172 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+@vw: 1vw/13.34;
+@vh: 1vh/7.5;
+@vmin: 1vmin/7.5;
+@media screen and (orientation: portrait) {
+  @vw: 1vw/7.5;
+  @vmin: 1vmin/13.34;
+  .customer-service {
+    flex-direction: column !important;
+    .cs-box {
+      border-right: none !important;
+      border-bottom: 1 * @vmin solid #2384ca;
+      flex: none !important;
+    }
+  }
+}
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav {
+  width: 100%;
+  height: 90 * @vh;
+  border-top-left-radius: 10 * @vmin;
+  border-top-right-radius: 10 * @vmin;
+}
+.detail-top {
+  background-color: rgba(10, 37, 57, 0.6);
+  width: 100%;
+  padding: 0 63 * @vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .title {
+    font-size: 32 * @vmin;
+  }
+  .home-link {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s linear;
+    .home-icon {
+      display: block;
+      width: 26 * @vmin;
+      height: 26 * @vmin;
+      background: url('~assets/images/service/home_icon_normal.png') no-repeat;
+      background-size: contain;
+    }
+    .home-name {
+      line-height: 90 * @vh;
+      font-size: 24 * @vmin;
+      color: #148be0;
+      margin-left: 10 * @vmin;
+    }
+    &:active {
+      .home-icon {
+        background-image: url('~assets/images/service/home_icon_tap.png');
+      }
+      .home-name {
+        color: #1cabeb;
+      }
+    }
+  }
+}
+.content {
+  width: 100%;
+  height: 530 * @vh;
+  box-sizing: border-box;
+  font-size: 26 * @vmin;
+  position: relative;
+  overflow: auto;
+  .customer-service {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    .cs-box {
+      padding: 30 * @vmin 0;
+      flex: 1;
+      border-right: 1 * @vmin solid #2384ca;
+      .flex-column-center;
+      &:last-child {
+        border: none;
+      }
+      .contact-logo {
+        .flex-column-center;
+        color: #57b9ff;
+        .logo-name {
+          margin-top: 10 * @vmin;
+        }
+      }
+    }
+    .contact-qq {
+      .qq-icon {
+        width: 55 * @vmin;
+        height: 59 * @vmin;
+        background: url('~assets/images/service/qq_icon.png') no-repeat;
+        background-size: contain;
+      }
+      .qq-numbers {
+        line-height: 1.5;
+        font-size: 22 * @vmin;
+        margin-top: 60 * @vmin;
+      }
+      .qq-send-btn {
+        color: #a3d9ff;
+        width: 200 * @vmin;
+        height: 74 * @vmin;
+        line-height: 74 * @vmin;
+        text-align: center;
+        background-color: #148be0;
+        border-radius: 4 * @vmin;
+        margin-top: 40 * @vmin;
+      }
+    }
+    .contact-wechat {
+      .wechat-icon {
+        width: 69 * @vmin;
+        height: 55 * @vmin;
+        background: url('~assets/images/service/wechat_icon.png') no-repeat;
+        background-size: contain;
+      }
+      .wechat-QR {
+        margin-top: 40 * @vmin;
+        text-align: center;
+        line-height: 1.5;
+        font-size: 22 * @vmin;
+        .QR-img-box {
+          width: 231 * @vmin;
+          height: 231 * @vmin;
+          background-color: #fff;
+          border-radius: 20 * @vmin;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .QR-img-dowbload {
+            font-size: 0;
+          }
+          .QR-img {
+            width: 200 * @vmin;
+            height: 200 * @vmin;
+            background-color: cadetblue;
+          }
+        }
+      }
+      .wechat-text {
+        margin-top: 10 * @vmin;
+        .wechat-name {
+          font-weight: bold;
+        }
+      }
+    }
+    .notice {
+      .notice-content {
+        margin-top: 20 * @vmin;
+        font-size: 22 * @vmin;
+        .notice-title {
+          font-size: 22 * @vmin;
+          text-align: center;
+        }
+        .notice-text {
+          width: 340 * @vmin;
+          margin-top: 10 * @vmin;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+</style>
