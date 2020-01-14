@@ -11,15 +11,18 @@
       </section>
       <Download :selectedType="type" />
     </div>
+    <Foot />
   </div>
 </template>
 <script>
 import Nav from './components/Nav'
 import Content from './components/Content'
 import Download from './components/Download'
+import Foot from '@/components/pc/Foot'
 export default {
   layout: 'oneScreen',
   components: {
+    Foot,
     Nav,
     Content,
     Download
