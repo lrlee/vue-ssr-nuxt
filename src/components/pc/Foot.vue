@@ -30,6 +30,8 @@ export default {}
 
 <style lang="less" scoped>
 .content_box {
+  position: absolute;
+  bottom: -80px;
   background: #282828;
   width: 100%;
   height: 80px;

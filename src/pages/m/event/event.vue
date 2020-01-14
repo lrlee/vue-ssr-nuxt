@@ -20,7 +20,7 @@ import Main from './components/Main'
 import Header from './components/Header'
 import Nav from './components/Nav'
 export default {
-  layout: 'mobileOneScreen',
+  layout: 'oneScreen',
   components: {
     Main,
     Header,

@@ -11,12 +11,17 @@
       </div>
       <nuxt-link to="/event/1" class="btn_img"></nuxt-link>
     </div>
+    <Foot />
   </div>
 </template>
 
 <script>
+import Foot from '@/components/pc/Foot'
 export default {
-  layout: 'oneScreen'
+  layout: 'oneScreen',
+  components: {
+    Foot
+  }
 }
 </script>
 
@@ -36,6 +41,7 @@ export default {
   align-items: center;
 }
 .main_index {
+  width: 100%;
   .flex-column-center;
   box-sizing: border-box;
   height: 100%;

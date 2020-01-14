@@ -16,7 +16,7 @@
 </template>
 <script>
 export default {
-  layout: 'mobileOneScreen'
+  layout: 'oneScreen'
 }
 </script>
 <style lang="less" scoped>
