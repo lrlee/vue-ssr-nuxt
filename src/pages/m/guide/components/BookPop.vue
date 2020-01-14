@@ -78,7 +78,7 @@
 import qs from 'qs'
 // import QRCode from 'qrcodejs2'
 import { getBookVeriCode, toBook } from '@/api/index'
-import * as local from '@/utils/auth'
+import * as local from '@/utils/local'
 export default {
   props: {
     bookStatus: {

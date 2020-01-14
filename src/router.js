@@ -57,12 +57,19 @@ export function createRouter() {
         component: _import('event', '/m/event')
       },
       {
-        path: '/service',
-        name: 'service',
-        component: _import('service'),
-        meta: {
-          headTheme: 'absolute service'
-        }
+        path: '/m/service',
+        name: 'service_m',
+        component: _import('index', '/m/service')
+      },
+      {
+        path: '/m/service/QA/:id',
+        name: 'serviceQA_m',
+        component: _import('detail', '/m/service')
+      },
+      {
+        path: '/m/service/contact',
+        name: 'serviceContact_m',
+        component: _import('contact', '/m/service')
       },
       {
         path: '/service-search-result',
