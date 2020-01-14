@@ -449,7 +449,7 @@ import Part5 from './components/Part5'
 import Part6 from './components/Part6'
 import Part7 from './components/Part7'
 import Rules from './components/Rules'
-import * as local from '@/utils/auth'
+import * as local from '@/utils/local'
 import {
   bookingOnOrOff,
   getBookTotal,
