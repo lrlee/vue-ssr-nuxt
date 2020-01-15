@@ -1,3 +1,4 @@
+// 判断预约活动是否关闭，关闭则跳转到首页
 import { bookingOnOrOff } from '@/api/index'
 export default function({ route, redirect }) {
   if (route.path === '/') {
