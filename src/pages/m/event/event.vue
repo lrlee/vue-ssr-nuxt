@@ -32,6 +32,12 @@ export default {
       hideScroll: true
     }
   },
+  computed: {
+    ...mapState(['userAgent']),
+    isIOS() {
+      return /\(i[^;]+;( u;)? cpu.+mac os x/.test(this.userAgent.toLowerCase())
+    }
+  },
   // 用于在渲染页面前填充应用的状态树数据，与asyncData的方法类似，不同的是 ？它不会设置组件的数据
   async fetch({ store, params }) {
     await store.dispatch('getDownloadLinks')
@@ -47,12 +53,6 @@ export default {
   methods: {
     handleScroll() {
       this.hideScroll = true
-    }
-  },
-  computed: {
-    ...mapState(['userAgent']),
-    isIOS() {
-      return /\(i[^;]+;( u;)? cpu.+mac os x/.test(this.userAgent.toLowerCase())
     }
   }
 }
