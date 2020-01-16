@@ -38,6 +38,7 @@
         <div class="doll-rabbit"></div>
         <div class="doll-lili"></div>
       </div>
+      <VideoDialog v-show="showVideo" @closeVideo="showVideo = false" :dialogVisible="showVideo"></VideoDialog>
       <div class="book-wrapper">
         <div @click="openBookPop" class="book-box btn">
           <div class="book-btn"></div>
@@ -65,6 +66,7 @@
 </template>
 <script>
 import Header from './components/Header'
+import VideoDialog from './components/VideoDialog'
 import BookPop from './components/BookPop'
 import PopGift from './components/GiftPop'
 import PopRole from './components/RolePop'
@@ -91,6 +93,7 @@ import {
 export default {
   components: {
     Header,
+    VideoDialog,
     BookPop,
     PopGift,
     PopRole,
@@ -107,6 +110,7 @@ export default {
   },
   data() {
     return {
+      showVideo: false,
       showBookPop: false,
       showGiftPop: false,
       showRolePop: false,
