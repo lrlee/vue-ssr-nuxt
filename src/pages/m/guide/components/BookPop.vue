@@ -260,6 +260,7 @@ export default {
   align-items: center;
   justify-content: center;
   z-index: 999;
+  transform: translateY(-100 * @vw);
 }
 .pop-box {
   margin-left: 35 * @vw;

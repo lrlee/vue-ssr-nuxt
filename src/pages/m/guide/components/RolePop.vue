@@ -123,6 +123,7 @@ export default {
   align-items: center;
   justify-content: center;
   z-index: 999;
+  transform: translateY(-80 * @vw);
 }
 .pop-content {
   position: relative;

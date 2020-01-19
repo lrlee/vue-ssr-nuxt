@@ -97,7 +97,7 @@ export default {
   left: 0;
   bottom: 0;
   width: 750 * @vw;
-  height: 122 * @vw;
+  height: 156 * @vw;
   background: url('~assets/images/guide/m/nav/nav_bg.png') no-repeat;
   background-size: contain;
   z-index: 10;
@@ -107,15 +107,14 @@ export default {
 
 .nav-list-wrapper {
   width: 469 * @vw;
-  height: 122 * @vw;
+  height: 156 * @vw;
   padding-top: 32 * @vw;
   overflow: hidden;
   position: relative;
   .mask-left-icon {
     position: absolute;
     left: 0;
-    width: 26 * @vw;
-    height: 90 * @vw;
+    height: 124 * @vw;
     background: url('~assets/images/guide/m/nav/nav_mask_left.png') no-repeat;
     background-size: contain;
     z-index: 2;
@@ -123,8 +122,7 @@ export default {
   .mask-right-icon {
     position: absolute;
     right: -3 * @vw;
-    width: 26 * @vw;
-    height: 90 * @vw;
+    height: 124 * @vw;
     background: url('~assets/images/guide/m/nav/nav_mask_right.png') no-repeat;
     background-size: contain;
     z-index: 2;
