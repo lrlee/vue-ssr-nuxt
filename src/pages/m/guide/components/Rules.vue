@@ -133,9 +133,8 @@ export default {
   }
   .code-parent {
     width: 694 * @vw;
-    height: 80 * @vw;
+    height: 160 * @vw;
     margin-top: 41 * @vw;
-    padding-bottom: 40 * @vw;
     .code-item-parent {
       display: flex;
       justify-content: space-between;

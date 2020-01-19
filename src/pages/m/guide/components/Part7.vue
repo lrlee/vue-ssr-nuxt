@@ -18,8 +18,8 @@
         您的浏览器暂不支持视频播放，请下载最新版本的浏览器...
       </video>
       <img class="content-cover" src="~/assets/images/guide/part7/part7_bg.png" />
-      <div @click="handlePlayClick" v-show="!isPlaying" class="play btn"></div>
-      <span v-show="!isPlaying" class="play-text">播放</span>
+      <!-- <div @click="handlePlayClick" v-show="!isPlaying" class="play btn"></div> -->
+      <!-- <span v-show="!isPlaying" class="play-text">播放</span> -->
       <ul class="action-wrapper">
         <li
           v-for="(item, index) in videoOptions"
