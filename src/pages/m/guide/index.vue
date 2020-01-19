@@ -264,6 +264,14 @@ export default {
 </script>
 <style lang="less" scoped>
 @import url('~assets/css/guide_m.less');
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes paopao {
   0% {
     background-position: 0;
@@ -321,10 +329,12 @@ export default {
   .light-pic {
     position: absolute;
     top: 0 * @vw;
-    width: 750 * @vw;
-    height: 1016 * @vw;
-    background: url('~assets/images/guide/m/light_index.png') no-repeat;
+    left: -125 * @vw;
+    width: 1000 * @vw;
+    height: 1000 * @vw;
+    background: url('~assets/images/guide/light_index.png') no-repeat;
     background-size: 100%;
+    animation: rotate 15s linear infinite;
   }
 }
 .activity-bg {
