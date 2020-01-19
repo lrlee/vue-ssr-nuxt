@@ -133,7 +133,7 @@ export default {
   }
   .code-parent {
     width: 694 * @vw;
-    height: 160 * @vw;
+    height: 300 * @vw;
     margin-top: 41 * @vw;
     .code-item-parent {
       display: flex;
@@ -154,7 +154,6 @@ export default {
           background-image: url('~assets/images/guide/m/contact_btn_tap_bg.png');
         }
         .code-icon {
-          height: 24 * @vw;
           margin-left: 23 * @vw;
         }
         .code-bg-text {
