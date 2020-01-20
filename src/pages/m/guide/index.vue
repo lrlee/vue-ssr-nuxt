@@ -109,6 +109,11 @@ export default {
     Part7,
     Rules
   },
+  head() {
+    return {
+      meta: [{ name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=0' }]
+    }
+  },
   data() {
     return {
       showVideo: false,
