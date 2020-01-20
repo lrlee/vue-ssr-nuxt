@@ -14,6 +14,7 @@
         @pause="isPlaying = false"
         class="video"
         controls
+        poster="/placehold.png"
       >
         您的浏览器暂不支持视频播放，请下载最新版本的浏览器...
       </video>

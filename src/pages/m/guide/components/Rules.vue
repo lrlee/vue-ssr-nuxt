@@ -133,7 +133,7 @@ export default {
   }
   .code-parent {
     width: 694 * @vw;
-    height: 300 * @vw;
+    height: 80 * @vw;
     margin-top: 41 * @vw;
     .code-item-parent {
       display: flex;

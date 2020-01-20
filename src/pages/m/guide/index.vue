@@ -62,6 +62,7 @@
       <Part7></Part7>
       <Rules :contactsInfo="contactsInfo"></Rules>
     </div>
+    <div class="bottom-segment"></div>
   </div>
 </template>
 <script>
@@ -522,5 +523,10 @@ export default {
   height: 5021 * @vw;
   background: url('~assets/images/guide/m_bg/bg_content.png') center center no-repeat;
   background-size: 100%;
+}
+.bottom-segment {
+  width: 750 * @vw;
+  height: 100 * @vw;
+  background-color: #0037ac;
 }
 </style>
