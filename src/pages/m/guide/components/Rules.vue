@@ -146,6 +146,7 @@ export default {
         position: relative;
         background: url('~assets/images/guide/m/contact_btn_bg.png') no-repeat;
         background-size: contain;
+
         &::after {
           content: '';
           background-image: url('~assets/images/guide/m/contact_btn_tap_bg.png');
@@ -154,26 +155,25 @@ export default {
           background-image: url('~assets/images/guide/m/contact_btn_tap_bg.png');
         }
         .code-icon {
-          margin-left: 23 * @vw;
+          margin-left: 21 * @vw;
+          width: 24 * @vw;
         }
         .code-bg-text {
           font-size: 24 * @vw;
           color: #ffffff;
           margin-left: 11 * @vw;
         }
-        &:nth-child(1) {
-          .code-icon {
-            width: 31 * @vw;
-            margin-left: 21 * @vw;
-          }
-        }
+      }
+      a {
         &:nth-child(2) {
           .code-icon {
-            width: 30 * @vw;
             margin-left: 35 * @vw;
           }
         }
         &:nth-child(3) {
+          .code-icon {
+            margin-left: 23 * @vw;
+          }
           .code-bg-text {
             margin-left: 13 * @vw;
           }
