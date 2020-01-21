@@ -35,7 +35,7 @@ export default {
       swiperOption: {
         effect: 'coverflow',
         loop: true,
-        loopedSlides: 2,
+        loopedSlides: 3,
         slidesPerView: 'auto',
         centeredSlides: true,
         pagination: {
