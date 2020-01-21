@@ -69,7 +69,7 @@ export default {
           rotate: 30,
           depth: 400,
           modifier: 1,
-          slideShadows: true
+          slideShadows: false
         }
       }
     }
