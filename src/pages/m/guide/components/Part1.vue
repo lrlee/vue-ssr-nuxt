@@ -187,9 +187,9 @@ export default {
     justify-content: center;
     margin-top: -15 * @vw;
     .book-btn {
-      width: 238 * @vw;
-      height: 97 * @vw;
-      background: url('~assets/images/guide/m/btn_book_normal.png') no-repeat;
+      width: 282 * @vw;
+      height: 96 * @vw;
+      background: url('~assets/images/guide/m/btn_book_normal_part1.png') no-repeat;
       background-size: contain;
       text-align: center;
       line-height: 87 * @vw;
@@ -198,10 +198,10 @@ export default {
       font-weight: bold;
       &::after {
         content: '';
-        background-image: url('~assets/images/guide/m/btn_book_tap.png');
+        background-image: url('~assets/images/guide/m/btn_book_tap_part1.png');
       }
       &:active {
-        background-image: url('~assets/images/guide/m/btn_book_tap.png');
+        background-image: url('~assets/images/guide/m/btn_book_tap_part1.png');
       }
     }
   }
