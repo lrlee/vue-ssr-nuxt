@@ -187,12 +187,12 @@ export default {
     justify-content: center;
     margin-top: -15 * @vw;
     .book-btn {
-      width: 282 * @vw;
-      height: 96 * @vw;
+      width: 238 * @vw;
+      height: 97 * @vw;
       background: url('~assets/images/guide/m/btn_book_normal.png') no-repeat;
       background-size: contain;
       text-align: center;
-      line-height: 78 * @vw;
+      line-height: 87 * @vw;
       color: #b36e11;
       font-size: 32 * @vw;
       font-weight: bold;

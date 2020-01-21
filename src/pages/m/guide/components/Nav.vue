@@ -183,7 +183,6 @@ export default {
   background: url('~assets/images/guide/m/btn_book_normal.png') no-repeat;
   background-size: contain;
   margin-left: 30 * @vw;
-  margin-top: 20 * @vw;
   line-height: 87 * @vw;
   text-align: center;
   &::after {
