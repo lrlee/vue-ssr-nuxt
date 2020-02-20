@@ -24,7 +24,12 @@ export function createRouter() {
       {
         path: '/',
         name: 'guide',
-        component: _import('index', '/pc/guide')
+        component: _import('index', '/pc/games')
+      },
+      {
+        path:'/game',
+        name:'game',
+        component:_import("index",'/pc/games')
       },
       {
         path: '/home',
