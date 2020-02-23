@@ -23,8 +23,8 @@ export function createRouter() {
     routes: [
       {
         path: '/',
-        name: 'guide',
-        component: _import('index', '/pc/games')
+        name: 'index',
+        component: _import('index', '/pc/home')
       },
       {
         path:'/game',
